@@ -16,12 +16,16 @@ function selectItem() {
   }
 }
 
+function changeCursor() {
+  event.target.style.cursor = 'pointer';
+}
+
 function finishItem() {
-  let completed=false;
-  for(let i=0;i<event.target.classList.length;i++){
-    if(event.target.classList[i]==='completed') completed=true;
+  let completed = false;
+  for (let i = 0; i < event.target.classList.length; i++) {
+    if (event.target.classList[i] === 'completed') completed = true;
   }
-  if(completed) event.target.classList.remove('completed');
+  if (completed) event.target.classList.remove('completed');
   else event.target.classList.add('completed');
 }
 
@@ -31,6 +35,7 @@ btn.addEventListener('click', () => {
   item.innerHTML = input.value;
   item.addEventListener('click', selectItem);
   item.addEventListener('dblclick', finishItem);
+  item.addEventListener('mouseover', changeCursor);
   input.value = '';
   list.appendChild(item);
 });
@@ -38,26 +43,26 @@ btn.addEventListener('click', () => {
 function getItems() {
   items = document.getElementsByClassName('list-item');
 }
-setInterval(getItems, 1000);
+setInterval(getItems, 1);
 
-btnApagar.addEventListener('click', ()=>{
-  list.innerHTML='';
+btnApagar.addEventListener('click', () => {
+  list.innerHTML = '';
 });
 
-btnFinalizados.addEventListener('click', ()=>{
-  for(let i=0;i<items.length;i+=1){
-    for(let u=0;u<items[i].classList.length;u+=1){
-      if(items[i].classList[u]==='completed'){
-        items[i].remove();
+btnFinalizados.addEventListener('click', () => {
+  if (items.length > 0) {
+    for (let i = 0; i < items.length; i += 1) {
+      for (let u = 0; u < items[i].classList.length; u += 1) {
+        if (items[i].classList[u] === 'completed') {
+          items[i].remove();
+          if(i!==0) i--;
+          else break;    
+        }
       }
     }
   }
 })
 
-function changeCursor(){
-  event.target.style.cursor='pointer';
-}
-
-for(let i=0;i<allBtn.length;i++){
+for (let i = 0; i < allBtn.length; i++) {
   allBtn[i].addEventListener('mouseover', changeCursor);
 }
