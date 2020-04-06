@@ -55,8 +55,8 @@ btnFinalizados.addEventListener('click', () => {
       for (let u = 0; u < items[i].classList.length; u += 1) {
         if (items[i].classList[u] === 'completed') {
           items[i].remove();
-          if(i!==0) i--;
-          else break;    
+          if (i !== 0) i--;
+          else break;
         }
       }
     }
