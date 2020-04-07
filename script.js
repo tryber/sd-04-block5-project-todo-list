@@ -2,10 +2,28 @@ const input = document.getElementById('texto-tarefa');
 const btn = document.getElementById('criar-tarefa');
 const btnApagar = document.getElementById('apaga-tudo');
 const btnFinalizados = document.getElementById('remover-finalizados');
+const btnSelecionado = document.getElementById('remover-selecionado');
+const btnSave = document.getElementById('salvar-tarefas');
+const btnCima = document.getElementById('mover-cima');
+const btnBaixo = document.getElementById('mover-baixo');
 const list = document.getElementById('lista-tarefas');
 const allBtn = document.getElementsByTagName('button');
 let items = document.getElementsByClassName('list-item');
-let finished = [];
+
+window.onload = function() {
+  list.innerHTML = localStorage.getItem('list');
+}
+
+btnSelecionado.addEventListener('click', () => {
+  for (let i = 0; i < items.length; i += 1) {
+    for (let u = 0; u < items[i].classList.length; u += 1) {
+      if (items[i].classList[u] === 'selected') {
+        items[i].remove();
+        break;
+      }
+    }
+  }
+});
 
 function selectItem() {
   for (let i = 0; i < items.length; i += 1) {
@@ -33,16 +51,25 @@ btn.addEventListener('click', () => {
   const item = document.createElement('li');
   item.className = 'list-item';
   item.innerHTML = input.value;
-  item.addEventListener('click', selectItem);
-  item.addEventListener('dblclick', finishItem);
-  item.addEventListener('mouseover', changeCursor);
   input.value = '';
   list.appendChild(item);
 });
 
 function getItems() {
   items = document.getElementsByClassName('list-item');
+  for (let i = 0; i < items.length; i += 1) {
+    items[i].addEventListener('click', selectItem);
+    items[i].addEventListener('dblclick', finishItem);
+    items[i].addEventListener('mouseover', changeCursor);
+  }
 }
+
+function saveList() {
+  localStorage.setItem("list", list.innerHTML);
+}
+
+btnSave.addEventListener('click', saveList);
+
 setInterval(getItems, 1);
 
 btnApagar.addEventListener('click', () => {
@@ -66,3 +93,43 @@ btnFinalizados.addEventListener('click', () => {
 for (let i = 0; i < allBtn.length; i++) {
   allBtn[i].addEventListener('mouseover', changeCursor);
 }
+
+btnCima.addEventListener('click', () => {
+  const arr = Array.from(items);
+  let pos = 0;
+  for (let i = 0; i < items.length; i += 1) {
+    for (let u = 0; u < items[i].classList.length; u += 1) {
+      if (items[i].classList[u] === 'selected') {
+        pos = i;
+      }
+    }
+  }
+  if (pos === 0) return 0;
+  const temp = arr[pos];
+  arr[pos] = arr[pos - 1];
+  arr[pos - 1] = temp;
+  list.innerHTML = '';
+  for (i in arr) {
+    list.appendChild(arr[i]);
+  }
+});
+
+btnBaixo.addEventListener('click', () => {
+  const arr = Array.from(items);
+  let pos = 0;
+  for (let i = 0; i < items.length; i += 1) {
+    for (let u = 0; u < items[i].classList.length; u += 1) {
+      if (items[i].classList[u] === 'selected') {
+        pos = i;
+      }
+    }
+  }
+  if (pos === (items.length - 1)) return 0;
+  const temp = arr[pos];
+  arr[pos] = arr[pos + 1];
+  arr[pos + 1] = temp;
+  list.innerHTML = '';
+  for (i in arr) {
+    list.appendChild(arr[i]);
+  }
+});
