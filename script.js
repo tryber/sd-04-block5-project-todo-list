@@ -10,7 +10,7 @@ const list = document.getElementById('lista-tarefas');
 const allBtn = document.getElementsByTagName('button');
 let items = document.getElementsByClassName('list-item');
 
-window.onload = function() {
+window.onload = function () {
   list.innerHTML = localStorage.getItem('list');
 };
 
@@ -82,8 +82,12 @@ btnFinalizados.addEventListener('click', () => {
       for (let u = 0; u < items[i].classList.length; u += 1) {
         if (items[i].classList[u] === 'completed') {
           items[i].remove();
-          if (i !== 0) i -= 1;
-          else break;
+          if (i !== 0) {
+            i -= 1;
+          }
+          else {
+            break;
+          }
         }
       }
     }
@@ -108,7 +112,7 @@ function findSelected() {
 
 btnCima.addEventListener('click', () => {
   const arr = Array.from(items);
-  let pos = findSelected();
+  const pos = findSelected();
   if (pos === 0) return 0;
   const temp = arr[pos];
   arr[pos] = arr[pos - 1];
@@ -122,7 +126,7 @@ btnCima.addEventListener('click', () => {
 
 btnBaixo.addEventListener('click', () => {
   const arr = Array.from(items);
-  let pos = findSelected();
+  const pos = findSelected();
   if (pos === (items.length - 1)) return 0;
   const temp = arr[pos];
   arr[pos] = arr[pos + 1];
