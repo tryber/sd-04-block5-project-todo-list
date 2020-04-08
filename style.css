@@ -6,6 +6,9 @@ p{
     font-size: small;
     font-style: oblique;
 }
+li{
+    cursor: pointer;
+}
 button{
     background-color: rgb(84, 100, 109); 
     border: none;
