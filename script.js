@@ -1,6 +1,7 @@
 const addButton = document.getElementById('criar-tarefa');
 const toDo = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
+const clear = document.getElementById('apaga-tudo');
 
 addButton.addEventListener('click', () => {
   const tarefa = document.createElement('li');
@@ -18,5 +19,12 @@ list.addEventListener('dblclick', (e) => {
     e.target.classList.add('completed');
   } else {
     e.target.classList.remove('completed');
+  }
+});
+
+clear.addEventListener('click', () => {
+  const tarefas = document.querySelectorAll('li');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    list.removeChild(tarefas[i]);
   }
 });
