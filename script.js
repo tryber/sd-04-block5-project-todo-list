@@ -10,6 +10,14 @@ cleanTasksBtn.addEventListener('click', () => {
   document.querySelector('#lista-tarefas').innerHTML = '';
 });
 
+const removeCompletedBtn = document.querySelector('#remover-finalizados');
+removeCompletedBtn.addEventListener('click', () => {
+  const completedTasks = document.querySelectorAll('.completed');
+  completedTasks.forEach((task) => {
+    task.remove();
+  });
+});
+
 function addTask(isNew, task) {
   const taskList = document.querySelector('#lista-tarefas');
 
