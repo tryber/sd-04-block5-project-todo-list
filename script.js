@@ -3,7 +3,9 @@ const buttonAdd = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
 const buttonDel = document.querySelector('#apaga-tudo');
 const buttonLimpa = document.querySelector('#remover-finalizados');
+const buttonSel = document.querySelector('#remover-selecionado');
 const elements = document.getElementsByClassName('completed');
+const cinza = document.getElementsByClassName('cinza');
 
 buttonAdd.addEventListener('click', function (e) {
   e.preventDefault();
@@ -33,3 +35,11 @@ function removeElementsByClass() {
 }
 
 buttonLimpa.addEventListener('click', removeElementsByClass);
+
+function removeElementsByClassCinza() {
+  while (cinza.length > 0) {
+    cinza[0].parentNode.removeChild(cinza[0]);
+  }
+}
+
+buttonSel.addEventListener('click', removeElementsByClassCinza);
