@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List | by caiolmf</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List | by caiolmf</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap"
+    />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        Minha Lista de Tarefas  
+      </h1>
+      <span>| Principal</span>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      <div id="todo-controls">
+        <input type="text" name="tarefa" id="texto-tarefa">
+        <button id="criar-tarefa">Adicionar</button>
+        <button id="apaga-tudo">Limpar Lista</button>
+        <button id="remover-finalizados">Limpar Completadas</button>
+      </div>
+    </header>
+    <section>
+      <ol id="lista-tarefas">
+
+      </ol>
+    </section>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
