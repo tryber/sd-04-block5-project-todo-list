@@ -7,12 +7,16 @@ addButton.addEventListener('click', () => {
   tarefa.innerHTML = toDo.value;
   list.appendChild(tarefa);
   toDo.value = null;
-})
+});
 
 list.addEventListener('click', (e) => {
   e.target.style.backgroundColor = 'rgb(128,128,128)';
 });
 
 list.addEventListener('dblclick', (e) => {
-  e.target.classList.add('completed');
+  if (e.target.className !== 'completed') {
+    e.target.classList.add('completed');
+  } else {
+    e.target.classList.remove('completed');
+  }
 });
