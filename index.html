@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista de Tarefas</title>
+  <style>
+    .selected {
+      background-color: rgb(128 , 128 , 128);
+    }
+
+    li {
+      cursor: pointer;
+    }
+
+    .completed{
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <header>Minha Lista de Tarefas</header>
+  <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+  <input id='texto-tarefa' type='text'></input>
+  <ol id='lista-tarefas'></ol>
+  <button id='criar-tarefa'>Criar</button>
+  <button id='apaga-tudo'>Apagar tudo</button>
+  <button id='remover-finalizados'>Remover Finalizados</button>
+  <button id='salvar-tarefas'>Salvar Tarefas</button> 
+  <button id='remover-selecionado'>Remover Selecionado</button>
+  <ol id='lista-de-teste'></ol>
+  <script>
+    const inputTarefa = document.getElementById('texto-tarefa');
+    const criarTarefa = document.getElementById('criar-tarefa');
+    const listaTarefas = document.getElementById('lista-tarefas')
+    const apagaTudo = document.getElementById('apaga-tudo');
+    const apagaSelecionado = document.getElementById('remover-selecionado');
+    const apagaFinalizado = document.getElementById('remover-finalizados')
+    const salvarTarefas = document.getElementById('salvar-tarefas')
+    const listaTeste = document.getElementById('lista-de-teste')
+    
+    window.onload = function() {
+      if(localStorage.lista){
+        listaTarefas.innerHTML = localStorage.lista;
+        }
+    }
+    
+    function selectItem(e) {
+      if(document.querySelector('.selected')) {
+        document.querySelector('.selected').classList.remove('selected')
+        }
+      e.target.classList.add('selected');
+    }
+
+    function doneItem(e) {
+      if (e.target.classList.contains('completed')) {
+        e.target.classList.remove('completed');
+      }else {
+        e.target.classList.add('completed');
+      }
+    }
+
+    function salvadorDeTarefas() {
+      localStorage.lista = listaTarefas.innerHTML
+      listaTeste.innerHTML = localStorage.lista;
+    }
+
+    function tarefaParaLista() {
+      let item = document.createElement('li');
+      item.addEventListener('click', selectItem);
+      item.addEventListener('dblclick', doneItem);
+      item.innerHTML = inputTarefa.value
+      listaTarefas.appendChild(item);
+      inputTarefa.value = '';
+    }
+
+    function apagadorDeFinalizado() {
+      let finalizados = document.getElementsByClassName("completed");
+      while (finalizados[0]){
+        finalizados[0].parentNode.removeChild(finalizados[0])
+      }
+    }
+
+    criarTarefa.addEventListener('click', tarefaParaLista);
+    apagaTudo.addEventListener('click', () => {
+      listaTarefas.innerHTML = "";
+    })
+
+    apagaSelecionado.addEventListener('click', () => {
+      let item = document.querySelector('.selected')
+      item.parentNode.removeChild(item);
+    })
+
+    apagaFinalizado.addEventListener('click', apagadorDeFinalizado);
+
+    salvarTarefas.addEventListener('click', salvadorDeTarefas);
+
+  </script>
+</body>
+
+</html>
