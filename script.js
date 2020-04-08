@@ -25,11 +25,14 @@ function doubleClickTarefa(event) {
   }
 }
 
-function criarTarefa(text) {
+function criarTarefa(text, className) {
   if (text !== '') {
     const novaTarefa = document.createElement('li');
     novaTarefa.innerText = text;
     textoTarefa.value = '';
+    if (className) {
+      novaTarefa.className = className;
+    }
     novaTarefa.addEventListener('dblclick', doubleClickTarefa);
     novaTarefa.addEventListener('click', clickTarefa);
     listaTarefas.appendChild(novaTarefa);
@@ -40,17 +43,27 @@ function eventCriarTarefa() {
   criarTarefa(textoTarefa.value);
 }
 
+function loadTarefas(tarefa) {
+  for (let i = 0; i < tarefa.text.length; i += 1) {
+    criarTarefa(tarefa.text[i], tarefa.class[i]);
+  }
+}
+
 function moveCima() {
-  const anterior = tarefaSelecionada.previousElementSibling;
-  if (tarefaSelecionada && anterior) {
-    listaTarefas.insertBefore(tarefaSelecionada, anterior);
+  if (tarefaSelecionada) {
+    const anterior = tarefaSelecionada.previousElementSibling;
+    if (anterior) {
+      listaTarefas.insertBefore(tarefaSelecionada, anterior);
+    }
   }
 }
 
 function moveBaixo() {
-  const proxima = tarefaSelecionada.nextElementSibling;
-  if (tarefaSelecionada && proxima) {
-    listaTarefas.insertBefore(proxima, tarefaSelecionada);
+  if (tarefaSelecionada) {
+    const proxima = tarefaSelecionada.nextElementSibling;
+    if (tarefaSelecionada && proxima) {
+      listaTarefas.insertBefore(proxima, tarefaSelecionada);
+    }
   }
 }
 
@@ -76,20 +89,21 @@ function removerCompleted() {
 }
 
 function salvar() {
-  const lista = [];
+  const lista = {
+    text: [],
+    class: [],
+  };
   for (let i = 0; i < listaTarefas.childNodes.length; i += 1) {
-    lista[i] = listaTarefas.childNodes[i].innerText;
+    lista.text[i] = listaTarefas.childNodes[i].innerText;
+    lista.class[i] = listaTarefas.childNodes[i].className;
   }
   localStorage.lista = JSON.stringify(lista);
 }
 
 window.onload = function () {
-  textoTarefa = this.document.getElementById('texto-tarefa');
-  listaTarefas = this.document.getElementById('lista-tarefas');
+  textoTarefa = document.getElementById('texto-tarefa');
+  listaTarefas = document.getElementById('lista-tarefas');
   if (localStorage.lista) {
-    const lista = this.JSON.parse(localStorage.lista);
-    for (let i = 0; i < lista.length; i += 1) {
-      this.criarTarefa(lista[i]);
-    }
+    loadTarefas(JSON.parse(localStorage.lista));
   }
 };
