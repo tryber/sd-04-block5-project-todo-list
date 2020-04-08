@@ -1,23 +1,12 @@
 const inputTarefa = document.getElementById('texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
-const listaTarefas = document.getElementById('lista-tarefas')
+const listaTarefas = document.getElementById('lista-tarefas');
 const apagaTudo = document.getElementById('apaga-tudo');
 const apagaSelecionado = document.getElementById('remover-selecionado');
-const apagaFinalizado = document.getElementById('remover-finalizados')
-const salvarTarefas = document.getElementById('salvar-tarefas')
-const paraCima = document.getElementById('mover-cima')
-const paraBaixo = document.getElementById('mover-baixo')
-
-window.onload = function() {
-  if(localStorage.lista){
-    listaTarefas.innerHTML = localStorage.lista;
-    let itensLista = document.getElementsByTagName('li');
-    for (let i = 0; i < itensLista.length; i += 1){
-      itensLista[i].addEventListener('click', selectItem);
-      itensLista[i].addEventListener('dblclick', doneItem);
-    }
-  }
-}
+const apagaFinalizado = document.getElementById('remover-finalizados');
+const salvarTarefas = document.getElementById('salvar-tarefas');
+const paraCima = document.getElementById('mover-cima');
+const paraBaixo = document.getElementById('mover-baixo');
 
 function moveUp() {
   let bottomLi = document.querySelector('.selected');
@@ -32,7 +21,7 @@ function moveDown() {
 }
 
 function selectItem(e) {
-  if(document.querySelector('.selected')) {
+  if (document.querySelector('.selected')) {
     document.querySelector('.selected').classList.remove('selected')
     }
   e.target.classList.add('selected');
@@ -66,15 +55,26 @@ function apagadorDeFinalizado() {
   }
 }
 
+window.onload = function () {
+  if (localStorage.lista){
+    listaTarefas.innerHTML = localStorage.lista;
+    const itensLista = document.getElementsByTagName('li');
+    for (let i = 0; i < itensLista.length; i += 1) {
+      itensLista[i].addEventListener('click', selectItem);
+      itensLista[i].addEventListener('dblclick', doneItem);
+    };
+  };
+}
+
 criarTarefa.addEventListener('click', tarefaParaLista);
 apagaTudo.addEventListener('click', () => {
   listaTarefas.innerHTML = '';
-})
+});
 
 apagaSelecionado.addEventListener('click', () => {
-  let item = document.querySelector('.selected')
+  const item = document.querySelector('.selected');
   item.parentNode.removeChild(item);
-})
+});
 
 apagaFinalizado.addEventListener('click', apagadorDeFinalizado);
 
