@@ -1,5 +1,5 @@
 window.onload = function(){
-   
+     
     const taskBox = document.querySelector('#texto-tarefa');
     const buttonevent = document.querySelector('#criar-tarefa');
     const list = document.querySelector('#lista-tarefas');
@@ -10,5 +10,7 @@ window.onload = function(){
         console.log("taskText :", taskText);
         let li = document.createElement('li');
         list.appendChild(li).innerHTML = taskText;
+        taskBox.value = "";
       })
 }
+
