@@ -16,12 +16,8 @@ btnAdicionaLI.addEventListener('click', () => {
   }
 });
 
-
-listaClickColor.forEach((item, index) => {
-    item.addEventListener('click', (event) => {
-       alert(`${event.currentTarget.innerHTML} item was click`);
-    });
-    if (item.innerHTML.indexOf('Last 30 days') != -1) {
-        item.click();
-    }
+listaClickColor.addEventListener('click', (event) => {
+    const selectedColor = document.querySelector('.lista-li');
+    listaClickColor.innerText = listaClickColor[1].innerText;
+    listaClickColor.style.color = "red";
   });
