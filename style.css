@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(72, 194, 56);
+}
+.main-content {
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid rgb(246, 244, 247);
+    box-shadow: black;
+    height: auto;
+    margin: 4em;
+    width: inherit;
+}
+
+.funcionamento {
+    color: rgb(96, 96, 104);
+    font-size: 1em;
+    font-style: italic;
+    margin-left: 4em;
+    margin-top: 1px;
+    max-height: auto;
+    max-width: 500px;
+    min-height: auto;
+    min-width: 500px;
+}
+
+.texto-tarefa {
+    margin-left: 5em;
+    margin-top: 1em;
+}
+
+.criar-tarefa {
+    margin-left: 1em;
+    margin-top: 1px;
+}
+
+.heading {
+    margin-top: 1em;
+    margin-left: 2em;
+}
+
+.lista-tarefas {
+    margin-top: 1em;
+    margin-left: 3em;
+}
