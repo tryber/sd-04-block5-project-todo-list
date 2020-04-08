@@ -1,5 +1,9 @@
 [type='button'] {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.lista-tarefas li {
+  cursor: pointer;
 }
 
 .cinza {
