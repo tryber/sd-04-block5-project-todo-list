@@ -10,3 +10,7 @@ button.addEventListener ('click', function(e) {
   lista.appendChild(node);
   newTarefa.value = '';
 });
+
+lista.addEventListener ('click', function(e) {
+  e.target.classList.add('cinza');
+});
