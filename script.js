@@ -1,23 +1,22 @@
-let btnAdicionaLI = document.getElementById("criar-tarefa");
-let textAdiciona = document.getElementById("texto-tarefa");
-let listaAdiciona = document.getElementById("lista-tarefas");
-let listaClickColor = document.getElementsByClassName("lista-li");
-
-
+var btnAdicionaLI = document.getElementById("criar-tarefa");
+var textAdiciona = document.getElementById("texto-tarefa");
+var listaAdiciona = document.getElementById("lista-tarefas");
 
 btnAdicionaLI.addEventListener('click', () => {
   if (textAdiciona.value) {
     var nodeLi = document.createElement("li");
-    let nodeText = document.createTextNode(textAdiciona.value);
+    var nodeText = document.createTextNode(textAdiciona.value);
     nodeLi.appendChild(nodeText);
-    nodeLi.classList.add("lista-li");
+    nodeLi.setAttribute("id","lista-li");
     listaAdiciona.appendChild(nodeLi);
-    textAdiciona.value = "";
+    textAdiciona.value = "";s
   }
 });
 
-listaClickColor.addEventListener('click', (event) => {
-    const selectedColor = document.querySelector('.lista-li');
-    listaClickColor.innerText = listaClickColor[1].innerText;
-    listaClickColor.style.color = "red";
+listaAdiciona.addEventListener('click', (event) => {
+    if (document.querySelector('.selected') !== null) {
+        document.querySelector('.selected').classList.remove('selected');
+      }
+      event.target.classList.add('selected');
   });
+

@@ -4,7 +4,9 @@ body {
 li{
     cursor: pointer;
 }
-
+.selected {
+    background-color: rgb(128,128,128);
+}
 .main-content {
     background-color: #fff;
     border-radius: 30px;
