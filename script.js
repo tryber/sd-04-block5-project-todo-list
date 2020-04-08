@@ -35,21 +35,21 @@ function tarefaParaLista() {
   let item = document.createElement('li');
   item.addEventListener('click', selectItem);
   item.addEventListener('dblclick', doneItem);
-  item.innerHTML = inputTarefa.value
+  item.innerHTML = inputTarefa.value;
   listaTarefas.appendChild(item);
   inputTarefa.value = '';
 }
 
 function apagadorDeFinalizado() {
-  let finalizados = document.getElementsByClassName("completed");
-  while (finalizados[0]){
-    finalizados[0].parentNode.removeChild(finalizados[0])
+  let finalizados = document.getElementsByClassName('completed');
+  while (finalizados[0]) {
+    finalizados[0].parentNode.removeChild(finalizados[0]);
   }
 }
 
 criarTarefa.addEventListener('click', tarefaParaLista);
 apagaTudo.addEventListener('click', () => {
-  listaTarefas.innerHTML = "";
+  listaTarefas.innerHTML = '';
 })
 
 apagaSelecionado.addEventListener('click', () => {
