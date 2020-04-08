@@ -64,7 +64,7 @@ window.onload = function () {
       itensLista[i].addEventListener('dblclick', doneItem);
     }
   }
-}
+};
 
 criarTarefa.addEventListener('click', tarefaParaLista);
 apagaTudo.addEventListener('click', () => {
