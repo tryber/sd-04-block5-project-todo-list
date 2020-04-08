@@ -1,8 +1,10 @@
 const newTaskBt = document.querySelector('#criar-tarefa');
 newTaskBt.addEventListener('click', () => {
   const taskInput = document.querySelector('#texto-tarefa');
-  addTask(true, taskInput.value, null);
-  taskInput.value = '';
+  if (taskInput.value) {
+    addTask(true, taskInput.value, null);
+    taskInput.value = '';
+  }
 });
 
 const cleanTasksBtn = document.querySelector('#apaga-tudo');
