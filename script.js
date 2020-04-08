@@ -35,4 +35,11 @@ function setTaskEvents(task) {
     }
     task.classList.add('selected');
   });
+  task.addEventListener('dblclick', () => {
+    if (task.classList.contains('completed')) {
+      task.classList.remove('completed');
+    } else {
+      task.classList.add('completed');
+    }
+  });
 }
