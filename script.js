@@ -5,11 +5,30 @@ const apagaTudo = document.getElementById('apaga-tudo');
 const apagaSelecionado = document.getElementById('remover-selecionado');
 const apagaFinalizado = document.getElementById('remover-finalizados')
 const salvarTarefas = document.getElementById('salvar-tarefas')
+const paraCima = document.getElementById('mover-cima')
+const paraBaixo = document.getElementById('mover-baixo')
 
 window.onload = function() {
   if(localStorage.lista){
     listaTarefas.innerHTML = localStorage.lista;
+    let itensLista = document.getElementsByTagName('li');
+    for (let i = 0; i < itensLista.length; i += 1){
+      itensLista[i].addEventListener('click', selectItem);
+      itensLista[i].addEventListener('dblclick', doneItem);
     }
+  }
+}
+
+function moveUp() {
+  let bottomLi = document.querySelector('.selected');
+  let upperLi = bottomLi.previousSibling;
+  listaTarefas.insertBefore(bottomLi, upperLi)
+}
+
+function moveDown() {
+  let upperLi = document.querySelector('.selected');
+  let bottomLi = upperLi.nextSibling;
+  listaTarefas.insertBefore(bottomLi, upperLi)
 }
 
 function selectItem(e) {
@@ -60,3 +79,5 @@ apagaSelecionado.addEventListener('click', () => {
 apagaFinalizado.addEventListener('click', apagadorDeFinalizado);
 
 salvarTarefas.addEventListener('click', salvadorDeTarefas);
+paraCima.addEventListener('click', moveUp);
+paraBaixo.addEventListener('click', moveDown);
