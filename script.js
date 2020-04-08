@@ -1,7 +1,8 @@
 const newTaskBt = document.querySelector('#criar-tarefa');
 newTaskBt.addEventListener('click', () => {
-  const task = document.querySelector('#texto-tarefa').value;
-  addTask(true, task, null);
+  const taskInput = document.querySelector('#texto-tarefa');
+  addTask(true, taskInput.value, null);
+  taskInput.value = '';
 });
 
 function addTask(isNew, task, details) {
