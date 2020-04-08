@@ -39,6 +39,8 @@ function addTask(isNew, task) {
   newTask.appendChild(newTaskDetailsDiv);
   // Set task events
   setTaskEvents(newTask);
+  // Put task o localStorage and set id like key
+  newTask.id = createTask(task);
   // Append to task list
   taskList.appendChild(newTask, task);
 }
@@ -57,4 +59,31 @@ function setTaskEvents(task) {
       task.classList.add('completed');
     }
   });
+}
+
+// LocalStorage Functions
+function createTask(taskText) {
+  let lastKey = 0;
+  Object.keys(localStorage).forEach((key) => {
+    if (Number(key) > lastKey) {
+      lastKey = Number(key);
+    }
+  });
+  // Generate a new key
+  const newKey = lastKey + 1;
+  // Generate task creation details
+  const actualDate = new Date();
+  const taskDate = `Created on 
+  ${(`0${actualDate.getDate()}`).slice(-2)}
+  /${(`0${actualDate.getMonth()}`).slice(-2)}/${actualDate.getFullYear()}`;
+
+  // Create localStorage entry
+  localStorage.setItem(newKey, JSON.stringify({
+    text: taskText,
+    datails: taskDate,
+    list: 'principal',
+    checked: false,
+  }));
+
+  return newKey;
 }
