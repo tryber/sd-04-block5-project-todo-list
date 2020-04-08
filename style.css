@@ -1,6 +1,10 @@
 body {
     background-color: rgb(72, 194, 56);
 }
+li{
+    cursor: pointer;
+}
+
 .main-content {
     background-color: #fff;
     border-radius: 30px;
