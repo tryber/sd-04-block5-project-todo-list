@@ -1,13 +1,7 @@
-//  start with storaged list
-const list = document.getElementById('lista-tarefas');
-// if (typeof localStorage !== undefined) {
-//   let storedList = localStorage.list;
-//   console.log(storedList[1]);
-//   for (let i = 0; i < localStorage.list; i += 1) {
-//     let toDo = document.createElement('li');
-//     list.appendChild(localStorage.list[i])
-//   }
-// }
+const list = document.getElementById('lista-tarefas')
+if (typeof Storage !== undefined) {
+  list.innerHTML = localStorage.list
+}
 
 // button criar-tarefa
 const addButton = document.getElementById('criar-tarefa');
@@ -59,7 +53,7 @@ removeDone.addEventListener('click', () => {
 // button salvar-tarefas
 const store = document.getElementById('salvar-tarefas');
 store.addEventListener('click', () => {
-  const toDoList = document.querySelectorAll('ol>li');
+  localStorage.list = document.getElementById('lista-tarefas').innerHTML;
 });
 
 // button mover-cima
