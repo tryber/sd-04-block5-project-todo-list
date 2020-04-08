@@ -1,0 +1,62 @@
+const inputTarefa = document.getElementById('texto-tarefa');
+const criarTarefa = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas')
+const apagaTudo = document.getElementById('apaga-tudo');
+const apagaSelecionado = document.getElementById('remover-selecionado');
+const apagaFinalizado = document.getElementById('remover-finalizados')
+const salvarTarefas = document.getElementById('salvar-tarefas')
+
+window.onload = function() {
+  if(localStorage.lista){
+    listaTarefas.innerHTML = localStorage.lista;
+    }
+}
+
+function selectItem(e) {
+  if(document.querySelector('.selected')) {
+    document.querySelector('.selected').classList.remove('selected')
+    }
+  e.target.classList.add('selected');
+}
+
+function doneItem(e) {
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
+  }else {
+    e.target.classList.add('completed');
+  }
+}
+
+function salvadorDeTarefas() {
+  localStorage.lista = listaTarefas.innerHTML
+}
+
+function tarefaParaLista() {
+  let item = document.createElement('li');
+  item.addEventListener('click', selectItem);
+  item.addEventListener('dblclick', doneItem);
+  item.innerHTML = inputTarefa.value
+  listaTarefas.appendChild(item);
+  inputTarefa.value = '';
+}
+
+function apagadorDeFinalizado() {
+  let finalizados = document.getElementsByClassName("completed");
+  while (finalizados[0]){
+    finalizados[0].parentNode.removeChild(finalizados[0])
+  }
+}
+
+criarTarefa.addEventListener('click', tarefaParaLista);
+apagaTudo.addEventListener('click', () => {
+  listaTarefas.innerHTML = "";
+})
+
+apagaSelecionado.addEventListener('click', () => {
+  let item = document.querySelector('.selected')
+  item.parentNode.removeChild(item);
+})
+
+apagaFinalizado.addEventListener('click', apagadorDeFinalizado);
+
+salvarTarefas.addEventListener('click', salvadorDeTarefas);
