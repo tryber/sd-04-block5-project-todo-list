@@ -18,7 +18,7 @@ lista.addEventListener('click', function (e) {
   e.target.classList.toggle('cinza');
 });
 
-lista.addEventListener('click', function (e) {
+lista.addEventListener('dblclick', function (e) {
   e.target.classList.toggle('completed');
 });
 
