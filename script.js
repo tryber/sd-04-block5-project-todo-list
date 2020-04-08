@@ -22,6 +22,17 @@ function addTask(isNew, task) {
   newTaskDetailsDiv.className = 'task-details';
   newTaskDetailsDiv.hidden = true;
   newTask.appendChild(newTaskDetailsDiv);
+  // Set task events
+  setTaskEvents(newTask);
   // Append to task list
   taskList.appendChild(newTask, task);
+}
+
+function setTaskEvents(task) {
+  task.addEventListener('click', () => {
+    if (document.querySelector('.selected')) {
+      document.querySelector('.selected').classList.remove('selected');
+    }
+    task.classList.add('selected');
+  });
 }
