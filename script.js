@@ -21,16 +21,18 @@ addButton.addEventListener('click', () => {
 
 // select a item
 list.addEventListener('click', (e) => {
-  document.querySelector('.selected').classList.remove('selected');
+  if (document.querySelector('.selected') !== null) {
+    document.querySelector('.selected').classList.remove('selected');
+  }
   e.target.classList.add('selected');
 });
 
 // select completed
 list.addEventListener('dblclick', (e) => {
-  if (e.target.className !== 'completed') {
-    e.target.classList.add('completed');
-  } else {
+  if (e.target.classList.contains('completed')) {
     e.target.classList.remove('completed');
+  } else {
+    e.target.classList.add('completed');
   }
 });
 
@@ -48,7 +50,7 @@ const removeDone = document.getElementById('remover-finalizados');
 removeDone.addEventListener('click', () => {
   const tarefas = document.querySelectorAll('li');
   for (let i = 0; i < tarefas.length; i += 1) {
-    if (tarefas[i].className === 'completed') {
+    if (tarefas[i].classList.contains('completed')) {
       list.removeChild(tarefas[i]);
     }
   }
@@ -58,7 +60,6 @@ removeDone.addEventListener('click', () => {
 const store = document.getElementById('salvar-tarefas');
 store.addEventListener('click', () => {
   const toDoList = document.querySelectorAll('ol>li');
-  console.log(toDoList);
 });
 
 // button mover-cima
@@ -71,7 +72,7 @@ toUp.addEventListener('click', () => {
   selectedToDo.previousElementSibling.className = 'selected';
   selectedToDo.innerHTML = toDoDown;
   selectedToDo.classList.remove('selected');
-})
+});
 
 // button mover-baixo
 const toDown = document.getElementById('mover-baixo');
@@ -83,4 +84,4 @@ toDown.addEventListener('click', () => {
   selectedToDo.nextElementSibling.className = 'selected';
   selectedToDo.innerHTML = toDoUp;
   selectedToDo.classList.remove('selected');
-})
+});
