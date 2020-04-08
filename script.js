@@ -5,9 +5,8 @@ newTaskBt.addEventListener('click', () => {
   taskInput.value = '';
 });
 
-function addTask(isNew, task, details) {
+function addTask(isNew, task) {
   const taskList = document.querySelector('#lista-tarefas');
-  const actualDate = new Date();
 
   // Create the task elements
   // Create the li tag
@@ -25,17 +24,4 @@ function addTask(isNew, task, details) {
   newTask.appendChild(newTaskDetailsDiv);
   // Append to task list
   taskList.appendChild(newTask, task);
-
-  switch (isNew) {
-    case true:
-      newTaskDetailsDiv.innerHTML = `Created on 
-          ${(`0${actualDate.getDate()}`).slice(-2)}
-          /${(`0${actualDate.getMonth()}`).slice(-2)}/${actualDate.getFullYear()}`;
-      break;
-    case false:
-      newTaskDetailsDiv.innerHTML = details;
-      break;
-    default:
-      break;
-  }
 }
