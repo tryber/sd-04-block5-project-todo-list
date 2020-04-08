@@ -5,6 +5,11 @@ newTaskBt.addEventListener('click', () => {
   taskInput.value = '';
 });
 
+const cleanTasksBtn = document.querySelector('#apaga-tudo');
+cleanTasksBtn.addEventListener('click', () => {
+  document.querySelector('#lista-tarefas').innerHTML = '';
+});
+
 function addTask(isNew, task) {
   const taskList = document.querySelector('#lista-tarefas');
 
