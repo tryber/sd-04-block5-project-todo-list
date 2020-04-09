@@ -23,16 +23,11 @@ window.onload = function(){
 });
   //function on double click add and remove  .completed 
   document.body.addEventListener( 'dblclick', function ( event ) {
-    console.log("event.target.className",event.target.className);
     if( event.target.className == 'list' && event.target.className !== 'completed') {
-      console.log("double click done add class completed");
       event.target.classList.add("completed");
-      console.log("event.target.className after add completed",event.target.className);
       }
     else if( event.target.className == 'list completed') {
-        console.log("double click boucle REMOVE");
-        event.target.classList.remove("completed");
-        console.log("event.target.className after REMOVE completed",event.target.className);
+         event.target.classList.remove("completed");
         }
   });
     //function on click button delete all items of the list
@@ -45,16 +40,14 @@ window.onload = function(){
   })
 
  //function remove completed task  
-//  const buttondeletefinished = document.querySelector('#remover-finalizados');
-//  buttondeletefinished.addEventListener('click',function(event){
-//  let listItem = document.querySelectorAll('.list');
-//  for (let i=0; i<listItem.length; i+=1){
-//   if( event.target.className == 'completed') {
-//     console.log("hello");
-//     list.removeChild(listItem[i]);
-//     }
-//    }
-// })
+ const buttondeletefinished = document.querySelector('#remover-finalizados');
+ buttondeletefinished.addEventListener('click',function(event){
+ let listItem = document.querySelectorAll('.list');
+ for (let i=0; i<listItem.length; i+=1){
+  if( listItem[i].className == 'list completed') {list.removeChild(listItem[i]);
+    }
+   }
+})
 
 
 //temp 
