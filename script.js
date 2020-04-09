@@ -14,6 +14,7 @@ const addTaskButton = document.getElementById('criar-tarefa');
 //  FUNÇÃO ADICIONAR TASk-----------------------------------------------
 function newTask() {
     let li = document.createElement('li');
+    li.className = "taskItem";
     let inputValue = document.getElementById('texto-tarefa').value;
     let text = document.createTextNode(inputValue);
     li.appendChild(text);
@@ -27,3 +28,4 @@ function newTask() {
 }
 addTaskButton.addEventListener('click', newTask);
 //  ----------------------------------------------------------------------
+
