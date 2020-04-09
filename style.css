@@ -40,6 +40,10 @@ button {
   cursor: pointer;
 }
 
+li {
+  cursor: pointer;
+}
+
 .btn {
   border-radius: 20px;
   color: white;
