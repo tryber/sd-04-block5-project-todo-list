@@ -10,11 +10,13 @@ let elem = null;
 let txt = null;
 
 window.onload = () => {
-  if (localStorage.savedItems) {
-    let splitt = localStorage.savedItems.split(',');
-    arraySavedTasks = splitt;
-    for (let i = 0; i < arraySavedTasks.length; i += 1) {
-      addToList(arraySavedTasks[i]);
+  if(typeof Storage !== undefined) {
+    if (localStorage.savedItems) {
+      let splitt = localStorage.savedItems.split(',');
+      arraySavedTasks = splitt;
+      for (let i = 0; i < arraySavedTasks.length; i += 1) {
+        addToList(arraySavedTasks[i]);
+      }
     }
   }
 }
