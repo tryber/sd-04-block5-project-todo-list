@@ -48,6 +48,21 @@ window.onload = function(){
     }
    }
 })
+ //function remove selected task  
+ const buttondeleteselected= document.querySelector('#remover-selecionado');
+ buttondeleteselected.addEventListener('click',function(event){
+
+      let listItem = document.querySelectorAll('.list');
+       for (let i=0; i<listItem.length; i+=1){
+        let listItembackgroundColor = listItem[i].style.backgroundColor;
+        if ( listItembackgroundColor !== 'white'){list.removeChild(listItem[i]);
+          }
+         }
+      
+    });
+ 
+  
+
 
 
 //temp 
