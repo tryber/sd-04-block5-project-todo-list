@@ -2,8 +2,7 @@ let textoTarefa;
 let listaTarefas;
 let tarefaSelecionada;
 
-function clickTarefa(event) {
-  const target = event.target;
+function clickTarefa(target) {
   if (target !== tarefaSelecionada) {
     if (tarefaSelecionada) {
       tarefaSelecionada.style.backgroundColor = 'initial';
@@ -34,7 +33,9 @@ function criarTarefa(text, className) {
       novaTarefa.className = className;
     }
     novaTarefa.addEventListener('dblclick', doubleClickTarefa);
-    novaTarefa.addEventListener('click', clickTarefa);
+    novaTarefa.addEventListener('click', function (event) {
+      clickTarefa(event.target);
+    });
     listaTarefas.appendChild(novaTarefa);
   }
 }
@@ -53,9 +54,11 @@ function moveCima() {
   if (tarefaSelecionada) {
     const anterior = tarefaSelecionada.previousElementSibling;
     if (anterior) {
-      listaTarefas.insertBefore(tarefaSelecionada, anterior);
+      changePos(tarefaSelecionada, anterior);
+      clickTarefa(anterior);
     } else {
-      listaTarefas.appendChild(tarefaSelecionada);
+      changePos(tarefaSelecionada, listaTarefas.lastChild);
+      clickTarefa(listaTarefas.lastChild);
     }
   }
 }
@@ -64,11 +67,22 @@ function moveBaixo() {
   if (tarefaSelecionada) {
     const proxima = tarefaSelecionada.nextElementSibling;
     if (tarefaSelecionada && proxima) {
-      listaTarefas.insertBefore(proxima, tarefaSelecionada);
+      changePos(tarefaSelecionada, proxima);
+      clickTarefa(proxima);
     } else {
-      listaTarefas.insertBefore(tarefaSelecionada, listaTarefas.firstChild);
+      changePos(tarefaSelecionada, listaTarefas.firstChild);
+      clickTarefa(listaTarefas.firstChild);
     }
   }
+}
+
+function changePos(element1, element2) {
+  const text1 = element1.innerText;
+  const class1 = element1.className;
+  element1.innerText = element2.innerText;
+  element1.className = element2.className;
+  element2.innerText = text1;
+  element2.className = class1;
 }
 
 function remover() {
