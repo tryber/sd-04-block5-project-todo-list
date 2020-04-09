@@ -1,11 +1,5 @@
-//  BOTÃO LIMPAR TUDO
-const clearListButton = document.getElementById('apaga-tudo');
-
 //  LISTA DAS TAREFAS
 const taskList = document.getElementById('lista-tarefas');
-
-//  TAREFA A SER INCLUIDA NA LISTA
-const taskToInput = document.getElementById('texto-tarefa');
 
 //
 const addTaskButton = document.getElementById('criar-tarefa');
@@ -29,3 +23,12 @@ function newTask() {
 addTaskButton.addEventListener('click', newTask);
 //  ----------------------------------------------------------------------
 
+//  mudando o backGround--------------------------------------------------
+taskList.addEventListener('click', (event) => {
+    if (document.querySelector('.selected') !== null) {
+        document.querySelector('.selected').style.backgroundColor = 'white';
+        document.querySelector('.selected').classList.remove('selected');
+    }
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.classList.add('selected');
+});

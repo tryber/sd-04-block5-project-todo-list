@@ -1,10 +1,14 @@
 li {
-    cursor: pointer;
-    padding: 5px;
-    background: white;
-    font-size: 15px;
+  background: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.complete {
+  text-decoration: line-through;
 }
