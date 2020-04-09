@@ -26,12 +26,10 @@ document.body.addEventListener('click', function(event){
 });
 
 listTask.addEventListener('dblclick', function(event){
-  if (event.target.classList.contains('finished')){
-    event.target.classList.remove ('finished');
+  if (event.target.classList.contains('completed')){
+    event.target.classList.remove ('completed');
   } else {
-    event.target.classList.add('finished');
+    event.target.classList.add('completed');
   }
 });
 
-// se duplo clique em uma li, então text-decoration: line-through;
-// e se duplo clique nvamente, 
