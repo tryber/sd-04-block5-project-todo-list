@@ -20,7 +20,10 @@ function addClickEvent(elem) {
 
 function addDblClickEvent(elem) {
     elem.addEventListener('dblclick', () => {  
-      elem.classList.add('linethrough');
+      if (elem.classList.contains('linethrough'))
+        elem.classList.remove('linethrough');
+      else
+        elem.classList.add('linethrough')
     });
 }
 
@@ -32,5 +35,5 @@ btnAdd.addEventListener('click', () => {
   taskText.value = '';
   listItem = document.querySelectorAll('ol li');
   addClickEvent(elem);
-  addDblClickEvent(elem)
+  addDblClickEvent(elem);
 });
