@@ -1,0 +1,13 @@
+button {
+  border-radius: 2px;
+  background-color: bisque;
+}
+
+title {
+  font-size: 20px;
+  font-family: 'Indie Flower', cursive;
+}
+
+.rodapé {
+  margin-top: 25px;
+}
