@@ -50,32 +50,6 @@ function loadTarefas(tarefa) {
   }
 }
 
-function moveCima() {
-  if (tarefaSelecionada) {
-    const anterior = tarefaSelecionada.previousElementSibling;
-    if (anterior) {
-      changePos(tarefaSelecionada, anterior);
-      clickTarefa(anterior);
-    } else {
-      changePos(tarefaSelecionada, listaTarefas.lastChild);
-      clickTarefa(listaTarefas.lastChild);
-    }
-  }
-}
-
-function moveBaixo() {
-  if (tarefaSelecionada) {
-    const proxima = tarefaSelecionada.nextElementSibling;
-    if (tarefaSelecionada && proxima) {
-      changePos(tarefaSelecionada, proxima);
-      clickTarefa(proxima);
-    } else {
-      changePos(tarefaSelecionada, listaTarefas.firstChild);
-      clickTarefa(listaTarefas.firstChild);
-    }
-  }
-}
-
 function changePos(element1, element2) {
   const text1 = element1.innerText;
   const class1 = element1.className;
@@ -83,6 +57,26 @@ function changePos(element1, element2) {
   element1.className = element2.className;
   element2.innerText = text1;
   element2.className = class1;
+}
+
+function moveCima() {
+  if (tarefaSelecionada) {
+    const anterior = tarefaSelecionada.previousElementSibling;
+    if (anterior) {
+      changePos(tarefaSelecionada, anterior);
+      clickTarefa(anterior);
+    }
+  }
+}
+
+function moveBaixo() {
+  if (tarefaSelecionada) {
+    const proxima = tarefaSelecionada.nextElementSibling;
+    if (proxima) {
+      changePos(tarefaSelecionada, proxima);
+      clickTarefa(proxima);
+    }
+  }
 }
 
 function remover() {
