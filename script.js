@@ -7,6 +7,7 @@ const listaCompleta = document.getElementsByClassName('completed');
 const salvarTarefas = document.getElementById('salvar-tarefas');
 const moverBaixo = document.getElementById('mover-baixo');
 const moverCima = document.getElementById('mover-cima');
+const removeSelecionado = document.getElementById('remover-selecionado');
 
 if (typeof Storage !== 'undefined') {
   listaAdiciona.innerHTML = localStorage.listaAdiciona;
@@ -79,4 +80,9 @@ moverCima.addEventListener('click', () => {
   itemMVCima.previousElementSibling.className = 'selected';
   itemMVCima.innerHTML = paraBaixo;
   itemMVCima.classList.remove('selected');
+});
+
+removeSelecionado.addEventListener('click', () => {
+  const Remove = document.querySelector('.selected');
+  listaAdiciona.removeChild(Remove);
 });
