@@ -2,6 +2,7 @@ const ol = document.querySelector('#lista-tarefas');
 if (typeof Storage !== 'undefined') {
   ol.innerHTML = localStorage.list;
 }
+
 const input = document.querySelector('#texto-tarefa');
 const button1 = document.querySelector('#criar-tarefa');
 const button2 = document.querySelector('#apaga-tudo');
@@ -28,12 +29,12 @@ function clear() {
 }
 button2.addEventListener('click', clear);
 
-// Fundo cinza para as tarefas selecionadas
+// Fundo cinza para as tarefas selecionadas estilo através da classe via css
 ol.addEventListener('click', function (e) {
   e.target.classList.toggle('gray');
 });
 
-// Adicionanda a classe para as tarifas completadas
+// Adicionanda a classe para as tarifas completadas e estilo definido via CSS
 ol.addEventListener('dblclick', function (e) {
   e.target.classList.toggle('completed');
 });
@@ -50,5 +51,5 @@ button3.addEventListener('click', function () {
 
 // Função que salva os itens no localStore
 button4.addEventListener('click', function () {
-  localStorage.list = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.list = ol.innerHTML;
 });
