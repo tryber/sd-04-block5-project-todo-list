@@ -1,7 +1,8 @@
 const savedTasks = getTasks();
-savedTasks.forEach(task => {
+savedTasks.forEach((task) => {
   addTask(false, task.text);
 });
+
 const newTaskBt = document.querySelector('#criar-tarefa');
 newTaskBt.addEventListener('click', () => {
   const taskInput = document.querySelector('#texto-tarefa');
@@ -47,6 +48,8 @@ function addTask(isNew, task) {
   if (isNew) newTask.id = createTask(task);
   // Append to task list
   taskList.appendChild(newTask, task);
+
+  return newTask;
 }
 
 function setTaskEvents(task) {
