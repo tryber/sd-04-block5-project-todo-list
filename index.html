@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt">
-    <head>
-        <meta charset="UTF-8">
-        <title>Douglas' ToDo List</title>
-        <link href="style.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <h1>Minha Lista de Tarefas</h1>
-        </header>
-        <p id="funcionamento"><i>Clique duas vezes em um item para marcá-lo como completo</i></p>
-        <input id="texto-tarefa" value="Digite aqui o item a adicionar"><br>
-        <button id="criar-tarefa">Create task</button><br>
-        <button id="apaga-tudo">Clear All</button><br>
-        <button id="remover-finalizados">Remove itens</button><br>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Douglas' ToDo List</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="main-title">Minha Lista de Tarefas</h1>
+    </header>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <input id="texto-tarefa" placeholder="Digite aqui sua tarefa" onfocus="this.placeholder='';">
+    <button id="criar-tarefa" class="cursor-hand" onclick="incluirItem()">Create task</button><br><br>
+    <div id="list-container">
+        <ol id="lista-tarefas">
+        </ol>
+    </div>
+    <button id="apaga-tudo" class="cursor-hand" onclick="apagarLista()">Clear All</button><br><br>
+    <button id="remover-finalizados" class="cursor-hand">Remove itens</button><br>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
