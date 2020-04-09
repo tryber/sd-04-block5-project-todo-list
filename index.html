@@ -14,7 +14,7 @@
       <button id='criar-tarefa' class='mao' type='submit'>Criar Tarefa</button>
     </div>  
     <div>
-      <ol id='lista-tarefas'></ol>
+      <ol id='lista-tarefas' class='lista-tarefas'></ol>
     </div>
     <script>
       let botao1 = document.getElementById('criar-tarefa');
@@ -25,7 +25,11 @@
         document.getElementById('lista-tarefas').appendChild(item);
         lista.value = '';
         item.classList.add('mao');
-      })     
+      })
+      let botao2 = document.getElementById('lista-tarefas')
+      botao2.addEventListener('click', function(e) {
+        e.target.style.backgroundColor = 'rgb(128,128,128)';
+      });
      </script>
 </body>
 </html>

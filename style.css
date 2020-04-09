@@ -1,3 +1,6 @@
 .mao {
   cursor: pointer;
 }
+.lista-tarefas {
+  max-width: 35%;
+}
