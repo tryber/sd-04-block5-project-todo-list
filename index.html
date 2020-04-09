@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">  
   <title>Document</title>
+  <link link rel='stylesheet' href='style.css'>
 </head>
 <body>
   <header><h1>Minha Lista de Tarefas</h1></header>
@@ -10,7 +11,7 @@
     <div>
       <label for='texto-terefa'>Escreve sua tarefa</label>
       <input id='texto-tarefa' type='text'>
-      <button id='criar-tarefa' type='submit'>Adicionar</button>
+      <button id='criar-tarefa' class='mao' type='submit'>Criar Tarefa</button>
     </div>  
     <div>
       <ol id='lista-tarefas'></ol>
@@ -23,7 +24,8 @@
         item.innerHTML = lista.value;
         document.getElementById('lista-tarefas').appendChild(item);
         lista.value = '';
-      })
-    </script>
+        item.classList.add('mao');
+      })     
+     </script>
 </body>
 </html>
