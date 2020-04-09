@@ -20,3 +20,18 @@ listaAdiciona.addEventListener('click', (event) => {
       event.target.classList.add('selected');
   });
 
+  listaAdiciona.addEventListener('ondblclick', (event) => {
+    if (document.querySelector('.selected') !== null) {
+        document.querySelector('.selected').classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+  });
+
+
+listaAdiciona.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });

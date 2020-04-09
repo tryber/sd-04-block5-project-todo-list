@@ -8,6 +8,32 @@ li{
     background-color: rgb(128,128,128);
     width: 90%;
 }
+
+.completed {
+    text-decoration: line-through;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+.button1 {
+  background-color: #008CBA;
+  border: 1px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  opacity: 0.6;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.button1:hover {opacity: 2}
+
 .main-content {
     background-color: #fff;
     border-radius: 30px;
