@@ -5,14 +5,25 @@
   <title>Document</title>
 </head>
 <body>
-  <header><h1>Minha Lista de Tarefas</h1></header><br><br>
+  <header><h1>Minha Lista de Tarefas</h1></header>
     <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
     <div>
       <label for='texto-terefa'>Escreve sua tarefa</label>
       <input id='texto-tarefa' type='text'>
+      <button id='criar-tarefa' type='submit'>Adicionar</button>
     </div>  
     <div>
       <ol id='lista-tarefas'></ol>
     </div>
+    <script>
+      let botao1 = document.getElementById('criar-tarefa');
+      botao1.addEventListener('click', function() {
+        let item = document.createElement('li');
+        let lista = document.getElementById('texto-tarefa');
+        item.innerHTML = lista.value;
+        document.getElementById('lista-tarefas').appendChild(item);
+        lista.value = '';
+      })
+    </script>
 </body>
 </html>
