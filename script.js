@@ -54,6 +54,8 @@ function moveCima() {
     const anterior = tarefaSelecionada.previousElementSibling;
     if (anterior) {
       listaTarefas.insertBefore(tarefaSelecionada, anterior);
+    } else {
+      listaTarefas.appendChild(tarefaSelecionada);
     }
   }
 }
@@ -63,6 +65,8 @@ function moveBaixo() {
     const proxima = tarefaSelecionada.nextElementSibling;
     if (tarefaSelecionada && proxima) {
       listaTarefas.insertBefore(proxima, tarefaSelecionada);
+    } else {
+      listaTarefas.insertBefore(tarefaSelecionada, listaTarefas.firstChild);
     }
   }
 }
