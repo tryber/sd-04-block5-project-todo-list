@@ -1,7 +1,13 @@
 const savedTasks = getTasks();
-savedTasks.forEach((task) => {
-  addTask(false, task.text);
-});
+if (savedTasks) {
+  savedTasks.forEach((task) => {
+    const taskId = savedTasks.indexOf(task) + 1;
+    const createdTask = addTask(false, task.text, taskId);
+    if (task.checked) {
+      createdTask.classList.add('completed');
+    }
+  });
+}
 
 const newTaskBt = document.querySelector('#criar-tarefa');
 newTaskBt.addEventListener('click', () => {
@@ -25,7 +31,7 @@ removeCompletedBtn.addEventListener('click', () => {
   });
 });
 
-function addTask(isNew, task) {
+function addTask(isNew, task, taskId) {
   const taskList = document.querySelector('#lista-tarefas');
 
   // Create the task elements
@@ -46,6 +52,7 @@ function addTask(isNew, task) {
   setTaskEvents(newTask);
   // Put task o localStorage and set id like key
   if (isNew) newTask.id = createTask(task);
+  if (taskId) newTask.id = taskId;
   // Append to task list
   taskList.appendChild(newTask, task);
 
@@ -62,8 +69,10 @@ function setTaskEvents(task) {
   task.addEventListener('dblclick', () => {
     if (task.classList.contains('completed')) {
       task.classList.remove('completed');
+      completeTask(task);
     } else {
       task.classList.add('completed');
+      completeTask(task);
     }
   });
 }
@@ -94,14 +103,16 @@ function createTask(taskText) {
 
   return newKey;
 }
-getTasks();
+
 function getTasks(taskId) {
   if (localStorage.length > 0) {
     const tasksArray = [];
+    // Get local storage keys in sorted order
+    const sortedKeys = Object.keys(localStorage).sort((a, b) => a - b);
     switch (!taskId) {
       case true:
       // Key not provided
-        Object.keys(localStorage).forEach((key) => {
+        sortedKeys.forEach((key) => {
           const item = JSON.parse(localStorage.getItem(key));
           tasksArray.push(item);
         });
@@ -113,7 +124,17 @@ function getTasks(taskId) {
       default:
         break;
     }
-    return tasksArray.sort();
+    return tasksArray;
   }
   return null;
+}
+
+function completeTask(task) {
+  const savedTask = getTasks(task.id)[0];
+  if (savedTask.checked) {
+    savedTask.checked = false;
+  } else {
+    savedTask.checked = true;
+  }
+  localStorage.setItem(task.id, JSON.stringify(savedTask));
 }
