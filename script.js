@@ -1,5 +1,6 @@
-//  LISTA DAS TAREFAS
+//  LISTA DAS TAREFAS + definindo o conteúdo como localStore
 const taskList = document.getElementById('lista-tarefas');
+taskList.innerHTML = localStorage.taskList;
 
 //  BOTÃO CRIAR TAREFA
 const addTaskButton = document.getElementById('criar-tarefa');
@@ -9,6 +10,12 @@ const clearAllButton = document.getElementById('apaga-tudo');
 
 //  BOTAO APAGA TAREFAS COMPLETAS
 const clearCompletedButton = document.getElementById('remover-finalizados');
+
+//  BOTAO APAGA SELECIONADO
+const clearSelected = document.getElementById('remover-selecionado');
+
+//  BOTÃO SALVAR TAREFAS
+const saveTasks = document.getElementById('salvar-tarefas');
 
 //  FUNÇÃO ADICIONAR TASk-----------------------------------------------
 function newTask() {
@@ -67,3 +74,15 @@ clearCompletedButton.addEventListener('click', function () {
   }
 });
 //  -------------------------------------------------------------------
+
+//  remover task selecionada ------------------------------------------
+clearSelected.addEventListener('click', function () {
+    const taskToRemove = document.querySelector('.selected');
+    taskList.removeChild(taskToRemove);
+});
+//  -------------------------------------------------------------------
+
+//  salvar tarefas ----------------------------------------------------
+saveTasks.addEventListener('click', function () {
+    localStorage.taskList = document.getElementById('lista-tarefas').innerHTML;
+});
