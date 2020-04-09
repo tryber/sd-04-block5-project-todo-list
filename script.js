@@ -21,19 +21,40 @@ window.onload = function(){
     event.target.style.backgroundColor = 'rgb(128 ,128 ,128)';
   };
 });
-  //function on double click give class completed to one item 
+  //function on double click add and remove  .completed 
   document.body.addEventListener( 'dblclick', function ( event ) {
+    console.log("event.target.className",event.target.className);
     if( event.target.className == 'list' && event.target.className !== 'completed') {
-      console.log("double click done");
+      console.log("double click done add class completed");
       event.target.classList.add("completed");
+      console.log("event.target.className after add completed",event.target.className);
       }
-      if( event.target.className == 'completed') {
+    else if( event.target.className == 'list completed') {
+        console.log("double click boucle REMOVE");
         event.target.classList.remove("completed");
+        console.log("event.target.className after REMOVE completed",event.target.className);
         }
-
-      console.log("double click done");
   });
+    //function on click button delete all items of the list
+    const buttondeletevent = document.querySelector('#apaga-tudo');
+    buttondeletevent.addEventListener('click',function(event){
+    let listItem = document.querySelectorAll('.list');
+    for (let i=0; i<listItem.length; i+=1){
+      list.removeChild(listItem[i]);
+      }
+  })
 
+ //function remove completed task  
+//  const buttondeletefinished = document.querySelector('#remover-finalizados');
+//  buttondeletefinished.addEventListener('click',function(event){
+//  let listItem = document.querySelectorAll('.list');
+//  for (let i=0; i<listItem.length; i+=1){
+//   if( event.target.className == 'completed') {
+//     console.log("hello");
+//     list.removeChild(listItem[i]);
+//     }
+//    }
+// })
 
 
 //temp 
