@@ -1,11 +1,13 @@
 body {
-    background-color: rgb(72, 194, 56);
+    background-color: rgb(72 , 194 , 56);
 }
-li{
+
+li {
     cursor: pointer;
 }
+
 .selected {
-    background-color: rgb(128,128,128);
+    background-color: rgb(128 ,128 , 128);
     width: 90%;
 }
 
@@ -45,7 +47,7 @@ input[type=text]:focus {
 }
 
 .funcionamento {
-    color: rgb(96, 96, 104);
+    color: rgb(96 , 96 , 104);
     font-size: 1em;
     font-style: italic;
     margin-left: 4em;

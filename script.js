@@ -1,23 +1,23 @@
-var btnAdicionaLI = document.getElementById("criar-tarefa");
-var textAdiciona = document.getElementById("texto-tarefa");
-var listaAdiciona = document.getElementById("lista-tarefas");
+let btnAdicionaLI = document.getElementById('criar-tarefa');
+let textAdiciona = document.getElementById('texto-tarefa');
+let listaAdiciona = document.getElementById('lista-tarefas');
 
 btnAdicionaLI.addEventListener('click', () => {
   if (textAdiciona.value) {
-    var nodeLi = document.createElement("li");
-    var nodeText = document.createTextNode(textAdiciona.value);
+    let nodeLi = document.createElement('li');
+    let nodeText = document.createTextNode(textAdiciona.value);
     nodeLi.appendChild(nodeText);
-    nodeLi.setAttribute("id","lista-li");
+    nodeLi.setAttribute('id','lista-li');
     listaAdiciona.appendChild(nodeLi);
-    textAdiciona.value = "";s
+    textAdiciona.value = '';
   }
 });
 
 listaAdiciona.addEventListener('click', (event) => {
-    if (document.querySelector('.selected') !== null) {
-        document.querySelector('.selected').classList.remove('selected');
+    if ( document.querySelector( '.selected' ) !== null ) {
+        document.querySelector( '.selected' ).classList.remove( 'selected' );
       }
-      event.target.classList.add('selected');
+      event.target.classList.add( 'selected' );
   });
 
   listaAdiciona.addEventListener('ondblclick', (event) => {
