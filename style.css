@@ -14,7 +14,6 @@ button {
 }
 
 .completed {
-  color: rgb(124 , 29 , 0);
   text-decoration: line-through;
 }
 
@@ -101,6 +100,5 @@ button {
 }
 
 .texto-tarefa {
-  background-color: palegoldenrod;
   border-radius: 50px;
 }
