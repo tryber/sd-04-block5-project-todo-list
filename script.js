@@ -1,4 +1,5 @@
 const ol = document.querySelector('#lista-tarefas');
+// Caso tenha tarefas salvas no Local Store, resgatar como <li> da <ol>
 if (typeof Storage !== 'undefined') {
   ol.innerHTML = localStorage.list;
 }
@@ -8,6 +9,7 @@ const button1 = document.querySelector('#criar-tarefa');
 const button2 = document.querySelector('#apaga-tudo');
 const button3 = document.querySelector('#remover-finalizados');
 const button4 = document.querySelector('#salvar-tarefas');
+const button5 = document.querySelector('#remover-selecionado');
 
 // Adicionando função de add tarefas no button1
 function addTask() {
@@ -52,4 +54,12 @@ button3.addEventListener('click', function () {
 // Função que salva os itens no localStore
 button4.addEventListener('click', function () {
   localStorage.list = ol.innerHTML;
+});
+
+// Função para remover item selecionado
+button5.addEventListener('click', function () {
+  const tasks = document.querySelectorAll('.gray');
+  for (let i = 0; i < tasks.length; i += 1) {
+    ol.removeChild(tasks[i]);
+  }
 });
