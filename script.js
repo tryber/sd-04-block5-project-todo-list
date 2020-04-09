@@ -1,5 +1,5 @@
 const ol = document.querySelector('#lista-tarefas');
-// Caso tenha tarefas salvas no Local Store, resgatar como <li> da <ol>
+// Caso tenha tarefas salvas no Local Store, resgatar como <li> da <ol>:
 if (typeof Storage !== 'undefined') {
   ol.innerHTML = localStorage.list;
 }
@@ -27,7 +27,7 @@ button7.addEventListener('click', function () {
   ol.insertBefore(tasks, up);
 });
 
-// Adicionando função de add tarefas no button1
+// Adicionando função de add tarefas no button1:
 function addTask() {
   if (input.value !== '') {
     const li = document.createElement('li');
@@ -38,7 +38,7 @@ function addTask() {
 }
 button1.addEventListener('click', addTask);
 
-// Função apaga tudo no button2
+// Função para apagar tudo no button2:
 function clear() {
   localStorage.list = '';
   while (ol.firstChild) {
@@ -47,7 +47,7 @@ function clear() {
 }
 button2.addEventListener('click', clear);
 
-// Fundo cinza para as tarefas selecionadas estilo através da classe via css
+// Funcao para adicionar classes pelo clique, definiçao do bsckground color via css:
 ol.addEventListener('click', function (e) {
   if (document.querySelector('.selected') !== null) {
     document.querySelector('.selected').style.backgroundColor = 'white';
@@ -56,7 +56,7 @@ ol.addEventListener('click', function (e) {
   e.target.classList.add('selected');
 });
 
-// Adicionanda a classe para as tarifas completadas e estilo definido via CSS
+// Adicionanda a classe para as tarefas completadas e estilo definido via CSS:
 ol.addEventListener('dblclick', function (e) {
   e.target.classList.toggle('completed');
 });
@@ -71,12 +71,12 @@ button3.addEventListener('click', function () {
   }
 });
 
-// Função que salva os itens no localStore
+// Função que salva os itens no localStore:
 button4.addEventListener('click', function () {
   localStorage.list = ol.innerHTML;
 });
 
-// Função para remover item selecionado
+// Função para remover item selecionado:
 button5.addEventListener('click', function () {
   const tasks = document.querySelectorAll('.selected');
   for (let i = 0; i < tasks.length; i += 1) {
