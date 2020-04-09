@@ -20,10 +20,10 @@ function addClickEvent(elem) {
 
 function addDblClickEvent(elem) {
     elem.addEventListener('dblclick', () => {  
-      if (elem.classList.contains('linethrough'))
-        elem.classList.remove('linethrough');
+      if (elem.classList.contains('completed'))
+        elem.classList.remove('completed');
       else
-        elem.classList.add('linethrough')
+        elem.classList.add('completed')
     });
 }
 
