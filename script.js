@@ -1,8 +1,12 @@
 const ol = document.querySelector('#lista-tarefas');
+if (typeof Storage !== 'undefined') {
+  ol.innerHTML = localStorage.list;
+}
 const input = document.querySelector('#texto-tarefa');
 const button1 = document.querySelector('#criar-tarefa');
 const button2 = document.querySelector('#apaga-tudo');
 const button3 = document.querySelector('#remover-finalizados');
+const button4 = document.querySelector('#salvar-tarefas');
 
 // Adicionando função de add tarefas no button1
 function addTask() {
@@ -17,6 +21,7 @@ button1.addEventListener('click', addTask);
 
 // Função apaga tudo no button2
 function clear() {
+  localStorage.list = '';
   while (ol.firstChild) {
     ol.firstChild.remove();
   }
@@ -41,4 +46,9 @@ button3.addEventListener('click', function () {
       ol.removeChild(tasks[i]);
     }
   }
+});
+
+// Função que salva os itens no localStore
+button4.addEventListener('click', function () {
+  localStorage.list = document.getElementById('lista-tarefas').innerHTML;
 });
