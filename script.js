@@ -12,10 +12,11 @@ let txt = null;
 window.onload = () => {
   if(typeof Storage !== undefined) {
     if (localStorage.savedItems) {
-      let splitt = localStorage.savedItems.split(',');
-      arraySavedTasks = splitt;
-      for (let i = 0; i < arraySavedTasks.length; i += 1) {
-        addToList(arraySavedTasks[i]);
+      taskList.innerHTML = localStorage.savedItems;
+      let child = taskList.children;
+      for (let i = 0; i < child.length; i += 1) {
+        addClickEvent(child[i]);
+        addDblClickEvent(child[i]);
       }
     }
   }
@@ -26,7 +27,6 @@ function addToList(value) {
   let text = document.createTextNode(value);
   e.appendChild(text);
   taskList.appendChild(e);
-  listItem = document.querySelectorAll('ol li');
   addClickEvent(e);
   addDblClickEvent(e);
 }
@@ -39,6 +39,7 @@ function removeClass() {
 
 function addClickEvent(elem) {
   elem.addEventListener('click', () => {  
+    listItem = document.querySelectorAll('ol li');
     removeClass();
     elem.classList.add('selected');
   });
@@ -72,10 +73,5 @@ clearDoneTasks.addEventListener('click', () => {
 });
 
 saveTasks.addEventListener('click', () => {
-  arraySavedTasks = []
-  let allItens = document.querySelectorAll('ol li');
-  for (let i = 0; i < allItens.length; i += 1) {
-    arraySavedTasks.push(allItens[i].textContent);
-  }
-  localStorage.savedItems = arraySavedTasks;
+  localStorage.savedItems = taskList.innerHTML;
 })
