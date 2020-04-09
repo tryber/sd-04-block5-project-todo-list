@@ -23,6 +23,11 @@ function clear (){
 button2.addEventListener('click', clear)
 
 // Funda cinza para as tarefas selecionadas
-ol.addEventListener('click', function (e){
+ol.addEventListener('click', function (e) {
   e.target.classList.toggle('gray');
 })
+
+// Adicionanda a classe para as tarifas completadas que riscam
+ol.addEventListener('dblclick', function (e) {
+  e.target.classList.toggle('completadas');
+});
