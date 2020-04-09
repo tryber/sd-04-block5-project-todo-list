@@ -38,6 +38,18 @@ removeCompletedBtn.addEventListener('click', () => {
   });
 });
 
+const upTaskBtn = document.querySelector('#mover-cima');
+upTaskBtn.addEventListener('click', () => {
+  const selectedTask = document.querySelector('.selected');
+  moveTask(selectedTask, 'up');
+});
+
+const downTaskBtn = document.querySelector('#mover-baixo');
+downTaskBtn.addEventListener('click', () => {
+  const selectedTask = document.querySelector('.selected');
+  moveTask(selectedTask, 'down');
+});
+
 function addTask(isNew, task, taskId) {
   const taskList = document.querySelector('#lista-tarefas');
 
@@ -86,6 +98,50 @@ function setTaskEvents(task) {
   });
 }
 
+function moveTask(task, direction) {
+  const previousTask = task.previousSibling;
+  const nextTask = task.nextSibling;
+  const currentTask = task;
+  const taskData = getTasks(task.id)[0];
+  delete taskData.id;
+
+  switch (direction) {
+    case 'up':
+      if (previousTask.id) {
+        const previousTaskId = previousTask.id;
+        const previousTaskData = getTasks(previousTask.id)[0];
+        delete previousTaskData.id;
+        updateTask(previousTask, taskData);
+        updateTask(currentTask, previousTaskData);
+        previousTask.id = currentTask.id;
+        currentTask.id = previousTaskId;
+        currentTask.previousSibling.remove();
+        currentTask.after(previousTask);
+      } else {
+        alert('End of Task List');
+      }
+      break;
+    case 'down':
+      if (nextTask.id) {
+        console.log(nextTask.id);
+        const nextTaskId = nextTask.id;
+        const nextTaskData = getTasks(nextTask.id)[0];
+        delete nextTaskData.id;
+        updateTask(nextTask, taskData);
+        updateTask(currentTask, nextTaskData);
+        nextTask.id = currentTask.id;
+        currentTask.id = nextTaskId;
+        currentTask.nextSibling.remove();
+        currentTask.before(nextTask);
+      } else {
+        alert('End Of Task List');
+      }
+      break;
+    default:
+      break;
+  }
+}
+
 // LocalStorage Functions
 function createTask(taskText) {
   let lastKey = 0;
@@ -98,7 +154,7 @@ function createTask(taskText) {
   const newKey = lastKey + 1;
   // Generate task creation details
   const actualDate = new Date();
-  const taskDate = `Created on 
+  const taskDate = `Created on
   ${(`0${actualDate.getDate()}`).slice(-2)}
   /${(`0${actualDate.getMonth()}`).slice(-2)}/${actualDate.getFullYear()}`;
 
@@ -152,4 +208,9 @@ function completeTask(task) {
 
 function deleteTask(task) {
   localStorage.removeItem(task.id);
+}
+
+function updateTask(task, taskData) {
+  const jsonTaskData = JSON.stringify(taskData);
+  localStorage.setItem(task.id, jsonTaskData);
 }
