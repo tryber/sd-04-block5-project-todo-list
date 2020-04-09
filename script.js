@@ -10,8 +10,8 @@ let elem = null;
 let txt = null;
 
 window.onload = () => {
-  if (localStorage.getItem('savedItems')) {
-    let splitt = localStorage.getItem('savedItems').split(',');
+  if (localStorage.savedItems) {
+    let splitt = localStorage.savedItems.split(',');
     arraySavedTasks = splitt;
     for (let i = 0; i < arraySavedTasks.length; i += 1) {
       addToList(arraySavedTasks[i]);
@@ -75,5 +75,5 @@ saveTasks.addEventListener('click', () => {
   for (let i = 0; i < allItens.length; i += 1) {
     arraySavedTasks.push(allItens[i].textContent);
   }
-  localStorage.setItem('savedItems',arraySavedTasks)
+  localStorage.savedItems = arraySavedTasks;
 })
