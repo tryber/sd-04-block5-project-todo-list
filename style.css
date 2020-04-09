@@ -67,3 +67,7 @@ input {
 .selected {
   background-color: rgb(128 , 128 , 128);
 }
+
+.linethrough {
+  text-decoration-line: line-through;
+}

@@ -18,6 +18,12 @@ function addClickEvent(elem) {
     });
 }
 
+function addDblClickEvent(elem) {
+    elem.addEventListener('dblclick', () => {  
+      elem.classList.add('linethrough');
+    });
+}
+
 btnAdd.addEventListener('click', () => {
   elem = document.createElement('li');
   txt = document.createTextNode(taskText.value);
@@ -26,4 +32,5 @@ btnAdd.addEventListener('click', () => {
   taskText.value = '';
   listItem = document.querySelectorAll('ol li');
   addClickEvent(elem);
+  addDblClickEvent(elem)
 });
