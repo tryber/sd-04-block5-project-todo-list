@@ -1,3 +1,7 @@
+const savedTasks = getTasks();
+savedTasks.forEach(task => {
+  addTask(false, task.text);
+});
 const newTaskBt = document.querySelector('#criar-tarefa');
 newTaskBt.addEventListener('click', () => {
   const taskInput = document.querySelector('#texto-tarefa');
@@ -40,7 +44,7 @@ function addTask(isNew, task) {
   // Set task events
   setTaskEvents(newTask);
   // Put task o localStorage and set id like key
-  newTask.id = createTask(task);
+  if (isNew) newTask.id = createTask(task);
   // Append to task list
   taskList.appendChild(newTask, task);
 }
@@ -86,4 +90,27 @@ function createTask(taskText) {
   }));
 
   return newKey;
+}
+getTasks();
+function getTasks(taskId) {
+  if (localStorage.length > 0) {
+    const tasksArray = [];
+    switch (!taskId) {
+      case true:
+      // Key not provided
+        Object.keys(localStorage).forEach((key) => {
+          const item = JSON.parse(localStorage.getItem(key));
+          tasksArray.push(item);
+        });
+        break;
+      case false:
+      // Key provided
+        tasksArray.push(JSON.parse(localStorage.getItem(taskId)));
+        break;
+      default:
+        break;
+    }
+    return tasksArray.sort();
+  }
+  return null;
 }
