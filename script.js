@@ -1,8 +1,8 @@
 const savedTasks = getTasks();
 if (savedTasks) {
   savedTasks.forEach((task) => {
-    const taskId = savedTasks.indexOf(task) + 1;
-    const createdTask = addTask(false, task.text, taskId);
+    // const taskId = savedTasks.indexOf(task) + 1;
+    const createdTask = addTask(false, task.text, task.id);
     if (task.checked) {
       createdTask.classList.add('completed');
     }
@@ -16,6 +16,13 @@ newTaskBt.addEventListener('click', () => {
     addTask(true, taskInput.value, null);
     taskInput.value = '';
   }
+});
+
+const removeTaskBtn = document.querySelector('#remover-selecionado');
+removeTaskBtn.addEventListener('click', () => {
+  const selectedTask = document.querySelector('.selected');
+  deleteTask(selectedTask);
+  selectedTask.remove();
 });
 
 const cleanTasksBtn = document.querySelector('#apaga-tudo');
@@ -60,12 +67,14 @@ function addTask(isNew, task, taskId) {
 }
 
 function setTaskEvents(task) {
+  // Select task
   task.addEventListener('click', () => {
     if (document.querySelector('.selected')) {
       document.querySelector('.selected').classList.remove('selected');
     }
     task.classList.add('selected');
   });
+  // Complete Task
   task.addEventListener('dblclick', () => {
     if (task.classList.contains('completed')) {
       task.classList.remove('completed');
@@ -114,12 +123,14 @@ function getTasks(taskId) {
       // Key not provided
         sortedKeys.forEach((key) => {
           const item = JSON.parse(localStorage.getItem(key));
+          item.id = key;
           tasksArray.push(item);
         });
         break;
       case false:
       // Key provided
         tasksArray.push(JSON.parse(localStorage.getItem(taskId)));
+        tasksArray[0].id = taskId;
         break;
       default:
         break;
@@ -137,4 +148,8 @@ function completeTask(task) {
     savedTask.checked = true;
   }
   localStorage.setItem(task.id, JSON.stringify(savedTask));
+}
+
+function deleteTask(task) {
+  localStorage.removeItem(task.id);
 }
