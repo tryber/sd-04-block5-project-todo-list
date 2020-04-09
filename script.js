@@ -20,15 +20,19 @@ window.onload = function(){
       }
     event.target.style.backgroundColor = 'rgb(128 ,128 ,128)';
   };
-  //function on click button delete all items of the list
-    const buttondeletevent = document.querySelector('#apaga-tudo');
-    buttondeletevent.addEventListener('click',function(event){
-    let listItem = document.querySelectorAll('.list');
-    for (let i=0; i<listItem.length; i+=1){
-      list.removeChild(listItem[i]);
+});
+  //function on double click give class completed to one item 
+  document.body.addEventListener( 'dblclick', function ( event ) {
+    if( event.target.className == 'list' && event.target.className !== 'completed') {
+      console.log("double click done");
+      event.target.classList.add("completed");
       }
-  })
-} );
+      if( event.target.className == 'completed') {
+        event.target.classList.remove("completed");
+        }
+
+      console.log("double click done");
+  });
 
 
 

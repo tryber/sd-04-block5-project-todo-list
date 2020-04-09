@@ -22,4 +22,6 @@ button{
     display: inline-block;
     font-size: 10px 
 }
-/* change cursor type over button object */
+.completed{
+   text-decoration: line-through;
+}
