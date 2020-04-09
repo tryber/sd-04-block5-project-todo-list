@@ -4,6 +4,7 @@ const taskList = document.getElementById('lista-tarefas');
 const clearAllTasks = document.getElementById('apaga-tudo');
 const clearDoneTasks = document.getElementById('remover-finalizados');
 const saveTasks = document.getElementById('salvar-tarefas');
+const btnRemoveSelected = document.getElementById('remover-selecionado');
 let arraySavedTasks = [];
 let listItem = '';
 let elem = null;
@@ -74,4 +75,8 @@ clearDoneTasks.addEventListener('click', () => {
 
 saveTasks.addEventListener('click', () => {
   localStorage.savedItems = taskList.innerHTML;
+})
+
+btnRemoveSelected.addEventListener('click', () => {
+  document.querySelector('.selected').remove();
 })
