@@ -15,14 +15,14 @@ const button7 = document.querySelector('#mover-baixo');
 
 // Função mover elemento para cima
 button6.addEventListener('click', function () {
-  const tasks = document.querySelector('.gray');
+  const tasks = document.querySelector('.selected');
   const up = tasks.previousSibling;
   ol.insertBefore(tasks, up);
 });
 
 // Função mover elemento para baixo:
 button7.addEventListener('click', function () {
-  const up = document.querySelector('.gray');
+  const up = document.querySelector('.selected');
   const tasks = up.nextSibling;
   ol.insertBefore(tasks, up);
 });
@@ -49,7 +49,11 @@ button2.addEventListener('click', clear);
 
 // Fundo cinza para as tarefas selecionadas estilo através da classe via css
 ol.addEventListener('click', function (e) {
-  e.target.classList.toggle('gray');
+  if (document.querySelector('.selected') !== null) {
+    document.querySelector('.selected').style.backgroundColor = 'white';
+    document.querySelector('.selected').classList.remove('selected');
+  }
+  e.target.classList.add('selected');
 });
 
 // Adicionanda a classe para as tarifas completadas e estilo definido via CSS
@@ -74,7 +78,7 @@ button4.addEventListener('click', function () {
 
 // Função para remover item selecionado
 button5.addEventListener('click', function () {
-  const tasks = document.querySelectorAll('.gray');
+  const tasks = document.querySelectorAll('.selected');
   for (let i = 0; i < tasks.length; i += 1) {
     ol.removeChild(tasks[i]);
   }
