@@ -58,13 +58,13 @@ li {
 }
 
 .color2 {
-  background-color: rgb(199, 3, 3);
-  border: 1px solid rgb(199, 3, 3);
+  background-color: rgb(199 , 3 , 3);
+  border: 1px solid rgb(199 , 3 , 3);
 }
 
 .color3 {
-  background-color: rgb(136, 136, 1);
-  border: 1px solid rgb(136, 136, 1);
+  background-color: rgb(136 , 136 , 1);
+  border: 1px solid rgb(136 , 136 , 1);
 }
 
 .color1:hover {
@@ -72,11 +72,11 @@ li {
 }
 
 .color2:hover {
-  background-color: rgb(240, 41, 41);
+  background-color: rgb(240 , 41 , 41);
 }
 
 .color3:hover {
-  background-color: rgb(199, 199, 50);
+  background-color: rgb(199 , 199 , 50);
 }
 
 .list {
