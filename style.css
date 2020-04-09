@@ -9,6 +9,6 @@ button {
   cursor: pointer;
 }
 
-.complete {
+.completed {
   text-decoration: line-through;
 }
