@@ -30,6 +30,10 @@
       botao2.addEventListener('click', function(e) {
         e.target.style.backgroundColor = 'rgb(128,128,128)';
       });
+      let botao3 = document.getElementById('lista-tarefas')
+      botao3.addEventListener('dblclick', function(e) {
+        e.target.classList.add('completed');
+      });
      </script>
 </body>
 </html>

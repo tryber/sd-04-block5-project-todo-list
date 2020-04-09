@@ -4,3 +4,6 @@
 .lista-tarefas {
   max-width: 35%;
 }
+.completed {
+  text-decoration: line-through;
+}
