@@ -3,9 +3,31 @@ const btnAdd = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const clearAllTasks = document.getElementById('apaga-tudo');
 const clearDoneTasks = document.getElementById('remover-finalizados');
+const saveTasks = document.getElementById('salvar-tarefas');
+let arraySavedTasks = [];
 let listItem = '';
 let elem = null;
 let txt = null;
+
+window.onload = () => {
+  if (localStorage.getItem('savedItems')) {
+    let splitt = localStorage.getItem('savedItems').split(',');
+    arraySavedTasks = splitt;
+    for (let i = 0; i < arraySavedTasks.length; i += 1) {
+      addToList(arraySavedTasks[i]);
+    }
+  }
+}
+
+function addToList(value) {
+  let e = document.createElement('li');
+  let text = document.createTextNode(value);
+  e.appendChild(text);
+  taskList.appendChild(e);
+  listItem = document.querySelectorAll('ol li');
+  addClickEvent(e);
+  addDblClickEvent(e);
+}
 
 function removeClass() {
   for (let i = 0; i < listItem.length; i += 1) {
@@ -32,14 +54,8 @@ function addDblClickEvent(elem) {
 }
 
 btnAdd.addEventListener('click', () => {
-  elem = document.createElement('li');
-  txt = document.createTextNode(taskText.value);
-  elem.appendChild(txt);
-  taskList.appendChild(elem);
+  addToList(taskText.value);
   taskText.value = '';
-  listItem = document.querySelectorAll('ol li');
-  addClickEvent(elem);
-  addDblClickEvent(elem);
 });
 
 clearAllTasks.addEventListener('click', () => {
@@ -52,3 +68,12 @@ clearDoneTasks.addEventListener('click', () => {
     completed[i].remove();
   }
 });
+
+saveTasks.addEventListener('click', () => {
+  arraySavedTasks = []
+  let allItens = document.querySelectorAll('ol li');
+  for (let i = 0; i < allItens.length; i += 1) {
+    arraySavedTasks.push(allItens[i].textContent);
+  }
+  localStorage.setItem('savedItems',arraySavedTasks)
+})
