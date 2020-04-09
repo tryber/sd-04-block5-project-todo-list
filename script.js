@@ -2,6 +2,7 @@ const taskText = document.getElementById('texto-tarefa');
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const listTask = document.getElementById('lista-tarefas')
 const buttonDeleteList = document.getElementById('apaga-tudo');
+const finished = document.getElementsByClassName('finished');
 
 buttonCreateTask.addEventListener('click', function(){
   let valueTaskText = taskText.value;
@@ -23,3 +24,14 @@ document.body.addEventListener('click', function(event){
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   };
 });
+
+listTask.addEventListener('dblclick', function(event){
+  if (event.target.classList.contains('finished')){
+    event.target.classList.remove ('finished');
+  } else {
+    event.target.classList.add('finished');
+  }
+});
+
+// se duplo clique em uma li, então text-decoration: line-through;
+// e se duplo clique nvamente, 
