@@ -29,5 +29,5 @@ ol.addEventListener('click', function (e) {
 
 // Adicionanda a classe para as tarifas completadas que riscam
 ol.addEventListener('dblclick', function (e) {
-  e.target.classList.toggle('completadas');
+  e.target.classList.toggle('completed');
 });
