@@ -75,7 +75,7 @@ button6.addEventListener('click', function () {
 
 // Função mover elemento para baixo:
 button7.addEventListener('click', function () {
-  const tasks = document.querySelector('.gray');
-  const down = tasks.nextSibling;
-  ol.insertBefore(down, tasks);
+  const up = document.querySelector('.gray');
+  const tasks = up.nextSibling;
+  ol.insertBefore(tasks, up);
 });
