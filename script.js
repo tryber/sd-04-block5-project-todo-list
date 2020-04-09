@@ -1,6 +1,9 @@
 const btnAdicionaLI = document.getElementById('criar-tarefa');
 const textAdiciona = document.getElementById('texto-tarefa');
 const listaAdiciona = document.getElementById('lista-tarefas');
+const apagaLista = document.getElementById('apaga-tudo');
+const apagaCompleto = document.getElementById('remover-finalizados');
+const listaCompleta = document.getElementsByClassName('completed');
 
 btnAdicionaLI.addEventListener('click', () => {
   if (textAdiciona.value) {
@@ -27,11 +30,22 @@ listaAdiciona.addEventListener('ondblclick', (event) => {
   event.target.classList.add('selected');
 });
 
-
 listaAdiciona.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
+});
+
+apagaLista.addEventListener('click', () => {
+  while (listaAdiciona.firstChild) {
+    listaAdiciona.removeChild(listaAdiciona.firstChild);
+  }
+});
+
+apagaCompleto.addEventListener('click', () => {
+    while (listaCompleta.length > 0){
+      listaCompleta[0].remove();
+    }
 });
