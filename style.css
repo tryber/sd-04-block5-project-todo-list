@@ -6,6 +6,7 @@ li{
 }
 .selected {
     background-color: rgb(128,128,128);
+    width: 90%;
 }
 .main-content {
     background-color: #fff;
