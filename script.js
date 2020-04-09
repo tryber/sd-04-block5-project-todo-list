@@ -6,6 +6,8 @@ const clearDoneTasks = document.getElementById('remover-finalizados');
 const saveTasks = document.getElementById('salvar-tarefas');
 const btnRemoveSelected = document.getElementById('remover-selecionado');
 let listItem = '';
+const btnMoveUp = document.getElementById('mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
 
 function addClickEvent(elem) {
   elem.addEventListener('click', () => {  
@@ -76,4 +78,30 @@ saveTasks.addEventListener('click', () => {
 
 btnRemoveSelected.addEventListener('click', () => {
   document.querySelector('.selected').remove();
+});
+
+btnMoveUp.addEventListener('click', () => {
+  let selectedItem = document.querySelector('.selected');
+  let previous = selectedItem.previousElementSibling;
+  let upItem = selectedItem.innerHTML;
+  if (previous) {
+    let downItem = selectedItem.previousElementSibling.innerHTML;
+    selectedItem.previousElementSibling.innerHTML = upItem;
+    selectedItem.previousElementSibling.classList.add('selected');
+    selectedItem.innerHTML = downItem;
+    selectedItem.classList.remove('selected');
+  }
+});
+
+btnMoveDown.addEventListener('click', () => {
+  let selectedItem = document.querySelector('.selected');
+  let next = selectedItem.nextElementSibling;
+  let downItem = selectedItem.innerHTML;
+  if (next) {
+    let upItem = selectedItem.nextElementSibling.innerHTML;
+    selectedItem.nextElementSibling.innerHTML = downItem;
+    selectedItem.nextElementSibling.classList.add('selected');
+    selectedItem.innerHTML = upItem;
+    selectedItem.classList.remove('selected');
+  }
 });
