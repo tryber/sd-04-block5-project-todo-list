@@ -41,13 +41,13 @@ removeCompletedBtn.addEventListener('click', () => {
 const upTaskBtn = document.querySelector('#mover-cima');
 upTaskBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
-  moveTask(selectedTask, 'up');
+  moveTaskUp(selectedTask);
 });
 
 const downTaskBtn = document.querySelector('#mover-baixo');
 downTaskBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
-  moveTask(selectedTask, 'down');
+  moveTaskDown(selectedTask);
 });
 
 function addTask(isNew, task, taskId) {
@@ -98,47 +98,48 @@ function setTaskEvents(task) {
   });
 }
 
-function moveTask(task, direction) {
-  const previousTask = task.previousSibling;
-  const nextTask = task.nextSibling;
+function moveTaskUp(task) {
+  // Get next and selected tasks nodes
   const currentTask = task;
-  const taskData = getTasks(task.id)[0];
-  delete taskData.id;
+  const previousTask = task.previousSibling;
+  if (previousTask.id) {
+    // Get task data from localStorage
+    const currentTaskData = getTasks(currentTask.id)[0];
+    delete currentTaskData.id;
+    const previousTaskData = getTasks(previousTask.id)[0];
+    delete previousTaskData.id;
+    // Update tasks registers on localStorage
+    updateTask(previousTask, currentTaskData);
+    updateTask(currentTask, previousTaskData);
+    // Swap id's
+    const tempId = currentTask.id;
+    currentTask.id = previousTask.id;
+    previousTask.id = tempId;
+    currentTask.previousSibling.remove();
+    currentTask.after(previousTask);
+  }
+}
 
-  switch (direction) {
-    case 'up':
-      if (previousTask.id) {
-        const previousTaskId = previousTask.id;
-        const previousTaskData = getTasks(previousTask.id)[0];
-        delete previousTaskData.id;
-        updateTask(previousTask, taskData);
-        updateTask(currentTask, previousTaskData);
-        previousTask.id = currentTask.id;
-        currentTask.id = previousTaskId;
-        currentTask.previousSibling.remove();
-        currentTask.after(previousTask);
-      } else {
-        alert('End of Task List');
-      }
-      break;
-    case 'down':
-      if (nextTask.id) {
-        console.log(nextTask.id);
-        const nextTaskId = nextTask.id;
-        const nextTaskData = getTasks(nextTask.id)[0];
-        delete nextTaskData.id;
-        updateTask(nextTask, taskData);
-        updateTask(currentTask, nextTaskData);
-        nextTask.id = currentTask.id;
-        currentTask.id = nextTaskId;
-        currentTask.nextSibling.remove();
-        currentTask.before(nextTask);
-      } else {
-        alert('End Of Task List');
-      }
-      break;
-    default:
-      break;
+function moveTaskDown(task) {
+  // Get next and selected tasks nodes
+  const currentTask = task;
+  const nextTask = task.nextSibling;
+  if (nextTask) {
+    // Get task data from localStorage
+    const currentTaskData = getTasks(currentTask.id)[0];
+    delete currentTaskData.id;
+    const nextTaskData = getTasks(nextTask.id)[0];
+    delete nextTaskData.id;
+    // Update tasks registers on localStorage
+    updateTask(nextTask, currentTaskData);
+    updateTask(currentTask, nextTaskData);
+    // Swap id's
+    const tempId = currentTask.id;
+    currentTask.id = nextTask.id;
+    nextTask.id = tempId;
+    // Move tasks on list
+    currentTask.nextSibling.remove();
+    currentTask.before(nextTask);
   }
 }
 
