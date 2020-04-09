@@ -6,3 +6,7 @@ body {
   background-color: white;
   border-radius: 20px;
 }
+
+li {
+  cursor: pointer;
+}

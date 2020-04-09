@@ -17,3 +17,9 @@ buttonDeleteList.addEventListener('click', function(){
     listTask.removeChild(listItems[i]);
   }
 })
+
+document.body.addEventListener('click', function(event){
+  if (event.target.className == 'listTask'){
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  };
+});
