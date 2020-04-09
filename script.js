@@ -1,30 +1,33 @@
 const taskText = document.getElementById('texto-tarefa');
 const btnAdd = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const clearAllTasks = document.getElementById('apaga-tudo');
 let listItem = '';
 let elem = null;
 let txt = null;
 
 function removeClass() {
-    for (let i = 0; i < listItem.length; i += 1) {
-      listItem[i].classList.remove('selected');
-    }
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].classList.remove('selected');
+  }
 }
 
 function addClickEvent(elem) {
-    elem.addEventListener('click', () => {  
-      removeClass();
-      elem.classList.add('selected');
-    });
+  elem.addEventListener('click', () => {  
+    removeClass();
+    elem.classList.add('selected');
+  });
 }
 
 function addDblClickEvent(elem) {
-    elem.addEventListener('dblclick', () => {  
-      if (elem.classList.contains('completed'))
-        elem.classList.remove('completed');
-      else
-        elem.classList.add('completed')
-    });
+  elem.addEventListener('dblclick', () => {  
+    if (elem.classList.contains('completed')) {
+      elem.classList.remove('completed');
+    }
+    else {
+      elem.classList.add('completed');
+    }
+  });
 }
 
 btnAdd.addEventListener('click', () => {
@@ -37,3 +40,7 @@ btnAdd.addEventListener('click', () => {
   addClickEvent(elem);
   addDblClickEvent(elem);
 });
+
+clearAllTasks.addEventListener('click', () => {
+  taskList.innerHTML = '';
+})

@@ -36,9 +36,7 @@ input {
   padding-top: 20px;
 }
 
-.criar-tarefa {
-  background-color: rgb(50 , 50 , 184);
-  border: 1px solid blue;
+.btn {
   border-radius: 20px;
   color: white;
   font-weight: 900;
@@ -46,8 +44,23 @@ input {
   padding: 3px 15px;
 }
 
-.criar-tarefa:hover {
+.color1 {
+  background-color: rgb(50 , 50 , 184);
+  border: 1px solid blue;
+}
+
+.color2 {
+  background-color: rgb(199, 3, 3);
+  border: 1px solid rgb(199, 3, 3);
+}
+
+.color1:hover {
   background-color: blue;
+  cursor: pointer;
+}
+
+.color2:hover {
+  background-color: rgb(240, 41, 41);
   cursor: pointer;
 }
 
@@ -70,4 +83,8 @@ input {
 
 .completed {
   text-decoration: line-through;
+}
+
+.buttons-footer {
+  padding-top: 20px;
 }
