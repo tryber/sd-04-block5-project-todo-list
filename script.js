@@ -77,12 +77,12 @@ clearCompletedButton.addEventListener('click', function () {
 
 //  remover task selecionada ------------------------------------------
 clearSelected.addEventListener('click', function () {
-    const taskToRemove = document.querySelector('.selected');
-    taskList.removeChild(taskToRemove);
+  const taskToRemove = document.querySelector('.selected');
+  taskList.removeChild(taskToRemove);
 });
 //  -------------------------------------------------------------------
 
 //  salvar tarefas ----------------------------------------------------
 saveTasks.addEventListener('click', function () {
-    localStorage.taskList = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.taskList = document.getElementById('lista-tarefas').innerHTML;
 });
