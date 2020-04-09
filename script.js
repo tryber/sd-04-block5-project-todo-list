@@ -15,10 +15,17 @@ window.onload = function(){
   document.body.addEventListener( 'click', function ( event ) {
   console.log("event.target :",event.target);
   if( event.target.className == 'list') {
+    let listItem = document.querySelectorAll('.list');
     console.log("done");
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    for (let i=0; i<listItem.length; i+=1){
+      listItem[i].style.backgroundColor = 'white';
+      }
+    event.target.style.backgroundColor = 'rgb(128 ,128 ,128)';
   };
 } );
+
+
+
 //temp 
 
 //temp end
