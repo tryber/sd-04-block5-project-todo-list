@@ -13,6 +13,20 @@ const button5 = document.querySelector('#remover-selecionado');
 const button6 = document.querySelector('#mover-cima');
 const button7 = document.querySelector('#mover-baixo');
 
+// Função mover elemento para cima
+button6.addEventListener('click', function () {
+  const tasks = document.querySelector('.gray');
+  const up = tasks.previousSibling;
+  ol.insertBefore(tasks, up);
+});
+
+// Função mover elemento para baixo:
+button7.addEventListener('click', function () {
+  const up = document.querySelector('.gray');
+  const tasks = up.nextSibling;
+  ol.insertBefore(tasks, up);
+});
+
 // Adicionando função de add tarefas no button1
 function addTask() {
   if (input.value !== '') {
@@ -64,18 +78,4 @@ button5.addEventListener('click', function () {
   for (let i = 0; i < tasks.length; i += 1) {
     ol.removeChild(tasks[i]);
   }
-});
-
-// Função mover elemento para cima
-button6.addEventListener('click', function () {
-  const tasks = document.querySelector('.gray');
-  const up = tasks.previousSibling;
-  ol.insertBefore(tasks, up);
-});
-
-// Função mover elemento para baixo:
-button7.addEventListener('click', function () {
-  const up = document.querySelector('.gray');
-  const tasks = up.nextSibling;
-  ol.insertBefore(tasks, up);
 });
