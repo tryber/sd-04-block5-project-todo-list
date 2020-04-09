@@ -1,6 +1,8 @@
 const ol = document.querySelector('#lista-tarefas');
 let input = document.querySelector('#texto-tarefa');
-const button = document.querySelector('#criar-tarefa');
+const button1 = document.querySelector('#criar-tarefa');
+const button2 = document.querySelector('#apaga-tudo');
+
 
 // Adicionando função de add tarefas no button
 function addTask() {
@@ -11,4 +13,12 @@ function addTask() {
   input.value = ""
   }
 }
-button.addEventListener('click', addTask)
+button1.addEventListener('click', addTask)
+
+// Função apaga tudo
+function clear (){
+  while (ol.firstChild) {
+    ol.firstChild.remove();
+}
+}
+button2.addEventListener('click', clear)
