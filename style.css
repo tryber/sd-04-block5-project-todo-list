@@ -1,6 +1,11 @@
-button:hover {
+.button {
   cursor: pointer;
 }
-li:hover {
+
+.lista-tarefas li {
   cursor: pointer;
+}
+
+.gray {
+  background-color: gray;
 }
