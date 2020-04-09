@@ -23,3 +23,22 @@ p {
   margin: 2px;
   padding: 2px;
 }
+
+.input-list {
+  padding-top: 20px;
+}
+
+.criar-tarefa {
+  background-color: rgb(50, 50, 184);
+  border: 1px solid blue;
+  border-radius: 20px;
+  color: white;
+  font-weight: 900;
+  padding: 3px 15px;
+  margin-left: 10px;
+}
+
+.criar-tarefa:hover {
+  background-color: blue;
+  cursor: pointer;
+}
