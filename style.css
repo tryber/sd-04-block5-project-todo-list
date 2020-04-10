@@ -4,30 +4,37 @@ body {
   padding: 30px;
 }
 
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
 .completed {
   text-decoration: line-through;
 }
 
-.cursor-hand {
+/* .cursor {
   cursor: pointer;
 }
-
-#funcionamento {
-  color: rgb(70, 70, 70);
-  font-style: italic;
-}
-
+ */
 html {
   background-color: darkslategray;
   padding: 35px 500px 15px 15px;
 }
 
-#lista-tarefas {
-  background-color: rgb(200, 200, 200);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+.lista-ordenada {
+  font-family: Impact, Char, sans-serif;
 }
 
 .main-title {
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.paragraph {
+  color: rgb(70, 70, 70);
+  font-style: italic;
+}
+
+.tachado {
+  text-decoration: line-through;
 }
