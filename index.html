@@ -13,13 +13,13 @@
     </header>
     <p id="funcionamento" class="paragraph">Clique duas vezes em um item para marcá-lo como completo</p>
     <input id="texto-tarefa" class="input-text" placeholder="Digite aqui sua tarefa" onfocus="this.placeholder='';">
-    <button id="criar-tarefa" style="cursor: pointer;" onclick="incluirItem()">Create task</button><br><br>
+    <button id="criar-tarefa" class="cursor-pointer" onclick="incluirItem()">Create task</button><br><br>
     <div id="list-container">
         <ol id="lista-tarefas" class="lista-ordenada">
         </ol>
     </div>
-    <button id="apaga-tudo" style="cursor: pointer;" onclick="apagarLista()">Clear All</button><br><br>
-    <button id="remover-finalizados" style="cursor: pointer;" onclick="excluirItem()">Remove concluídos</button><br>
+    <button id="apaga-tudo" class="cursor-pointer" onclick="apagarLista()">Clear All</button><br><br>
+    <button id="remover-finalizados" class="cursor-pointer" onclick="excluirItem()">Remove concluídos</button><br>
 
     <script src="script.js"></script>
 </body>

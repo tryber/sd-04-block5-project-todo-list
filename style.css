@@ -12,6 +12,10 @@ body {
   text-decoration: line-through;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 html {
   background-color: darkslategray;
   padding: 35px 500px 15px 15px;

@@ -3,7 +3,7 @@ const can = document.getElementById('lista-tarefas');
 function incluirItem() { // https://codare.aurelio.net/2006/12/20/javascript-construindo-listas-dinamicamente/
   const tarefaTexto = document.getElementById('texto-tarefa');
   const li = document.createElement('li');
-  // li.className = 'cible';
+  li.className = 'cursor-pointer';
   // li.innerHTML = tarefaTexto.value.toUpperCase();
   li.innerHTML = tarefaTexto.value;
   can.appendChild(li);
