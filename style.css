@@ -90,12 +90,6 @@ header span {
   width: 100%;
 }
 
-.visible {
-  opacity: 1;
-  transition-delay: 0s;
-  visibility: visible;
-}
-
 .task-controls {
   background-color: black;
   border-top-left-radius: 15px;
@@ -104,6 +98,12 @@ header span {
   height: 100px;
   margin-left: 15%;
   width: 300px;
+}
+
+.visible {
+  opacity: 1;
+  transition-delay: 0s;
+  visibility: visible;
 }
 
 .task-controls button {
