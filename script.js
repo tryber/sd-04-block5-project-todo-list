@@ -1,6 +1,7 @@
 const textoTarefa = document.getElementById('texto-tarefa'); // Manipula a caixa de texto.
 const btnAdiciona = document.getElementById('criar-tarefa'); // Manipula o botão que adiciona na lista.
 const btnLimpa = document.getElementById('apaga-tudo'); // Manipula o botão que apaga a lista.
+const btnLimpaConcluidas = document.getElementById('remover-finalizados'); // Manipula o botão que limpa itens concluídos.
 const lista = document.getElementById('lista-tarefas'); // Manipula a lista de tarefas.
 
 function selecionaItem() { // Altera o fundo do item clicado.
@@ -41,7 +42,17 @@ function eventBtnLimpa() { // Evento para o botão que limpa a lista.
   });
 }
 
+function eventBtnLimpaConcluidas() {
+  btnLimpaConcluidas.addEventListener('click', function () {
+    const concluidas = document.querySelectorAll('.completed');
+    for (let c = 0; c < concluidas.length; c += 1) {
+      lista.removeChild(concluidas[c]);
+    }
+  });
+}
+
 window.onload = function () {
   eventBtnAdiciona();
   eventBtnLimpa();
+  eventBtnLimpaConcluidas();
 };
