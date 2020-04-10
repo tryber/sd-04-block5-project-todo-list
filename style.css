@@ -5,20 +5,20 @@ body {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 .completed {
   text-decoration: line-through;
 }
 
-/* .cursor {
-  cursor: pointer;
-}
- */
 html {
   background-color: darkslategray;
   padding: 35px 500px 15px 15px;
+}
+
+.input-text:not(:focus) {
+  font-style: italic;
 }
 
 .lista-ordenada {
@@ -31,10 +31,6 @@ html {
 }
 
 .paragraph {
-  color: rgb(70, 70, 70);
+  color: rgb(70 , 70 , 70);
   font-style: italic;
-}
-
-.tachado {
-  text-decoration: line-through;
 }
