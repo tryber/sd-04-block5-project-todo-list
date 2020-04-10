@@ -16,6 +16,9 @@
     <div>
       <ol id='lista-tarefas' class='lista-tarefas'></ol>
     </div>
+    <div>
+      <button id='apaga-tudo' type='submit' class='mao'>Apaga tudo</button>
+    </div>
     <script>
       let botao1 = document.getElementById('criar-tarefa');
       botao1.addEventListener('click', function() {
@@ -24,15 +27,30 @@
         item.innerHTML = lista.value;
         document.getElementById('lista-tarefas').appendChild(item);
         lista.value = '';
-        item.classList.add('mao');
-      })
+        // item.classList.add('mao');
+      });
+
       let botao2 = document.getElementById('lista-tarefas')
       botao2.addEventListener('click', function(e) {
-        e.target.style.backgroundColor = 'rgb(128,128,128)';
+        console.log(e.target.style.backgroundColor);
+       if(e.target.style.backgroundColor == 'rgb(128, 128, 128)') {
+         e.target.style.backgroundColor = "";
+       }else {
+         e.target.style.backgroundColor = 'rgb(128, 128, 128)'
+       }
       });
+
       let botao3 = document.getElementById('lista-tarefas')
       botao3.addEventListener('dblclick', function(e) {
-        e.target.classList.add('completed');
+        if(e.target.className == 'completed'){
+          e.target.classList.remove('completed')
+        }else {
+          e.target.classList.add('completed')
+        }        
+      });
+      let botao4 = document.getElementById('apaga-tudo')
+      botao4.addEventListener('click', function(e) {
+        document.getElementById('lista-tarefas').removeChild(li)
       });
      </script>
 </body>
