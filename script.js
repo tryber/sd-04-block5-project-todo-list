@@ -8,6 +8,7 @@ if (savedTasks) {
     }
   });
 }
+showTaskControls(false);
 
 const newTaskBt = document.querySelector('#criar-tarefa');
 newTaskBt.addEventListener('click', () => {
@@ -16,6 +17,7 @@ newTaskBt.addEventListener('click', () => {
     addTask(true, taskInput.value, null);
     taskInput.value = '';
   }
+  showTaskControls(false);
 });
 
 const removeTaskBtn = document.querySelector('#remover-selecionado');
@@ -23,11 +25,13 @@ removeTaskBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
   deleteTask(selectedTask);
   selectedTask.remove();
+  showTaskControls(false);
 });
 
 const cleanTasksBtn = document.querySelector('#apaga-tudo');
 cleanTasksBtn.addEventListener('click', () => {
   document.querySelector('#lista-tarefas').innerHTML = '';
+  showTaskControls(false);
 });
 
 const removeCompletedBtn = document.querySelector('#remover-finalizados');
@@ -36,6 +40,7 @@ removeCompletedBtn.addEventListener('click', () => {
   completedTasks.forEach((task) => {
     task.remove();
   });
+  showTaskControls(false);
 });
 
 const upTaskBtn = document.querySelector('#mover-cima');
@@ -85,6 +90,7 @@ function setTaskEvents(task) {
       document.querySelector('.selected').classList.remove('selected');
     }
     task.classList.add('selected');
+    showTaskControls(true);
   });
   // Complete Task
   task.addEventListener('dblclick', () => {
@@ -140,6 +146,20 @@ function moveTaskDown(task) {
     // Move tasks on list
     currentTask.nextSibling.remove();
     currentTask.before(nextTask);
+  }
+}
+
+function showTaskControls(show) {
+  const taskcontrol = document.querySelector('.task-controls-container');
+  switch (show) {
+    case true:
+      taskcontrol.classList.add('visible');
+      break;
+    case false:
+      taskcontrol.classList.remove('visible');
+      break;
+    default:
+      break;
   }
 }
 

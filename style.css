@@ -84,14 +84,19 @@ ol {
 }
 
 .task-controls-container {
-
-  /* opacity: 0;
+  opacity: 0;
   transition: visibility 0s linear 0.33s, opacity 0.33s linear;
-  visibility: hidden; */
+  visibility: hidden;
   bottom: 0;
   left: 0;
   position: fixed;
   width: 100%;
+}
+
+.visible {
+  opacity: 1;
+  transition-delay: 0s;
+  visibility: visible;
 }
 
 .task-controls {
