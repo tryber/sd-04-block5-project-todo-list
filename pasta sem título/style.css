@@ -1,0 +1,62 @@
+body {
+  background-color: rgb(83, 2, 2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+  color: white;
+  font-size: 15px;
+  font-style: normal;
+  text-align: center;
+}
+
+section {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px black;
+  font-size: 19px;
+  font-style: normal;
+  margin: auto;
+  padding: 15px;
+  width: 1000px;
+}
+
+footer {
+  color: white;
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+}
+
+.texto-tarefa {
+  font-size: 17px;
+  width: 950px;
+}
+
+.criar-tarefa, .remover-finalizados, .apaga-tudo  {
+    border: 0px;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+.criar-tarefa {
+  background-color: black;
+}
+
+.remover-finalizados {
+  background-color: grey;
+}
+
+.apaga-tudo {
+  background-color: red;
+}
+
+.lista-tarefas {
+  font-size: 20px;
+  font-weight: bold;
+  width: 900px;
+}

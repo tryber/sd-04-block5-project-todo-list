@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio Curso em Vídeo</title>
+    <title>Project JS - Todo List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Título</h1>
-    </header>    
+        <h1>Minha Lista de Tarefas</h1>     
+    </header>
     <section>
         <div>
-
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <form style="display: inline;"> </form>
+                <label for="texto-tarefa" class="texto-tarefa"><br><br>
+                <input type="text" id="texto-tarefa" class="texto-tarefa">
+            </form>
+            <input type="button" value="Adicionar" id="criar-tarefa" class="criar-tarefa">
         </div>
         <div>
-
+            <ol id="lista-tarefas" class="lista-tarefas" type="1" start="1" id="lista-tarefas"></ol>
+        </div>
+        <div>
+            <input type="button" value="Remover Ítem Selecionado" id="remover-finalizados" class="remover-finalizados">
+            <input type="button" value="Limpar Lista" id="apaga-tudo" class="apaga-tudo">
         </div>
     </section>
     <footer>
-        <p>&copy; Exercício Curso em Vídeo</p>
+        <p>&copy; Ana Higo - Trybe Student</p>
     </footer>
     <script src="script.js"></script>
 </body>
