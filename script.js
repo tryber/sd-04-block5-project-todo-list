@@ -99,7 +99,11 @@ const list = document.querySelector('#lista-tarefas');
       let taskNumberClass = localStorage.getItem('class'+i);
       console.log('taskNumberClass:',taskNumberClass);
         let li = document.createElement('li');
-        //li.classList.add(taskNumberClass);
+        let taskNumberClassArray = taskNumberClass.split(" ");
+        console.log('[res] :',taskNumberClassArray);
+        for (let i=0; i<taskNumberClassArray.length; i+=1){
+        li.classList.add(taskNumberClassArray[i]);
+        }
         list.appendChild(li).innerHTML = taskNumberText;
     //    taskBox.value = "";
         }
