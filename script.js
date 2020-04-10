@@ -21,25 +21,41 @@ window.onload = function () {
 const taskBox = document.querySelector('#texto-tarefa');
 const buttonevent = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
-const buttondeleteselected = document.querySelector('#remover-selecionado');
-buttondeleteselected.addEventListener ('click', function(){
+  const buttondeleteselected = document.querySelector('#remover-selecionado');
+  buttondeleteselected.addEventListener('click',function(event){
    let listItem = document.querySelectorAll('.list');
-        for (let i = 0; i < listItem.length; i += 1){
-        let listItembackgroundColor = listItem[i].style.backgroundColor;
-        if (listItembackgroundColor == 'rgb(128, 128, 128)'){
-          list.removeChild(listItem[i]);
-        }
-       }
+   for (let i=0; i<listItem.length; i+=1){
+   var classname = listItem[i].className;
+    if( classname.includes('selected')) {
+     list.removeChild(listItem[i]);
+     }
+    }
+ })
+
+// const taskBox = document.querySelector('#texto-tarefa');
+// const buttonevent = document.querySelector('#criar-tarefa');
+// const list = document.querySelector('#lista-tarefas');
+// const buttondeleteselected = document.querySelector('#remover-selecionado');
+// buttondeleteselected.addEventListener ('click', function(){
+//    let listItem = document.querySelectorAll('.list');
+//         for (let i = 0; i < listItem.length; i += 1){
+//         let listItembackgroundColor = listItem[i].style.backgroundColor;
+//         if (listItembackgroundColor == 'rgb(128, 128, 128)'){
+//           list.removeChild(listItem[i]);
+//         }
+//        }
 
       
-    });
+//     });
 
  //function remove completed task  
  const buttondeletefinished = document.querySelector('#remover-finalizados');
  buttondeletefinished.addEventListener('click',function(event){
- let listItem = document.querySelectorAll('.list');
- for (let i=0; i<listItem.length; i+=1){
-  if( listItem[i].className == 'list completed') {list.removeChild(listItem[i]);
+  let listItem = document.querySelectorAll('.list');
+  for (let i=0; i<listItem.length; i+=1){
+  var classname = listItem[i].className;
+   if( classname.includes('completed')) {
+    list.removeChild(listItem[i]);
     }
    }
 })
