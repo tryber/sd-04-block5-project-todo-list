@@ -43,7 +43,6 @@ buttondeleteselected.addEventListener ('click', function(){
     }
    }
 })
-
    //function on click button delete all items of the list
    const buttondeletevent = document.querySelector('#apaga-tudo');
    buttondeletevent.addEventListener('click',function(event){
@@ -53,13 +52,18 @@ buttondeleteselected.addEventListener ('click', function(){
      }
  })
    //function on double click add and remove '.completed' 
+   //PARA MELHORAR
    document.body.addEventListener( 'dblclick', function ( event ) {
-    if( event.target.className == 'list' && event.target.className !== 'completed') {
-      event.target.classList.add("completed");
-      }
-    else if( event.target.className == 'list completed') {
-         event.target.classList.remove("completed");
+    var classname = event.target.className;
+    if (classname.includes('list')) {
+      if (classname.includes('completed')) {
+      event.target.classList.remove("completed");
         }
+      else {
+        event.target.classList.add("completed");
+      }
+    }
+ 
   });
      //function on click button create a new item to list
      buttonevent.addEventListener('click',function(event){
@@ -75,8 +79,9 @@ buttondeleteselected.addEventListener ('click', function(){
      buttonup.addEventListener('click',function(event){
       let liselected = document.querySelector('.selected');
       console.log("liselected.previousElementSibling",liselected.previousElementSibling);
+      //let previous = liselected.previousElementSibling;
+      //if (previous != null) next = liselected.previousElementSibling;
       let previous = liselected.previousElementSibling;
-      if (previous != null) next = liselected.previousElementSibling;
       list.insertBefore(liselected, previous);
     })
      //function on click button down item go down to list
