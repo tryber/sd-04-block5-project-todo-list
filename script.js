@@ -25,3 +25,14 @@ function verificaCompleted(event) {
 ol.addEventListener('dblclick', function (event) {
   verificaCompleted(event);
 });
+
+function removeList() {
+  const li = document.getElementsByTagName('li');
+  for (let i = li.length -1; i >= 0; i -= 1) {
+    li[i].remove();
+  }
+}
+const buttonApagaTudo = document.getElementById('apaga-tudo');
+buttonApagaTudo.addEventListener('click', function () {
+  removeList();
+});
