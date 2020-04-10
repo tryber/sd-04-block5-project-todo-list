@@ -12,5 +12,16 @@ buttonCriarTarefa.addEventListener('click', function () {
 });
 
 ol.addEventListener('click', function (event) {
-  event.target.className = 'cinza';
+  event.target.classList.add('cinza');
+});
+
+function verificaCompleted(event) {
+  if (event.target.classList[1] === 'completed') {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+ol.addEventListener('dblclick', function (event) {
+  verificaCompleted(event);
 });
