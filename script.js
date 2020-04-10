@@ -10,3 +10,7 @@ function criarTarefa() {
 buttonCriarTarefa.addEventListener('click', function () {
   criarTarefa();
 });
+
+ol.addEventListener('click', function (event) {
+  event.target.className = 'cinza';
+});
