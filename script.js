@@ -8,11 +8,13 @@ window.onload = function () {
   }
 
   function marcaItem() {
-    let indentifier = event.target.style.textDecoration;
-    if(indentifier === 'line-through') {
+    const indentifier = event.target.style.textDecoration;
+    if (indentifier === 'line-through') {
       event.target.style.textDecoration = 'none';
+      event.target.classList.remove('completed');
     } else {
       event.target.style.textDecoration = 'line-through';
+      event.target.className = 'completed';
     }
   }
 
