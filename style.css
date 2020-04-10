@@ -4,6 +4,10 @@ body {
   padding: 30px;
 }
 
+li:hover {
+  cursor: pointer;
+}
+
 .selected {
   background-color: gray;
 }
@@ -21,7 +25,7 @@ html {
   padding: 35px 500px 15px 15px;
 }
 
-.input-text:not(:focus) {
+.input-text:not( :focus ) {
   font-style: italic;
 }
 
