@@ -50,7 +50,10 @@
       });
       let botao4 = document.getElementById('apaga-tudo')
       botao4.addEventListener('click', function(e) {
-        document.getElementById('lista-tarefas').removeChild(li)
+        let lista = document.getElementById('lista-tarefas')
+        for(let i in lista) {
+          lista.removeChild(lista.firstChild)
+        }
       });
      </script>
 </body>
