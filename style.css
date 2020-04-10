@@ -1,3 +1,7 @@
 .cinza {
   background-color: grey;
 }
+
+button {
+  cursor: pointer;
+}
