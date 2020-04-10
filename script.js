@@ -7,6 +7,7 @@ function criarTarefa() {
   ol.appendChild(li);
   inputTarefa.value = '';
 }
+
 buttonCriarTarefa.addEventListener('click', function () {
   criarTarefa();
 });
@@ -22,17 +23,23 @@ function verificaCompleted(event) {
     event.target.classList.add('completed');
   }
 }
+
 ol.addEventListener('dblclick', function (event) {
   verificaCompleted(event);
 });
 
-function removeList() {
-  const li = document.getElementsByTagName('li');
-  for (let i = li.length -1; i >= 0; i -= 1) {
-    li[i].remove();
+function removeElements(toBeRemoved) {
+  for (let i = toBeRemoved.length - 1; i >= 0; i -= 1) {
+    toBeRemoved[i].remove();
   }
 }
+
 const buttonApagaTudo = document.getElementById('apaga-tudo');
 buttonApagaTudo.addEventListener('click', function () {
-  removeList();
+  removeElements(document.getElementsByTagName('li'));
+});
+
+const RemoverFinalizados = document.getElementById('remover-finalizados');
+RemoverFinalizados.addEventListener('click', function () {
+  removeElements(document.querySelectorAll('.completed'));
 });
