@@ -39,7 +39,18 @@ buttonApagaTudo.addEventListener('click', function () {
   removeElements(document.getElementsByTagName('li'));
 });
 
-const RemoverFinalizados = document.getElementById('remover-finalizados');
-RemoverFinalizados.addEventListener('click', function () {
+const removerFinalizados = document.getElementById('remover-finalizados');
+removerFinalizados.addEventListener('click', function () {
   removeElements(document.querySelectorAll('.completed'));
+});
+
+function saveList(list) {
+  for (let i = 0; i < list.length; i += 1) {
+    localStorage.setItem(i, list[i].innerHTML);
+  }
+}
+
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.addEventListener('click', function () {
+  saveList(document.getElementsByTagName('li'));
 });
