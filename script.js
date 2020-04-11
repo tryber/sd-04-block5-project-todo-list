@@ -1,10 +1,12 @@
 // Variables
 let newTask = document.getElementById("texto-tarefa");
-let button = document.getElementById("criar-tarefa");
+let createTask = document.getElementById("criar-tarefa");
+let deleteAll = document.getElementById("apaga-tudo");
+let deleteCompletedTasks = document.getElementById("remover-finalizados");
 
 
 // New item is created when the user press the button
-button.addEventListener("click", addItem);
+createTask.addEventListener("click", addItem);
 function addItem() {
   if(newTask.value !== "") { //Do not accept an empty taks
     let task = document.createElement("li");
@@ -14,7 +16,7 @@ function addItem() {
     task.style.cursor = "pointer";//change cursor type
     newTask.value = "";
   }
-  // selectTask();//one click
+  selectTask();//one click
   completedTask()//double click
 }
 // Select task and change color background
@@ -43,7 +45,6 @@ function completedTask() {
       undoCompletedTask()
     })
   }
-
 }
 // Undo completed task    
 function undoCompletedTask() {
@@ -57,7 +58,24 @@ function undoCompletedTask() {
     }
   }
 }
-
+// Delete completed tasks
+deleteCompletedTasks.addEventListener("click", deleteCompleted);
+function deleteCompleted() {
+  let items = document.querySelectorAll(".completed");
+  for(i = 0; i < items.length; i+=1) {
+    items[i].parentNode.removeChild(items[i]); 
+  }
+  selectTask();//one click
+  completedTask()//double click
+}
+// Delete all tasks
+deleteAll.addEventListener("click", deleteAllTasks)
+function deleteAllTasks() {
+  let items = document.querySelector("ol")
+  items.innerHTML = "";
+  selectTask();//one click
+  completedTask()//double click
+}
 
 
        
