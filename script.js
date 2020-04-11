@@ -14,15 +14,24 @@ window.onload = function () {
     document.getElementById('texto-tarefa').value = '';
   }
 
-  for (let i = 0; i < document.querySelectorAll("button").length; i += 1) {
-    document.querySelectorAll("button")[i].addEventListener("mouseover", function (e) {
-      if (e.target && e.target.nodeName == "BUTTON") {
-        document.querySelectorAll("button")[i].style.cursor = 'pointer';
-      }
-    });
-  }
+  document.addEventListener("mouseover", function (event) {
+    if (event.target && event.target.nodeName == "BUTTON") {
+      event.target.style.cursor = 'pointer';
+    }
+  });
 
-  
+  document.getElementById("lista-tarefas").addEventListener("mouseover", function (event) {
+    if (event.target && event.target.nodeName == "LI") {
+      event.target.style.cursor = 'pointer';
+    }
+  });
+
+  document.getElementById("lista-tarefas").addEventListener("click", function (event) {
+    if (event.target && event.target.nodeName == "LI") {
+      event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    }
+  });
+
 
 }
 
