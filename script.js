@@ -2,9 +2,10 @@ const textoTarefa = document.getElementById('texto-tarefa'); // Manipula a caixa
 const btnAdiciona = document.getElementById('criar-tarefa'); // Manipula o botão que adiciona na lista.
 const btnLimpa = document.getElementById('apaga-tudo'); // Manipula o botão que apaga a lista.
 const btnLimpaConcluidas = document.getElementById('remover-finalizados'); // Manipula o botão que limpa itens concluídos.
-const btnSalvaTarefas = document.getElementById('salvar-tarefas');
-const btnMoveCima = document.getElementById('mover-cima');
-const btnMoveBaixo = document.getElementById('mover-baixo');
+const btnSalvaTarefas = document.getElementById('salvar-tarefas'); // Manipula botão salva tarefas.
+const btnMoveCima = document.getElementById('mover-cima'); // Manipula botão mover para cima.
+const btnMoveBaixo = document.getElementById('mover-baixo'); // Manipula botão mover para baixo.
+const btnRemoveSelecionado = document.getElementById('remover-selecionado'); // Manipula remover item.
 const lista = document.getElementById('lista-tarefas'); // Manipula a lista de tarefas.
 
 function storeExists() { // Verifica so o navegador tem suporte a Storage.
@@ -108,10 +109,10 @@ function eventBtnSalvarTarefas() {
 
 function eventBtnMoveCima() { // Evento para o botão mover-cima.
   btnMoveCima.addEventListener('click', function () {
-    let itemSelecionado = document.querySelector('.selected');
-    let itemAnterior = itemSelecionado.previousElementSibling;
-    let backup = itemAnterior.innerText;
-    if(itemAnterior) {
+    const itemSelecionado = document.querySelector('.selected');
+    const itemAnterior = itemSelecionado.previousElementSibling;
+    const backup = itemAnterior.innerText;
+    if (itemAnterior) {
       itemAnterior.innerText = itemSelecionado.innerText;
       itemSelecionado.innerText = backup;
       itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
@@ -124,10 +125,10 @@ function eventBtnMoveCima() { // Evento para o botão mover-cima.
 
 function eventBtnMoveBaixo() { // Evento para o botão mover-baixo.
   btnMoveBaixo.addEventListener('click', function () {
-    let itemSelecionado = document.querySelector('.selected');
-    let itemPosterior = itemSelecionado.nextElementSibling;
-    let backup = itemPosterior.innerText;
-    if(itemPosterior) {
+    const itemSelecionado = document.querySelector('.selected');
+    const itemPosterior = itemSelecionado.nextElementSibling;
+    const backup = itemPosterior.innerText;
+    if (itemPosterior) {
       itemPosterior.innerText = itemSelecionado.innerText;
       itemSelecionado.innerText = backup;
       itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
@@ -135,6 +136,12 @@ function eventBtnMoveBaixo() { // Evento para o botão mover-baixo.
       itemPosterior.classList.add('selected');
       itemSelecionado.classList.remove('selected');
     }
+  });
+}
+
+function eventBtnRemoveSelecionado() {
+  btnRemoveSelecionado.addEventListener('click', function () {
+    document.querySelector('.selected').remove();
   });
 }
 
@@ -146,4 +153,5 @@ window.onload = function () {
   carregaLista();
   eventBtnMoveCima();
   eventBtnMoveBaixo();
+  eventBtnRemoveSelecionado();
 };
