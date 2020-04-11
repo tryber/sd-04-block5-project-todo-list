@@ -18,7 +18,7 @@ function criarTarefa() {
 
 botaoCriarTarefa.addEventListener('click', criarTarefa);
 
-// 8) Mudando o Backgoung
+// 8) Mudando o Backgound
 const tarefa = document.getElementById('lista-tarefas');
 tarefa.addEventListener('click', (event) => {
   if (document.querySelector('.selected') !== null) {
@@ -30,7 +30,7 @@ tarefa.addEventListener('click', (event) => {
 });
 
 // 9) Riscar tarefas completadas
-tarefa.addEventListener('dblclick', (event) => {
+tarefaListada.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
@@ -38,3 +38,18 @@ tarefa.addEventListener('dblclick', (event) => {
   }
 });
 
+// 10) botão apaga tudo
+apagaTudo.addEventListener('click', function () {
+  const tarefas = document.querySelectorAll('li');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    tarefaListada.removeChild(tarefas[i]);
+  }
+});
+
+// 11) Botão Remover Finalizados
+removerFinalizadas.addEventListener('click', function() {
+  const tarefas = document.querySelectorAll('li');
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tarefas[i].classList.contains('completed')) {
+      taskList.removeChild(tasks[i]);
+});
