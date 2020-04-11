@@ -14,15 +14,15 @@ function tarefaList() {
   tarefa.value = '';
 }
 
-function marcaUm(i) {
-  if (event.target.style.backgroundColor == 'rgb(128, 128, 128)'){
+function marcaUm() {
+  if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
     event.target.style.backgroundColor = '';
-  } else if (event.target.className == 'tarefa'){
+  } else if (event.target.className === 'tarefa') {
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
 
-function marcaDone(i) {
+function marcaDone() {
   if (event.target.className === 'tarefa completed') {
     event.target.className = 'tarefa';
   } else {
@@ -31,22 +31,22 @@ function marcaDone(i) {
 }
 
 function Allremove() {
-  while (lista.hasChildNodes()) {  
+  while (lista.hasChildNodes()) {
     lista.removeChild(lista.firstChild);
   }
 }
 
 function doneRemove() {
-  var elements = document.querySelectorAll('.completed'); 
+  const elements = document.querySelectorAll('.completed');
   for (let i = 0; i < elements.length; i += 1) {
     lista.removeChild(elements[i]);
-    }
+  }
 }
 
 // Event Listener
 criarTarefa.addEventListener('click', tarefaList);
 removeAll.addEventListener('click', Allremove);
-removeDone.addEventListener('click', doneRemove)
+removeDone.addEventListener('click', doneRemove);
 
 // Elementos da Lista
 
