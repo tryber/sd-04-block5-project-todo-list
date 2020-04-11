@@ -9,57 +9,6 @@ function storeExists() { // Verifica so o navegador tem suporte a Storage.
   return typeof Storage !== 'undefined';
 }
 
-function criaItem(value) { // Cria item com base do contexto e necessidade.
-  const item = document.createElement('li');
-  if (value) {
-    item.innerHTML = localStorage.getItem(value);
-    item.addEventListener('click', selecionaItem);
-    item.addEventListener('dblclick', marcaItem);
-    lista.appendChild(item);
-  } else {
-    item.innerHTML = textoTarefa.value;
-    item.addEventListener('click', selecionaItem);
-    item.addEventListener('dblclick', marcaItem);
-    lista.appendChild(item);
-    textoTarefa.value = '';
-  }
-}
-
-function recuperaLista() { // Armazena as chaves do localStorage e ás ordena.
-  const vetor = [];
-  for (let i = 0; i < localStorage.length; i += 1) {
-    vetor.push(localStorage.key(i));
-  }
-  return vetor.sort();
-}
-
-function carregaLista() { // Carrega a lista salva no Storage usando a função criaItem.
-  const minhaLista = recuperaLista();
-  for (let i = 0; i < minhaLista.length; i += 1) {
-    criaItem(minhaLista[i]);
-  }
-}
-
-function concluiSalvamento() { // Função que salva no localStorage.
-  const itens = lista.childNodes;
-  if (itens.length === 0) {
-    localStorage.clear();
-  } else {
-    localStorage.clear();
-    for (let i = 0; i < itens.length; i += 1) {
-      localStorage.setItem(`item${i}`, `${itens[i].innerText}`);
-    }
-  }
-}
-
-function salvaListaNoStorage() { // Ultiliza a função concluiSalvamento e exibe mensagem na tele se necessário.
-  if (storeExists()) {
-    concluiSalvamento();
-  } else {
-    alert('Seu navegador não tem suporte a Local Storage!');
-  }
-}
-
 function selecionaItem() { // Altera o fundo do item clicado.
   const itens = document.querySelectorAll('li');
   for (let i = 0; i < itens.length; i += 1) {
@@ -81,9 +30,47 @@ function marcaItem() { // Risca o item que for clicado duas vezes, e desfaz o ri
   }
 }
 
+function criaItem() { // Cria item com base do contexto e necessidade.
+  const item = document.createElement('li');
+  item.innerHTML = textoTarefa.value;
+  item.addEventListener('click', selecionaItem);
+  item.addEventListener('dblclick', marcaItem);
+  lista.appendChild(item);
+  textoTarefa.value = '';
+}
+
+function carregaLista() { // Carrega a lista salva no Storage usando a função criaItem.
+  if(localStorage.itens) {
+    lista.innerHTML = localStorage.itens;
+    const li = lista.children;
+    for (let i = 0; i < li.length; i += 1) {
+      li[i].addEventListener('click', selecionaItem);
+      li[i].addEventListener('dblclick', marcaItem);
+    }
+  }
+}
+
+function concluiSalvamento() { // Função que salva no localStorage.
+  const itens = lista.childNodes;
+  if (itens.length === 0) {
+    localStorage.clear();
+  } else {
+    localStorage.clear();
+    localStorage.setItem(`itens`, `${lista.innerHTML}`);
+  }
+}
+
+function salvaListaNoStorage() { // Usa a função concluiSalvamento, exibe mensagem se necessário.
+  if (storeExists()) {
+    concluiSalvamento();
+  } else {
+    alert('Seu navegador não tem suporte a Local Storage!');
+  }
+}
+
 function apagaLista(number) { // Apaga todos os item da lista.
   for (let n = 0; n < number; n += 1) {
-    lista.removeChild(lista.childNodes[0]);
+    lista.innerHTML = '';
   }
 }
 
