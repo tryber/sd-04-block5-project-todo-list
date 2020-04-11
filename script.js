@@ -3,7 +3,7 @@ const tarefa = document.getElementById('texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
 const lista = document.getElementById('lista-tarefas');
 const removeAll = document.getElementById('apaga-tudo');
-const removeDone = document.getElementById('apaga-finalizados');
+const removeDone = document.getElementById('remover-finalizados');
 
 // Funçoes
 function tarefaList() {
@@ -15,7 +15,9 @@ function tarefaList() {
 }
 
 function marcaUm(i) {
-  if (event.target.className == 'tarefa'){
+  if (event.target.style.backgroundColor == 'rgb(128, 128, 128)'){
+    event.target.style.backgroundColor = '';
+  } else if (event.target.className == 'tarefa'){
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
@@ -34,24 +36,23 @@ function Allremove() {
   }
 }
 
-function DoneRemove() {
-  var elements = document.querySelectorAll('li'); 
+function doneRemove() {
+  var elements = document.querySelectorAll('.completed'); 
   for (let i = 0; i < elements.length; i += 1) {
-    if (elements[i].target.classList.contains('completed')) {
-      lista.removeChild(elements[i]);
+    lista.removeChild(elements[i]);
     }
-  }
 }
 
 // Event Listener
 criarTarefa.addEventListener('click', tarefaList);
 removeAll.addEventListener('click', Allremove);
+removeDone.addEventListener('click', doneRemove)
 
 // Elementos da Lista
 
 lista.addEventListener('click', function () {
   marcaUm(event);
-  });
+});
 lista.addEventListener('dblclick', function () {
   marcaDone(event);
 });

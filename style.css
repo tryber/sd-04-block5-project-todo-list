@@ -1,12 +1,17 @@
+body {
+  background-color: rgb(252, 159, 205);
+  text-align: center;
+}
+
 button {
+  background-color: rgb(248, 88, 168);
   border-radius: 2px;
-  background-color: bisque;
   cursor: pointer;
 }
 
 title {
+  font-family: 'Indie Flower', cursive;
   font-size: 20px;
-  font-family: Indie Flower, cursive;
 }
 
 .completed {
@@ -19,4 +24,5 @@ title {
 
 .tarefa {
   cursor: pointer;
+  list-style-position: inside;
 }
