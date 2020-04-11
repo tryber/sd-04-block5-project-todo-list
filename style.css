@@ -1,3 +1,15 @@
+ol {
+  height: 50vh;
+  width: 100%;
+  overflow: auto;
+}
 li {
-  margin: 20px;
+  cursor: pointer;
+  margin: 15px;
+}
+button {
+  cursor: pointer;
+}
+.completed {
+  text-decoration: line-through;
 }
