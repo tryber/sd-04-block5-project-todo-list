@@ -3,6 +3,8 @@ const btnAdiciona = document.getElementById('criar-tarefa'); // Manipula o botã
 const btnLimpa = document.getElementById('apaga-tudo'); // Manipula o botão que apaga a lista.
 const btnLimpaConcluidas = document.getElementById('remover-finalizados'); // Manipula o botão que limpa itens concluídos.
 const btnSalvaTarefas = document.getElementById('salvar-tarefas');
+const btnMoveCima = document.getElementById('mover-cima');
+const btnMoveBaixo = document.getElementById('mover-baixo');
 const lista = document.getElementById('lista-tarefas'); // Manipula a lista de tarefas.
 
 function storeExists() { // Verifica so o navegador tem suporte a Storage.
@@ -14,9 +16,11 @@ function selecionaItem() { // Altera o fundo do item clicado.
   for (let i = 0; i < itens.length; i += 1) {
     if (itens[i].style.backgroundColor === 'rgb(128, 128, 128)') {
       itens[i].style.backgroundColor = 'white';
+      itens[i].classList.remove('selected'); // remova uma classe específica.
     }
   }
   event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('selected'); // Adiciona um classe a mais no elemento.
 }
 
 function marcaItem() { // Risca o item que for clicado duas vezes, e desfaz o risco.
@@ -40,7 +44,7 @@ function criaItem() { // Cria item com base do contexto e necessidade.
 }
 
 function carregaLista() { // Carrega a lista salva no Storage usando a função criaItem.
-  if(localStorage.itens) {
+  if (localStorage.itens) {
     lista.innerHTML = localStorage.itens;
     const li = lista.children;
     for (let i = 0; i < li.length; i += 1) {
@@ -56,7 +60,7 @@ function concluiSalvamento() { // Função que salva no localStorage.
     localStorage.clear();
   } else {
     localStorage.clear();
-    localStorage.setItem(`itens`, `${lista.innerHTML}`);
+    localStorage.setItem('itens', `${lista.innerHTML}`);
   }
 }
 
@@ -102,10 +106,44 @@ function eventBtnSalvarTarefas() {
   });
 }
 
+function eventBtnMoveCima() { // Evento para o botão mover-cima.
+  btnMoveCima.addEventListener('click', function () {
+    let itemSelecionado = document.querySelector('.selected');
+    let itemAnterior = itemSelecionado.previousElementSibling;
+    let backup = itemAnterior.innerText;
+    if(itemAnterior) {
+      itemAnterior.innerText = itemSelecionado.innerText;
+      itemSelecionado.innerText = backup;
+      itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
+      itemSelecionado.style.backgroundColor = 'white';
+      itemAnterior.classList.add('selected');
+      itemSelecionado.classList.remove('selected');
+    }
+  });
+}
+
+function eventBtnMoveBaixo() { // Evento para o botão mover-baixo.
+  btnMoveBaixo.addEventListener('click', function () {
+    let itemSelecionado = document.querySelector('.selected');
+    let itemPosterior = itemSelecionado.nextElementSibling;
+    let backup = itemPosterior.innerText;
+    if(itemPosterior) {
+      itemPosterior.innerText = itemSelecionado.innerText;
+      itemSelecionado.innerText = backup;
+      itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
+      itemSelecionado.style.backgroundColor = 'white';
+      itemPosterior.classList.add('selected');
+      itemSelecionado.classList.remove('selected');
+    }
+  });
+}
+
 window.onload = function () {
   eventBtnAdiciona();
   eventBtnLimpa();
   eventBtnLimpaConcluidas();
   eventBtnSalvarTarefas();
   carregaLista();
+  eventBtnMoveCima();
+  eventBtnMoveBaixo();
 };
