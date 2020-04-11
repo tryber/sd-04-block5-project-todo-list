@@ -1,7 +1,6 @@
 // Variables
 let newTask = document.getElementById("texto-tarefa");
 let button = document.getElementById("criar-tarefa");
-// let list = document.querySelector("lista-tarefas");
 
 
 // New item is created when the user press the button
@@ -12,12 +11,12 @@ function addItem() {
     let list = document.getElementById("lista-tarefas")
     task.innerText = newTask.value;
     list.appendChild(task)
+    task.style.cursor = "pointer";//change cursor type
     newTask.value = "";
   }
   selectTask();
- 
 }
-// Select task and color background
+// Select task and change color background
 function selectTask() {
   let task = document.getElementsByTagName("li");
   for( i = 0; i < task.length; i+=1) {
