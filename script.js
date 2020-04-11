@@ -9,31 +9,52 @@ function storeExists() { // Verifica so o navegador tem suporte a Storage.
   return typeof Storage !== 'undefined';
 }
 
-function recuperaLista() {
-  let vetor = [];
-  for(let i = 0; i < localStorage.length; i += 1) {
+function criaItem(value) { // Cria item com base do contexto e necessidade.
+  const item = document.createElement('li');
+  if (value) {
+    item.innerHTML = localStorage.getItem(value);
+    item.addEventListener('click', selecionaItem);
+    item.addEventListener('dblclick', marcaItem);
+    lista.appendChild(item);
+  } else {
+    item.innerHTML = textoTarefa.value;
+    item.addEventListener('click', selecionaItem);
+    item.addEventListener('dblclick', marcaItem);
+    lista.appendChild(item);
+    textoTarefa.value = '';
+  }
+}
+
+function recuperaLista() { // Armazena as chaves do localStorage e ás ordena.
+  const vetor = [];
+  for (let i = 0; i < localStorage.length; i += 1) {
     vetor.push(localStorage.key(i));
   }
   return vetor.sort();
 }
 
-function carregaLista() {
-  let minhaLista = recuperaLista();
+function carregaLista() { // Carrega a lista salva no Storage usando a função criaItem.
+  const minhaLista = recuperaLista();
   for (let i = 0; i < minhaLista.length; i += 1) {
-    craiItem(minhaLista[i]);
+    criaItem(minhaLista[i]);
   }
 }
 
-function salvaListaNoStorage() { // Salva os itens da lista no LocalStorage.
-  if (storeExists()) {
-    const itens = lista.childNodes;
-    if (itens.length === 0) {
-      localStorage.clear();
-    } else {
-      for (let i = 0; i < itens.length; i += 1) {
-        localStorage.setItem(`item${i}`, `${itens[i].innerText}`);
-      }
+function concluiSalvamento() { // Função que salva no localStorage.
+  const itens = lista.childNodes;
+  if (itens.length === 0) {
+    localStorage.clear();
+  } else {
+    localStorage.clear();
+    for (let i = 0; i < itens.length; i += 1) {
+      localStorage.setItem(`item${i}`, `${itens[i].innerText}`);
     }
+  }
+}
+
+function salvaListaNoStorage() { // Ultiliza a função concluiSalvamento e exibe mensagem na tele se necessário.
+  if (storeExists()) {
+    concluiSalvamento();
   } else {
     alert('Seu navegador não tem suporte a Local Storage!');
   }
@@ -66,26 +87,9 @@ function apagaLista(number) { // Apaga todos os item da lista.
   }
 }
 
-function craiItem(value) {
-  const item = document.createElement('li');
-  if (value) {
-    item.innerHTML = localStorage.getItem(value);
-    item.addEventListener('click', selecionaItem);
-    item.addEventListener('dblclick', marcaItem);
-    lista.appendChild(item);
-    textoTarefa.value = '';
-  } else {
-    item.innerHTML = textoTarefa.value;
-    item.addEventListener('click', selecionaItem);
-    item.addEventListener('dblclick', marcaItem);
-    lista.appendChild(item);
-    textoTarefa.value = '';
-  }
-}
-
 function eventBtnAdiciona() { // Evento para o botão que adiciona itens.
   btnAdiciona.addEventListener('click', function () {
-    craiItem();
+    criaItem();
   });
 }
 
