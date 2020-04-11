@@ -10,7 +10,7 @@ function storeExists() { // Verifica so o navegador tem suporte a Storage.
 }
 
 function salvaListaNoStorage() { // Salva os itens da lista no LocalStorage.
-  if(storeExists()) {
+  if (storeExists()) {
     const itens = lista.childNodes;
     for (let i = 0; i < itens.length; i += 1) {
       localStorage.setItem(`item${i}`, `${itens[i].innerText}`);
@@ -49,7 +49,7 @@ function apagaLista(number) { // Apaga todos os item da lista.
 
 function craiItem(value) {
   const item = document.createElement('li');
-  if(!value == null) {
+  if (!value == null) {
     item.innerHTML = localStorage.getItem(value);
     item.addEventListener('click', selecionaItem);
     item.addEventListener('dblclick', marcaItem);
@@ -97,5 +97,4 @@ window.onload = function () {
   eventBtnLimpa();
   eventBtnLimpaConcluidas();
   eventBtnSalvarTarefas();
-  carregaListaSalva();
 };
