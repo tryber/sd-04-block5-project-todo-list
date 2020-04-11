@@ -11,6 +11,7 @@ btnTarefa.addEventListener("click", function newElement() {
   tarefa.className = "task";
   ol.appendChild(tarefa);
   tarefa.innerHTML = inpText.value;
+  inpText.value = "";
 });
 
 list.addEventListener("click", function backgroundList() {
