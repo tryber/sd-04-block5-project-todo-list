@@ -2,8 +2,8 @@
 const tarefa = document.getElementById('texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
 const lista = document.getElementById('lista-tarefas');
-const item = [];
-let count = 0;
+const removeAll = document.getElementById('apaga-tudo');
+const removeDone = document.getElementById('apaga-finalizados');
 
 // Funçoes
 function tarefaList() {
@@ -11,9 +11,7 @@ function tarefaList() {
   li.innerHTML = tarefa.value;
   li.className = 'tarefa';
   lista.appendChild(li);
-  item[count] = document.getElementsByClassName('tarefa')[count];
   tarefa.value = '';
-  count += 1;
 }
 
 function marcaUm(i) {
@@ -30,14 +28,27 @@ function marcaDone(i) {
   }
 }
 
+function Allremove() {
+  while (lista.hasChildNodes()) {  
+    lista.removeChild(lista.firstChild);
+  }
+}
+
+function DoneRemove() {
+  document.querySelectorAll('.completed').forEach(function(a){
+    a.remove()
+    })
+}
+
 // Event Listener
 criarTarefa.addEventListener('click', tarefaList);
+removeAll.addEventListener('click', Allremove);
 
 // Elementos da Lista
 
-  document.body.addEventListener('click', function () {
-    marcaUm(event);
-    });
-  document.body.addEventListener('dblclick', function () {
-    marcaDone(event);
+document.body.addEventListener('click', function () {
+  marcaUm(event);
   });
+document.body.addEventListener('dblclick', function () {
+  marcaDone(event);
+});
