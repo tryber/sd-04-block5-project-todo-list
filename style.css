@@ -3,6 +3,10 @@ button {
   background-color: bisque;
 }
 
+.tarefa {
+  list-style-type: square;
+}
+
 title {
   font-size: 20px;
   font-family: 'Indie Flower', cursive;
