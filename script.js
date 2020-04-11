@@ -35,9 +35,12 @@ function Allremove() {
 }
 
 function DoneRemove() {
-  document.querySelectorAll('.completed').forEach(function(a){
-    a.remove()
-    })
+  var elements = document.querySelectorAll('li'); 
+  for (let i = 0; i < elements.length; i += 1) {
+    if (elements[i].target.classList.contains('completed')) {
+      lista.removeChild(elements[i]);
+    }
+  }
 }
 
 // Event Listener
@@ -46,9 +49,9 @@ removeAll.addEventListener('click', Allremove);
 
 // Elementos da Lista
 
-document.body.addEventListener('click', function () {
+lista.addEventListener('click', function () {
   marcaUm(event);
   });
-document.body.addEventListener('dblclick', function () {
+lista.addEventListener('dblclick', function () {
   marcaDone(event);
 });
