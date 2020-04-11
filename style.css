@@ -1,10 +1,7 @@
 button {
   border-radius: 2px;
   background-color: bisque;
-}
-
-.tarefa {
-  list-style-type: circle;
+  cursor: pointer;
 }
 
 title {
@@ -12,6 +9,14 @@ title {
   font-family: Indie Flower, cursive;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 .rodapé {
   margin-top: 25px;
+}
+
+.tarefa {
+  cursor: default;
 }
