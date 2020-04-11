@@ -18,5 +18,23 @@ function criarTarefa() {
 
 botaoCriarTarefa.addEventListener('click', criarTarefa);
 
-//
+// 8) Mudando o Backgoung
+const tarefa = document.getElementById('lista-tarefas');
+tarefa.addEventListener('click', (event) => {
+  if (document.querySelector('.selected') !== null) {
+    document.querySelector('.selected').style.backgroundColor = 'white';
+    document.querySelector('.selected').classList.remove('selected');
+  }
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('selected');
+});
+
+// 9) Riscar tarefas completadas
+tarefa.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+});
 
