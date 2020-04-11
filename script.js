@@ -1,14 +1,15 @@
 // Lendo as entradas
-let tarefa = document.getElementById('texto-tarefa');
-let criarTarefa = document.getElementById('criar-tarefa');
-let lista = document.getElementById('lista-tarefas');
+const tarefa = document.getElementById('texto-tarefa');
+const criarTarefa = document.getElementById('criar-tarefa');
+const lista = document.getElementById('lista-tarefas');
 
 // Funçoes
-function tarefaList () {
-  let li = document.createElement('li');
+function tarefaList() {
+  const li = document.createElement('li');
   li.innerHTML = tarefa.value;
   li.className = 'tarefa';
   lista.appendChild(li);
+  tarefa.value = '';
 }
 
 // Event Listener

@@ -4,12 +4,12 @@ button {
 }
 
 .tarefa {
-  list-style-type: square;
+  list-style-type: circle;
 }
 
 title {
   font-size: 20px;
-  font-family: 'Indie Flower', cursive;
+  font-family: Indie Flower, cursive;
 }
 
 .rodapé {
