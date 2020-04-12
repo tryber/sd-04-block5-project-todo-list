@@ -1,6 +1,7 @@
 const butAddTask = document.getElementById('criar-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
 const inptasks = document.getElementById('texto-tarefa');
+const butDelTasks = document.getElementById('apaga-tudo');
 
 function behaviors() {
   butAddTask.addEventListener('click', function () {
@@ -22,6 +23,12 @@ function behaviors() {
 
       olTasks.appendChild(li).innerText = txtTask;
       inptasks.value = '';
+    }
+  });
+
+  butDelTasks.addEventListener('click', function () {
+    while (olTasks.firstChild) {
+      olTasks.removeChild(olTasks.firstChild);
     }
   });
 }
