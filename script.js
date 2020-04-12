@@ -3,7 +3,7 @@ const ol = document.getElementById('lista-tarefas');
 function criarTarefa(tarefa, status) {
   const li = document.createElement('li');
   li.innerHTML = tarefa;
-  if (status != undefined) li.classList.add(status);
+  if (status !== undefined) li.classList.add(status);
   ol.appendChild(li);
 }
 
@@ -48,11 +48,11 @@ removerFinalizados.addEventListener('click', function () {
 function saveList(list) {
   for (let i = 0; i < list.length; i += 1) {
     if (list[i].classList[0] === 'completed') {
-      localStorage.setItem(i, list[i].innerHTML + '|' + list[i].classList[0]);
+      localStorage.setItem(i, `${list[i].innerHTML}|${list[i].classList[0]}`);
     } else if (list[i].classList[1] === 'completed') {
-      localStorage.setItem(i, list[i].innerHTML + '|' + list[i].classList[1]);
+      localStorage.setItem(i, `${list[i].innerHTML}|${list[i].classList[1]}`);
     } else {
-      localStorage.setItem(i, list[i].innerHTML + '|' + list[i].classList[2]);
+      localStorage.setItem(i, `${list[i].innerHTML}|${list[i].classList[2]}`);
     }
   }
 }
