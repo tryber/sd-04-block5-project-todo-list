@@ -3,13 +3,12 @@ const criarTarefa = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const li = document.createElement('li');
 
-if (typeof Storage !== ' ') {
+if (typeof Storage !== 'undefined') {
     listaTarefas.innerHTML = localStorage.listaTarefas;
 }
 
 criarTarefa.addEventListener('click', () => {
-  tarefa.innerHTML = textoTarefa.value;
-  listaTarefas.appendChild(tarefa);
+  li.innerHTML = textoTarefa.value;
+  listaTarefas.appendChild(li);
   textoTarefa.value = null;
 });
-
