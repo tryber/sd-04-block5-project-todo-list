@@ -78,3 +78,15 @@ const buttonRemoveSelecionado = document.getElementById('remover-selecionado');
 buttonRemoveSelecionado.addEventListener('click', function () {
   removeElements(document.querySelectorAll('.cinza'));
 });
+
+function moveUp() {
+  let selected = document.querySelector('.cinza');
+  let previous = selected.previousElementSibling;
+  let list = document.getElementById('lista-tarefas');
+  list.insertBefore(selected, previous);
+}
+
+const buttonMoverCima = document.getElementById('mover-cima');
+buttonMoverCima.addEventListener('click', function () {
+  moveUp();
+});
