@@ -1,37 +1,36 @@
-let ol, item, createdLi, textValue, btnTarefa, inpText, paragraph;
 
-ol = document.querySelector("#lista-tarefas");
-btnTarefa = document.getElementById("criar-tarefa");
-inpText = document.getElementById("texto-tarefa");
-textValue = document.createTextNode(inpText.value);
-createdLi = document.createElement("li");
-item = document.getElementsByTagName("li");
-paragraph = document.createElement("p");
-clearAll = document.getElementById("apaga-tudo");
+let addTarefa = document.querySelector("#criar-tarefa");
+let clearAll = document.querySelector("#apaga-tudo");
+let inpText = document.querySelector("#texto-tarefa");
+let ol = document.querySelector("#lista-tarefas");
+let item = document.getElementsByClassName("task");
 
-btnTarefa.addEventListener("click", function () {
-  if (inpText.value === "") {
-    alert("Nenhuma tarefa adicionada");
-  } else {
-    for (let i = 0; i < 10; i += 1) {
-      createdLi.className = "task";
-      ol.appendChild(createdLi);
-      item[i] = createdLi.appendChild(paragraph);
-      paragraph.insertAdjacentHTML("afterbegin", inpText.value);
-      inpText.focus();//deixar o cursor na caixa de texto apos adicionar
-      inpText.value = "";
-    }
+
+//Adicionar tarefas na lista
+addTarefa.addEventListener("click", function () {
+  if (inpText.value != "") {
+    let li = document.createElement('li');
+    let valor = document.getElementById("texto-tarefa").value;
+    let text = document.createTextNode(valor);
+    li.appendChild(text); //adicionar valor a li
+    ol.appendChild(li); //adicionar li em ol
+    li.className = "task";
+    inpText.focus(); //deixar o cursor na caixa de texto apos adicionar
+    inpText.value = ""; //limpar a caixa de texto
   }
 });
 
- for (let i = 0; i < item.length; i += 1) {
- item[i].addEventListener("click", function () {
-   item[i].style.backgroundColor = "rgb(128, 128, 128)";
-  })
- };
-
+//Limpar toda a lista de tarefas
 clearAll.addEventListener("click", function () {
-  for (let i = 0; i < number; i +=1){
-    item.innerHTML = "";
-  }
+  ol.innerHTML = "";
 });
+
+//Adicionar cor no item selecionado
+
+// for (let i = 0; i < item.length; i += 1) {
+//   item[i].addEventListener("click", function () {
+//     item[i].style.backgroundColor = 'cinza';
+//   });
+// };
+
+
