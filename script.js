@@ -10,6 +10,9 @@ function behaviors() {
       const li = document.createElement('li');
 
       li.style.cursor = 'pointer';
+      li.addEventListener('mouseover', function (e) { e.target.style.backgroundColor = 'rgb(128 , 128 , 128)'; });
+      li.addEventListener('mouseout', function (e) { e.target.style.backgroundColor = 'rgb(103 , 230 , 141)'; });
+
       olTasks.appendChild(li).innerText = txtTask;
       inptasks.value = '';
     }
