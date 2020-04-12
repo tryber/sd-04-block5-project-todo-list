@@ -80,13 +80,25 @@ buttonRemoveSelecionado.addEventListener('click', function () {
 });
 
 function moveUp() {
-  let selected = document.querySelector('.cinza');
-  let previous = selected.previousElementSibling;
-  let list = document.getElementById('lista-tarefas');
+  const selected = document.querySelector('.cinza');
+  const previous = selected.previousElementSibling;
+  const list = document.getElementById('lista-tarefas');
   list.insertBefore(selected, previous);
 }
 
 const buttonMoverCima = document.getElementById('mover-cima');
 buttonMoverCima.addEventListener('click', function () {
   moveUp();
+});
+
+function moveDown() {
+  const selected = document.querySelector('.cinza');
+  const secondNext = selected.nextElementSibling.nextElementSibling;
+  const list = document.getElementById('lista-tarefas');
+  list.insertBefore(selected, secondNext);
+}
+
+const buttonMoverBaixo = document.getElementById('mover-baixo');
+buttonMoverBaixo.addEventListener('click', function () {
+  moveDown();
 });
