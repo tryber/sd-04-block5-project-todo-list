@@ -9,8 +9,8 @@ function behaviors() {
     if (txtTask !== '') {
       const li = document.createElement('li');
 
+      li.style.cursor = 'pointer';
       olTasks.appendChild(li).innerText = txtTask;
-
       inptasks.value = '';
     }
   });
