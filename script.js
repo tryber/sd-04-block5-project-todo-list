@@ -3,7 +3,8 @@ let addTarefa = document.querySelector("#criar-tarefa");
 let clearAll = document.querySelector("#apaga-tudo");
 let inpText = document.querySelector("#texto-tarefa");
 let ol = document.querySelector("#lista-tarefas");
-let item = document.getElementsByClassName("task");
+let item = document.getElementsByTagName("li");
+let btnClearItem = document.querySelector("remover-selecionado");
 
 
 //Adicionar tarefas na lista
@@ -26,11 +27,17 @@ clearAll.addEventListener("click", function () {
 });
 
 //Adicionar cor no item selecionado
+for (let i = 0; i < item.length; i += 1) {
+  item[i].addEventListener("click", function () {
+    item[i].classList.add("selected");
+  });
+};
 
-// for (let i = 0; i < item.length; i += 1) {
-//   item[i].addEventListener("click", function () {
-//     item[i].style.backgroundColor = 'cinza';
-//   });
-// };
-
-
+//Remove o item selecionado
+for (let i = 0; i < item.length; i += 1) {
+  btnClearItem.addEventListener("click", function () {
+    if (item[i].className == "selected") {
+      item[i].innerHTML = "";
+    }
+  });
+};
