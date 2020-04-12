@@ -46,7 +46,7 @@ removerFinalizados.addEventListener('click', function () {
 
 function saveList(list) {
   for (let i = 0; i < list.length; i += 1) {
-    localStorage.setItem(i, list[i].innerHTML);
+    localStorage.setItem(i, list[i].innerHTML  );
   }
 }
 
