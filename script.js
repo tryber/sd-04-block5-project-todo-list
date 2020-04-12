@@ -1,21 +1,25 @@
 window.onload = function(){
 
-let inputTask = document.querySelector("#texto-tarefa");
-let buttonCreate = document.querySelector("#criar-tafefa");
+    let inputTask = document.querySelector("#texto-tarefa");
 
-toDoList = document.querySelector('#lista-tarefas')
+    let buttonCreate = document.querySelector("#criar-tafefa");
+    toDoList = document.querySelector('#lista-tarefas');
 
-buttonCreate.addEventListener('click', function(){
-    const listItem = document.createElement('li');
-    toDoList.appendChild(listItem);
-    listItem.innerText = inputTask.value;
-    inputTask.value = "";
-});
-
-
-const body = document.querySelector('body');
-
+    function insertItem(){
+        const listItem = document.createElement('li');
+        toDoList.appendChild(listItem);
+        listItem.innerText = inputTask.value;
+        inputTask.value = null;
+    
+    }
+    
+    buttonCreate.addEventListener('click', insertItem);
+    const body = document.querySelector('body');
+    
 }
+
+
+
 
 
 
