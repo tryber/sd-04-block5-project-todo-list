@@ -55,11 +55,12 @@ window.onload = function(){
         }*/
         itemLista.addEventListener("dblclick", function () {
             itemLista.style.textDecoration = "line-through";
+          
           })
         
     }
+    botao.addEventListener('click', addtarefa);
 
-    botao.addEventListener('click',addtarefa);
 
     // REMOVENDO ITENS DA LISTA
     function limpaLista(){
