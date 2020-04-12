@@ -37,6 +37,7 @@ butDelFinish.addEventListener('click', function () {
   for (i = 0; i < olTasks.children.length; i += 1) {
     if (olTasks.children[i].className === 'completed') {
       olTasks.removeChild(olTasks.children[i]);
+      i -= 1;
     }
   }
 });
