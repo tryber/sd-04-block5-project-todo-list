@@ -19,13 +19,15 @@ window.onload = function(){
             fundoLista[i].addEventListener('click', function(event){
                 let selectedItem = event.target;
                 selectedItem.classList.add('selected');
-                selectedItem.addEventListener('click', function(){
-                    console.log(true);
-                    selectedItem.classList.remove('selected');
-                })
+                selectedItem.addEventListener('click', apagaFundo);
 
             });
         }
+    }
+
+    function apagaFundo(){
+        document.querySelector(".selected").classList.remove("selected");
+
     }
 
     highlightItem();
