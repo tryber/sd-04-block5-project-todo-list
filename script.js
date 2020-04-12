@@ -1,15 +1,15 @@
 const buttonCriarTarefa = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
-function criarTarefa() {
+function criarTarefa(tarefa) {
   const li = document.createElement('li');
-  const inputTarefa = document.getElementById('texto-tarefa');
-  li.innerHTML = inputTarefa.value;
+  li.innerHTML = tarefa;
   ol.appendChild(li);
-  inputTarefa.value = '';
 }
 
 buttonCriarTarefa.addEventListener('click', function () {
-  criarTarefa();
+  const inputTarefa = document.getElementById('texto-tarefa');
+  criarTarefa(inputTarefa.value);
+  inputTarefa.value = '';
 });
 
 ol.addEventListener('click', function (event) {
@@ -46,7 +46,7 @@ removerFinalizados.addEventListener('click', function () {
 
 function saveList(list) {
   for (let i = 0; i < list.length; i += 1) {
-    localStorage.setItem(i, list[i].innerHTML  );
+    localStorage.setItem(i, list[i].innerHTML);
   }
 }
 
@@ -54,3 +54,14 @@ const saveButton = document.getElementById('salvar-tarefas');
 saveButton.addEventListener('click', function () {
   saveList(document.getElementsByTagName('li'));
 });
+
+function loadList() {
+  let index = 0;
+  while (localStorage.getItem(index) !== null) {
+    const savedValue = localStorage.getItem(index);
+    criarTarefa(savedValue);
+    index += 1;
+  }
+}
+
+loadList();
