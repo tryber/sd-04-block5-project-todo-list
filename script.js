@@ -12,6 +12,13 @@ function behaviors() {
       li.style.cursor = 'pointer';
       li.addEventListener('mouseover', function (e) { e.target.style.backgroundColor = 'rgb(128 , 128 , 128)'; });
       li.addEventListener('mouseout', function (e) { e.target.style.backgroundColor = 'rgb(103 , 230 , 141)'; });
+      li.addEventListener('dblclick', function (e) {
+        if (e.target.className === '') {
+          e.target.className = 'completed';
+        } else {
+          e.target.className = '';
+        }
+      });
 
       olTasks.appendChild(li).innerText = txtTask;
       inptasks.value = '';
