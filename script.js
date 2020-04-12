@@ -1,7 +1,9 @@
+let i;
 const butAddTask = document.getElementById('criar-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
 const inptasks = document.getElementById('texto-tarefa');
 const butDelTasks = document.getElementById('apaga-tudo');
+const butDelFinish = document.getElementById('remover-finalizados');
 
 function behaviors() {
   butAddTask.addEventListener('click', function () {
@@ -29,6 +31,14 @@ function behaviors() {
   butDelTasks.addEventListener('click', function () {
     while (olTasks.firstChild) {
       olTasks.removeChild(olTasks.firstChild);
+    }
+  });
+
+  butDelFinish.addEventListener('click', function () {
+    for (i = 0; i < olTasks.children.length; i += 1) {
+      if (olTasks.children[i].className === 'completed') {
+        olTasks.removeChild(olTasks.children[i]);
+      }
     }
   });
 }
