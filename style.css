@@ -12,3 +12,20 @@
     border-radius: 5px;
     margin-left: 10px;
 }
+
+.selected{
+    background-color: grey;
+}
+
+.deselected{
+    background-color: greenyellow;
+}
+
+body{
+    background-color: rgb(129, 214, 214);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#fundo-lista{
+    
+}
