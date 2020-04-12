@@ -73,3 +73,8 @@ function loadList() {
 }
 
 loadList();
+
+const buttonRemoveSelecionado = document.getElementById('remover-selecionado');
+buttonRemoveSelecionado.addEventListener('click', function () {
+  removeElements(document.querySelectorAll('.cinza'));
+});
