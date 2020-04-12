@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-do List</title>
-</head>
-<body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
-  <input type="text" id="texto-tarefa">
-  <ol id="lista-tarefas"></ol>
-  <button id="criar-tarefa"></button>
-  <button id="apaga-tudo"></button>
-  <button id="remover-finalizados"></button>
-  <button id="salvar-tarefas"></button>
-  <button id="mover-cima"></button>
-  <button id="mover-baixo"></button>
-  <button id="remover-selecionado"></button>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <aside class="menu">
+      <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento" class="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+      <input type="text" id="texto-tarefa" class="texto-tarefa">
+
+      <div class="buttons">
+        <button id="criar-tarefa" class="criar-tarefa">Add task</button>
+      </div>
+    </aside>
+
+    <main class="list">
+      <ol class="lista-tarefas" id="lista-tarefas"></ol>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
