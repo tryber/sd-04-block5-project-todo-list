@@ -4,6 +4,7 @@ adicionar.addEventListener('click', function () {
   const item = document.querySelector('#texto-tarefa');
   const lista = document.createElement('li');
   lista.innerText = item.value;
+  item.value = '';
 
   document.querySelector('#lista-tarefas').appendChild(lista);
 
