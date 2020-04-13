@@ -23,6 +23,7 @@ input {
   color: rgb(31 , 31 , 192);
   font-size: 1.2vw;
   font-weight: 600;
+  height: 20px;
   text-indent: 6px;
   width: 50%;
 }
