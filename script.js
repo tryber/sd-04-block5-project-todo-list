@@ -29,17 +29,15 @@ window.onload = function(){
 
       let botao4 = document.getElementById('apaga-tudo')
       botao4.addEventListener('click', function(e) {
-        let lista = document.querySelector('#lista-tarefas')
-        for(let i in lista) {
-          lista.removeChild(lista[i])
-        }
-      });
+        let lista = document.querySelector('#lista-tarefas')        
+        while (lista.firstChild) {          
+          lista.removeChild(lista.lastChild)
+        }});
 
       let botao5 = document.getElementById('remover-finalizados');
       botao5.addEventListener('click',function(e) {
-        let lista = document.querySelector('#lista-tarefas')
-        for(let i in lista) {
+        let lista = document.querySelector('#lista-tarefas') 
+        while (lista.firstChild) {
           document.querySelector('.completed').remove()
-        }
-      });
+        }});
 }
