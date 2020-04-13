@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>To do List</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <div class="box">
+      <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id='funcionamento' class='funcionamento'>Clique duas vezes em um item para marcá-lo como completo.</p>
+        <label>Adicione a sua tarefa!<br>
+          <input id='texto-tarefa' type='text'>
+        </label>
+        <button id='criar-tarefa' type="button">Criar Tarefa</button>
+      </header>
+      <section>
+        <ol id='lista-tarefas' class='lista-tarefas'>
+
+        </ol>
+      </section>
+      <div class='rodape'>
+        <button id='apaga-tudo'>Remover todas as Tarefas</button>
+        <button id='remover-finalizados'>Remover Tarefas finalizadas</button>
+      </div>
+        <script src="script.js"></script>
+    </div>
+  </body>
+  </html>
