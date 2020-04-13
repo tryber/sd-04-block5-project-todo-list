@@ -75,27 +75,21 @@ function clearFimSele(classe) {
 
 btnMoverCima.addEventListener('click', function () {
   let selecionado = document.querySelector(".selected");// procura o primeiro elemento .selected
-  if (selecionado.previousElementSibling == null) { alert('Limite alcançado'); }
-  else {
-    let valorAcima = selecionado.previousElementSibling.innerHTML;// recebe o conteudo anterior ao selecionado
-    let valorQSobe = selecionado.innerHTML;
-    selecionado.previousElementSibling.innerHTML = valorQSobe;// o conteudo do valor anterior do selecionado recebe o valor do selecionado
-    selecionado.innerHTML = valorAcima;// o conteudo selecionado ele recebe o valor do conteudo anterior
-    selecionado.classList.remove("selected");
-    selecionado.previousElementSibling.classList.add('selected');
-  }
+  let valorAcima = selecionado.previousElementSibling.innerHTML;// recebe o conteudo anterior ao selecionado
+  let valorQSobe = selecionado.innerHTML;
+  selecionado.previousElementSibling.innerHTML = valorQSobe;// o conteudo do valor anterior do selecionado recebe o valor do selecionado
+  selecionado.innerHTML = valorAcima;// o conteudo selecionado ele recebe o valor do conteudo anterior
+  selecionado.classList.remove("selected");
+  selecionado.previousElementSibling.classList.add('selected');
 });
 
 btnMoverBaixo.addEventListener('click', function () {
   let selecionado = document.querySelector('.selected');
-  if (selecionado.nextElementSibling == null) { alert('Limite alcançado'); }
-  else {
-    let valorAbaixo = selecionado.nextElementSibling.innerHTML;
-    let valorQDesce = selecionado.innerHTML;
-    selecionado.nextElementSibling.innerHTML = valorQDesce;
-    selecionado.innerHTML = valorAbaixo;
-    selecionado.classList.remove('selected');
-    selecionado.nextElementSibling.classList.add('selected');
-  }
+  let valorAbaixo = selecionado.nextElementSibling.innerHTML;
+  let valorQDesce = selecionado.innerHTML;
+  selecionado.nextElementSibling.innerHTML = valorQDesce;
+  selecionado.innerHTML = valorAbaixo;
+  selecionado.classList.remove('selected');
+  selecionado.nextElementSibling.classList.add('selected');
 })
 
