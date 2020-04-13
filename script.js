@@ -1,6 +1,8 @@
 const listaTarefas = document.getElementById('lista-tarefas');
 const criarTarefas = document.getElementById('criar-tarefa');
 const textoTarefas = document.getElementById('texto-tarefa');
+const apagarTudo = document.getElementById('apaga-tudo');
+const apagarLista = document.getElementById('remover-finalizados');
 
 if (typeof Storage !== 'undefined') {
   listaTarefas.innerHTML = localStorage.list;
@@ -30,3 +32,18 @@ listaTarefas.addEventListener('dblclick', (selecionado) => {
   }
 })
 
+apagarTudo.addEventListener('click', () => {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    listaTarefas.removeChild(li[i]);
+  }
+})
+
+apagarLista.addEventListener('click', () => {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].classList.contains('completed')) {
+      listaTarefas.removeChild(li[i]);
+    }
+  }
+})
