@@ -31,7 +31,7 @@ window.onload = function(){
       botao4.addEventListener('click', function(e) {
         let lista = document.querySelector('#lista-tarefas')
         for(let i in lista) {
-          lista.removeChild(lista.firstChild)
+          lista.removeChild(lista[i])
         }
       });
 
