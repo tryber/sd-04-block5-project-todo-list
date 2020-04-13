@@ -22,7 +22,8 @@ function checkStorage() {
         }
       });
 
-      olTasks.appendChild(li).innerText = localStorage.getItem(`key${i}`);
+      li.innerText = localStorage.getItem(`key${i}`);
+      olTasks.appendChild(li);
     }
   }
 }
@@ -44,7 +45,8 @@ butAddTask.addEventListener('click', function () {
       }
     });
 
-    olTasks.appendChild(li).innerText = txtTask;
+    li.innerText = txtTask;
+    olTasks.appendChild(li);
     inptasks.value = '';
   }
 });
