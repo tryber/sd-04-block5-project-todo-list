@@ -10,8 +10,8 @@ criarTarefas.addEventListener('click', () => {
   const li = document.createElement('li');
   li.innerHTML = textoTarefas.value;
   listaTarefas.appendChild(li);
-  textoTarefas.value;
-});
+  textoTarefas.value = null;
+})
 
 listaTarefas.addEventListener('click', (selecionado) => {
   if (document.querySelector('.selected') !== null) {
@@ -20,4 +20,13 @@ listaTarefas.addEventListener('click', (selecionado) => {
   }
   selecionado.target.style.backgroundColor = 'rgb(128,128,128)';
   selecionado.target.classList.add('selected');
-});
+})
+
+listaTarefas.addEventListener('dblclick', (selecionado) => {
+  if (selecionado.target.classList.contains('completed')) {
+    selecionado.target.classList.remove('completed');
+  } else {
+    selecionado.target.classList.add('completed');
+  }
+})
+
