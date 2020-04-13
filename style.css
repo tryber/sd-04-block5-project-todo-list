@@ -1,3 +1,61 @@
+body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  transition: background-color 1.8s;
+}
+
+.pagina {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h1 , p {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 60%;
+}
+
+input {
+  background-color: rgba(236, 230, 172, 0.842);
+  border-radius: 5px;
+  color: rgb(31, 31, 192);
+  font-size: 1.2vw;
+  font-weight: 600;
+  text-indent: 6px;
+  width: 50%;
+}
+
+input:hover , button:hover {
+  border: 2px solid blue;
+  box-shadow: 1px 1px 3px black;
+}
+
 button , li {
   cursor: pointer;
+}
+
+button {
+  color: white;
+  background-color: rgba(139, 0, 0, 0.61);
+  border-radius: 10px;
+  font-weight: 900;
+  height: 30px;
+}
+
+ol {
+  background-color: rgb(107, 141, 252);
+  width: 60%;
+}
+
+li {
+  background-color: white;
+  font-weight: 700;
+  list-style-position: inside;
+  padding: 2px;
+}
+
+li:hover {
+  border: 2px solid rgb(33, 95, 104);
 }

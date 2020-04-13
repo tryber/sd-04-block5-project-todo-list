@@ -7,6 +7,7 @@ const btnMoveCima = document.getElementById('mover-cima'); // Manipula botão mo
 const btnMoveBaixo = document.getElementById('mover-baixo'); // Manipula botão mover para baixo.
 const btnRemoveSelecionado = document.getElementById('remover-selecionado'); // Manipula remover item.
 const lista = document.getElementById('lista-tarefas'); // Manipula a lista de tarefas.
+const corpo = document.body; // Manipula o corpo.
 
 function storeExists() { // Verifica so o navegador tem suporte a Storage.
   return typeof Storage !== 'undefined';
@@ -145,6 +146,13 @@ function eventBtnRemoveSelecionado() {
   });
 }
 
+function alteraCor() {
+  const red = Number.parseInt(Math.random() * 255);
+  const green = Number.parseInt(Math.random() * 255);
+  const blue = Number.parseInt(Math.random() * 255);
+  document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
+}
+
 window.onload = function () {
   eventBtnAdiciona();
   eventBtnLimpa();
@@ -154,4 +162,5 @@ window.onload = function () {
   eventBtnMoveCima();
   eventBtnMoveBaixo();
   eventBtnRemoveSelecionado();
+  setInterval(alteraCor, 4000);
 };
