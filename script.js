@@ -33,6 +33,8 @@
     list.innerHTML=''
   });
 
+  
+
 
 if (localStorage.item) {
     list.appendChild(document.createElement('li')).innerHTML = localStorage.getItem('item')
