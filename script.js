@@ -27,8 +27,8 @@ function doubleClickTarefa(event) {
 function criarTarefa(text, className) {
   if (text !== '') {
     const novaTarefa = document.createElement('li');
-    novaTarefa.innerText = text;
-    textoTarefa.value = '';
+    const novoText = document.createTextNode(text);
+    novaTarefa.appendChild(novoText);
     if (className) {
       novaTarefa.className = className;
     }
@@ -38,6 +38,7 @@ function criarTarefa(text, className) {
 
 function eventCriarTarefa() {
   criarTarefa(textoTarefa.value);
+  textoTarefa.value = '';
 }
 
 function loadTarefas(tarefa) {
