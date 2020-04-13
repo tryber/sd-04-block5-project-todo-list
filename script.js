@@ -12,25 +12,37 @@ window.onload = function(){
     buttonCreate.addEventListener('click', insertItem);
 
 //FUNÇÃO DE DESTAQUE CINZA
-    function highlightItem(){
+/*    function highlightItem(){
         const fundoLista = this.document.querySelectorAll("#fundo-lista");
 
         for (let i = 0; i < fundoLista.length; i++) {
             fundoLista[i].addEventListener('click', function(event){
                 let selectedItem = event.target;
-                selectedItem.classList.add('selected');
-                selectedItem.addEventListener('click', apagaFundo);
-
+                pintaFundo(selectedItem);
             });
         }
     }
+*/
 
-    function apagaFundo(){
-        document.querySelector(".selected").classList.remove("selected");
-
+//FUNÇÃO DESTACA ITEM
+    function pintaFundo(event){
+        event.target.style.backgroundColor = 'grey';
     }
 
-    highlightItem();
+ //   function pintaFundo(a){
+ //       a.classList.add('selected');
+ //       a.addEventListener("click", apagaFundo);
+ //       let selecionado = document.querySelector(".selected");
+ //       selecionado.classList.remove("selected");
+ //   }
+
+
+ //   highlightItem()
+    
+//    function apagaFundo(){
+//    document.querySelector(".selected").classList.remove("selected");
+ //   }
+  
 
 //FUNÇÃO DE INSERIR ITEM
     function insertItem(){
@@ -39,16 +51,12 @@ window.onload = function(){
         listItem.innerText = inputTask.value;
         listItem.classList.add("item");
         inputTask.value = null;
+        
+        listItem.addEventListener("click", pintaFundo);
+        
     }
-    
+
 }
-
-
-
-
-
-
-
 
 
 
