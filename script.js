@@ -61,7 +61,7 @@ function changePos(element1, element2) {
 
 function moveCima() {
   if (tarefaSelecionada) {
-    const anterior = tarefaSelecionada.previousElementSibling;
+    const anterior = tarefaSelecionada.previousSibling;
     if (anterior) {
       changePos(tarefaSelecionada, anterior);
       clickTarefa(anterior);
@@ -71,7 +71,7 @@ function moveCima() {
 
 function moveBaixo() {
   if (tarefaSelecionada) {
-    const proxima = tarefaSelecionada.nextElementSibling;
+    const proxima = tarefaSelecionada.nextSibling;
     if (proxima) {
       changePos(tarefaSelecionada, proxima);
       clickTarefa(proxima);
