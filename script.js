@@ -1,20 +1,10 @@
 const btnTarefa = document.querySelector('#criar-tarefa');
-
-// btnTarefa.addEventListener('click', function(){
-//     let inputTarefa = document.querySelector('#texto-tarefa').value;
-//     var liTarefa = document.createElement("LI");         
-//     var textnode = document.createTextNode(inputTarefa);        
-//     liTarefa.appendChild(textnode);                              
-//     document.getElementById("lista-tarefas").appendChild(liTarefa); 
-//     inputTarefa = ' ';
-//     console.log(inputTarefa.value)
-// })
-
+let liLista = document.querySelectorAll('li');
 
 btnTarefa.addEventListener('click', function(){
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("texto-tarefa").value;
-    var t = document.createTextNode(inputValue);
+    let li = document.createElement("li");
+    let inputValue = document.getElementById("texto-tarefa").value;
+    let t = document.createTextNode(inputValue);
     li.appendChild(t);
     if (inputValue === '') {
       alert("Você deve escrever algo");
@@ -23,3 +13,13 @@ btnTarefa.addEventListener('click', function(){
     }
     document.getElementById("texto-tarefa").value = "";
 })
+
+var list = document.querySelector('ol');
+list.addEventListener('dblclick', function(event) {
+  if (event.target.tagName === 'LI') {
+    event.target.classList.toggle('completed');
+  }
+}, false);
+
+
+console.log(list)
