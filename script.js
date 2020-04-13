@@ -50,9 +50,9 @@ function loadTarefas(tarefa) {
 function changePos(element1, element2) {
   const text1 = element1.innerText;
   const class1 = element1.className;
-  element1.innerText = element2.innerText;
+  element1.innerHTML = element2.innerText;
   element1.className = element2.className;
-  element2.innerText = text1;
+  element2.innerHTML = text1;
   element2.className = class1;
 }
 
