@@ -5,6 +5,11 @@ let btnAdd = document.querySelector('#criar-tarefa');
 let btnDel = document.querySelector('#apaga-tudo');
 let btnRemove = document.querySelector('#remover-finalizados');
 
+// Requisito Bonus 1 
+if (typeof Storage !== 'undefined'){
+ lista.innerHTML = localStorage.list;
+};
+
 // Adiciona uma tarefa a lista
 function addTarefa(){
   let toDo = document.createElement('li');
@@ -60,6 +65,13 @@ btnRemove.addEventListener('click', function(){
 btnAdd.addEventListener('click', addTarefa);
 lista.addEventListener('dblclick', tarefaOk);
 btnDel.addEventListener('click', deleteTarefas);
+
+// Bonus 1 - localStorage
+
+btnSave = document.querySelector('#salvar-tarefas');
+btnSave.addEventListener('click', function(){
+  localStorage.list = lista.innerHTML;
+})
 
 // Bonus 2
 let btnUp = document.querySelector('#mover-cima');
