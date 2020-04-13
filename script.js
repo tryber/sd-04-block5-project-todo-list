@@ -1,5 +1,6 @@
 let i;
 let p;
+let j;
 const butAddTask = document.getElementById('criar-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
 const inptasks = document.getElementById('texto-tarefa');
@@ -21,11 +22,11 @@ function addEvents(elm) {
   });
 }
 
-function addClass(elm, ind) {
+function addClass(elm, idc) {
   const arrStg = JSON.parse(localStorage.getItem('indClass'));
 
-  for (p in arrStg) {
-    if (arrStg[p] === ind) {
+  for (j = 0; j < arrStg.length; j += 1) {
+    if (arrStg[j] === idc) {
       elm.className = 'completed';
     }
   }
