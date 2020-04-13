@@ -3,26 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To-do</title>
     <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <aside class="menu">
+    <!-- Side menu -->
+    <section class="menu">
       <header>
-        <h1>Minha Lista de Tarefas</h1>
+        <h1 class="title">Minha Lista de Tarefas</h1>
         <p id="funcionamento" class="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
       </header>
-      <input type="text" id="texto-tarefa" class="texto-tarefa">
 
-      <div class="buttons">
+      <!-- Task input -->
+      <div class="input-container">
+        <p>Write a task</p>
+        <input type="text" class="texto-tarefa">
+      </div>
+
+      <div class="buttons-container">
         <button id="criar-tarefa" class="criar-tarefa">Add task</button>
       </div>
-    </aside>
+    </section>
 
-    <main class="list">
-      <ol class="lista-tarefas" id="lista-tarefas"></ol>
-    </main>
-
+    <!-- Tasks list -->
+    <section class="tasks">
+      <h2>Tasks</h2>
+      <ol id="lista-tarefas" class="lista-tarefas"></ol>
+    </section>
     <script src="./script.js"></script>
   </body>
 </html>
