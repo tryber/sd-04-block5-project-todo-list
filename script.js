@@ -40,8 +40,10 @@ const botaoRemoveFinalizados = document.getElementById('remover-finalizados');
 
 function removeFinalizados() {
   const finalizados = document.querySelectorAll('.completed');
-  for (let i = 0; i <= finalizados.length; i = 1 + i) {
-    document.getElementById('lista-tarefas').removeChild(finalizados[i]);
+  if (finalizados) {
+    for (let i = 0; i < finalizados.length; i = 1 + i) {
+      document.getElementById('lista-tarefas').removeChild(finalizados[i]);
+    }
   }
 }
 
