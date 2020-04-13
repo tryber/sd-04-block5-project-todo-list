@@ -1,10 +1,12 @@
 let i;
+let p;
 const butAddTask = document.getElementById('criar-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
 const inptasks = document.getElementById('texto-tarefa');
 const butDelTasks = document.getElementById('apaga-tudo');
 const butDelFinish = document.getElementById('remover-finalizados');
 const butSaveTasks = document.getElementById('salvar-tarefas');
+let indClass = [];
 
 function addEvents(elm) {
   elm.style.cursor = 'pointer';
@@ -21,8 +23,16 @@ function addEvents(elm) {
 
 function checkStorage() {
   if (localStorage.length > 0) {
-    for (i = 0; i < localStorage.length; i += 1) {
+    for (i = 0; i < localStorage.length - 1; i += 1) {
       const li = document.createElement('li');
+
+      let arrStg = JSON.parse(localStorage.getItem('indClass'));
+
+      for (p in arrStg) {
+        if (arrStg[p] === i) {
+          li.className = 'completed';
+        }
+      }
 
       addEvents(li);
 
@@ -64,10 +74,20 @@ butDelFinish.addEventListener('click', function () {
 });
 
 butSaveTasks.addEventListener('click', function () {
+  localStorage.clear();
+
+  indClass = [];
+
   for (i = 0; i < olTasks.children.length; i += 1) {
-    const value = olTasks.children[i].innerText;
+    if (olTasks.children[i].className === 'completed') {
+      indClass.push(i);
+    }
+
     const key = `task${i}`;
+    const value = olTasks.children[i].innerText;
 
     localStorage.setItem(key, value);
   }
+
+  localStorage.setItem('indClass', JSON.stringify(indClass));
 });
