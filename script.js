@@ -6,7 +6,6 @@ function criarTarefa() {
   const inputTarefa = document.getElementById('texto-tarefa').value;
   const item = document.createElement('li');
   item.innerHTML = inputTarefa;
-  item.className = 'item';
   lista.appendChild(item);
   document.getElementById('texto-tarefa').value = '';
 }
@@ -42,7 +41,7 @@ window.onload = function () {
   //riscando os itens concluidos da lista:
   document.getElementById("lista-tarefas").addEventListener("dblclick", function (event) {
     if (event.target && event.target.nodeName == "LI") {
-      if (event.target.className == "item completed") {
+      if (event.target.className == "completed") {
         event.target.classList.remove('completed');
       } else event.target.classList.add('completed');
     }
@@ -53,7 +52,7 @@ window.onload = function () {
   function salvarLista() {
     localStorage.clear("items");
     itemsArray = [];
-    const listaItens = document.querySelectorAll(".item");
+    const listaItens = document.querySelectorAll("li");
     for (let j = 0; j < listaItens.length; j += 1) {
       itemsArray.push(listaItens[j].textContent);
     }
@@ -64,7 +63,6 @@ window.onload = function () {
   const criadorLista = text => {
     const item = document.createElement('li');
     item.textContent = text;
-    item.className = "item";
     lista.appendChild(item);
   }
   const data = JSON.parse(localStorage.getItem('items'))
