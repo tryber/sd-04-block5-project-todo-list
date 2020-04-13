@@ -66,9 +66,12 @@ window.onload = function () {
     lista.appendChild(item);
   }
   const data = JSON.parse(localStorage.getItem('items'))
-  for (let item = 0; item < data.length; item += 1) {
-    criadorLista(data[item]);
-  };
+  console.log(data);
+  if (data != null) {
+    for (let item = 0; item < data.length; item += 1) {
+      criadorLista(data[item]);
+    };
+  }
 };
 
   // --> other ways to add cursor events <--
