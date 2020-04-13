@@ -1,9 +1,14 @@
 const botaoAdiciona = document.getElementById('criar-tarefa');
 
+function adicionaCor(event) {
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+
 function acrescentaItem() {
   const lista = document.createElement('li');
   const textoTarefa = document.getElementById('texto-tarefa').value;
   lista.innerHTML = textoTarefa;
+  lista.addEventListener('click', adicionaCor);
   document.getElementById('lista-tarefas').appendChild(lista);
   document.getElementById('texto-tarefa').value = '';
 }
