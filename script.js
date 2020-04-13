@@ -3,7 +3,8 @@ let newTask = document.getElementById("texto-tarefa");
 let createTask = document.getElementById("criar-tarefa");
 let deleteAll = document.getElementById("apaga-tudo");
 let deleteCompletedTasks = document.getElementById("remover-finalizados");
-
+let list = document.getElementById("lista-tarefas")
+let saveTasks =document.getElementById("salvar-tarefas")
 
 // New item is created when the user press the button
 createTask.addEventListener("click", addItem);
@@ -24,9 +25,9 @@ function selectTask() {
   let task = document.getElementsByTagName("li");
   for( i = 0; i < task.length; i+=1) {
     task[i].addEventListener("click", function(event) {
-    event.target.classList.add("selected");
-    event.target.style.backgroundColor = "rgb(128,128,128)"
-    })
+      event.target.classList.add("selected");
+      event.target.style.backgroundColor = "rgb(128,128,128)"
+  })
   }
 }
 // Change buttons cursor type
@@ -76,8 +77,30 @@ function deleteAllTasks() {
   selectTask();//one click
   completedTask()//double click
 }
+// Set Local storage
+saveTasks.addEventListener("click", setLocalStorage);
+function setLocalStorage() {
+  localStorage.clear();
+  let taskList = document.querySelectorAll("li");
+    for (i = 0; i < taskList.length; i+=1) {
+      let className = taskList[i].className;
+      let task = taskList[i].innerHTML;
+      let taskIndex = `Task ${i}`;
+      let classIndex = `Class ${i}`;
+      localStorage.setItem(taskIndex, task)
+      localStorage.setItem(classIndex, className)
+    }
+    localStorage.setItem("numberOfItems", taskList.length)
+  }
+// Get local storage when load page
+window.onload = function() {
+  let index = localStorage.getItem("numberOfItems");
+  for( let i = 0; i < index; i+=1) {
+    let item = document.createElement("li")
+    item.className = localStorage.getItem(`Class ${i}`)
+    list.appendChild(item).innerHTML = localStorage.getItem(`Task ${i}`)//load list content
+  }  
+  addItem()
+}
 
-
-       
-
-      
+  
