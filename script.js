@@ -12,14 +12,14 @@ criartarefa.addEventListener("click", function(event){
     } 
     let tarefaLista = form.textoTarefa.value;
     montaLista(tarefaLista);
-    tarefaLista ="";
+    document.querySelector("#texto-tarefa").value="";
 });
 
 listaDeTarefas.addEventListener("dblclick", function(e){
     e.target.classList.toggle("completed");
 });
 
-listaDeTarefas.addEventListener("click", function(e){     
+listaDeTarefas.addEventListener("click", function(e){
    e.target.classList.toggle("alteracor");
 });
 

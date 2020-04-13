@@ -1,15 +1,15 @@
-.pointer{
-    cursor: pointer;
+.alteracor{
+  background-color: rgb(128, 128, 128);
 }
 
-.alteracor{
- background-color: rgb(128, 128, 128); 
+.pointer{
+  cursor: pointer;
 }
 
 .completed{
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .semrisco{
-    text-decoration: line;
+  text-decoration: line;
 }
