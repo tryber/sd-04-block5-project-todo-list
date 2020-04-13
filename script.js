@@ -51,27 +51,35 @@ window.onload = function () {
   let itemsArray = []
   function salvarLista() {
     localStorage.clear("items");
-    itemsArray = [];
+    let itemsArray = [];
+    let classesArray = [];
     const listaItens = document.querySelectorAll("li");
+    
     for (let j = 0; j < listaItens.length; j += 1) {
       itemsArray.push(listaItens[j].textContent);
+      classesArray.push(listaItens[j].classList.value)
     }
     localStorage.setItem("items", JSON.stringify(itemsArray))
+    localStorage.setItem("classes", JSON.stringify(classesArray))
   }
 
   //recapitulando os itens salvos e adicionando-os novamente na lista:
-  const criadorLista = text => {
+  function  criadorLista (text, classes) {
     const item = document.createElement('li');
     item.textContent = text;
     lista.appendChild(item);
+    if (classes != '') item.classList.add(classes);
   }
   const data = JSON.parse(localStorage.getItem('items'))
+  const classes = JSON.parse(localStorage.getItem('classes'))
   console.log(data);
   if (data != null) {
     for (let item = 0; item < data.length; item += 1) {
-      criadorLista(data[item]);
+      criadorLista(data[item], classes[item]);
+      console.log(classes[item]);
+      
     };
-  }
+  } 
 };
 
   // --> other ways to add cursor events <--
