@@ -1,6 +1,7 @@
 const btnTarefa = document.querySelector('#criar-tarefa');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
 const btnApagaFinalizado = document.querySelector('#remover-finalizados');
+const btnApagaSelecionado = document.querySelector('#remover-selecionado')
 let ol = document.querySelector('ol');
 
 
@@ -37,12 +38,20 @@ btnApagaTudo.addEventListener('click', function(){
   }
 })
 
-btnApagaFinalizado.addEventListener('click', function(event){
+btnApagaFinalizado.addEventListener('click', function(){
   let liNode = document.querySelectorAll('li');
   for ( let i = 0; i < liNode.length; i += 1){
     if(liNode[i].classList.contains('completed')){
       document.getElementById('lista-tarefas').removeChild(liNode[i]);
     }
   }
-  
+})
+
+btnApagaSelecionado.addEventListener('click', function(){
+  let liNode = document.querySelectorAll('li');
+  for ( let i = 0; i < liNode.length; i += 1){
+    if(liNode[i].classList.contains('clicked')){
+      document.getElementById('lista-tarefas').removeChild(liNode[i]);
+    }
+  }
 })
