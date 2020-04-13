@@ -21,19 +21,22 @@ function addEvents(elm) {
   });
 }
 
+function addClass(elm, ind) {
+  const arrStg = JSON.parse(localStorage.getItem('indClass'));
+
+  for (p in arrStg) {
+    if (arrStg[p] === ind) {
+      elm.className = 'completed';
+    }
+  }
+}
+
 function checkStorage() {
   if (localStorage.length > 0) {
     for (i = 0; i < localStorage.length - 1; i += 1) {
       const li = document.createElement('li');
 
-      let arrStg = JSON.parse(localStorage.getItem('indClass'));
-
-      for (p in arrStg) {
-        if (arrStg[p] === i) {
-          li.className = 'completed';
-        }
-      }
-
+      addClass(li, i);
       addEvents(li);
 
       olTasks.appendChild(li).innerText = localStorage.getItem(`task${i}`);
