@@ -1,5 +1,5 @@
 const btnTarefa = document.querySelector('#criar-tarefa');
-let liLista = document.querySelectorAll('li');
+let ol = document.querySelector('ol');
 
 btnTarefa.addEventListener('click', function(){
     let li = document.createElement('li');
@@ -14,15 +14,22 @@ btnTarefa.addEventListener('click', function(){
     document.getElementById('texto-tarefa').value = "";
 })
 
-var list = document.querySelector('ol');
-list.addEventListener('dblclick', function(event) {
+ol.addEventListener('dblclick', function(event) {
   if (event.target.tagName === 'LI') {
     event.target.classList.toggle('completed');
   }
 }, false);
 
-list.addEventListener('click', function(event) {
+ol.addEventListener('click', function(event) {
   if (event.target.tagName === 'LI') {
     event.target.classList.toggle('clicked');
   }
 }, false);
+
+const btnApagaTudo = document.querySelector('#apaga-tudo');
+btnApagaTudo.addEventListener('click', function(){
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i = 1 + i) {
+    document.getElementById('lista-tarefas').removeChild(li[i]);
+  }
+})
