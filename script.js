@@ -28,4 +28,4 @@ function tarefaOk(){
 
 // Chamando o Evento aos botões
 btnAdd.addEventListener('click', addTarefa);
-lista.addEventListener('dbclick', tarefaOk);
+lista.addEventListener('dblclick', tarefaOk);
