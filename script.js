@@ -30,7 +30,7 @@
   })
 
   btnRem.addEventListener('click',function(){
-    
+    list.innerHTML=''
   });
 
 
