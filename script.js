@@ -8,8 +8,6 @@ const butSaveTasks = document.getElementById('salvar-tarefas');
 
 function checkStorage() {
   if (localStorage.length === 0) {
-    return;
-  } else {
     for (i = 0; i < localStorage.length; i += 1) {
       const li = document.createElement('li');
 
@@ -70,12 +68,12 @@ butDelFinish.addEventListener('click', function () {
 
 butSaveTasks.addEventListener('click', function () {
   for (i = 0; i < olTasks.children.length; i += 1) {
-    let value = olTasks.children[i].innerText;
-    let key = `key${i}`;
+    const value = olTasks.children[i].innerText;
+    const key = `key${i}`;
     localStorage.setItem(key, value);
   }
 });
 
-window.onload = function() {
+window.onload = function () {
   checkStorage();
 };
