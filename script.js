@@ -43,9 +43,7 @@ ol.addEventListener("dblclick", function (e) {
 })
 
 function trocaClass(elemento, classe) {
-  if (elemento.target.classList.contains(classe) == true) {
-    elemento.target.classList.remove(classe);
-  } else {
+  if (elemento.target.classList.contains(classe) == false) {
     elemento.target.classList.add(classe);
   }
 }
