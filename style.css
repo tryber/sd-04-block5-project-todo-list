@@ -1,0 +1,24 @@
+.criar-tarefa {
+  cursor: pointer;
+}
+
+.remover-finalizados {
+  cursor: pointer;
+}
+
+.apaga-tudo {
+  cursor: pointer;
+}
+
+li {
+  cursor: pointer;
+  background-color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.item-cinza {
+    background-color: gray;
+}
