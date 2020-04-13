@@ -21,9 +21,9 @@ function apagaItens() {
 
 botaoApaga.addEventListener('click', apagaItens);
 
-const botoes = document.querySelectorAll('button');
-for (let i = 0; i < botoes.length; i = 1 + i) {
-  botoes[i].addEventListener('mouseover', function () {
-    botoes[i].style.cursor = 'pointer';
-  });
-}
+// const botoes = document.querySelectorAll('button');
+// for (let i = 0; i < botoes.length; i = 1 + i) {
+//   botoes[i].addEventListener('mouseover', function () {
+//     botoes[i].style.cursor = 'pointer';
+//   });
+// }
