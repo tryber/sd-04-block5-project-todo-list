@@ -1,14 +1,14 @@
 const listaTarefas = document.getElementById('lista-tarefas');
-const criarTarefa = document.getElementById('criar-tarefa');
-const textoTarefa = document.getElementById('texto-tarefa');
-const li = document.createElement('li');
+const criarTarefas = document.getElementById('criar-tarefa');
+const textoTarefas = document.getElementById('texto-tarefa');
 
 if (typeof Storage !== 'undefined') {
-    listaTarefas.innerHTML = localStorage.listaTarefas;
+  listaTarefas.innerHTML = localStorage.list;
 }
 
-criarTarefa.addEventListener('click', () => {
-  li.innerHTML = textoTarefa.value;
+criarTarefas.addEventListener('click', () => {
+  const li = document.createElement('li');
+  li.innerHTML = textoTarefas.value;
   listaTarefas.appendChild(li);
-  textoTarefa.value = null;
+  textoTarefas.value = null;
 });
