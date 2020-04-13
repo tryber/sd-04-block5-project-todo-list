@@ -1,0 +1,20 @@
+html  {
+  margin: 10px;
+  padding: 0;
+}
+
+.fundoli {
+  background-color: rgb(128 , 128 , 128);
+}
+
+ol {
+  cursor: pointer;
+}
+
+.btn  {
+  cursor: pointer;
+}
+
+.completed  {
+  text-decoration: line-through;
+}
