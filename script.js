@@ -5,7 +5,6 @@
   let btnRem = document.querySelector('#apaga-tudo');
 
   btnAdd.addEventListener('click', function () {
-
     if (tarefa.value === '') {
       alert('Digite alguma tarefa!');
     } else {
@@ -17,8 +16,16 @@
   });
   
   list.addEventListener('click', function(e){
-      e.target.style.backgroundColor = 'rgb(128,128,128)' 
-  })
+    
+    if (e.target.style.backgroundColor == 'rgb(128, 128, 128)') {
+        e.target.style.backgroundColor = ''; 
+    } else {
+        e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+      
+  });
+
+
   
   btnRem.addEventListener('click',function(){
     
