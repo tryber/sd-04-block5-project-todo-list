@@ -8,6 +8,7 @@ function addTarefa(){
   let toDo = document.createElement('li');
   toDo.innerHTML = tarefa.value;
   lista.appendChild(toDo);
+  tarefa.value = null;
 };
 
 lista.addEventListener('click', function(event){
