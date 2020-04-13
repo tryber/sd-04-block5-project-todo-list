@@ -11,6 +11,10 @@ ol {
   cursor: pointer;
 }
 
+li  {
+  cursor: pointer;
+  padding-left: 3px;
+}
 .btn  {
   cursor: pointer;
 }
