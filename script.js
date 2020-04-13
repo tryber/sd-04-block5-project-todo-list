@@ -32,10 +32,6 @@ function criarTarefa(text, className) {
     if (className) {
       novaTarefa.className = className;
     }
-    novaTarefa.addEventListener('dblclick', doubleClickTarefa);
-    novaTarefa.addEventListener('click', function (event) {
-      clickTarefa(event.target);
-    });
     listaTarefas.appendChild(novaTarefa);
   }
 }
@@ -115,6 +111,10 @@ function salvar() {
 window.onload = function () {
   textoTarefa = document.getElementById('texto-tarefa');
   listaTarefas = document.getElementById('lista-tarefas');
+  listaTarefas.addEventListener('dblclick', doubleClickTarefa);
+  listaTarefas.addEventListener('click', function (event) {
+    clickTarefa(event.target);
+  });
   if (localStorage.lista) {
     loadTarefas(JSON.parse(localStorage.lista));
     tarefaSelecionada = document.getElementsByClassName('selected')[0];
