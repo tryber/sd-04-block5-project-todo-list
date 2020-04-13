@@ -40,6 +40,7 @@ removeCompletedBtn.addEventListener('click', () => {
   const completedTasks = document.querySelectorAll('.completed');
   completedTasks.forEach((task) => {
     task.remove();
+    deleteTask(task);
   });
   showTaskControls(false);
 });
