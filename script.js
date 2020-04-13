@@ -30,6 +30,7 @@ removeTaskBtn.addEventListener('click', () => {
 
 const cleanTasksBtn = document.querySelector('#apaga-tudo');
 cleanTasksBtn.addEventListener('click', () => {
+  deleteTask();
   document.querySelector('#lista-tarefas').innerHTML = '';
   showTaskControls(false);
 });
@@ -228,7 +229,11 @@ function completeTask(task) {
 }
 
 function deleteTask(task) {
-  localStorage.removeItem(task.id);
+  if (task) {
+    localStorage.removeItem(task.id);
+  } else {
+    localStorage.clear();
+  }
 }
 
 function updateTask(task, taskData) {
