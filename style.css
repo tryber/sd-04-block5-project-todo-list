@@ -12,12 +12,12 @@
 .lista-tarefas {
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
   list-style-position: inside;
   padding: 0;
 }
 
-.tasks h2 {
+.tasks-title {
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
@@ -28,6 +28,7 @@
 .tasks {
   color: white;
   padding: 50px;
+  width: 100%;
 }
 
 /* Buttons */
@@ -71,7 +72,7 @@
   flex-direction: column;
   height: 100%;
   text-align: center;
-  width: 400px;
+  width: 40%;
 }
 
 /* Page title */
@@ -84,12 +85,9 @@
 body {
   background-color: rgb(40 , 40 , 40);
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 400px 2fr;
-  grid-auto-flow: row;
+  display: flex;
   font-family: Roboto, sans-serif;
   height: 100vh;
   margin: 0;
   padding: 0;
-  top: 0;
 }
