@@ -4,8 +4,12 @@ body {
 }
 
 .pagina {
+  background: url('bloquinho.jpg') repeat-y;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 55px;
+  padding-top: 2px;
   width: 50%;
 }
 
