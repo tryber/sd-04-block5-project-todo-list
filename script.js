@@ -4,6 +4,7 @@ function adicionaCor(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+
 function tarefaFinalizada(event) {
   if (event.target.className === 'completed') {
     event.target.className = 'none';
@@ -34,6 +35,18 @@ function apagaItens() {
 }
 
 botaoApaga.addEventListener('click', apagaItens);
+
+const botaoRemoveFinalizados = document.getElementById('remover-finalizados');
+
+function removeFinalizados() {
+  const finalizados = document.querySelectorAll('.completed');
+  for (let i = 0; i <= finalizados.length; i = 1 + i) {
+    document.getElementById('lista-tarefas').removeChild(finalizados[i]);
+  }
+}
+
+botaoRemoveFinalizados.addEventListener('click', removeFinalizados);
+
 
 // const botoes = document.querySelectorAll('button');
 // for (let i = 0; i < botoes.length; i = 1 + i) {
