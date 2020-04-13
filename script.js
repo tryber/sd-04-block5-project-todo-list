@@ -3,7 +3,7 @@ window.onload = function(){
 //CAIXA DE TEXTO
     const inputTask = document.querySelector("#texto-tarefa");
 //BOTÃO CRIAR
-    const buttonCreate = document.querySelector("#criar-tafefa");
+    const buttonCreate = document.querySelector("#criar-tarefa");
 //VARIÁVEL DA LISTA
     const toDoList = document.querySelector('#lista-tarefas');
 
