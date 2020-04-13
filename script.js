@@ -38,6 +38,6 @@ window.onload = function(){
       botao5.addEventListener('click',function(e) {
         let lista = document.querySelector('#lista-tarefas') 
         while (lista.firstChild) {
-          document.querySelector('.completed').remove()
+        document.querySelector('.completed').remove()        
         }});
 }
