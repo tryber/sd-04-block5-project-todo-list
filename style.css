@@ -29,3 +29,7 @@ body{
 #fundo-lista{
     
 }
+
+.completed{
+    text-decoration: line-through;
+}

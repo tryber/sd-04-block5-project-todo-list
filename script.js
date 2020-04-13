@@ -44,6 +44,14 @@ window.onload = function(){
  //   }
   
 
+//FUNÇÃO PARA RISCAR
+    function riscada(event){
+        let feito = event.target;
+        feito.classList.add("completed")
+        console.log(true)
+
+    }
+
 //FUNÇÃO DE INSERIR ITEM
     function insertItem(){
         const listItem = document.createElement('li');
@@ -53,6 +61,7 @@ window.onload = function(){
         inputTask.value = null;
         
         listItem.addEventListener("click", pintaFundo);
+        listItem.addEventListener('dblclick', riscada)
         
     }
 
