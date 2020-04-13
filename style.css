@@ -36,7 +36,12 @@ li
     margin : 20px;
 }
 
-button
+button, li
 {
     cursor: pointer;
+}
+
+.selected
+{
+    background-color:  rgb(128,128,128);
 }
