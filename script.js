@@ -3,7 +3,7 @@ const ol = document.getElementById('lista-tarefas');
 function criarTarefa(tarefa, status) {
   const li = document.createElement('li');
   li.innerHTML = tarefa;
-  if (status !== undefined) li.classList.add(status);
+  if (status !== 'undefined') li.classList.add(status);
   ol.appendChild(li);
 }
 
