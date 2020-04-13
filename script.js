@@ -7,7 +7,7 @@ const butDelFinish = document.getElementById('remover-finalizados');
 const butSaveTasks = document.getElementById('salvar-tarefas');
 
 function checkStorage() {
-  if (localStorage.length === 0) {
+  if (localStorage.length > 0) {
     for (i = 0; i < localStorage.length; i += 1) {
       const li = document.createElement('li');
 
@@ -22,8 +22,7 @@ function checkStorage() {
         }
       });
 
-      li.innerText = localStorage.getItem(`key${i}`);
-      olTasks.appendChild(li);
+      olTasks.appendChild(li).innerText = localStorage.getItem(`key${i}`);
     }
   }
 }
@@ -45,8 +44,7 @@ butAddTask.addEventListener('click', function () {
       }
     });
 
-    li.innerText = txtTask;
-    olTasks.appendChild(li);
+    olTasks.appendChild(li).innerText = txtTask;
     inptasks.value = '';
   }
 });
