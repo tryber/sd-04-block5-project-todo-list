@@ -5,6 +5,9 @@ const inptasks = document.getElementById('texto-tarefa');
 const butDelTasks = document.getElementById('apaga-tudo');
 const butDelFinish = document.getElementById('remover-finalizados');
 const butSaveTasks = document.getElementById('salvar-tarefas');
+// const storageClassValues = [];
+
+checkStorage();
 
 function checkStorage() {
   if (localStorage.length > 0) {
@@ -15,10 +18,10 @@ function checkStorage() {
       li.addEventListener('mouseover', function (e) { e.target.style.backgroundColor = 'rgb(128 , 128 , 128)'; });
       li.addEventListener('mouseout', function (e) { e.target.style.backgroundColor = 'rgb(103 , 230 , 141)'; });
       li.addEventListener('dblclick', function (e) {
-        if (e.target.className === '') {
-          e.target.className = 'completed';
-        } else {
+        if (e.target.className) {
           e.target.className = '';
+        } else {
+          e.target.className = 'completed';
         }
       });
 
@@ -37,10 +40,10 @@ butAddTask.addEventListener('click', function () {
     li.addEventListener('mouseover', function (e) { e.target.style.backgroundColor = 'rgb(128 , 128 , 128)'; });
     li.addEventListener('mouseout', function (e) { e.target.style.backgroundColor = 'rgb(103 , 230 , 141)'; });
     li.addEventListener('dblclick', function (e) {
-      if (e.target.className === '') {
-        e.target.className = 'completed';
-      } else {
+      if (e.target.className) {
         e.target.className = '';
+      } else {
+        e.target.className = 'completed';
       }
     });
 
@@ -57,7 +60,7 @@ butDelTasks.addEventListener('click', function () {
   localStorage.clear();
 });
 
-butDelFinish.addEventListener('click', function () {
+butDelFinish.addEventListener('click', function () {  
   for (i = 0; i < olTasks.children.length; i += 1) {
     if (olTasks.children[i].className === 'completed') {
       olTasks.removeChild(olTasks.children[i]);
@@ -66,14 +69,13 @@ butDelFinish.addEventListener('click', function () {
   }
 });
 
-butSaveTasks.addEventListener('click', function () {
+butSaveTasks.addEventListener('click', function () {  
   for (i = 0; i < olTasks.children.length; i += 1) {
     const value = olTasks.children[i].innerText;
     const key = `key${i}`;
+
     localStorage.setItem(key, value);
+
+    // storageClassValues[i] = olTasks.children[i].className;
   }
 });
-
-window.onload = function () {
-  checkStorage();
-};
