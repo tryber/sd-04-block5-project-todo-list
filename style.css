@@ -1,0 +1,128 @@
+body {
+  background-color: rgb(50 , 52 , 72);
+  color: white;
+  font-family: Open Sans, sans-serif;
+  font-size: 24px;
+}
+
+.flex {
+  display: flex;
+}
+
+.center-vert {
+  align-items: center;
+}
+
+.center {
+  justify-content: center;
+}
+
+nav {
+  background-color: rgb(21 , 22 , 43);
+  bottom: 0;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 15%;
+}
+
+
+main {
+  margin-left: 15%;
+  padding: 20px 120px 120px;
+}
+
+header {
+  background-color: rgb(0 , 16 , 237);
+  border-radius: 10px;
+  padding: 20px;
+  position: fixed;
+  width: 72%;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 300;
+
+  /* margin-block-end: 0.4em;
+  margin-block-start: 0; */
+}
+
+header span {
+  font-size: 1.5em;
+  font-weight: 800;
+}
+
+.taskSection {
+  margin-top: 320px;
+}
+
+.task {
+  background-color: white;
+  border-radius: 6px;
+  color: rgb(3 , 3 , 3);
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 15px 25px;
+  position: relative;
+
+  /* transition: background-color 0.2s ease-in; */
+}
+
+.selected {
+  background-color: grey;
+  color: white;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.task-controls-container {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  transition: visibility 0s linear 0.2s, opacity 0.2s linear;
+  visibility: hidden;
+  width: 100%;
+}
+
+.task-controls {
+  background-color: black;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -4px 10px 4px rgba(0 , 0 , 0 , 0.21);
+  height: 100px;
+  margin-left: 15%;
+  width: 300px;
+}
+
+.visible {
+  opacity: 1;
+  transition-delay: 0s;
+  visibility: visible;
+}
+
+.task-controls-buttons {
+  border: 0 solid white;
+  border-radius: 100%;
+  color: white;
+  height: 70px;
+  margin-left: 10px;
+  width: 70px;
+}
+
+.task-controls button:focus {
+  outline: unset;
+}
+
+.delete-task {
+  background-color: crimson;
+}
+
+.other-btn {
+  background-color: darkblue;
+}
