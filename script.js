@@ -1,5 +1,4 @@
 let i;
-let p;
 let j;
 const butAddTask = document.getElementById('criar-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
