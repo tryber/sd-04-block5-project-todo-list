@@ -61,16 +61,16 @@ window.onload = function () {
   }
 
   //recapitulando os itens salvos e adicionando-os novamente na lista:
-  // const criadorLista = text => {
-  //   const item = document.createElement('li');
-  //   item.textContent = text;
-  //   item.className = "item";
-  //   lista.appendChild(item);
-  // }
-  // const data = JSON.parse(localStorage.getItem('items'))
-  // data.forEach(item => {
-  //   criadorLista(item);
-  // })
+  const criadorLista = text => {
+    const item = document.createElement('li');
+    item.textContent = text;
+    item.className = "item";
+    lista.appendChild(item);
+  }
+  const data = JSON.parse(localStorage.getItem('items'))
+  for (let item = 0; item < data.length; item += 1) {
+    criadorLista(data[item]);
+  };
 };
 
   // --> other ways to add cursor events <--
