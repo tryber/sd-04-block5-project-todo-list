@@ -5,22 +5,22 @@ let tarefaSelecionada;
 function clickTarefa(target) {
   if (target !== tarefaSelecionada) {
     if (tarefaSelecionada) {
-      tarefaSelecionada.style.backgroundColor = 'initial';
+      tarefaSelecionada.classList.remove('selected');
     }
-    target.style.backgroundColor = 'rgb(128,128,128)';
+    target.classList.add('selected');
     tarefaSelecionada = target;
   } else {
     tarefaSelecionada = null;
-    target.style.backgroundColor = 'initial';
+    target.classList.remove('selected');
   }
 }
 
 function doubleClickTarefa(event) {
   const target = event.target;
-  if (target.className === 'completed') {
-    target.className = '';
+  if (target.classList.contains('completed')) {
+    target.classList.remove('completed');
   } else {
-    target.className = 'completed';
+    target.classList.add('completed');
   }
 }
 
@@ -117,5 +117,6 @@ window.onload = function () {
   listaTarefas = document.getElementById('lista-tarefas');
   if (localStorage.lista) {
     loadTarefas(JSON.parse(localStorage.lista));
+    tarefaSelecionada = document.getElementsByClassName('selected')[0];
   }
 };
