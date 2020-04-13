@@ -17,10 +17,16 @@ window.onload = function(){
 
 //FUNÇÃO PARA RISCAR
     function riscada(event){
-        const completo = event.target;
-        completo.classList.add('completed');
-    }
+        const classes = document.querySelector('li').classList;
+        const risco = event.target;
+        risco.classList.add("completed")
+        risco.addEventListener("dblclick", function(){
+            risco.classList.toggle("completed")
+        })
 
+    }
+    
+    
 //FUNÇÃO DE INSERIR ITEM
     function insertItem(){
         const listItem = document.createElement('li');
