@@ -69,14 +69,30 @@ let btnDown = document.querySelector('#mover-baixo');
 function moverCima(){
   let todo = document.querySelector('.fundoli');
   let todoAcima = todo.previousElementSibling;
-  lista.insertBefore(todo, todoAcima);
+  if (todoAcima != null){
+    lista.insertBefore(todo, todoAcima);
+  }
 }
 
 function moverBaixo(){
   let todo = document.querySelector('.fundoli');
   let todoAbaixo = todo.nextSibling;
-  lista.insertBefore(todoAbaixo, todo);
+  if (todoAbaixo !== null){
+    lista.insertBefore(todoAbaixo, todo);
+  }
 }
 
 btnUp.addEventListener('click', moverCima);
 btnDown.addEventListener('click', moverBaixo);
+
+// Bonus 3
+btnRemoveSelected = document.querySelector('#remover-selecionado');
+
+function removeSelected(){
+  let select = document.querySelectorAll('.fundoli');
+  for ( let i = 0; i < select.length; i += 1){    
+      lista.removeChild(select[i]);
+      console.log('teste');
+  }
+}
+btnRemoveSelected.addEventListener('click', removeSelected);
