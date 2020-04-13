@@ -3,7 +3,7 @@ const ol = document.getElementById('lista-tarefas');
 function criarTarefa(tarefa, status) {
   const li = document.createElement('li');
   li.innerHTML = tarefa;
-  if (status !== 'undefined') li.classList.add(status);
+  if (status !== undefined) li.classList.add(status);
   ol.appendChild(li);
 }
 
@@ -18,7 +18,7 @@ ol.addEventListener('click', function (event) {
 });
 
 function verificaCompleted(event) {
-  if (event.target.classList[0] === 'completed' || event.target.classList[1] === 'completed') {
+  if (event.target.classList[1] === 'completed') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
