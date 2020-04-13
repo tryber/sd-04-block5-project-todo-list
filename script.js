@@ -18,7 +18,7 @@ ol.addEventListener('click', function (event) {
 });
 
 function verificaCompleted(event) {
-  if (event.target.classList[1] === 'completed') {
+  if (event.target.classList[0] === 'completed' || event.target.classList[1]) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
