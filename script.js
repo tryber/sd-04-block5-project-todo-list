@@ -25,8 +25,10 @@
       
   });
 
+  list.addEventListener('dblclick', function(e) {
+    e.target.classList.toggle('completed')
+  })
 
-  
   btnRem.addEventListener('click',function(){
     
   });
