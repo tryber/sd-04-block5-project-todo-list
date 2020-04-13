@@ -18,7 +18,9 @@ ol.addEventListener('click', function (event) {
 });
 
 function verificaCompleted(event) {
-  if (event.target.classList[1] === 'completed') {
+  const classes = event.target.className.split(' ');
+  const indexCompleted = classes.indexOf('completed');
+  if (indexCompleted !== -1) {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
