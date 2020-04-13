@@ -17,9 +17,14 @@ function addTarefa(){
   }
 };
 
+// Adiciona Fundo a tarefa clicada
 lista.addEventListener('click', function(event){
   let addClass = event.target;
-    addClass.classList.add('fundoli');
+    if(addClass.classList.contains('fundoli')){
+      addClass.classList.remove('fundoli');
+    }else{
+      addClass.classList.add('fundoli');
+    }
 })
 
 // Tarefa concluida
@@ -30,7 +35,6 @@ function tarefaOk(){
   }else{
     unicaTarefa.classList.add('completed');
   }
-  console.log(unicaTarefa);
 }
 
 // Apagar lista
@@ -57,3 +61,22 @@ btnAdd.addEventListener('click', addTarefa);
 lista.addEventListener('dblclick', tarefaOk);
 btnDel.addEventListener('click', deleteTarefas);
 
+// Bonus 2
+let btnUp = document.querySelector('#mover-cima');
+let btnDown = document.querySelector('#mover-baixo');
+
+
+function moverCima(){
+  let todo = document.querySelector('.fundoli');
+  let todoAcima = todo.previousElementSibling;
+  lista.insertBefore(todo, todoAcima);
+}
+
+function moverBaixo(){
+  let todo = document.querySelector('.fundoli');
+  let todoAbaixo = todo.nextSibling;
+  lista.insertBefore(todoAbaixo, todo);
+}
+
+btnUp.addEventListener('click', moverCima);
+btnDown.addEventListener('click', moverBaixo);
