@@ -54,7 +54,7 @@ Esta é uma oportunidade de você exercitar sua criatividade e experimentar os c
 
 ### 6 - Os itens da lista de tarefas devem ser ordenados por ordem de criação.
 
-### 7 - Ao passar o mouse sobre qualquer botão o ícone do mouse deve mudar para uma mãozinha apontando ele.
+### 7 - Ao passar o mouse sobre qualquer botão e qualquer item da lista o ícone do mouse deve mudar para uma mãozinha apontando-o.
 
 ### 8 - Ao clicar em um item da lista, altere a cor de fundo do item para cinza rgb(128,128,128).
 
