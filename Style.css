@@ -4,4 +4,8 @@ li {
 
 ol li.completed {
     text-decoration: line-through;
-  }
+}
+
+ol li.clicked {
+    background-color: rgb(128,128,128);
+}
