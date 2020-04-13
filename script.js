@@ -12,10 +12,20 @@ function addTarefa(){
 };
 
 lista.addEventListener('click', function(event){
-  let teste = event.target;
-  teste.classList.add('fundoli');
-  console.log(teste);
+  let addClass = event.target;
+  addClass.classList.add('fundoli');
 })
 
-// Chamando o Evento no Botão Adicionar tarefa
+// Tarefa concluida
+function tarefaOk(){
+  let unicaTarefa = event.target;
+  if (unicaTarefa.className == 'completed'){
+    unicaTarefa.classList.remove('completed');
+  }else{
+    unicaTarefa.classList.add('completed');
+  }
+}
+
+// Chamando o Evento aos botões
 btnAdd.addEventListener('click', addTarefa);
+lista.addEventListener('dbclick', tarefaOk);
