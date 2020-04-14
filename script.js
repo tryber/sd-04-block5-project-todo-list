@@ -10,7 +10,7 @@ window.onload = function(){
       });
 
       let botao2 = document.getElementById('lista-tarefas')
-      botao2.addEventListener('click', function(e) {        
+      botao2.addEventListener('click', function(e) {
        if(e.target.style.backgroundColor == 'rgb(128, 128, 128)') {
          e.target.style.backgroundColor = "";
        }else {
@@ -24,20 +24,19 @@ window.onload = function(){
           e.target.classList.remove('completed')
         }else {
           e.target.classList.add('completed')
-        }        
+        }
       });
 
       let botao4 = document.getElementById('apaga-tudo')
       botao4.addEventListener('click', function(e) {
-        let lista = document.querySelector('#lista-tarefas')        
-        while (lista.firstChild) {          
+        let lista = document.querySelector('#lista-tarefas')
+        while (lista.firstChild) {
           lista.removeChild(lista.lastChild)
         }});
 
       let botao5 = document.getElementById('remover-finalizados');
       botao5.addEventListener('click',function(e) {
-        let lista = document.querySelector('#lista-tarefas') 
-        while (lista.firstChild) {
-        document.querySelector('.completed').remove()        
-        }});
+        let items = document.querySelectorAll('.completed');
+        for(i = 0; i < items.length; i+=1) {
+        items[i].parentNode.removeChild(items[i])}});
 }
