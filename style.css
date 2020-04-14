@@ -1,5 +1,5 @@
 body {
-  background-color: rebeccapurple;
+  background-color: rgb(88, 40, 88);
   text-align: center;
 }
 
@@ -26,5 +26,5 @@ button {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
