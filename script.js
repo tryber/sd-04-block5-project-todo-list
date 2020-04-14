@@ -42,8 +42,9 @@ function liDbclick(e) {
 
 function liClick(e) {
   if (e.target.className === 'slct') {
-    e.target.addEventListener('mouseout', liMouseOut);
-    e.target.classList.remove('slct');
+    e.target.removeEventListener('mouseout', liMouseOut);
+    // e.target.addEventListener('mouseout', liMouseOut);
+    // e.target.classList.remove('slct');
   } else {
     e.target.removeEventListener('mouseout', liMouseOut);
 
