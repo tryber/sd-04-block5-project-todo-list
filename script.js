@@ -9,9 +9,6 @@ function clickTarefa(target) {
     }
     target.classList.add('selected');
     tarefaSelecionada = target;
-  } else {
-    tarefaSelecionada = null;
-    target.classList.remove('selected');
   }
 }
 
