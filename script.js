@@ -20,7 +20,7 @@ buttonDeleteList.addEventListener('click', function () {
 });
 
 document.body.addEventListener('click', function (event) {
-  if (event.target.className == 'listTask') {
+    if (event.target.className == 'listTask') {
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
@@ -34,9 +34,9 @@ listTask.addEventListener('dblclick', function (event) {
 });
 
 removeFinished.addEventListener ('click', function() {
-  const listItems = document.querySelectorAll('.completed');
+  const listItems = document.querySelectorAll('ol .completed');
   for (let j = 0; j < listItems.length; j += 1 ) {
       listTask.removeChild(listItems[j]);
     }
   }
-)
+);
