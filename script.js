@@ -57,7 +57,7 @@ btnApagaSelecionado.addEventListener('click', function(){
 
 const btnMoverPraCima = document.querySelector('#mover-cima')
 function eventBtnMoveCima() { // Evento para o botão mover-cima.
-  btnMoveCima.addEventListener('click', function () {
+  btnMoverPraCima.addEventListener('click', function () {
     const itemSelecionado = document.querySelector('.clicked');
     const itemAnterior = itemSelecionado.previousElementSibling;
     const backup = itemAnterior.innerText;
