@@ -40,3 +40,14 @@ removeFinished.addEventListener ('click', function() {
     }
   }
 );
+
+if (typeof Storage !== 'undefine') {
+  listTask.innerHTML = localStorage.listTask;
+}
+
+const salveStorage = document.getElementById('salvar-tarefas');
+salveStorage.addEventListener('click', function(){
+  localStorage.listTask = document.getElementById('lista-tarefas').innerHTML;
+});
+
+
