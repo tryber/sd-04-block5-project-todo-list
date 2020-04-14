@@ -2,6 +2,7 @@
 const addTaskBtn = document.querySelector('.criar-tarefa');
 const deleteAllBtn = document.querySelector('.apaga-tudo');
 const deleteCompletedBtn = document.querySelector('.remover-finalizados');
+const deleteSelectedBtn = document.querySelector('.remover-selecionado');
 const saveTasks = document.querySelector('.salvar-tarefas');
 const taskList = document.querySelector('.lista-tarefas');
 const text = document.querySelector('.texto-tarefa');
@@ -44,6 +45,12 @@ deleteCompletedBtn.addEventListener('click', () => {
   completed.forEach((item) => {
     item.parentNode.removeChild(item);
   });
+});
+
+// Deleted selected
+deleteSelectedBtn.addEventListener('click', () => {
+  const selected = document.querySelector('.selected');
+  taskList.removeChild(selected);
 });
 
 // Save tasks
