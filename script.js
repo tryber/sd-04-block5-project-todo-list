@@ -54,10 +54,12 @@ saveTasks.addEventListener('click', () => {
 // Load tasks
 function loadTasks() {
   const savedTasks = localStorage.getItem('taskList');
-  const savedTasksArray = JSON.parse(savedTasks);
-  savedTasksArray.forEach((item) => {
-    taskList.appendChild(createTask(item));
-  });
+  if (savedTasks) {
+    const savedTasksArray = JSON.parse(savedTasks);
+    savedTasksArray.forEach((item) => {
+      taskList.appendChild(createTask(item));
+    });
+  }
 }
 
 loadTasks();
