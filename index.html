@@ -16,12 +16,9 @@
       </header>
 
       <!-- Task input -->
-      <div class="input-container">
-        <p>Write a task</p>
-        <input type="text" id="texto-tarefa" class="texto-tarefa">
-      </div>
-
-      <div class="buttons-container">
+      <div class="input">
+        <label for="texto-tarefa">Write a task</label>
+        <input type="text" name="texto-tarefa" id="texto-tarefa" class="texto-tarefa">
         <button id="criar-tarefa" class="criar-tarefa">Add task</button>
       </div>
     </section>
@@ -29,7 +26,8 @@
     <!-- Tasks list -->
     <section class="tasks">
       <h2 class="tasks-title">Tasks</h2>
-      <ol id="lista-tarefas" class="lista-tarefas"></ol>
+      <ol id="lista-tarefas" class="lista-tarefas">
+      </ol>
     </section>
 
     <!-- JavaScript import -->

@@ -1,7 +1,8 @@
 /* Tasks */
-.tasks li {
+.task-li {
   background-color: rgb(29 , 31 , 32);
   border-radius: 50px;
+  cursor: pointer;
   font-size: 1.3rem;
   font-weight: 700;
   margin: 10px 0;
@@ -9,12 +10,19 @@
   word-break: break-all;
 }
 
+.task-li:hover {
+  background-color: rgb(59 , 59 , 59);
+}
+
 .lista-tarefas {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   list-style-position: inside;
+  margin-right: 0;
   padding: 0;
+  position: relative;
+  width: 75%;
 }
 
 .tasks-title {
@@ -26,19 +34,30 @@
 }
 
 .tasks {
+  align-items: center;
+  box-sizing: border-box;
   color: white;
+  display: flex;
+  flex-direction: column;
   padding: 50px;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  width: 75%;
+}
+
+.selected {
+  background-color: gray;
 }
 
 /* Buttons */
-.buttons-container button {
+button {
   background-color: rgb(50 , 50 , 50);
   border: 1px solid white;
   border-radius: 50px;
   color: white;
   cursor: pointer;
   font-weight: 700;
+  margin: 20px;
   padding: 15px 30px;
   text-transform: uppercase;
 }
@@ -55,7 +74,11 @@
 }
 
 /* Input container */
-.input-container {
+label {
+  margin: 10px;
+}
+
+.input {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -71,8 +94,9 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: fixed;
   text-align: center;
-  width: 40%;
+  width: 25%;
 }
 
 /* Page title */
