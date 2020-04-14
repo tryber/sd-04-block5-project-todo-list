@@ -10,6 +10,11 @@
   text-decoration: line-through;
 }
 
+.tarefas{
+  border: 1px solid;
+  
+}
+
 .semrisco{
   text-decoration: line;
 }
