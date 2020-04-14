@@ -32,21 +32,34 @@ function liMouseOut(e) {
 }
 
 function liDbclick(e) {
-  if (e.target.className) {
-    e.target.className = '';
+  if (e.target.className === 'completed' || e.target.className === 'slct completed' || e.target.className === 'completed slct') {
+    e.target.classList.remove('completed');
   } else {
-    e.target.className = 'completed';
+    e.target.classList.add('completed');
   }
+
+  console.log(e.target.className);
 }
 
 function liClick(e) {
-  if (removeMouseOut === false) {
-    e.target.removeEventListener('mouseout', liMouseOut);
-    removeMouseOut = true;
-  } else {
+  if (e.target.className === 'slct') {
     e.target.addEventListener('mouseout', liMouseOut);
-    removeMouseOut = false;
+    e.target.classList.remove('slct');
+  } else {
+    e.target.removeEventListener('mouseout', liMouseOut);
+    
+    for (i = 0; i < olTasks.children.length; i += 1) {
+      if (olTasks.children[i].className === 'slct') {
+        olTasks.children[i].classList.remove('slct');
+        olTasks.children[i].style.backgroundColor = 'rgb(103 , 230 , 141)';
+        olTasks.children[i].addEventListener('mouseout', liMouseOut);
+      }
+    }
+
+    e.target.classList.add('slct');
   }
+
+  console.log(e.target);
 }
 
 function addEvents(elm) {
@@ -106,7 +119,7 @@ butDelTasks.addEventListener('click', function () {
 
 butDelFinish.addEventListener('click', function () {
   for (i = 0; i < olTasks.children.length; i += 1) {
-    if (olTasks.children[i].className === 'completed') {
+    if (olTasks.children[i].className === 'completed' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
       olTasks.removeChild(olTasks.children[i]);
       i -= 1;
     }

@@ -9,3 +9,7 @@ button {
 .completed {
   text-decoration: line-through;
 }
+
+.slct {
+  background-color: rgb(128 , 128 , 128);
+}
