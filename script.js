@@ -48,7 +48,7 @@ function liClick(e) {
     e.target.removeEventListener('mouseout', liMouseOut);
 
     for (i = 0; i < olTasks.children.length; i += 1) {
-      if (olTasks.children[i].className === 'slct') {
+      if (olTasks.children[i].className === 'slct' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
         olTasks.children[i].classList.remove('slct');
         olTasks.children[i].style.backgroundColor = 'rgb(103 , 230 , 141)';
         olTasks.children[i].addEventListener('mouseout', liMouseOut);
@@ -164,7 +164,7 @@ butDown.addEventListener('click', function () {
 
     if (elm !== elmDad.lastChild) {
       elm = captureSelected().nextSibling;
-  
+
       elmDad.insertBefore(elm, elm.previousSibling);
     }
   }
