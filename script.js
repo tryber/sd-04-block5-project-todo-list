@@ -52,11 +52,7 @@ window.onload = function(){
             localStorage.setItem([i], lista1[i].textContent)
         }}
       });
-      // for(var i=0, len=localStorage.length; i<len; i++) {
-      //   var key = localStorage.key(i);
-      //   var value = localStorage[key];
-      //   console.log(key + " => " + value);
-
+      
       if(this.localStorage != undefined) {
         let savedList = localStorage
         for(i = 0; i < savedList.length; i+=1) {
