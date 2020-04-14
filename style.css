@@ -21,6 +21,10 @@ body{
     margin-left: 10px;
 }
 
+.item{
+    cursor: pointer;
+}
+
 li{
     color: rgb(0,0,0);
     font-family:'Comic Neue', cursive;
