@@ -22,7 +22,7 @@ body{
 }
 
 li{
-    color: indigo;
+    color: rgb(0,0,0);
     font-family:'Comic Neue', cursive;
     font-size: 20px;
 }
