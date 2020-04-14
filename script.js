@@ -1,9 +1,9 @@
 const btnTarefa = document.querySelector('#criar-tarefa');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
 const btnApagaFinalizado = document.querySelector('#remover-finalizados');
-const btnApagaSelecionado = document.querySelector('#remover-selecionado')
+const btnApagaSelecionado = document.querySelector('#remover-selecionado');
+const listaAdiciona = document.getElementById('lista-tarefas');
 let ol = document.querySelector('ol');
-
 
 btnTarefa.addEventListener('click', function(){
     let li = document.createElement('li');
@@ -58,28 +58,27 @@ btnApagaSelecionado.addEventListener('click', function(){
 const btnMoverPraCima = document.querySelector('#mover-cima');
 const btnMoveBaixo = document.querySelector('#mover-baixo');
 
-btnMoveBaixo.addEventListener('click', () => {
-  const itemMVBaixo = document.querySelector('.selected');
-  const paraBaixo = itemMVBaixo.innerHTML;
-  const paraCima = itemMVBaixo.nextElementSibling.innerHTML;
-  itemMVBaixo.nextElementSibling.innerHTML = paraBaixo;
-  itemMVBaixo.nextElementSibling.className = 'selected';
-  itemMVBaixo.innerHTML = paraCima;
-  itemMVBaixo.classList.remove('selected');
+btnMoveBaixo.addEventListener('click', function(){
+  const moveDown = document.querySelector('.selected');
+  const liDown = moveDown.innerHTML;
+  const liUp = moveDown.nextElementSibling.innerHTML;
+  moveDown.nextElementSibling.innerHTML = liDown;
+  moveDown.nextElementSibling.className = 'selected';
+  moveDown.innerHTML = liUp;
+  moveDown.classList.remove('selected');
 });
 
-btnMoverPraCima.addEventListener('click', () => {
-  const itemMVCima = document.querySelector('.selected');
-  const paraCima = itemMVCima.innerHTML;
-  const paraBaixo = itemMVCima.previousElementSibling.innerHTML;
-  itemMVCima.previousElementSibling.innerHTML = paraCima;
-  itemMVCima.previousElementSibling.className = 'selected';
-  itemMVCima.innerHTML = paraBaixo;
-  itemMVCima.classList.remove('selected');
+btnMoverPraCima.addEventListener('click', function() {
+  const moveUp = document.querySelector('.selected');
+  const liUp = moveUp.innerHTML;
+  const liDown = moveUp.previousElementSibling.innerHTML;
+  moveUp.previousElementSibling.innerHTML = liUp;
+  moveUp.previousElementSibling.className = 'selected';
+  moveUp.innerHTML = liDown;
+  moveUp.classList.remove('selected');
 });
 
-
-ol.addEventListener('click', function(event) {
+ol.addEventListener('click', function() {
   let liNode = document.querySelectorAll('li');
   for ( let i = 0; i < liNode.length; i += 1){ 
     if (liNode[i].style.backgroundColor) {
