@@ -19,11 +19,20 @@ buttonDeleteList.addEventListener('click', function () {
   }
 });
 
-document.body.addEventListener('click', function (event) {
-    if (event.target.className == 'listTask') {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+listTask.addEventListener ('click', function(event) {
+  if (document.querySelector('.selected') !== null) {
+    document.querySelector('.selected').style.backgroundColor = 'white';
+    document.querySelector('.selected').classList.remove('selected');
   }
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('selected');
 });
+
+const removeSelected = document.getElementById('remover-selecionado');
+removeSelected.addEventListener('click', function() {
+  const remove = document.querySelector('.selected');
+  listTask.removeChild(remove);
+})
 
 listTask.addEventListener('dblclick', function (event) {
   if (event.target.classList.contains('completed')) {
