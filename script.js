@@ -1,9 +1,9 @@
 const btnTarefa = document.querySelector('#criar-tarefa');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
 const btnApagaFinalizado = document.querySelector('#remover-finalizados');
-const btnApagaSelecionado = document.querySelector('#remover-selecionado');
-const listaAdiciona = document.getElementById('lista-tarefas');
+const btnApagaSelecionado = document.querySelector('#remover-selecionado')
 let ol = document.querySelector('ol');
+
 
 btnTarefa.addEventListener('click', function(){
     let li = document.createElement('li');
@@ -26,7 +26,7 @@ ol.addEventListener('dblclick', function(event) {
 
 ol.addEventListener('click', function(event) {
   if (event.target.tagName === 'LI') {
-    event.target.classList.toggle('selected');
+    event.target.classList.toggle('clicked');
   }
 }, false);
 
@@ -49,37 +49,49 @@ btnApagaFinalizado.addEventListener('click', function(){
 btnApagaSelecionado.addEventListener('click', function(){
   let liNode = document.querySelectorAll('li');
   for ( let i = 0; i < liNode.length; i += 1){
-    if(liNode[i].classList.contains('selected')){
+    if(liNode[i].classList.contains('clicked')){
       document.getElementById('lista-tarefas').removeChild(liNode[i]);
     }
   }
 })
 
-const btnMoverPraCima = document.querySelector('#mover-cima');
-const btnMoveBaixo = document.querySelector('#mover-baixo');
-
-btnMoverPraCima.addEventListener('click', function () {
-  const itemSelecionado = document.querySelector('.selected');
-  const itemAnterior = itemSelecionado.previousElementSibling;
-  const backup = itemAnterior.innerText;
-  if (itemAnterior) {
-    itemAnterior.innerText = itemSelecionado.innerText;
-    itemSelecionado.innerText = backup;
-    itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
-    itemSelecionado.style.backgroundColor = 'white';
-    itemAnterior.classList.add('selected');
+const btnMoverPraCima = document.querySelector('#mover-cima')
+btnMoverPraCima.addEventListener('click', function(){
+  const liSelected = document.querySelector('.clicked');
+  const liBefore = liSelected.previousElementSibling;
+  const gate = liBefore.innerText;
+  if(liBefore){
+  liBefore.innerText = liSelected.innerText;
+  liBefore.style.backgroundColor = 'rgb(128,128,128)';
+  liBefore.classList.add('clicked');
+  liSelected.innerText = gate;
+  liSelected.style.backgroundColor = 'white';
+  liSelected.classList.remove('clicked');
   }
-});
-
-btnMoveBaixo.addEventListener('click', function () {
-  const itemSelecionado = document.querySelector('.selected');
-  const itemPosterior = itemSelecionado.nextElementSibling;
-  const backup = itemPosterior.innerText;
-  if (itemPosterior) {
-    itemPosterior.innerText = itemSelecionado.innerText;
-    itemSelecionado.innerText = backup;
-    itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
-    itemSelecionado.style.backgroundColor = 'white';
-    itemPosterior.classList.add('selected');
+})
+const btnMoveParaBaixo = document.querySelector('#mover-baixo')
+btnMoveParaBaixo.addEventListener('click', function () {
+  const liSelected = document.querySelector('.clicked');
+  const liNext= liSelected.nextElementSibling;
+  const gate = liNext.innerText;
+  if (liNext) {
+    liNext.innerText = liSelected.innerText;
+    liSelected.innerText = gate;
+    liNext.style.backgroundColor = 'rgb(128,128,128)';
+    liSelected.style.backgroundColor = 'white';
+    liNext.classList.add('clicked');
+    liSelected.classList.remove('clicked');
   }
-});
+})
+
+ol.addEventListener('click', function(event) {
+  let liNode = document.querySelectorAll('li');
+  for ( let i = 0; i < liNode.length; i += 1){ 
+    if (liNode[i].style.backgroundColor) {
+      liNode[i].style.backgroundColor = '';
+    }
+  }
+
+}, false);
+
+
