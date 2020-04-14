@@ -9,7 +9,9 @@ criarTarefa.addEventListener("click", addLi);
 function addLi() {
     let li = document.createElement('li');
     li.innerHTML = tarefa.value;
+    li.className = "pointer";
     ol.appendChild(li);
+    tarefa.value = '';
 }
 
 deleteTarefas.addEventListener('click', deleteAll);
