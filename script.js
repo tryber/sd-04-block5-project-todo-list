@@ -3,7 +3,8 @@
   let list = document.querySelector('#lista-tarefas');
   let tarefa = document.querySelector('#texto-tarefa');
   let btnRem = document.querySelector('#apaga-tudo');
-  let btnRemLined = document.querySelector('#remover-finalizados')
+  let btnRemLined = document.querySelector('#remover-finalizados');
+  
 
   btnAdd.addEventListener('click', function () {
     if (tarefa.value === '') {
@@ -12,7 +13,7 @@
       let item = document.createElement('li');
       item.innerHTML = tarefa.value;
       list.appendChild(item);
-      tarefa.value = '' 
+      tarefa.value = ''; 
     }
   });
   
@@ -33,16 +34,18 @@
   btnRem.addEventListener('click',function(){
     let itens = document.querySelectorAll('li');
     for (let i = 0; i < itens.length; i+=1) {
-      list.removeChild(itens[i])
+      list.removeChild(itens[i]);
     }
   });
 
   btnRemLined.addEventListener('click', function(){
+    let complete = document.querySelectorAll('li');
     for (let i = 0; i < complete.length; i+=1) {
       if (complete[i].className == 'completed') {
         list.removeChild(complete[i]);
       }
     }
+    
   });
 
 
