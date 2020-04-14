@@ -25,8 +25,7 @@ window.onload = function () {
     const itens = document.querySelectorAll('li');
     for (let i = 0; i < itens.length; i += 1) {
       if (itens[i].className === 'completed') {
-        itens[i].innerHTML = '';
-        itens[i].style.listStyleType = 'none';
+        itens[i].remove();
       }
     }
   }
