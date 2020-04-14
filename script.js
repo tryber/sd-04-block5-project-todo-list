@@ -58,22 +58,30 @@ btnApagaSelecionado.addEventListener('click', function(){
 const btnMoverPraCima = document.querySelector('#mover-cima');
 const btnMoveBaixo = document.querySelector('#mover-baixo');
 
-btnMoveBaixo.addEventListener('click', function(){
-  const moveDown = document.querySelector('.selected');
-  const liDown = moveDown.innerHTML;
-  const liUp = moveDown.nextElementSibling.innerHTML;
-  moveDown.nextElementSibling.innerHTML = liDown;
-  moveDown.nextElementSibling.className = 'selected';
-  moveDown.innerHTML = liUp;
-  moveDown.classList.remove('selected');
+btnMoverPraCima.addEventListener('click', function () {
+  const itemSelecionado = document.querySelector('.selected');
+  const itemAnterior = itemSelecionado.previousElementSibling;
+  const backup = itemAnterior.innerText;
+  if (itemAnterior) {
+    itemAnterior.innerText = itemSelecionado.innerText;
+    itemSelecionado.innerText = backup;
+    itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
+    itemSelecionado.style.backgroundColor = 'white';
+    itemAnterior.classList.add('selected');
+    itemSelecionado.classList.remove('selected');
+  }
 });
 
-btnMoverPraCima.addEventListener('click', function() {
-  const moveUp = document.querySelector('.selected');
-  const liUp = moveUp.innerHTML;
-  const liDown = moveUp.previousElementSibling.innerHTML;
-  moveUp.previousElementSibling.innerHTML = liUp;
-  moveUp.previousElementSibling.className = 'selected';
-  moveUp.innerHTML = liDown;
-  moveUp.classList.remove('selected');
+btnMoveBaixo.addEventListener('click', function () {
+  const itemSelecionado = document.querySelector('.selected');
+  const itemPosterior = itemSelecionado.nextElementSibling;
+  const backup = itemPosterior.innerText;
+  if (itemPosterior) {
+    itemPosterior.innerText = itemSelecionado.innerText;
+    itemSelecionado.innerText = backup;
+    itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
+    itemSelecionado.style.backgroundColor = 'white';
+    itemPosterior.classList.add('selected');
+    itemSelecionado.classList.remove('selected');
+  }
 });
