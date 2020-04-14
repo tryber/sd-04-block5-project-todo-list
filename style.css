@@ -49,6 +49,11 @@
   background-color: gray;
 }
 
+.completed {
+  color: rgb(104 , 104 , 104);
+  text-decoration: line-through;
+}
+
 /* Buttons */
 button {
   background-color: rgb(50 , 50 , 50);
