@@ -6,6 +6,6 @@ ol li.completed {
     text-decoration: line-through;
 }
 
-ol li.clicked {
+ol li.selected {
     background-color: rgb(128,128,128);
 }

@@ -26,7 +26,7 @@ ol.addEventListener('dblclick', function(event) {
 
 ol.addEventListener('click', function(event) {
   if (event.target.tagName === 'LI') {
-    event.target.classList.toggle('clicked');
+    event.target.classList.toggle('selected');
   }
 }, false);
 
@@ -49,45 +49,35 @@ btnApagaFinalizado.addEventListener('click', function(){
 btnApagaSelecionado.addEventListener('click', function(){
   let liNode = document.querySelectorAll('li');
   for ( let i = 0; i < liNode.length; i += 1){
-    if(liNode[i].classList.contains('clicked')){
+    if(liNode[i].classList.contains('selected')){
       document.getElementById('lista-tarefas').removeChild(liNode[i]);
     }
   }
 })
 
-const btnMoverPraCima = document.querySelector('#mover-cima')
-function eventBtnMoveCima() { // Evento para o botão mover-cima.
-  btnMoverPraCima.addEventListener('click', function () {
-    const itemSelecionado = document.querySelector('.clicked');
-    const itemAnterior = itemSelecionado.previousElementSibling;
-    const backup = itemAnterior.innerHTML;
-    if (itemAnterior) {
-      itemAnterior.innerHTML = itemSelecionado.innerHTML;
-      itemSelecionado.innerHTML = backup;
-      itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
-      itemSelecionado.style.backgroundColor = 'white';
-      itemAnterior.classList.add('clicked');
-      itemSelecionado.classList.remove('clicked');
-    }
-  });
-}
+const btnMoverPraCima = document.querySelector('#mover-cima');
+const btnMoveBaixo = document.querySelector('#mover-baixo');
 
-const btnMoveBaixo = document.querySelector('#mover-baixo')
-function eventBtnMoveBaixo() { // Evento para o botão mover-baixo.
-  btnMoveBaixo.addEventListener('click', function () {
-    const itemSelecionado = document.querySelector('.clicked');
-    const itemPosterior = itemSelecionado.nextElementSibling;
-    const backup = itemPosterior.innerHTML;
-    if (itemPosterior) {
-      itemPosterior.innerHTML = itemSelecionado.innerHTML;
-      itemSelecionado.innerHTML = backup;
-      itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
-      itemSelecionado.style.backgroundColor = 'white';
-      itemPosterior.classList.add('clicked');
-      itemSelecionado.classList.remove('clicked');
-    }
-  });
-}
+btnMoveBaixo.addEventListener('click', () => {
+  const itemMVBaixo = document.querySelector('.selected');
+  const paraBaixo = itemMVBaixo.innerHTML;
+  const paraCima = itemMVBaixo.nextElementSibling.innerHTML;
+  itemMVBaixo.nextElementSibling.innerHTML = paraBaixo;
+  itemMVBaixo.nextElementSibling.className = 'selected';
+  itemMVBaixo.innerHTML = paraCima;
+  itemMVBaixo.classList.remove('selected');
+});
+
+btnMoverPraCima.addEventListener('click', () => {
+  const itemMVCima = document.querySelector('.selected');
+  const paraCima = itemMVCima.innerHTML;
+  const paraBaixo = itemMVCima.previousElementSibling.innerHTML;
+  itemMVCima.previousElementSibling.innerHTML = paraCima;
+  itemMVCima.previousElementSibling.className = 'selected';
+  itemMVCima.innerHTML = paraBaixo;
+  itemMVCima.classList.remove('selected');
+});
+
 
 ol.addEventListener('click', function(event) {
   let liNode = document.querySelectorAll('li');
@@ -98,9 +88,3 @@ ol.addEventListener('click', function(event) {
   }
 
 }, false);
-
-window.onload = function () {
-  eventBtnMoveCima();
-  eventBtnMoveBaixo();
-}
-
