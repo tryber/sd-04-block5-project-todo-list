@@ -6,8 +6,13 @@ window.onload = function () {
   function createTask() {
     let newTask = document.createElement('li');
     newTask.innerText = textTask.value;
+    newTask.addEventListener('click', clickTask);
     taskList.appendChild(newTask);
     textTask.value = '';
+  }
+
+  function clickTask(event) {
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
   }
 
   btnCreateTask.addEventListener('click', createTask);
