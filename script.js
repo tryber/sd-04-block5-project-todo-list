@@ -11,15 +11,15 @@ const butUp = document.getElementById('mover-cima');
 const butDown = document.getElementById('mover-baixo');
 
 function captureSelected() {
-  // let selected;
+  let selected;
 
   for (i = 0; i < olTasks.children.length; i += 1) {
     if (olTasks.children[i].className === 'slct' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
-      return olTasks.children[i];
+      selected = olTasks.children[i];
     }
   }
 
-  // return selected;
+  return selected;
 }
 
 function liMouseOver(e) {
@@ -145,23 +145,27 @@ butSaveTasks.addEventListener('click', function () {
 });
 
 butUp.addEventListener('click', function () {
-  const elm = captureSelected();
-  // console.log(elm);
-  const elmDad = elm.parentNode;
+  if (captureSelected()) {
+    const elm = captureSelected();
+    // console.log(elm);
+    const elmDad = elm.parentNode;
 
-  if (elm !== elmDad.firstChild) {
-    elmDad.insertBefore(elm, elm.previousSibling);
+    if (elm !== elmDad.firstChild) {
+      elmDad.insertBefore(elm, elm.previousSibling);
+    }
   }
 });
 
 butDown.addEventListener('click', function () {
-  let elm = captureSelected();
-  // console.log(elm);
-  const elmDad = elm.parentNode;
+  if (captureSelected()) {
+    let elm = captureSelected();
+    // console.log(elm);
+    const elmDad = elm.parentNode;
 
-  if (elm !== elmDad.lastChild) {
-    elm = captureSelected().nextSibling;
-
-    elmDad.insertBefore(elm, elm.previousSibling);
+    if (elm !== elmDad.lastChild) {
+      elm = captureSelected().nextSibling;
+  
+      elmDad.insertBefore(elm, elm.previousSibling);
+    }
   }
 });
