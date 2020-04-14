@@ -5,11 +5,22 @@ window.onload = function(){
 //BOTÃO CRIAR
     const buttonCreate = document.querySelector("#criar-tarefa");
     const buttonErase = this.document.querySelector("#apaga-tudo");
+    const removeCompleted = this.document.querySelector("#remover-finalizados");
 //VARIÁVEL DA LISTA
     const toDoList = document.querySelector('#lista-tarefas');
 
     buttonCreate.addEventListener('click', insertItem);
     buttonErase.addEventListener('click', apagaTudo);
+    removeCompleted.addEventListener('click', apagaCompletos);
+
+//FUNÇÃO REMOVE COMPLETOS
+    function apagaCompletos(){
+        let lista = document.querySelector("ol")
+        let completos = document.querySelectorAll(".completed");
+        for(i=0;i<completos.length;i++){
+            lista.removeChild(completos[i]);
+        }
+    }
 
 //FUNÇÃO DESTACA ITEM
     function pintaFundo(event){
@@ -41,17 +52,14 @@ window.onload = function(){
 }
 
 //FUNÇÃO APAGA TUDO
-function apagaTudo(){
-let lista = document.getElementById("lista-tarefas");
-let itens = document.querySelectorAll('li');
-for(let i = 0; i< itens.length; i++){
-    lista.removeChild(itens[i]);   
-}
+    function apagaTudo(){
+    let lista = document.getElementById("lista-tarefas");
+    let itens = document.querySelectorAll('li');
+    for(let i = 0; i< itens.length; i++){
+        lista.removeChild(itens[i]);   
+    }
 }
 
-function apagaCompletos(){
-    
-}
 
 //FUNÇÃO DE DESTAQUE CINZA
 /*    function highlightItem(){
