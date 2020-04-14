@@ -26,8 +26,10 @@ p
 
 li
 {
-    margin-left: 20px;
     margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+
 }
 
 .input-texto
@@ -44,4 +46,9 @@ button, li
 .selected
 {
     background-color:  rgb(128,128,128);
+}
+
+.completed
+{
+    text-decoration: line-through;
 }
