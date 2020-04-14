@@ -57,3 +57,14 @@ removerFinalizadas.addEventListener("click", function () {
     }
   }
 });
+
+// Bônus) Botão Remover Selecionado
+const removerSelecionado = document.getElementById("remover-selecionado");
+removerSelecionado.addEventListener("click", function () {
+  const tarefas = document.querySelectorAll("li");
+  for (let i = 0; i < tarefas.length; i += 1) {
+    if (tarefas[i].classList.contains("selected")) {
+      tarefaListada.removeChild(tarefas[i]);
+    }
+  }
+});
