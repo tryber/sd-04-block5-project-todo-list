@@ -13,7 +13,7 @@ const butDown = document.getElementById('mover-baixo');
 
 function captureSelected() {
   let selected = null;
-  
+
   for (i = 0; i < olTasks.children.length; i += 1) {
     if (olTasks.children[i].style.backgroundColor === 'rgb(128, 128, 128)') {
       selected = olTasks.children[i];
@@ -35,8 +35,8 @@ function liDbclick(e) {
   if (e.target.className) {
     e.target.className = '';
   } else {
-      e.target.className = 'completed';
-    }
+    e.target.className = 'completed';
+  }
 }
 
 function liClick(e) {
@@ -51,7 +51,7 @@ function liClick(e) {
 
 function addEvents(elm) {
   elm.style.cursor = 'pointer';
-  
+
   elm.addEventListener('mouseover', liMouseOver);
   elm.addEventListener('mouseout', liMouseOut);
   elm.addEventListener('dblclick', liDbclick);
@@ -135,7 +135,7 @@ butSaveTasks.addEventListener('click', function () {
 butUp.addEventListener('click', function () {
   const elm = captureSelected();
   const elmDad = elm.parentNode;
-  
+
   if (elm !== elmDad.firstChild) {
     elmDad.insertBefore(elm, elm.previousSibling);
   }
