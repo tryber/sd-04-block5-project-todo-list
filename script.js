@@ -170,7 +170,7 @@ butDown.addEventListener('click', function () {
 
 butDelTask.addEventListener('click', function () {
   const itemSel = document.querySelector('.slct');
-  
+
   if (itemSel) {
     itemSel.parentNode.removeChild(itemSel);
   }
