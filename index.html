@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>toDo-list-project</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Minha Lista de Tarefas</h1>
-            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        </header>
-        <section>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>toDo-list-project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <section>
+        <form>
             <label for="texto-tarefa">Tarefa: </label>
             <input type="text" id="texto-tarefa">
+            <button id="criar-tarefa">Criar tarefa</button>
+        </form>
 
-            <ol id="lista-tarefas">
-                <li>Projeto To Do list</li>
-            </ol>
-        </section>
-        <script src="script.js"></script>
-    </body>
+        <ol id="lista-tarefas">
+            <li>Projeto To Do list</li>
+        </ol>
+    </section>
+    <script src="script.js"></script>
+</body>
+
 </html>
