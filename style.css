@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap');
+
+
+body{
+    background-color: rgb(129, 214, 214);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .button{
     background-color: rgb(38, 163, 0);
     border: none;
@@ -13,18 +21,16 @@
     margin-left: 10px;
 }
 
+li{
+    color: indigo;
+    font-family:'Comic Neue', cursive;
+    font-size: 20px;
+}
+
 .selected{
     background-color: grey;
 }
 
-
-body{
-    background-color: rgb(129, 214, 214);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-#fundo-lista{ 
-}
 
 .completed{
     text-decoration: line-through;

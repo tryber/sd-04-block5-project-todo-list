@@ -4,10 +4,12 @@ window.onload = function(){
     const inputTask = document.querySelector("#texto-tarefa");
 //BOTÃO CRIAR
     const buttonCreate = document.querySelector("#criar-tarefa");
+    const buttonErase = this.document.querySelector("#apaga-tudo");
 //VARIÁVEL DA LISTA
     const toDoList = document.querySelector('#lista-tarefas');
 
     buttonCreate.addEventListener('click', insertItem);
+    buttonErase.addEventListener('click', apagaTudo);
 
 //FUNÇÃO DESTACA ITEM
     function pintaFundo(event){
@@ -22,10 +24,8 @@ window.onload = function(){
         risco.classList.add("completed")
         risco.addEventListener("dblclick", function(){
             risco.classList.toggle("completed")
-        })
-
+        });
     }
-    
     
 //FUNÇÃO DE INSERIR ITEM
     function insertItem(){
@@ -37,9 +37,20 @@ window.onload = function(){
         
         listItem.addEventListener("click", pintaFundo);
         listItem.addEventListener('dblclick', riscada);
-        
     }
+}
 
+//FUNÇÃO APAGA TUDO
+function apagaTudo(){
+let lista = document.getElementById("lista-tarefas");
+let itens = document.querySelectorAll('li');
+for(let i = 0; i< itens.length; i++){
+    lista.removeChild(itens[i]);   
+}
+}
+
+function apagaCompletos(){
+    
 }
 
 //FUNÇÃO DE DESTAQUE CINZA
