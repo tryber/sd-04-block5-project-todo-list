@@ -1,6 +1,7 @@
 const lista = document.getElementById("lista-tarefas");
 const buttonAdd = document.getElementById("criar-tarefa");
 const inputText = document.getElementById("texto-tarefa");
+const apagar = document.getElementById('apaga-tudo');
 let ultimoMarcado;
 
 function Seleciona(event)
@@ -54,7 +55,6 @@ function Completou(event)
         event.target.className = "selected";
         Seleciona(event);
     }
-
 }
 
 function AddElemento()
@@ -62,12 +62,20 @@ function AddElemento()
     const elemento = document.createElement('li');
     const informacao = inputText.value;
     elemento.innerHTML = informacao;
-    //elemento.setAttribute('class', 'textos');
     elemento.addEventListener('dblclick', function (event) { Completou(event); });
     elemento.addEventListener('click', function (event) { Seleciona(event); });
     lista.appendChild(elemento);
     inputText.value = '';
 }
+
+function ApagaGeral()
+{
+    const tamanho = document.querySelectorAll("li");
+    for (let i = 0; i < tamanho.length + 1 ; i += 1)
+    {
+        lista.removeChild(lista.firstChild);
+    }
+} 
 
 function Iniciar()
 {
@@ -75,6 +83,7 @@ function Iniciar()
     {
         AddElemento();
     });
+    apagar.addEventListener("click", function () { ApagaGeral(); });
 }
 
 window.onload = function () 

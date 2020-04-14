@@ -43,6 +43,21 @@ button, li
     cursor: pointer;
 }
 
+button
+{
+    background-color: rgb(255, 175, 175);
+    border-radius: 20%;
+    border: 2px solid rgb(255, 74, 74);
+    box-shadow: 0 8px 16px 0 rgba(255, 74, 74, 0.589), 0 6px 20px 0 rgba(255, 175, 175, 0.616);
+    height: 30px;
+    margin: 15px;
+}
+
+.botoes-d-baixo
+{
+    text-align: center;
+}
+
 .selected
 {
     background-color:  rgb(128,128,128);
