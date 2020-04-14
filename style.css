@@ -1,0 +1,30 @@
+body {
+  background-color: rgb(88 , 40 , 88);
+  text-align: center;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+}
+
+li {
+  cursor: pointer;
+}
+
+ol {
+  display: table;
+  margin: auto;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  margin: 10px;
+}
+
+.selected {
+  background-color: gray;
+}
