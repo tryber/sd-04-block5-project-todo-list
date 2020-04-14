@@ -14,7 +14,7 @@ function captureSelected() {
   let selected = null;
 
   for (i = 0; i < olTasks.children.length; i += 1) {
-    if (olTasks.children[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (olTasks.children[i].style.backgroundColor === 'grey') {
       selected = olTasks.children[i];
     }
   }
