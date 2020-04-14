@@ -34,9 +34,9 @@ listTask.addEventListener('dblclick', function (event) {
 });
 
 removeFinished.addEventListener ('click', function() {
-  const concluidas = document.querySelectorAll('.completed');
-  for (let j = 0; j < concluidas.length; j += 1 ) {
-      listTask.removeChild(concluidas[j]);
+  const listItems = document.querySelectorAll('.completed');
+  for (let j = 0; j < listItems.length; j += 1 ) {
+      listTask.removeChild(listItems[j]);
     }
   }
 )

@@ -1,5 +1,6 @@
 body {
   background-color: rebeccapurple;
+  text-align: center;
 }
 
 .container {
@@ -9,6 +10,11 @@ body {
 
 li {
   cursor: pointer;
+}
+
+ol {
+  display: table;
+  margin: auto;
 }
 
 .completed {
