@@ -25,9 +25,15 @@ ol.addEventListener('dblclick', function(event) {
 }, false);
 
 ol.addEventListener('click', function(event) {
-  if (event.target.tagName === 'LI') {
-    event.target.classList.toggle('clicked');
+  const itens = document.querySelectorAll('li');
+  for (let i = 0; i < itens.length; i += 1) {
+    if (itens[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      itens[i].style.backgroundColor = 'white';
+      itens[i].classList.remove('clicked'); // remova uma classe específica.
+    }
   }
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('clicked'); // Adiciona um classe a mais no elemento.
 }, false);
 
 btnApagaTudo.addEventListener('click', function(){
@@ -91,7 +97,6 @@ ol.addEventListener('click', function(event) {
       liNode[i].style.backgroundColor = '';
     }
   }
-
 }, false);
 
 
