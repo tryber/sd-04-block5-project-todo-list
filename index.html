@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Side menu -->
+    <section class="menu">
+      <header>
+        <h1 class="title">Minha Lista de Tarefas</h1>
+        <p id="funcionamento" class="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+
+      <!-- Task input -->
+      <div class="input">
+        <label for="texto-tarefa">Write a task</label>
+        <input type="text" name="texto-tarefa" id="texto-tarefa" class="texto-tarefa">
+        <!-- Buttons -->
+        <button id="criar-tarefa" class="criar-tarefa">Add task</button>
+        <button id="apaga-tudo" class="apaga-tudo">Delete all</button>
+        <button id="remover-finalizados" class="remover-finalizados">Delete completed</button>
+        <button id="salvar-tarefas" class="salvar-tarefas">Save tasks</button>
+        <button id="remover-selecionado" class="remover-selecionado">Remove selected</button>
+        <button id="mover-cima" class="mover-cima">Move up</button>
+        <button id="mover-baixo" class="mover-baixo">Move down</button>
+      </div>
+    </section>
+
+    <!-- Tasks list -->
+    <section class="tasks">
+      <h2 class="tasks-title">Tasks</h2>
+      <ol id="lista-tarefas" class="lista-tarefas">
+      </ol>
+    </section>
+
+    <!-- JavaScript import -->
+    <script src="./script.js"></script>
+  </body>
+</html>
