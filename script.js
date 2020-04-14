@@ -19,7 +19,6 @@ btnSalvar.addEventListener('click', function () {
     localStorage.setItem('lista', ol.innerHTML);
   }
 });
-
 // Adicionar tarefas na lista
 addTarefa.addEventListener('click', function () {
   if (inpText.value !== '') {
@@ -78,7 +77,7 @@ btnMoverCima.addEventListener('click', function () {
   // encontra o primeiro filho da lista e verifica a classe
   if (ol.children[0] === selecionado) {
     alert('Limite alcançado');
-  }  else {
+  } else {
     // guarda o conteudo do anterior ao selecionado
     const valorAcima = selecionado.previousElementSibling.innerHTML;
     const valorQSobe = selecionado.innerHTML;
@@ -95,7 +94,7 @@ btnMoverBaixo.addEventListener('click', function () {
   // encontra o ultimo filho da lista e verifica a classe
   if (ol.children[ol.children.length - 1] === selecionado) {
     alert('Limite alcançado');
-  }  else {
+  } else {
     // guarda o conteudo do proximo ao selecionado
     const valorAbaixo = selecionado.nextElementSibling.innerHTML;
     const valorQDesce = selecionado.innerHTML;
