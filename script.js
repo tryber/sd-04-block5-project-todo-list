@@ -55,3 +55,17 @@ const salveStorage = document.getElementById('salvar-tarefas');
 salveStorage.addEventListener('click', function () {
   localStorage.listTask = document.getElementById('lista-tarefas').innerHTML;
 });
+
+const btnUp = document.getElementById('mover-cima');
+btnUp.addEventListener('click', function () {
+  const itemSelected = document.querySelector('.selected');
+  const before = itemSelected.previousElementSibling;
+  listTask.insertBefore(itemSelected, before);
+});
+
+const btnDown = document.getElementById('mover-baixo');
+btnDown.addEventListener('clck', function () {
+  const itemSelected = document.querySelector('.selected');
+  let next = itemSelected.nextElementSibling;
+  listTask.insertBefore(itemSelected, next);
+});
