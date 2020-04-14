@@ -3,13 +3,15 @@ const tarefa = document.getElementById("texto-tarefa")
 const ol = document.getElementById("lista-tarefas")
 const deleteTarefas = document.getElementById('apaga-tudo');
 const li = document.querySelectorAll("li");
+const item = document.getElementsByClassName("item")
+
 
 
 criarTarefa.addEventListener("click", addLi);
 function addLi() {
     let li = document.createElement('li');
     li.innerHTML = tarefa.value;
-    li.className = "pointer";
+    li.className = "item";
     ol.appendChild(li);
     tarefa.value = '';
 }
@@ -19,15 +21,16 @@ function deleteAll() {
     ol.innerHTML = "";
 }
 
-
-
-
-
-
-
-
-
-
+ol.addEventListener('click', start);
+function start() {
+for( let i = 0; i < item.length; i+= 1) {
+    item[i].addEventListener('click', function() {
+        for(let i = 0; i < item.length; i += 1) {
+            item[i].classList.remove('selected');
+        }
+        item[i].classList.add('selected');
+    })
+}}
 
 
 

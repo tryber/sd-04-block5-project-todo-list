@@ -1,8 +1,12 @@
-.pointer {
+.lista-tarefas {
     cursor: pointer;
 }
 
 .completed {
 
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
 }
 
