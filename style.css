@@ -5,7 +5,7 @@ body {
 }
 
 .btn-add {
-  background-color: rgb(66, 192, 27);
+  background-color: rgb(53, 37, 201);
   border-radius: 5px;
   border: 1px black;
   color: rgb(255, 255, 255);
@@ -22,6 +22,15 @@ body {
 
 .btn-remove {
   background-color: rgb(180, 25, 14);
+  border-radius: 5px;
+  border: 1px black;
+  color: rgb(255, 255, 255);
+  margin-right: 16px;
+  padding: 8px;
+}
+
+.btn-move {
+  background-color: rgb(189, 201, 26);
   border-radius: 5px;
   border: 1px black;
   color: rgb(255, 255, 255);
