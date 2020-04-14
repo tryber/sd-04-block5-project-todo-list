@@ -68,7 +68,6 @@ btnMoverPraCima.addEventListener('click', function () {
     itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
     itemSelecionado.style.backgroundColor = 'white';
     itemAnterior.classList.add('selected');
-    itemSelecionado.classList.remove('selected');
   }
 });
 
@@ -82,6 +81,5 @@ btnMoveBaixo.addEventListener('click', function () {
     itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
     itemSelecionado.style.backgroundColor = 'white';
     itemPosterior.classList.add('selected');
-    itemSelecionado.classList.remove('selected');
   }
 });
