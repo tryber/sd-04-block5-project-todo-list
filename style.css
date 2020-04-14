@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(88, 40, 88);
+  background-color: rgb(88 , 40 , 88);
   text-align: center;
 }
 
@@ -22,7 +22,7 @@ ol {
 }
 
 button {
-  margin: 10px;;
+  margin: 10px;
 }
 
 .selected {
