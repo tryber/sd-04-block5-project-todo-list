@@ -33,11 +33,11 @@ addTarefa.addEventListener('click', function () {
     inpText.value = '';// limpar a caixa de texto
   }
 });
-// Ao clicar uma vez sobre a li add a classe 
+// Ao clicar uma vez sobre a li add a classe
 ol.addEventListener('click', function (elemento) {
   // verifica se a classe ja está no elemento clicado
   if (document.querySelector('.selected') == null) {
-      elemento.target.classList.add('selected');
+    elemento.target.classList.add('selected');
   }
 });
 // Ao clicar duas vezes sobre a li a classe é add ou removida
@@ -72,14 +72,13 @@ btnFinalizados.addEventListener('click', function () {
 btnSelecionados.addEventListener('click', function () {
   clearFimSele('selected');
 });
-//Botão de mover para cima o selecionado
+// Botão de mover para cima o selecionado
 btnMoverCima.addEventListener('click', function () {
   const selecionado = document.querySelector('.selected');
   // encontra o primeiro filho da lista e verifica a classe
   if (ol.children[0] === selecionado) {
-     alert('Limite alcançado'); 
-    }
-  else {
+    alert('Limite alcançado');
+  }  else {
     // guarda o conteudo do anterior ao selecionado
     const valorAcima = selecionado.previousElementSibling.innerHTML;
     const valorQSobe = selecionado.innerHTML;
@@ -90,20 +89,19 @@ btnMoverCima.addEventListener('click', function () {
     selecionado.classList.remove('selected');
   }
 });
-//Botão mover para baixo o selecionado
+// Botão mover para baixo o selecionado
 btnMoverBaixo.addEventListener('click', function () {
   const selecionado = document.querySelector('.selected');
   // encontra o ultimo filho da lista e verifica a classe
   if (ol.children[ol.children.length - 1] === selecionado) {
-     alert('Limite alcançado'); 
-    }
-  else {
+    alert('Limite alcançado');
+  }  else {
     // guarda o conteudo do proximo ao selecionado
     const valorAbaixo = selecionado.nextElementSibling.innerHTML;
     const valorQDesce = selecionado.innerHTML;
     // o conteudo do valor do proximo ao selecionado recebe o valor do selecionado
     selecionado.nextElementSibling.innerHTML = valorQDesce;
-    // o conteudo selecionado recebe o valor do proximo conteudo 
+    // o conteudo selecionado recebe o valor do proximo conteudo
     selecionado.innerHTML = valorAbaixo;
     selecionado.classList.remove('selected');
   }
