@@ -77,6 +77,7 @@ moveUpBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
   if (selectedTask !== null && selectedTask.previousElementSibling !== null) {
     selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
+    selectedTask.classList.remove('selected');
   }
 });
 
@@ -85,6 +86,7 @@ moveDownBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
   if (selectedTask !== null && selectedTask.nextElementSibling !== null) {
     selectedTask.parentNode.insertBefore(selectedTask.nextElementSibling, selectedTask);
+    selectedTask.classList.remove('selected');
   }
 });
 
