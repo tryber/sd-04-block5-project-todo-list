@@ -1,10 +1,10 @@
-let adicioanar = document.getElementById('criar-tarefa');
-let lista = document.getElementById('lista-tarefas');
-let item = document.getElementById('texto-tarefa');
-adicionar.addEventListener( 'click' ,  function() {
-  let conteudo = document.createElement('LI');
-  conteudo.innerHTML = item.value;
-  conteudo.className = 'cursor';
-  item.value ='';
-  lista.appendChild(conteudo);
+let button = document.getElementById('criar-tarefa');
+let ltarefa = document.getElementById('lista-tarefas');
+let txt = document.getElementById('texto-tarefa');
+button.addEventListener( 'click' ,  function() {
+  let criar = document.createElement('LI');
+  criar.innerHTML = txt.value;
+  criar.className = 'cursor';
+  txt.value ='';
+  ltarefa.appendChild(criar);
 });
