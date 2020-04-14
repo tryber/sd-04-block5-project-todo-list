@@ -11,7 +11,7 @@ const btnMoverBaixo = document.querySelector('#mover-baixo');
 if (typeof (Storage) !== 'undefined') {
   ol.innerHTML = localStorage.lista;
 }
-
+// Salva a lista de tarefas
 btnSalvar.addEventListener('click', function () {
   if (ol.innerHTML === '') {
     alert('Não existe tarefas para salvar');
@@ -31,66 +31,80 @@ addTarefa.addEventListener('click', function () {
     li.className = 'task';
     inpText.focus();// deixar o cursor na caixa de texto apos adicionar
     inpText.value = '';// limpar a caixa de texto
-
   }
 });
-
+// Ao clicar uma vez sobre a li add a classe 
 ol.addEventListener('click', function (elemento) {
-  if (document.querySelector(".selected") == null) { elemento.target.classList.add('selected'); }
+  // verifica se a classe ja está no elemento clicado
+  if (document.querySelector('.selected') == null) {
+      elemento.target.classList.add('selected');
+  }
 });
-
+// Ao clicar duas vezes sobre a li a classe é add ou removida
 ol.addEventListener('dblclick', function (elemento) {
-  if (elemento.target.classList.contains('completed') == true) {
+  if (elemento.target.classList.contains('completed') === true) {
     elemento.target.classList.remove('completed');
   } else {
     elemento.target.classList.add('completed');
   }
 });
-
 // Limpar toda a lista de tarefas
 clearAll.addEventListener('click', function () {
   ol.innerHTML = '';
 });
 
-
-btnFinalizados.addEventListener('click', function () {
-  clearFimSele('completed');
-})
-
-btnSelecionados.addEventListener('click', function () {
-  clearFimSele('selected');
-})
-// COLOCANDO TUDO NUMA FUNÇAO:
+// Função que funciona tanto para limpar finalizados tanto selecionados
 function clearFimSele(classe) {
-  let li = document.querySelectorAll('li');
+  const li = document.querySelectorAll('li');
   for (let i = 0; i < li.length; i += 1) {
-    if (li[i].classList.contains(classe) == true) {
+    // Verifica se dentro da lista de classes da li contem ou não a classe
+    // o metodo contains() chama um resultado em boolean
+    if (li[i].classList.contains(classe) === true) {
       li[i].remove();
     }
   }
 }
-
+// Botão para limpar finalizados
+btnFinalizados.addEventListener('click', function () {
+  clearFimSele('completed');
+});
+// Botão para limpar selecionados
+btnSelecionados.addEventListener('click', function () {
+  clearFimSele('selected');
+});
+//Botão de mover para cima o selecionado
 btnMoverCima.addEventListener('click', function () {
-  let selecionado = document.querySelector(".selected");// procura o primeiro elemento .selected
-  if (ol.children[0] == selecionado) { alert('Limite alcançado'); }
+  const selecionado = document.querySelector('.selected');
+  // encontra o primeiro filho da lista e verifica a classe
+  if (ol.children[0] === selecionado) {
+     alert('Limite alcançado'); 
+    }
   else {
-    let valorAcima = selecionado.previousElementSibling.innerHTML;// recebe o conteudo anterior ao selecionado
-    let valorQSobe = selecionado.innerHTML;
-    selecionado.previousElementSibling.innerHTML = valorQSobe;// o conteudo do valor anterior do selecionado recebe o valor do selecionado
-    selecionado.innerHTML = valorAcima;// o conteudo selecionado ele recebe o valor do conteudo anterior
+    // guarda o conteudo do anterior ao selecionado
+    const valorAcima = selecionado.previousElementSibling.innerHTML;
+    const valorQSobe = selecionado.innerHTML;
+    // o conteudo do valor anterior do selecionado recebe o valor do selecionado
+    selecionado.previousElementSibling.innerHTML = valorQSobe;
+    // o conteudo selecionado recebe o valor do conteudo anterior
+    selecionado.innerHTML = valorAcima;
     selecionado.classList.remove('selected');
   }
 });
-
+//Botão mover para baixo o selecionado
 btnMoverBaixo.addEventListener('click', function () {
-  let selecionado = document.querySelector('.selected');
-  if (ol.children[ol.children.length - 1] == selecionado) { alert('Limite alcançado'); }
+  const selecionado = document.querySelector('.selected');
+  // encontra o ultimo filho da lista e verifica a classe
+  if (ol.children[ol.children.length - 1] === selecionado) {
+     alert('Limite alcançado'); 
+    }
   else {
-    let valorAbaixo = selecionado.nextElementSibling.innerHTML;
-    let valorQDesce = selecionado.innerHTML;
+    // guarda o conteudo do proximo ao selecionado
+    const valorAbaixo = selecionado.nextElementSibling.innerHTML;
+    const valorQDesce = selecionado.innerHTML;
+    // o conteudo do valor do proximo ao selecionado recebe o valor do selecionado
     selecionado.nextElementSibling.innerHTML = valorQDesce;
+    // o conteudo selecionado recebe o valor do proximo conteudo 
     selecionado.innerHTML = valorAbaixo;
     selecionado.classList.remove('selected');
   }
-})
-
+});

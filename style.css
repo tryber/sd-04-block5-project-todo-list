@@ -1,4 +1,4 @@
-.task,
+.task ,
 button {
   cursor: pointer;
 }
@@ -8,5 +8,5 @@ button {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
