@@ -5,10 +5,14 @@ window.onload = function() {
 let orderedList = document.getElementById("lista-tarefas");
 let textField = document.getElementById("texto-tarefa");
 let addItem = document.getElementById("criar-tarefa");
+let removeAllButton = document.getElementById("apaga-tudo");
+let removeCompletedButton = document.getElementById("remover-finalizados");
 let buttons = document.getElementsByTagName("button");
 
 
 addItem.addEventListener("click", criarTarefa);
+removeAllButton.addEventListener("click", removeAll);
+removeCompletedButton.addEventListener("click", removeCompleted);
 
 for(let i = 0; i < buttons.length; i+=1){
   buttons[i].style.cursor = "pointer";
@@ -44,6 +48,20 @@ function complete(evt){
   }
 }
 
+function removeAll(){
 
+  while (orderedList.firstChild) {
+    orderedList.removeChild(orderedList.firstChild);
+}
+}
+
+function removeCompleted(){
+  let items = document.querySelectorAll('li');
+  for (let i = 0; i < items.length; i += 1) {
+    if (items[i].classList.contains('completed')) {
+      orderedList.removeChild(items[i]);
+    }
+  }
+}
 
 };
