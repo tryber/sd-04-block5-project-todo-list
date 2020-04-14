@@ -1,18 +1,5 @@
-.criar-tarefa {
+.criar-tarefa , .remover-finalizados , .apaga-tudo , li {
   cursor: pointer;
-}
-
-.remover-finalizados {
-  cursor: pointer;
-}
-
-.apaga-tudo {
-  cursor: pointer;
-}
-
-li {
-  cursor: pointer;
-  background-color: white;
 }
 
 .completed {
@@ -20,5 +7,5 @@ li {
 }
 
 .item-cinza {
-    background-color: gray;
+  background-color: gray;
 }
