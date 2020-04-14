@@ -56,7 +56,7 @@ btnApagaSelecionado.addEventListener('click', function(){
 })
 
 const btnMoverPraCima = document.querySelector('#mover-cima')
-
+function eventBtnMoveCima(){
 btnMoverPraCima.addEventListener('click', function(){
   const liSelected = document.querySelector('.clicked');
   const liBefore = liSelected.previousElementSibling;
@@ -70,8 +70,9 @@ btnMoverPraCima.addEventListener('click', function(){
   liSelected.classList.remove('clicked');
   }
 })
-
+}
 const btnMoveParaBaixo = document.querySelector('#mover-baixo')
+function eventBtnMoveBaixo(){
 btnMoveParaBaixo.addEventListener('click', function () {
   const liSelected = document.querySelector('.clicked');
   const liNext= liSelected.nextElementSibling;
@@ -85,6 +86,7 @@ btnMoveParaBaixo.addEventListener('click', function () {
     liSelected.classList.remove('clicked');
   }
 })
+}
 
 ol.addEventListener('click', function(event) {
   let liNode = document.querySelectorAll('li');
@@ -96,4 +98,8 @@ ol.addEventListener('click', function(event) {
 
 }, false);
 
+window.onload = function () {
+  eventBtnMoveCima();
+  eventBtnMoveBaixo();
+}
 
