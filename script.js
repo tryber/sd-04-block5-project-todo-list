@@ -33,11 +33,12 @@ window.onload = function () {
 
   //adicionando cor ao item clicado:
   document.getElementById("lista-tarefas").addEventListener("click", function (event) {
+    const lista5 = document.querySelectorAll('li');
+    if (document.querySelector('.selected') !== null) {
+      document.querySelector('.selected').classList.remove('selected');
+    }
     if (event.target && event.target.nodeName == "LI") {
-      if (event.target.classList.contains("selected")) {
-        event.target.classList.remove('selected');
-      } else event.target.classList.add('selected')
-
+      event.target.classList.add('selected')
     }
   });
 
@@ -95,7 +96,7 @@ window.onload = function () {
       }
     }
   }
-  
+
   //
   document.getElementById("mover-baixo").addEventListener("click", moverBaixo);
   function moverBaixo() {
@@ -106,7 +107,9 @@ window.onload = function () {
         let elementoBaixo = listaItens3[indexSelected].nextSibling.nextSibling;
         if (elementoBaixo != null) {
           lista.insertBefore(listaItens3[indexSelected], elementoBaixo);
-        }else {
+          console.log(elementoBaixo.textContent);
+          
+        } else {
           elementoBaixo = listaItens3[indexSelected].nextSibling;
           lista.insertBefore(elementoBaixo, listaItens3[indexSelected])
           break
