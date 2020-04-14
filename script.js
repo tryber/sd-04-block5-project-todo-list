@@ -1,7 +1,6 @@
 let i;
 let j;
 let indClass = [];
-let removeMouseOut = false;
 const butAddTask = document.getElementById('criar-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
 const inptasks = document.getElementById('texto-tarefa');
@@ -38,7 +37,7 @@ function liDbclick(e) {
     e.target.classList.add('completed');
   }
 
-  console.log(e.target.className);
+  // console.log(e.target.className);
 }
 
 function liClick(e) {
@@ -47,7 +46,7 @@ function liClick(e) {
     e.target.classList.remove('slct');
   } else {
     e.target.removeEventListener('mouseout', liMouseOut);
-    
+
     for (i = 0; i < olTasks.children.length; i += 1) {
       if (olTasks.children[i].className === 'slct') {
         olTasks.children[i].classList.remove('slct');
@@ -59,7 +58,7 @@ function liClick(e) {
     e.target.classList.add('slct');
   }
 
-  console.log(e.target);
+  // console.log(e.target);
 }
 
 function addEvents(elm) {
