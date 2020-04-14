@@ -11,15 +11,15 @@ const butUp = document.getElementById('mover-cima');
 const butDown = document.getElementById('mover-baixo');
 
 function captureSelected() {
-  let selected;
+  // let selected;
 
   for (i = 0; i < olTasks.children.length; i += 1) {
     if (olTasks.children[i].className === 'slct' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
-      selected = olTasks.children[i];
+      return olTasks.children[i];
     }
   }
 
-  return selected;
+  // return selected;
 }
 
 function liMouseOver(e) {
@@ -146,6 +146,7 @@ butSaveTasks.addEventListener('click', function () {
 
 butUp.addEventListener('click', function () {
   const elm = captureSelected();
+  // console.log(elm);
   const elmDad = elm.parentNode;
 
   if (elm !== elmDad.firstChild) {
@@ -155,6 +156,7 @@ butUp.addEventListener('click', function () {
 
 butDown.addEventListener('click', function () {
   let elm = captureSelected();
+  // console.log(elm);
   const elmDad = elm.parentNode;
 
   if (elm !== elmDad.lastChild) {
