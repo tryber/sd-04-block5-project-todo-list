@@ -15,22 +15,19 @@ window.onload = function(){
         textoDigitado.value = '';
         textoDigitado.focus();
     
-        // ADICIONAR CLASSE
-    liNode.addEventListener('click', function(){
+        // ADICIONAR CLASSE ##
+    liNode.addEventListener('click', function(){//#
         //liNode.classList.add('selected');// li recebe a classe selected do css, PRECISA função
         trocarClasse(liNode,'selected');
+        
     })
 
-    liNode.addEventListener('dblclick', function(){
+    liNode.addEventListener('dblclick', function(){//#
        // liNode.classList.add('completed');// li recebe a classe completed do css PRECISA função
        trocarClasse(liNode,'completed');
     })
 
-    }
-    btn_criar_tarefa.addEventListener('click', addTarefa);
-
-
-    function trocarClasse(element, classe){ // parâmetros = o que as linhas 17/25 tem em comum.
+    function trocarClasse(element, classe){ //# parâmetros = o que as linhas 17/25 tem em comum.
         if( element.classList.contains(classe)== false){ //1-qnd elem não contem a classe
              //sintax = node.contains() e retorna true ou false     
             element.classList.add(classe);//2- classe adicionada ao elem.
@@ -39,12 +36,58 @@ window.onload = function(){
         }
        
     }
+    // REMOVER FINALIZADOS E SELECIONADOS ##
+    let btn_remove_finaliz = document.getElementById('remover-finalizados');
+    let btn_remove_selec = document.getElementById('remover-selecionado');
+
+    btn_remove_finaliz.addEventListener('click',function(){ // ##
+        // event dentro da funçao addTarefa pq li está declarada aqui dentro.
+            //if(liNode.classList.contains('completed')== true){ // aqui dentro não precisou do FOR
+           // liNode.remove();
+           // }
+           remove_fin_selec(liNode,'completed');
+    })
+    btn_remove_selec.addEventListener('click', function(){// ##
+          // event dentro da funçao addTarefa pq li está declarada aqui dentro.
+         // if(liNode.classList.contains('selected')== true){ // aqui dentro não precisou do FOR
+           // liNode.remove();
+           // }
+           remove_fin_selec(liNode, 'selected');
+    })
+
+    // FUNÇAO REMOMOVE FINALIZADOS E SELECIONADOS **
+    function remove_fin_selec(element,classe){
+        if(element.classList.contains(classe)){
+            element.remove();
+        }
+
+    }
+
+    
+  
+
+
+    }// fim addTarefa
+   
+    
+
+    
+
 
     // APAGA-TUDO ou REMOVENDO ITENS DA LISTA
      function limpaLista(){
-        //olNode.innerHTML="";
-        olNode.children.remove(document.querySelectorAll('li'));
+        olNode.innerHTML=''; 
     }
+
+    // adicionar tarefa com tecla enter
+    textoDigitado.addEventListener('keyup', function(e){
+        //console.log(e.keyCode)// para cada tecla mostra um código
+        if(e.keyCode === 13){ // código do enter é 13
+            addTarefa();
+        }
+    })
+
+    btn_criar_tarefa.addEventListener('click', addTarefa);
     btn_remove_lista.addEventListener('click', limpaLista)
 
 }
