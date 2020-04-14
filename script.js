@@ -1,18 +1,18 @@
-let btnAdd = document.querySelector('#criar-tarefa');
-let list = document.querySelector('#lista-tarefas');
-let tarefa = document.querySelector('#texto-tarefa');
-let btnRem = document.querySelector('#apaga-tudo');
-let btnRemLined = document.querySelector('#remover-finalizados');
-let btnSave = document.querySelector('#salvar-tarefas');
-let btnExclud = document.querySelector('#remover-selecionado');
-let btnUp = document.querySelector('#mover-cima');
-let btnDown = document.querySelector('#mover-baixo');
+const btnAdd = document.querySelector('#criar-tarefa');
+const list = document.querySelector('#lista-tarefas');
+const tarefa = document.querySelector('#texto-tarefa');
+const btnRem = document.querySelector('#apaga-tudo');
+const btnRemLined = document.querySelector('#remover-finalizados');
+const btnSave = document.querySelector('#salvar-tarefas');
+const btnExclud = document.querySelector('#remover-selecionado');
+const btnUp = document.querySelector('#mover-cima');
+const btnDown = document.querySelector('#mover-baixo');
 
 btnAdd.addEventListener('click', function () {
   if (tarefa.value === '') {
     alert('Digite alguma tarefa!');
   } else {
-    let item = document.createElement('li');
+    const item = document.createElement('li');
     item.innerHTML = tarefa.value;
     list.appendChild(item);
     tarefa.value = '';
@@ -24,21 +24,21 @@ list.addEventListener('click', function (e) {
 });
 
 list.addEventListener('dblclick', function (e) {
-  e.target.classList.toggle('completed')
+  e.target.classList.toggle('completed');
 })
 
 btnRem.addEventListener('click', function () {
-  let itens = document.querySelectorAll('li');
+  const itens = document.querySelectorAll('li');
   for (let i = 0; i < itens.length; i += 1) {
     list.removeChild(itens[i]);
-    localStorage.removeItem('itens')
+    localStorage.removeItem('itens');
   }
 });
 
 btnRemLined.addEventListener('click', function () {
-  let complete = document.querySelectorAll('li');
+  const complete = document.querySelectorAll('li');
   for (let i = 0; i < complete.length; i += 1) {
-    if (complete[i].className == 'completed') {
+    if (complete[i].className === 'completed') {
       list.removeChild(complete[i]);
     }
   }
@@ -49,21 +49,21 @@ btnSave.addEventListener('click', function () {
 });
 
 if (localStorage !== null) {
-  list.innerHTML = localStorage.getItem('itens')
+  list.innerHTML = localStorage.getItem('itens');
 }
 
-btnExclud.addEventListener('click', function() {
+btnExclud.addEventListener('click', function () {
   document.querySelector('.selected').remove();
 });
 
-btnUp.addEventListener('click', function() {
+btnUp.addEventListener('click', function () {
   let itemSlctd = document.querySelector('.selected');
-  if(itemSlctd == null) {
-    alert('Selecione algum item!')
+  if (itemSlctd == null) {
+    alert('Selecione algum item!');
   }
   let prvItem = itemSlctd.previousElementSibling;
   let older = itemSlctd.innerText
-  if (prvItem){
+  if (prvItem) {
     itemSlctd.innerText = prvItem.innerText;
     prvItem.innerText = older;
     if (itemSlctd.classList.contains('completed')) {
@@ -77,20 +77,22 @@ btnUp.addEventListener('click', function() {
   }
 });
 
-btnDown.addEventListener('click', function() {
+btnDown.addEventListener('click', function () {
   let itemSlctd = document.querySelector('.selected');
-  if(itemSlctd == null) {
-    alert('Selecione algum item!')
+  if (itemSlctd == null) {
+    alert('Selecione algum item!');
   }
   let nextItem = itemSlctd.nextElementSibling;
-  let older = itemSlctd.innerText
-  if (nextItem){
+  let older = itemSlctd.innerText;
+  if (nextItem) {
     itemSlctd.innerText = nextItem.innerText;
     nextItem.innerText = older;
+
     if (itemSlctd.classList.contains('completed')) {
       nextItem.classList.add('completed');
       itemSlctd.classList.remove('completed');
     }
+
     if (itemSlctd.classList.contains('selected')) {
       nextItem.classList.add('selected');
       itemSlctd.classList.remove('selected');
