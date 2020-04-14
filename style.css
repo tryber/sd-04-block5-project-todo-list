@@ -25,6 +25,15 @@ body {
   padding: 8px;
 }
 
+.btn-save {
+  background-color: rgb(60, 170, 9);
+  border-radius: 5px;
+  border: 1px black;
+  color: rgb(255, 255, 255);
+  margin-right: 16px;
+  padding: 8px;
+}
+
 li {
   cursor: pointer;
 }

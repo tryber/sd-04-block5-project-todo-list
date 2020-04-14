@@ -4,6 +4,7 @@
   let tarefa = document.querySelector('#texto-tarefa');
   let btnRem = document.querySelector('#apaga-tudo');
   let btnRemLined = document.querySelector('#remover-finalizados');
+  let btnSave = document.querySelector('#salvar-tarefas');
   
 
   btnAdd.addEventListener('click', function () {
@@ -35,7 +36,9 @@
     let itens = document.querySelectorAll('li');
     for (let i = 0; i < itens.length; i+=1) {
       list.removeChild(itens[i]);
+      localStorage.removeItem(i)
     }
+    
   });
 
   btnRemLined.addEventListener('click', function(){
@@ -45,12 +48,22 @@
         list.removeChild(complete[i]);
       }
     }
+  });
+
+  btnSave.addEventListener('click', function() {
+    let itens = document.querySelectorAll('li');
+    for (let i = 0; i < itens.length; i+=1) {
+      localStorage.setItem(i, itens[i].innerHTML);
+    }
     
   });
 
 
-if (localStorage.item) {
-    list.appendChild(document.createElement('li')).innerHTML = localStorage.getItem('item')
+if (localStorage !== null) {
+  for (let i = 0; i < localStorage.length; i+=1)
+    list.appendChild(document.createElement('li')).innerHTML = localStorage.getItem(i)
 
 }
+
+
 
