@@ -12,20 +12,21 @@ window.onload = function () {
     tarefaInserida.value = '';
   }
   botaoAdicionar.addEventListener('click', criarTarefa);
-  function alteraLiBackground(event) {
+  function alteraItemBackground(event) {
     event.target.classList.add('item-cinza');
   }
-  listaDeTarefas.addEventListener('click', alteraLiBackground);
+  listaDeTarefas.addEventListener('click', alteraItemBackground);
   function itemCompleto(event) {
     event.target.classList.remove('item-cinza');
     event.target.classList.toggle('completed');
   }
   listaDeTarefas.addEventListener('dblclick', itemCompleto);
   function apagaFinalizadas() {
-    var itens = document.querySelectorAll('li');
-    for (let i = 0; i < itens.length; i++) {
-      if(itens[i].className === 'completed') {
+    const itens = document.querySelectorAll('li');
+    for (let i = 0; i < itens.length; i += 1) {
+      if (itens[i].className === 'completed') {
         itens[i].innerHTML = '';
+        itens[i].style.listStyleType = 'none';
       }
     }
   }
