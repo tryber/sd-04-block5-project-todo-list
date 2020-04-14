@@ -132,7 +132,7 @@ butSaveTasks.addEventListener('click', function () {
   indClass = [];
 
   for (i = 0; i < olTasks.children.length; i += 1) {
-    if (olTasks.children[i].className === 'completed') {
+    if (olTasks.children[i].className === 'completed' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
       indClass.push(i);
     }
 
