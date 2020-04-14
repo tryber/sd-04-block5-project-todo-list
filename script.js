@@ -14,7 +14,7 @@ function captureSelected() {
   let selected = null;
 
   for (i = 0; i < olTasks.children.length; i += 1) {
-    if (olTasks.children[i].style.backgroundColor === 'grey') {
+    if (olTasks.children[i].className === 'slct' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
       selected = olTasks.children[i];
     }
   }
