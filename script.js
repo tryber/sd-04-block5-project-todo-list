@@ -24,16 +24,12 @@ listaDeTarefas.addEventListener("click", function(e){
    e.target.classList.toggle("alteracor");
 });
 
-listaDeTarefas.addEventListener("mouseover", function(e){
-    e.target.classList.toggle("pointer");
- });
-
  //Apaga toda a lista
 let apagaLista = document.querySelector("#apaga-tudo");
 apagaLista.addEventListener("click", function(e){
-    while (listaDeTarefas.firstChild) {
-        listaDeTarefas.removeChild(listaDeTarefas.firstChild);
-      }
+    while(listaDeTarefas.firstChild) {
+      listaDeTarefas.removeChild(listaDeTarefas.firstChild);
+    }
 });
 
 //Remove itens selecionados   
