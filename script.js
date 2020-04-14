@@ -9,6 +9,7 @@ const butDelFinish = document.getElementById('remover-finalizados');
 const butSaveTasks = document.getElementById('salvar-tarefas');
 const butUp = document.getElementById('mover-cima');
 const butDown = document.getElementById('mover-baixo');
+const butDelTask = document.getElementById('remover-selecionado');
 
 function captureSelected() {
   let selected;
@@ -164,5 +165,13 @@ butDown.addEventListener('click', function () {
 
       elmDad.insertBefore(elm, elm.previousSibling);
     }
+  }
+});
+
+butDelTask.addEventListener('click', function () {
+  const itemSel = document.querySelector('.slct');
+  
+  if (itemSel) {
+    itemSel.parentNode.removeChild(itemSel);
   }
 });
