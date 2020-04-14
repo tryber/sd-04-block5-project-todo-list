@@ -11,7 +11,7 @@ const butUp = document.getElementById('mover-cima');
 const butDown = document.getElementById('mover-baixo');
 
 function captureSelected() {
-  let selected = null;
+  let selected;
 
   for (i = 0; i < olTasks.children.length; i += 1) {
     if (olTasks.children[i].className === 'slct' || olTasks.children[i].className === 'slct completed' || olTasks.children[i].className === 'completed slct') {
