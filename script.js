@@ -36,8 +36,9 @@ addTarefa.addEventListener('click', function () {
 });
 
 ol.addEventListener('click', function (elemento) {
-  elemento.target.classList.add('selected');
+  if (document.querySelector(".selected") == null) { elemento.target.classList.add('selected'); }
 });
+
 ol.addEventListener('dblclick', function (elemento) {
   if (elemento.target.classList.contains('completed') == true) {
     elemento.target.classList.remove('completed');
@@ -78,7 +79,6 @@ btnMoverCima.addEventListener('click', function () {
     selecionado.previousElementSibling.innerHTML = valorQSobe;// o conteudo do valor anterior do selecionado recebe o valor do selecionado
     selecionado.innerHTML = valorAcima;// o conteudo selecionado ele recebe o valor do conteudo anterior
     selecionado.classList.remove('selected');
-    selecionado.previousElementSibling.classList.add('selected');
   }
 });
 
@@ -91,7 +91,6 @@ btnMoverBaixo.addEventListener('click', function () {
     selecionado.nextElementSibling.innerHTML = valorQDesce;
     selecionado.innerHTML = valorAbaixo;
     selecionado.classList.remove('selected');
-    selecionado.nextElementSibling.classList.add('selected');
   }
 })
 
