@@ -65,6 +65,7 @@ button {
   margin: 20px;
   padding: 15px 30px;
   text-transform: uppercase;
+  width: 90%;
 }
 
 /* Task input */
@@ -74,6 +75,7 @@ button {
   border-radius: 50px;
   color: white;
   display: inline-block;
+  margin-bottom: 30px;
   padding: 10px;
   width: 100%;
 }

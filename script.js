@@ -6,19 +6,24 @@ const saveTasks = document.querySelector('.salvar-tarefas');
 const taskList = document.querySelector('.lista-tarefas');
 const text = document.querySelector('.texto-tarefa');
 
+// Add all event listeneres to li elements
+function addTaskEventListeners(element) {
+  element.addEventListener('click', () => {
+    const tasks = document.querySelectorAll('.task-li');
+    tasks.forEach((item) => { if (item !== event.target) item.classList.remove('selected'); });
+    event.target.classList.toggle('selected');
+  });
+  element.addEventListener('dblclick', () => {
+    event.target.classList.toggle('completed');
+  });
+}
+
 // Create task element
 function createTask(liText) {
   const task = document.createElement('li');
   task.classList.add('task-li');
   task.innerHTML = liText;
-  task.addEventListener('click', () => {
-    const tasks = document.querySelectorAll('.task-li');
-    tasks.forEach((item) => { if (item !== event.target) item.classList.remove('selected'); });
-    event.target.classList.toggle('selected');
-  });
-  task.addEventListener('dblclick', () => {
-    event.target.classList.toggle('completed');
-  });
+  addTaskEventListeners(task);
   return task;
 }
 
@@ -43,23 +48,20 @@ deleteCompletedBtn.addEventListener('click', () => {
 
 // Save tasks
 saveTasks.addEventListener('click', () => {
-  const tasks = document.querySelectorAll('.task-li');
-  const tasksArray = [];
-  tasks.forEach((item) => {
-    tasksArray.push(item.innerHTML);
-  });
-  localStorage.setItem('taskList', JSON.stringify(tasksArray));
+  if (typeof Storage !== 'undefined') {
+    localStorage.setItem('taskList', taskList.innerHTML);
+  } else {
+    alert('Your browser does not support local storage feature');
+  }
 });
 
 // Load tasks
 function loadTasks() {
-  const savedTasks = localStorage.getItem('taskList');
-  if (savedTasks) {
-    const savedTasksArray = JSON.parse(savedTasks);
-    savedTasksArray.forEach((item) => {
-      taskList.appendChild(createTask(item));
-    });
-  }
+  const taskListLocalStorage = localStorage.getItem('taskList');
+  taskList.innerHTML = taskListLocalStorage;
+  const tasks = document.querySelectorAll('.task-li');
+  tasks.forEach((item) => { addTaskEventListeners(item); });
 }
 
+// Function calls
 loadTasks();
