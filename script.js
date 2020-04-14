@@ -72,7 +72,7 @@ function eventBtnMoveCima() { // Evento para o botão mover-cima.
   });
 }
 
-
+const btnMoveBaixo = document.querySelector('#mover-baixo')
 function eventBtnMoveBaixo() { // Evento para o botão mover-baixo.
   btnMoveBaixo.addEventListener('click', function () {
     const itemSelecionado = document.querySelector('.clicked');
