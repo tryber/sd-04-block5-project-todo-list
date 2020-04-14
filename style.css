@@ -101,6 +101,7 @@ label {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: scroll;
   position: fixed;
   text-align: center;
   width: 25%;
@@ -110,6 +111,10 @@ label {
 .title {
   font-size: 1.7rem;
   margin: 50px;
+}
+
+::-webkit-scrollbar {
+  background: rgb(59 , 59 , 59);
 }
 
 /* Global settings */
