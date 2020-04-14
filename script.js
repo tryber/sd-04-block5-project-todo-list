@@ -60,10 +60,10 @@ function eventBtnMoveCima() { // Evento para o botão mover-cima.
   btnMoverPraCima.addEventListener('click', function () {
     const itemSelecionado = document.querySelector('.clicked');
     const itemAnterior = itemSelecionado.previousElementSibling;
-    const backup = itemAnterior.innerText;
+    const backup = itemAnterior.innerHTML;
     if (itemAnterior) {
-      itemAnterior.innerText = itemSelecionado.innerText;
-      itemSelecionado.innerText = backup;
+      itemAnterior.innerHTML = itemSelecionado.innerHTML;
+      itemSelecionado.innerHTML = backup;
       itemAnterior.style.backgroundColor = 'rgb(128,128,128)';
       itemSelecionado.style.backgroundColor = 'white';
       itemAnterior.classList.add('clicked');
@@ -77,10 +77,10 @@ function eventBtnMoveBaixo() { // Evento para o botão mover-baixo.
   btnMoveBaixo.addEventListener('click', function () {
     const itemSelecionado = document.querySelector('.clicked');
     const itemPosterior = itemSelecionado.nextElementSibling;
-    const backup = itemPosterior.innerText;
+    const backup = itemPosterior.innerHTML;
     if (itemPosterior) {
-      itemPosterior.innerText = itemSelecionado.innerText;
-      itemSelecionado.innerText = backup;
+      itemPosterior.innerHTML = itemSelecionado.innerHTML;
+      itemSelecionado.innerHTML = backup;
       itemPosterior.style.backgroundColor = 'rgb(128,128,128)';
       itemSelecionado.style.backgroundColor = 'white';
       itemPosterior.classList.add('clicked');
