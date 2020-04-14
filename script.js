@@ -6,6 +6,10 @@ let btn_remove_lista = document.getElementById('apaga-tudo');
 
 
 window.onload = function(){
+
+    
+
+
     // CRIAR TAREFA
     function addTarefa(){
         let liNode = document.createElement('li'); 
@@ -15,7 +19,7 @@ window.onload = function(){
         textoDigitado.value = '';
         textoDigitado.focus();
     
-        // ADICIONAR CLASSE ##
+        // ADICIONAR CLASSE #
     liNode.addEventListener('click', function(){//#
         //liNode.classList.add('selected');// li recebe a classe selected do css, PRECISA função
         trocarClasse(liNode,'selected');
@@ -27,7 +31,7 @@ window.onload = function(){
        trocarClasse(liNode,'completed');
     })
 
-    function trocarClasse(element, classe){ //# parâmetros = o que as linhas 17/25 tem em comum.
+    function trocarClasse(element, classe){ //#  parâmetros = o que as linhas 17/25 tem em comum.
         if( element.classList.contains(classe)== false){ //1-qnd elem não contem a classe
              //sintax = node.contains() e retorna true ou false     
             element.classList.add(classe);//2- classe adicionada ao elem.
@@ -54,20 +58,30 @@ window.onload = function(){
            // }
            remove_fin_selec(liNode, 'selected');
     })
-
-    // FUNÇAO REMOMOVE FINALIZADOS E SELECIONADOS **
+    // FUNÇAO REMOMOVE FINALIZADOS E SELECIONADOS ##
     function remove_fin_selec(element,classe){
-        if(element.classList.contains(classe)){
+        if(element.classList.contains(classe)==true){
             element.remove();
         }
-
     }
-
-    
-  
 
 
     }// fim addTarefa
+
+    
+    if (typeof (Storage) !== "undefined") {  // *** load 
+        olNode.innerHTML = localStorage.lista; // lista 
+      }
+
+      // PARA SALVAR LISTA ***
+    let btn_salva_tarefa = document.getElementById('salvar-tarefas');
+    if (olNode.innerHTML == '') {
+        alert('Não existe tarefas para salvar');
+    }else{ // se tiver algo para salvar chama o evento
+        btn_salva_tarefa.addEventListener('click',function(){
+            localStorage.setItem('lista', olNode.innerHTML); // salvando os itens dentro da 'lista'
+        })
+    }
    
     
 
@@ -78,6 +92,12 @@ window.onload = function(){
      function limpaLista(){
         olNode.innerHTML=''; 
     }
+
+    
+
+  
+  
+
 
     // adicionar tarefa com tecla enter
     textoDigitado.addEventListener('keyup', function(e){
