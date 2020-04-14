@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.lista-tarefas li{
+  cursor: pointer;
+}
+
 .completed{
   text-decoration: line-through;
 }
