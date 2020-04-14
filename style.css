@@ -1,0 +1,11 @@
+.cinza {
+  background-color: grey;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+li {
+  cursor: pointer;
+}
