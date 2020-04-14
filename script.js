@@ -64,8 +64,8 @@ btnUp.addEventListener('click', function () {
 });
 
 const btnDown = document.getElementById('mover-baixo');
-btnDown.addEventListener('clck', function () {
+btnDown.addEventListener('click', function () {
   const itemSelected = document.querySelector('.selected');
-  let next = itemSelected.nextElementSibling;
-  listTask.insertBefore(itemSelected, next);
+  const next = itemSelected.nextElementSibling;
+  listTask.insertBefore(next, itemSelected);
 });
