@@ -21,12 +21,11 @@ botaoCriarTarefa.addEventListener("click", criarTarefa);
 const tarefa = document.getElementById("lista-tarefas");
 tarefa.addEventListener("click", (event) => {
   if (document.querySelector(".selected") !== null) {
-    document.querySelector(".selected").style.backgroundColor = "white";
     document.querySelector(".selected").classList.remove("selected");
-  }
-  event.target.style.backgroundColor = "rgb(128,128,128)";
+    event.target.classList.add("selected");
+  } else {
   event.target.classList.add("selected");
-});
+}});
 
 // 9) Riscar tarefas completadas
 const tarefaListada = document.getElementById("lista-tarefas");
@@ -67,4 +66,28 @@ removerSelecionado.addEventListener("click", function () {
       tarefaListada.removeChild(tarefas[i]);
     }
   }
+});
+
+// Bônus) Move up
+const moverCima = document.querySelector('.mover-cima');
+
+moverCima.addEventListener("click", function() {
+  const valorAnterior = document.querySelector('.selected').previousElementSibling.innerHTML;
+  const valorSelected = document.querySelector('.selected').innerHTML;
+  document.querySelector('.selected').innerHTML = valorAnterior;
+  document.querySelector('.selected').previousElementSibling.innerHTML = valorSelected;
+  document.querySelector('.selected').classList.remove('selected');
+});
+
+
+
+// Bônus) Move down
+const moverBaixo = document.querySelector('.mover-baixo');
+
+moverBaixo.addEventListener("click", function() {
+  const valorPosterior = document.querySelector('.selected').nextElementSibling.innerHTML;
+  const valorSelected = document.querySelector('.selected').innerHTML;
+  document.querySelector('.selected').innerHTML = valorPosterior;
+  document.querySelector('.selected').nextElementSibling.innerHTML = valorSelected;
+  document.querySelector('.selected').classList.remove('selected');
 });
