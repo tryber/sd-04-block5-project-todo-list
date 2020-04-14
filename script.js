@@ -77,13 +77,3 @@ btnMoverPraCima.addEventListener('click', function() {
   moveUp.innerHTML = liDown;
   moveUp.classList.remove('selected');
 });
-
-ol.addEventListener('click', function() {
-  let liNode = document.querySelectorAll('li');
-  for ( let i = 0; i < liNode.length; i += 1){ 
-    if (liNode[i].style.backgroundColor) {
-      liNode[i].style.backgroundColor = '';
-    }
-  }
-
-}, false);
