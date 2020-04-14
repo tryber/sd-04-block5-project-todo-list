@@ -32,6 +32,12 @@ function deleteAll() {
 ol.addEventListener('click', start);
 function start() {
 for( let i = 0; i < item.length; i+= 1) {
+
+    item[i].addEventListener('dblclick', function() {
+        item[i].classList.add('completed');
+
+    })
+
     item[i].addEventListener('click', function() {
         for(let i = 0; i < item.length; i += 1) {
             item[i].classList.remove('selected');
