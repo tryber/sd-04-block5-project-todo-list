@@ -39,4 +39,32 @@ window.onload = function(){
         let items = document.querySelectorAll('.completed');
         for(i = 0; i < items.length; i+=1) {
         items[i].parentNode.removeChild(items[i])}});
+
+      let botao6 = document.getElementById('salvar-tarefas');
+      botao6.addEventListener('click', function(e) {
+        let lista1 = document.querySelectorAll('li')
+        if(localStorage != undefined){
+          localStorage.clear()
+        for(i = 0; i < lista1.length; i+=1) {
+          localStorage.setItem([i], lista1[i].textContent)
+        }}else {
+          for(i = 0; i < lista1.length; i+=1) {
+            localStorage.setItem([i], lista1[i].textContent)
+        }}
+      });
+      // for(var i=0, len=localStorage.length; i<len; i++) {
+      //   var key = localStorage.key(i);
+      //   var value = localStorage[key];
+      //   console.log(key + " => " + value);
+
+      if(this.localStorage != undefined) {
+        let savedList = localStorage
+        for(i = 0; i < savedList.length; i+=1) {
+          let key = savedList.key(i);
+          let value = savedList[key];
+          let item = document.createElement('li')
+          item.innerHTML = value
+          document.getElementById('lista-tarefas').appendChild(item)
+        }
+      }
 }

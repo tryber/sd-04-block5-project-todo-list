@@ -9,4 +9,9 @@
 }
 ol li {
   cursor: pointer;
+  font-size: 23px;
+}
+button {
+  border-radius: 50%;
+  color: white;
 }
