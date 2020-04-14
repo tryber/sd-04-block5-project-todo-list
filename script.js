@@ -75,7 +75,7 @@ function loadTasks() {
 // Move up
 moveUpBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask.previousElementSibling) {
+  if (selectedTask !== null && selectedTask.previousElementSibling !== null) {
     selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
   }
 });
@@ -83,7 +83,7 @@ moveUpBtn.addEventListener('click', () => {
 // Move down
 moveDownBtn.addEventListener('click', () => {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask.nextElementSibling) {
+  if (selectedTask !== null && selectedTask.nextElementSibling !== null) {
     selectedTask.parentNode.insertBefore(selectedTask.nextElementSibling, selectedTask);
   }
 });
