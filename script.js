@@ -30,6 +30,7 @@ window.onload = function () {
   document.getElementById('apaga-tudo').addEventListener('click', limparTarefas);
   document.getElementById('remover-finalizados').addEventListener('click', limparTarefasConcluidas);
   document.getElementById("salvar-tarefas").addEventListener("click", salvarLista);
+  document.getElementById("remover-selecionado").addEventListener("click", limparItemSelecionado);
 
   //adicionando cor ao item clicado:
   document.getElementById("lista-tarefas").addEventListener("click", function (event) {
@@ -107,8 +108,6 @@ window.onload = function () {
         let elementoBaixo = listaItens3[indexSelected].nextSibling.nextSibling;
         if (elementoBaixo != null) {
           lista.insertBefore(listaItens3[indexSelected], elementoBaixo);
-          console.log(elementoBaixo.textContent);
-          
         } else {
           elementoBaixo = listaItens3[indexSelected].nextSibling;
           lista.insertBefore(elementoBaixo, listaItens3[indexSelected])
@@ -116,6 +115,12 @@ window.onload = function () {
         }
       }
     }
+  }
+  //removendo as tarefas concuidas da lista:
+  function limparItemSelecionado() {
+    const itemSelecionado = document.querySelector(".selected");
+    document.getElementById("lista-tarefas").removeChild(itemSelecionado);
+
   }
 };
 
