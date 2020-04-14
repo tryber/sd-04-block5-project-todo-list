@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(103 , 230 , 141);
+}
+
+button {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.slct {
+  background-color: grey;
+}
