@@ -113,6 +113,81 @@ function ApagaSelect()
     }
 }
 
+function Move(direcao)
+{
+    if(direcao === 0)
+    {
+        const elementos = document.querySelectorAll("li");
+        let elemento;
+        for (let i = 0; i < elementos.length; i += 1)
+        {
+            elemento = elementos[i];
+            if(elemento.className == "selected completed" && i != 0 || elemento.className == "selected" && i != 0)
+            {
+                let elementoAnterior = elementos[i - 1];
+                let intermediario = elemento.innerHTML;
+                elemento.innerHTML = elementoAnterior.innerHTML;
+                elementoAnterior.innerHTML = intermediario;
+                ultimoMarcado = elementoAnterior;
+                if(elemento.className == "selected completed")
+                {
+                    intermediario = elementoAnterior.className;
+                    elementoAnterior.className = "selected completed";
+                }
+                else
+                {
+                    intermediario = elementoAnterior.className;
+                    elementoAnterior.className = "selected";
+                }
+                if(intermediario == "completed")
+                {
+                    elemento.className = "completed";
+                }
+                else
+                {
+                    elemento.className = "";
+                }
+            }
+        }
+    }
+    else
+    {
+        const elementos = document.querySelectorAll("li");
+        let elemento;
+        for (let i = 0; i < elementos.length - 1; i += 1)
+        {
+            elemento = elementos[i];
+            if(elemento.className == "selected completed" || elemento.className == "selected" && i < elementos.length - 1)
+            {
+                let elementoPosterior = elementos[i + 1];
+                let intermediario = elemento.innerHTML;
+                elemento.innerHTML = elementoPosterior.innerHTML;
+                elementoPosterior.innerHTML = intermediario;
+                ultimoMarcado = elementoPosterior;
+                if(elemento.className == "selected completed")
+                {
+                    intermediario = elementoPosterior.className;
+                    elementoPosterior.className = "selected completed";
+                }
+                else
+                {
+                    intermediario = elementoPosterior.className;
+                    elementoPosterior.className = "selected";
+                }
+                if(intermediario == "completed")
+                {
+                    elemento.className = "completed";
+                }
+                else
+                {
+                    elemento.className = "";
+                }
+                break;
+            }
+        }
+    }
+}
+
 function Save()
 {
     localStorage.clear();
@@ -157,10 +232,8 @@ function Load ()
             const elementos = document.querySelectorAll("li");
             for (let i = 0; i < elementos.length; i += 1)
             {
-                //console.log(completo[i]);
                 if(completo[y] == i)
                 {
-                    //console.log(lista.childNodes[i].className);
                     lista.childNodes[i+1].className = "completed";
                     y++;
                 }
@@ -180,6 +253,8 @@ function Iniciar()
     apagarC.addEventListener("click", function () { ApagaCompletas(); });
     apagarS.addEventListener("click", function () { ApagaSelect(); });
     sarvar.addEventListener("click", function () { Save(); });
+    up.addEventListener("click", function () { Move(0); });
+    down.addEventListener("click", function () { Move(1); });
 }
 
 window.onload = function () 
