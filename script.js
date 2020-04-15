@@ -7,6 +7,8 @@ let list = document.getElementById("lista-tarefas")
 let saveTasks = document.getElementById("salvar-tarefas")
 let buttons = document.querySelectorAll("button");
 let deleteSelectedTask = document.getElementById("remover-selecionado");
+let moveUp = document.getElementById("mover-cima");
+let moveDown = document.getElementById("mover-baixo");
 
 // New item is created when the user press the button
 createTask.addEventListener("click", addItem);
@@ -58,7 +60,6 @@ deleteSelectedTask.addEventListener("click", function() {
   let item = document.querySelector(".selected");
   item.parentNode.removeChild(item)
 })
-
 // Set Local storage
 saveTasks.addEventListener("click", setLocalStorage);
 function setLocalStorage() {
@@ -83,3 +84,72 @@ window.onload = function() {
     list.appendChild(item).innerHTML = localStorage.getItem(`Task ${i}`)//load list content
   }  
 }
+// Move item up
+moveUp.addEventListener("click", function() {
+  let selectedTask = document.querySelector(".selected");
+  let tasks = document.querySelectorAll("li");// Alert that is not possible to move up more
+  if(selectedTask !== tasks[0]) {
+    let previousTask = selectedTask.previousElementSibling;
+    let previousTaskInnerHTML = previousTask.innerHTML;
+  
+    previousTask.innerText = selectedTask.innerHTML;// Set selected task to previous position
+    previousTask.classList.add("selected")// Keep style on selected task 
+    previousTask.style.backgroundColor = "rgb(128,128,128)"
+  
+    if(selectedTask.classList.contains("completed")) {// Bring style when move 
+      if(!previousTask.classList.contains("completed")) {
+        previousTask.classList.add("completed");
+        selectedTask.classList.remove("completed");
+      } else {
+        previousTask.classList.add("completed");
+        selectedTask.classList.add("completed");
+      }
+    } else {
+      if(previousTask.classList.contains("completed")) {
+        previousTask.classList.remove("completed");
+        selectedTask.classList.add("completed");
+      }
+    }
+    selectedTask.classList.remove("selected");// Take out style from previous task 
+    selectedTask.style.backgroundColor = "";
+  
+    selectedTask.innerHTML = previousTaskInnerHTML;//Set previous task to next position
+  } else {
+    alert("A tarefa já está na primeira posição.")
+  }
+})
+// Move item down
+moveDown.addEventListener("click", function() {
+  let selectedTask = document.querySelector(".selected");
+
+  let tasks = document.querySelectorAll("li");// Alert that is not possible to move down more
+  if(selectedTask !== tasks[tasks.length - 1]) {
+    let nextTask = selectedTask.nextElementSibling;
+    let nextTaskInnerHTML = nextTask.innerHTML;
+  
+    nextTask.innerText = selectedTask.innerHTML;// Set selected task to next position
+    nextTask.classList.add("selected")// Keep style on selected task 
+    nextTask.style.backgroundColor = "rgb(128,128,128)"
+  
+    if(selectedTask.classList.contains("completed")) {// Bring style when move 
+      if(!nextTask.classList.contains("completed")) {
+        nextTask.classList.add("completed");
+        selectedTask.classList.remove("completed");
+      } else {
+        nextTask.classList.add("completed");
+        nextTask.classList.add("completed");
+      }
+    } else {
+      if(nextTask.classList.contains("completed")) {
+        nextTask.classList.remove("completed");
+        selectedTask.classList.add("completed");
+      }
+    }
+    selectedTask.classList.remove("selected");// Take out style from previous task 
+    selectedTask.style.backgroundColor = "";
+  
+    selectedTask.innerHTML = nextTaskInnerHTML;//Set previous task to next position
+  } else {
+    alert("A tarefa já está na última posição.")
+  }  
+})
