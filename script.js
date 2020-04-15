@@ -27,8 +27,7 @@ listaDeTarefas.addEventListener("click", function(e){
  //Remove todos os itens da lista
 let apagaLista = document.querySelector("#apaga-tudo");
 apagaLista.addEventListener("click", function(e){
-    var tarefas = document.querySelector("ol");    
-    tarefas.innerHTML="";
+    document.querySelector("ol").innerHTML="";    
 });
 
 //Remove itens selecionados   
