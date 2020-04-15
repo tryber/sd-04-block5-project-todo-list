@@ -1,6 +1,9 @@
-button, li:hover {
+button, li {
     cursor: pointer;
 }
-li  {
-    min-width: auto;
+.marked{
+    text-decoration: line-through;
+}
+.selected{
+    background-color: rgb(128,128,128);
 }

@@ -6,21 +6,13 @@ window.onload = function () {
 
   createButton.addEventListener("click", function () {
     if (taskText.value) {
-      let tarefa = document.createElement("li");
-      let checkBox = document.createElement("imput");
-      checkBox.type = "checkbox";
+      const tarefa = document.createElement("li");
       tarefa.innerHTML = taskText.value;
       taskList.appendChild(tarefa);
       taskText.value = "";
-      tarefa.addEventListener("click", () => {
-        tarefa.style.backgroundColor = "rgb(128,128,128)";
-      });
+      tarefa.addEventListener("dblclick", () => {tarefa.classList.toggle("marked")});
+      tarefa.addEventListener("click", () => {tarefa.classList.toggle('selected')});
       
-      tarefa.addEventListener("dblclick", () => {
-        tarefa.style.textDecoration = "line-through";
-      });
-      tarefa.previousElementSibling(tasks[0]);
-
     }
   });
 };
