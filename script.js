@@ -2,6 +2,7 @@ const taskTxt = document.querySelector('#texto-tarefa');
 const addBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const creatTask = document.createElement('li');
+const deleteBtn = document.getElementById('apaga-tudo');
 
 // Change BG of todo clicked to Gray
 function changeBG() {
@@ -10,8 +11,8 @@ function changeBG() {
 
 // Scratch the todo when double clicked
 function finishedToDo() {
-  if (event.target.className === 'completed' ) {
-    event.target.className.remove('completed');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
   } else {
     event.target.className = 'completed';
   }
