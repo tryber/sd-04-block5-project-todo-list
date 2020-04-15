@@ -49,6 +49,7 @@ for( let i = 0; i < item.length; i+= 1) {
             item[i].classList.remove('selected');
         }
         item[i].classList.add('selected');
+        event.target.style.backgroundColor = 'rgb( 128,128, 128)';
     })
 
 }}
