@@ -27,43 +27,28 @@ listaDeTarefas.addEventListener("click", function(e){
  //Remove todos os itens da lista
 let apagaLista = document.querySelector("#apaga-tudo");
 apagaLista.addEventListener("click", function(e){
-    var li = document.getElementsByTagName("li");    
-    // for(var i = 0; i < li.length; ++i)
-    //  {
-    //     listaDeTarefas.removeChild(li[i]);    
-    //  } 
-    var i=0;
-    while(li.length > 0)
-    {    
-        i--;    
-        listaDeTarefas.removeChild(li[i]);        
-    }
+    var tarefas = document.querySelector("ol");    
+    tarefas.innerHTML="";
 });
 
 //Remove itens selecionados   
 let removeSelecionado = document.querySelector("#remover-selecionado");
 removeSelecionado.addEventListener("click", function(e){
     //Obtêm todas as tarefas - li
-   let tarefasSelecionadas = document.getElementsByTagName("li");  
-   for(var i =0; i < tarefasSelecionadas.length; i++)
-     //Verifica se a tarefa está selecionada
-     if( tarefasSelecionadas[i].classList.contains("alteracor")){
-         //Remove tarefa selecionada
-        listaDeTarefas.removeChild(tarefasSelecionadas[i]);
-   }
+   let tarefasSelecionada = document.querySelectorAll(".alteracor");
+   for(i = 0; i < tarefasSelecionada.length; i+=1) {
+    tarefasSelecionada[i].parentNode.removeChild(tarefasSelecionada[i]); 
+  }
 });
 
 //Remove itens finalizados
 let removeFinaliado = document.querySelector("#remover-finalizados");
 removeFinaliado.addEventListener("click", function(e){
     //Obtêm todas as tarefas - li
-   let tarefasFinalizadas = document.getElementsByTagName("li");  
-   for(var i =0; i < tarefasFinalizadas.length; i++)
-     //Verifica se a tarefa está selecionada
-     if( tarefasFinalizadas[i].classList.contains("completed")){
-         //Remove tarefa selecionada
-        listaDeTarefas.removeChild(tarefasFinalizadas[i]);
-   }
+    let tarefasOk = document.querySelectorAll(".completed");
+    for(i = 0; i < tarefasOk.length; i+=1) {
+     tarefasOk[i].parentNode.removeChild(tarefasOk[i]); 
+    }
 });
 
 
