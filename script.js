@@ -1,8 +1,8 @@
 const taskTxt = document.querySelector('#texto-tarefa');
 const addBtn = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-const creatTask = document.createElement('li');
 const deleteBtn = document.getElementById('apaga-tudo');
+const creatTask = document.createElement('li');
 
 // Change BG of todo clicked to Gray
 function changeBG() {
@@ -29,5 +29,13 @@ function addToDo() {
     taskTxt.value = '';
   })
 }
+
+
+deleteBtn.addEventListener('click', function() {
+  const toDos = document.querySelectorAll('li');
+  for (let i = 0; i < toDos.length; i += 1) {
+    taskList.removeChild(toDos[i])
+  }
+})
 
 addToDo();
