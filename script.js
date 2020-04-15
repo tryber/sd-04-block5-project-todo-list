@@ -11,17 +11,11 @@ window.onload = function () {
       checkBox.type = "checkbox";
       tarefa.innerHTML = taskText.value;
       taskList.appendChild(tarefa);
-      tarefa.appendChild(checkBox)
-      tarefa.width = tarefa.innerHTML.length;
       taskText.value = "";
-      let bkgcolor = tarefa.style.backgroundColor
       tarefa.addEventListener("click", () => {
-      bkgcolor = "rgb(128,128,128)";
+        tarefa.style.backgroundColor = "rgb(128,128,128)";
       });
-      tarefa.addEventListener("click", () => {
-        bkgcolor = "white";
-        return color
-    })
+      
       tarefa.addEventListener("dblclick", () => {
         tarefa.style.textDecoration = "line-through";
       });
