@@ -34,8 +34,9 @@ apagaLista.addEventListener("click", function(e){
     //  } 
     var i=0;
     while(i < li.length)
-    {
-        listaDeTarefas.removeChild(li[i]);
+    {    
+        i++;    
+        listaDeTarefas.removeChild(li[i]);        
     }
 });
 
