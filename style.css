@@ -2,23 +2,22 @@
   background-color: rgb(128, 128, 128);
 }
 
-.pointer{
-  cursor: pointer;
-}
-
-li.lista-tarefas{
-  cursor: pointer;
-}
-
 .completed{
   text-decoration: line-through;
 }
 
-.tarefas{
-  border: 1px solid;
-  
+.lista-tarefas li{
+  cursor: pointer;
+}
+
+.pointer{
+  cursor: pointer;
 }
 
 .semrisco{
   text-decoration: line;
+}
+
+.tarefas{
+  border: 1px solid;  
 }
