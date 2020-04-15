@@ -1,8 +1,13 @@
 const btnTarefa = document.querySelector('#criar-tarefa');
 const btnApagaTudo = document.querySelector('#apaga-tudo');
 const btnApagaFinalizado = document.querySelector('#remover-finalizados');
-const btnApagaSelecionado = document.querySelector('#remover-selecionado')
+const btnApagaSelecionado = document.querySelector('#remover-selecionado');
+const lista = document.getElementById('lista-tarefas');
 let ol = document.querySelector('ol');
+
+
+typeof Storage !== 'undefined';
+
 
 
 btnTarefa.addEventListener('click', function(){
@@ -93,10 +98,20 @@ btnMoveParaBaixo.addEventListener('click', function () {
 ol.addEventListener('click', function(event) {
   let liNode = document.querySelectorAll('li');
   for ( let i = 0; i < liNode.length; i += 1){ 
+    console.log(liNode)
     if (liNode[i].style.backgroundColor) {
       liNode[i].style.backgroundColor = '';
     }
   }
 }, false);
 
+//localStorage
+const btnSalvarTarefa = document.querySelector('#salvar-tarefas');
 
+btnSalvarTarefa.addEventListener('click', function(){
+  localStorage.setItem('itens', lista.innerHTML);
+});
+
+if (localStorage != null){
+  lista.innerHTML = localStorage.getItem('itens');
+}
