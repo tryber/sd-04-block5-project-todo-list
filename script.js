@@ -7,28 +7,19 @@ window.onload = function () {
 
   btnAdd.addEventListener('click', function () {
     const liNew = document.createElement('li');
-    liNew.innerText = txtTodo.value;
-    olTodo.appendChild(liNew);
+    olTodo.appendChild(liNew).innerText = txtTodo.value;
     txtTodo.value = '';
-    liNew.addEventListener('click', function () {
-      this.style.background = 'rgb(128, 128, 128)';
-    });
-    liNew.addEventListener('dblclick', function () {
-      this.classList.toggle('completed');
-    });
+    liNew.addEventListener('click', function () { this.style.background = 'rgb(128, 128, 128)'; });
+    liNew.addEventListener('dblclick', function () { this.classList.toggle('completed'); });
   });
 
   btnRemoveAll.addEventListener('click', function () {
     const liAll = document.getElementsByTagName('li');
-    [...liAll].forEach((element) => {
-      olTodo.removeChild(element);
-    });
+    [...liAll].forEach((element) => { olTodo.removeChild(element); });
   });
 
   btnRemoveDone.addEventListener('click', function () {
     const liDone = document.getElementsByClassName('completed');
-    [...liDone].forEach((element) => {
-      olTodo.removeChild(element);
-    });
+    [...liDone].forEach((element) => { olTodo.removeChild(element); });
   });
 };
