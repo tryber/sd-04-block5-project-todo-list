@@ -9,63 +9,47 @@ const down = document.getElementById('mover-baixo');
 const sarvar = document.getElementById('salvar-tarefas');
 let ultimoMarcado;
 
-function Seleciona(event)
-{
-    if(event.target.className != "selected" && event.target.className != "selected completed" && event.target.className != "completed")
-    {
+function Seleciona(event) {
+    if (event.target.className != "selected" && event.target.className != "selected completed" && event.target.className != "completed") {
         event.target.className = "selected";
-        if(ultimoMarcado)
-        {
+        if (ultimoMarcado) {
             ultimoMarcado.classList.remove('selected');
             ultimoMarcado = event.target;
         }
-        else
-        {
+        else {
             ultimoMarcado = event.target;
         }
     }
-    else if(event.target.className == "selected completed")
-    {
-        if(ultimoMarcado.className != event.target.className)
-        {
+    else if (event.target.className == "selected completed") {
+        if (ultimoMarcado.className != event.target.className) {
             ultimoMarcado.classList.remove('selected');
             ultimoMarcado = event.target;
         }
     }
-    else if(event.target.className == "completed")
-    {
+    else if (event.target.className == "completed") {
         event.target.className = "selected completed"
-        if(ultimoMarcado)
-        {
-            if(ultimoMarcado.className == "selected completed" || ultimoMarcado.className == "selected")
-            {
-                ultimoMarcado.classList.remove('selected');
-                ultimoMarcado = event.target;
-            }
+        if (ultimoMarcado && ultimoMarcado.className == "selected completed" || ultimoMarcado && ultimoMarcado.className == "selected") {
+            ultimoMarcado.classList.remove('selected');
+            ultimoMarcado = event.target;
         }
-        else if(!ultimoMarcado)
-        {
+        else if (!ultimoMarcado) {
             ultimoMarcado = event.target;
         }
     }
 }
 
-function Completou(event)
-{
-    if(event.target.className != "selected completed" && event.target.className != "completed")
-    {
+function Completou(event) {
+    if (event.target.className != "selected completed" && event.target.className != "completed") {
         event.target.className = "selected completed";
         Seleciona(event);
     }
-    else if(event.target.className == "selected completed" || event.target.className == "completed")
-    {
+    else if (event.target.className == "selected completed" || event.target.className == "completed") {
         event.target.className = "selected";
         Seleciona(event);
     }
 }
 
-function AddElemento()
-{
+function AddElemento() {
     const elemento = document.createElement('li');
     const informacao = inputText.value;
     elemento.innerHTML = informacao;
@@ -75,111 +59,90 @@ function AddElemento()
     inputText.value = '';
 }
 
-function ApagaGeral()
-{
+function ApagaGeral() {
     const tamanho = document.querySelectorAll("li");
-    for (let i = 0; i < tamanho.length + 1 ; i += 1)
-    {
-        lista.removeChild(lista.firstChild);
+    if (tamanho.length > 0) {
+        for (let i = 0; i < tamanho.length; i += 1) {
+            lista.removeChild(lista.firstChild);
+        }
+        localStorage.clear();
     }
-    localStorage.clear();
-} 
+}
 
-function ApagaCompletas()
-{
+function ApagaCompletas() {
     const elementos = document.querySelectorAll("li");
     let elemento;
-    for (let i = 0; i < elementos.length; i += 1)
-    {
+    for (let i = 0; i < elementos.length; i += 1) {
         elemento = elementos[i];
-        if(elemento.className == "selected completed" || elemento.className == "completed")
-        {
+        if (elemento.className == "selected completed" || elemento.className == "completed") {
             lista.removeChild(elemento);
         }
     }
 }
 
-function ApagaSelect()
-{
+function ApagaSelect() {
     const elementos = document.querySelectorAll("li");
     let elemento;
-    for (let i = 0; i < elementos.length; i += 1)
-    {
+    for (let i = 0; i < elementos.length; i += 1) {
         elemento = elementos[i];
-        if(elemento.className == "selected completed" || elemento.className == "selected")
-        {
+        if (elemento.className == "selected completed" || elemento.className == "selected") {
             lista.removeChild(elemento);
         }
     }
 }
 
-function Move(direcao)
-{
-    if(direcao === 0)
-    {
+function Move(direcao) {
+    if (direcao === 0) {
         const elementos = document.querySelectorAll("li");
         let elemento;
-        for (let i = 0; i < elementos.length; i += 1)
-        {
+        for (let i = 0; i < elementos.length; i += 1) {
             elemento = elementos[i];
-            if(elemento.className == "selected completed" && i != 0 || elemento.className == "selected" && i != 0)
-            {
+            if (elemento.className == "selected completed" && i != 0 || elemento.className == "selected" && i != 0) {
                 let elementoAnterior = elementos[i - 1];
                 let intermediario = elemento.innerHTML;
                 elemento.innerHTML = elementoAnterior.innerHTML;
                 elementoAnterior.innerHTML = intermediario;
                 ultimoMarcado = elementoAnterior;
-                if(elemento.className == "selected completed")
-                {
+                if (elemento.className == "selected completed") {
                     intermediario = elementoAnterior.className;
                     elementoAnterior.className = "selected completed";
                 }
-                else
-                {
+                else {
                     intermediario = elementoAnterior.className;
                     elementoAnterior.className = "selected";
                 }
-                if(intermediario == "completed")
-                {
+                if (intermediario == "completed") {
                     elemento.className = "completed";
                 }
-                else
-                {
+                else {
                     elemento.className = "";
                 }
             }
         }
     }
-    else
-    {
+    else {
         const elementos = document.querySelectorAll("li");
         let elemento;
-        for (let i = 0; i < elementos.length - 1; i += 1)
-        {
+        for (let i = 0; i < elementos.length - 1; i += 1) {
             elemento = elementos[i];
-            if(elemento.className == "selected completed" || elemento.className == "selected" && i < elementos.length - 1)
-            {
+            if (elemento.className == "selected completed" || elemento.className == "selected" && i < elementos.length - 1) {
                 let elementoPosterior = elementos[i + 1];
                 let intermediario = elemento.innerHTML;
                 elemento.innerHTML = elementoPosterior.innerHTML;
                 elementoPosterior.innerHTML = intermediario;
                 ultimoMarcado = elementoPosterior;
-                if(elemento.className == "selected completed")
-                {
+                if (elemento.className == "selected completed") {
                     intermediario = elementoPosterior.className;
                     elementoPosterior.className = "selected completed";
                 }
-                else
-                {
+                else {
                     intermediario = elementoPosterior.className;
                     elementoPosterior.className = "selected";
                 }
-                if(intermediario == "completed")
-                {
+                if (intermediario == "completed") {
                     elemento.className = "completed";
                 }
-                else
-                {
+                else {
                     elemento.className = "";
                 }
                 break;
@@ -188,19 +151,16 @@ function Move(direcao)
     }
 }
 
-function Save()
-{
+function Save() {
     localStorage.clear();
     let item = "";
     let completas = "";
     const elementos = document.querySelectorAll("li");
     let elemento;
-    for (let i = 0; i < elementos.length; i += 1)
-    {
+    for (let i = 0; i < elementos.length; i += 1) {
         item = "";
         elemento = elementos[i];
-        if(elemento.className == "selected completed" || elemento.className == "completed")
-        {
+        if (elemento.className == "selected completed" || elemento.className == "completed") {
             completas += i;
         }
         item += "lista" + i;
@@ -210,14 +170,11 @@ function Save()
     localStorage.setItem("Completas", completas);
 }
 
-function Load ()
-{
+function Load() {
     let voltas = localStorage.getItem("Indice");
     let completo = localStorage.getItem("Completas");
-    if(voltas)
-    {
-        for (let i = 0; i <= voltas; i += 1)
-        {
+    if (voltas) {
+        for (let i = 0; i <= voltas; i += 1) {
             let item = "lista" + i;
             let valor = localStorage.getItem(item);
             const elemento = document.createElement('li');
@@ -226,15 +183,12 @@ function Load ()
             elemento.addEventListener('click', function (event) { Seleciona(event); });
             lista.appendChild(elemento);
         }
-        if(completo)
-        {
+        if (completo) {
             let y = 0;
             const elementos = document.querySelectorAll("li");
-            for (let i = 0; i < elementos.length; i += 1)
-            {
-                if(completo[y] == i)
-                {
-                    lista.childNodes[i+1].className = "completed";
+            for (let i = 0; i < elementos.length; i += 1) {
+                if (completo[y] == i) {
+                    lista.childNodes[i + 1].className = "completed";
                     y++;
                 }
             }
@@ -242,11 +196,9 @@ function Load ()
     }
 }
 
-function Iniciar()
-{
+function Iniciar() {
     Load();
-    buttonAdd.addEventListener("click", function() 
-    {
+    buttonAdd.addEventListener("click", function () {
         AddElemento();
     });
     apagarG.addEventListener("click", function () { ApagaGeral(); });
@@ -257,7 +209,6 @@ function Iniciar()
     down.addEventListener("click", function () { Move(1); });
 }
 
-window.onload = function () 
-{
+window.onload = function () {
     Iniciar();
 };
