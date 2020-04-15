@@ -1,0 +1,56 @@
+body {
+  font-family: Roboto, sans-serif;
+  margin: 16px;
+  padding: 8px;
+}
+
+.btn-add {
+  background-color: rgb(51 , 39 , 155);
+  border: 1px black;
+  border-radius: 5px;
+  color: white;
+  padding: 8px;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.btn-remove {
+  background-color: rgb(180 , 25 , 14);
+  border: 1px black;
+  border-radius: 5px;
+  color: white;
+  margin-right: 16px;
+  padding: 8px;
+}
+
+.btn-move {
+  background-color: rgb(189 , 201 , 26);
+  border: 1px black;
+  border-radius: 5px;
+  color: white;
+  margin-right: 16px;
+  padding: 8px;
+}
+
+.btn-save {
+  background-color: rgb(60 , 170 , 9);
+  border: 1px black;
+  border-radius: 5px;
+  color: white;
+  margin-right: 16px;
+  padding: 8px;
+}
+
+li {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}

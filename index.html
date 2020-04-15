@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>To do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <div>
+        <input type="text" id="texto-tarefa" maxlength="50">
+        <button id="criar-tarefa" class="btn-add">Adicionar</button>
+        <ol id="lista-tarefas">
+        </ol>
+    </div>
+    <div>
+        <button id="remover-selecionado" class="btn-remove"><i class="fa fa-close"></i></button>
+        <button id="mover-cima" class="btn-move"><i class="fa fa-arrow-up"></i></button>
+        <button id="mover-baixo" class="btn-move"><i class="fa fa-arrow-down"></i></button>
+        <button id="remover-finalizados" class="btn-remove">Remover Marcados</button>
+        <button id="apaga-tudo" class="btn-remove">Apagar Tudo</button>
+        <button id="salvar-tarefas" class="btn-save">Salvar Tarefas</button>
+    </div>
+
+</body>
+<script src="./script.js"></script>
+
+</html>
