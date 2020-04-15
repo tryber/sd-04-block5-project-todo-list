@@ -5,6 +5,8 @@ const deleteTarefas = document.getElementById('apaga-tudo');
 const li = document.querySelectorAll("li");
 const item = document.getElementsByClassName("item")
 const buttons = document.getElementsByTagName('button');
+const completed = document.querySelectorAll('.completed');
+
 
 // Cursor em forma de mãozinha
 for (let i = 0; i < buttons.length; i+=1){
@@ -22,20 +24,24 @@ function addLi() {
     ol.appendChild(li);
     tarefa.value = '';
 }
+
 // Deleta tudo de OL. *Apaga todas LI*//
 deleteTarefas.addEventListener('click', deleteAll);
 function deleteAll() {
     ol.innerHTML = "";
 }
 
-//Seleciona e em breve, Duplo click.
+//add tag selecionado e add tag com Duplo click completed.
 ol.addEventListener('click', start);
 function start() {
 for( let i = 0; i < item.length; i+= 1) {
-
+   
     item[i].addEventListener('dblclick', function() {
-        item[i].classList.add('completed');
-
+        if(event.target.classList[1] === 'completed'){
+            event.target.classList.remove('completed');
+        } else {
+        event.target.classList.add('completed');
+        }
     })
 
     item[i].addEventListener('click', function() {
@@ -44,4 +50,6 @@ for( let i = 0; i < item.length; i+= 1) {
         }
         item[i].classList.add('selected');
     })
+
 }}
+
