@@ -1,7 +1,3 @@
-window.onload = function(){ 
-    recuperaTarefasSalvas();
-}
-
 //botão adcicionar tarefa
 let criartarefa = document.querySelector("#criar-tarefa");
 console.log(criartarefa);
