@@ -1,3 +1,7 @@
+window.onload = function(){ 
+    recuperaTarefasSalvas();
+}
+
 //botão adcicionar tarefa
 let criartarefa = document.querySelector("#criar-tarefa");
 console.log(criartarefa);
@@ -39,8 +43,8 @@ apagaLista.addEventListener("click", function(e){
     }
 });
 
-//Remove itens selecionados   
-let removeSelecionado = document.querySelector("#remover-selecionado");
+//Remove itens finalizados   
+let removeSelecionado = document.querySelector("#remover-finalizados");
 removeSelecionado.addEventListener("click", function(e){
     //Obtêm todas as tarefas - li
    let tarefasSelecionadas = document.getElementsByTagName("li");  
@@ -55,7 +59,8 @@ removeSelecionado.addEventListener("click", function(e){
 //Grava a lista localStorage
 let gravaTarefas = document.querySelector("#salvar-tarefas");
 gravaTarefas.addEventListener("click", function(e){
-    var li = document.getElementsByTagName("li");
+   var li = document.getElementsByTagName("ol");
+   
     //verifica se há tarefas
     if(li.length == 0)
     {
