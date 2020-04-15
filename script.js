@@ -56,12 +56,12 @@ removeSelecionado.addEventListener("click", function(e){
 let removeFinaliado = document.querySelector("#remover-finalizados");
 removeFinaliado.addEventListener("click", function(e){
     //Obtêm todas as tarefas - li
-   let tarefasSelecionadas = document.getElementsByTagName("li");  
-   for(var i =0; i < tarefasSelecionadas.length; i++)
+   let tarefasFinalizadas = document.getElementsByTagName("li");  
+   for(var i =0; i < tarefasFinalizadas.length; i++)
      //Verifica se a tarefa está selecionada
-     if( tarefasSelecionadas[i].classList.contains("completed")){
+     if( tarefasFinalizadas[i].classList.contains("completed")){
          //Remove tarefa selecionada
-        listaDeTarefas.removeChild(tarefasSelecionadas[i]);
+        listaDeTarefas.removeChild(tarefasFinalizadas[i]);
    }
 });
 
