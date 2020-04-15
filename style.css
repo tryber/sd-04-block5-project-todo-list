@@ -17,3 +17,7 @@ li {
 .none {
   text-decoration: none;
 }
+
+ol {
+  width: 200px;
+}

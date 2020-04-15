@@ -49,10 +49,21 @@ function removeFinalizados() {
 
 botaoRemoveFinalizados.addEventListener('click', removeFinalizados);
 
-
 // const botoes = document.querySelectorAll('button');
 // for (let i = 0; i < botoes.length; i = 1 + i) {
 //   botoes[i].addEventListener('mouseover', function () {
 //     botoes[i].style.cursor = 'pointer';
 //   });
 // }
+if (typeof (Storage) !== 'undefined') {
+  document.getElementById('lista-tarefas').innerHTML = localStorage.list;
+}
+
+const botaoSalvar = document.getElementById('salvar-tarefas');
+botaoSalvar.addEventListener('click', function () {
+  if (document.getElementById('lista-tarefas').innerHTML === '') {
+    alert('Não existe dados para salvar!');
+  } else {
+    localStorage.list = document.getElementById('lista-tarefas').innerHTML;
+  }
+});
