@@ -99,6 +99,20 @@ function ApagaCompletas()
     }
 }
 
+function ApagaSelect()
+{
+    const elementos = document.querySelectorAll("li");
+    let elemento;
+    for (let i = 0; i < elementos.length; i += 1)
+    {
+        elemento = elementos[i];
+        if(elemento.className == "selected completed" || elemento.className == "selected")
+        {
+            lista.removeChild(elemento);
+        }
+    }
+}
+
 function Save()
 {
     localStorage.clear();
@@ -164,6 +178,7 @@ function Iniciar()
     });
     apagarG.addEventListener("click", function () { ApagaGeral(); });
     apagarC.addEventListener("click", function () { ApagaCompletas(); });
+    apagarS.addEventListener("click", function () { ApagaSelect(); });
     sarvar.addEventListener("click", function () { Save(); });
 }
 
