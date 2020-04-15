@@ -1,0 +1,69 @@
+body
+{
+    background-color: rgb(250, 107, 107);
+}
+
+.mainContent
+{
+    background-color: rgb(255, 236, 236);
+    border-radius: 2em;
+    margin: 50px;
+    min-height: 300px;
+    min-width: 700px;
+    position: relative;
+}
+
+.textos
+{
+    font-size: 23px;
+    text-align: center;
+}
+
+p
+{
+    color: rgb(61, 55, 55);
+}
+
+li
+{
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.input-texto
+{
+    font-size: 18px;
+    margin : 20px;
+}
+
+button, li
+{
+    cursor: pointer;
+}
+
+button
+{
+    background-color: rgb(255, 175, 175);
+    box-shadow: 0 8px 16px 0 rgba(255, 74, 74, 0.589), 0 6px 20px 0 rgba(255, 175, 175, 0.616);
+    border-radius: 20%;
+    border: 2px solid rgb(255, 74, 74);
+    height: 30px;
+    margin: 15px;
+}
+
+.botoes-d-baixo
+{
+    text-align: center;
+}
+
+.selected
+{
+    background-color:  rgb(128,128,128);
+}
+
+.completed
+{
+    text-decoration: line-through;
+}

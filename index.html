@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Genérica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="mainContent">
+        <br>
+        <header class="textos"><strong>Minha Lista de Tarefas</strong></header>
+        <p id="funcionamento" class="textos">
+            Clique duas vezes em um item para marcá-lo como completo
+        </p>
+        <input type=text id="texto-tarefa" class="input-texto">
+        <button id="criar-tarefa">Adicionar</button>
+        <ol id="lista-tarefas">
+        </ol>
+        <div class="botoes-d-baixo">
+            <button id="remover-selecionado">X</button>
+            <button id="mover-cima">⬆️</button>
+            <button id="mover-baixo">⬇️</button>
+            <button id="remover-finalizados">Excluir Completos</button>
+            <button id="apaga-tudo">Limpar Lista</button>
+            <button id="salvar-tarefas">Salvar</button>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
