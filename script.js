@@ -13,7 +13,7 @@ function finishedToDo() {
   if (event.target.className === 'completed' ) {
     event.target.className.remove('completed');
   } else {
-    event.target.className = 'complete';
+    event.target.className = 'completed';
   }
 }
 
