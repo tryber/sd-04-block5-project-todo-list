@@ -66,16 +66,11 @@ btnUp.addEventListener('click', function () {
   if (prvItem) {
     itemSlctd.innerText = prvItem.innerText;
     prvItem.innerText = older;
+    itemSlctd.classList.remove('selected');
     if (itemSlctd.classList.contains('completed')) {
       prvItem.classList.add('completed');
       itemSlctd.classList.remove('completed');
     }
-    if (itemSlctd.classList.contains('selected')) {
-      prvItem.classList.add('selected');
-      itemSlctd.classList.remove('selected');
-    }
-  } else {
-    alert('Não existe elemento');
   }
 });
 
@@ -89,17 +84,10 @@ btnDown.addEventListener('click', function () {
   if (nextItem) {
     itemSlctd.innerText = nextItem.innerText;
     nextItem.innerText = older;
-
+    itemSlctd.classList.remove('selected');
     if (itemSlctd.classList.contains('completed')) {
       nextItem.classList.add('completed');
       itemSlctd.classList.remove('completed');
     }
-
-    if (itemSlctd.classList.contains('selected')) {
-      nextItem.classList.add('selected');
-      itemSlctd.classList.remove('selected');
-    }
-  } else {
-    alert('Não existe elemento');
   }
 });
