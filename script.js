@@ -74,6 +74,8 @@ btnUp.addEventListener('click', function () {
       prvItem.classList.add('selected');
       itemSlctd.classList.remove('selected');
     }
+  } else {
+    alert('Não existe elemento');
   }
 });
 
@@ -97,5 +99,7 @@ btnDown.addEventListener('click', function () {
       nextItem.classList.add('selected');
       itemSlctd.classList.remove('selected');
     }
+  } else {
+    alert('Não existe elemento');
   }
 });
