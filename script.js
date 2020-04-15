@@ -4,61 +4,41 @@ let createTask = document.getElementById("criar-tarefa");
 let deleteAll = document.getElementById("apaga-tudo");
 let deleteCompletedTasks = document.getElementById("remover-finalizados");
 let list = document.getElementById("lista-tarefas")
-let saveTasks =document.getElementById("salvar-tarefas")
+let saveTasks = document.getElementById("salvar-tarefas")
+let buttons = document.querySelectorAll("button");
+let deleteSelectedTask = document.getElementById("remover-selecionado");
 
 // New item is created when the user press the button
 createTask.addEventListener("click", addItem);
 function addItem() {
   if(newTask.value !== "") { //Do not accept an empty taks
     let task = document.createElement("li");
-    let list = document.getElementById("lista-tarefas")
     task.innerText = newTask.value;
     list.appendChild(task)
-    task.style.cursor = "pointer";//change cursor type
     newTask.value = "";
   }
-  selectTask();//one click
-  completedTask()//double click
 }
 // Select task and change color background
-function selectTask() {
-  let task = document.getElementsByTagName("li");
-  for( i = 0; i < task.length; i+=1) {
-    task[i].addEventListener("click", function(event) {
-      event.target.classList.add("selected");
-      event.target.style.backgroundColor = "rgb(128,128,128)"
-  })
+list.addEventListener('click', (event) => {
+  if (document.querySelector('.selected') !== null) {
+    document.querySelector('.selected').style.backgroundColor = 'white';
+    document.querySelector('.selected').classList.remove('selected');
   }
-}
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('selected');
+});
 // Change buttons cursor type
-let buttons = document.querySelectorAll("button");
 for( i = 0; i < buttons.length; i+=1) {
   buttons[i].style.cursor = "pointer";
 };
 // Setting a completed task
-function completedTask() {
-  let task = document.getElementsByTagName("li");
-  
-  for(i = 0; i < task.length; i+=1) {
-    task[i].addEventListener("dblclick", function(event) {
-      event.target.classList.add("completed");
-      event.target.style.textDecoration = "line-through"
-      undoCompletedTask()
-    })
+list.addEventListener("dblclick", (event) => {
+  if(event.target.classList.contains("completed")) {
+    event.target.classList.remove("completed")
+  } else {
+    event.target.classList.add("completed")
   }
-}
-// Undo completed task    
-function undoCompletedTask() {
-  let completed = document.querySelectorAll(".completed");
-  for(i = 0; i < completed.length; i+=1) {
-    if(completed) {
-      completed[i].addEventListener("dblclick", function(event) {
-        event.target.classList.remove("completed");
-        event.target.style.textDecoration = "none"
-      })
-    }
-  }
-}
+})
 // Delete completed tasks
 deleteCompletedTasks.addEventListener("click", deleteCompleted);
 function deleteCompleted() {
@@ -66,17 +46,19 @@ function deleteCompleted() {
   for(i = 0; i < items.length; i+=1) {
     items[i].parentNode.removeChild(items[i]); 
   }
-  selectTask();//one click
-  completedTask()//double click
 }
 // Delete all tasks
 deleteAll.addEventListener("click", deleteAllTasks)
 function deleteAllTasks() {
   let items = document.querySelector("ol")
   items.innerHTML = "";
-  selectTask();//one click
-  completedTask()//double click
 }
+// Delete selected item
+deleteSelectedTask.addEventListener("click", function() {
+  let item = document.querySelector(".selected");
+  item.parentNode.removeChild(item)
+})
+
 // Set Local storage
 saveTasks.addEventListener("click", setLocalStorage);
 function setLocalStorage() {
@@ -100,5 +82,4 @@ window.onload = function() {
     item.className = localStorage.getItem(`Class ${i}`)
     list.appendChild(item).innerHTML = localStorage.getItem(`Task ${i}`)//load list content
   }  
-  addItem()
 }
