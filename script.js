@@ -25,7 +25,7 @@ list.addEventListener('click', function (e) {
 
 list.addEventListener('dblclick', function (e) {
   e.target.classList.toggle('completed');
-})
+});
 
 btnRem.addEventListener('click', function () {
   const itens = document.querySelectorAll('li');
@@ -57,12 +57,12 @@ btnExclud.addEventListener('click', function () {
 });
 
 btnUp.addEventListener('click', function () {
-  let itemSlctd = document.querySelector('.selected');
+  const itemSlctd = document.querySelector('.selected');
   if (itemSlctd == null) {
     alert('Selecione algum item!');
   }
-  let prvItem = itemSlctd.previousElementSibling;
-  let older = itemSlctd.innerText
+  const prvItem = itemSlctd.previousElementSibling;
+  const older = itemSlctd.innerText;
   if (prvItem) {
     itemSlctd.innerText = prvItem.innerText;
     prvItem.innerText = older;
@@ -75,12 +75,12 @@ btnUp.addEventListener('click', function () {
 });
 
 btnDown.addEventListener('click', function () {
-  let itemSlctd = document.querySelector('.selected');
+  const itemSlctd = document.querySelector('.selected');
   if (itemSlctd == null) {
     alert('Selecione algum item!');
   }
-  let nextItem = itemSlctd.nextElementSibling;
-  let older = itemSlctd.innerText;
+  const nextItem = itemSlctd.nextElementSibling;
+  const older = itemSlctd.innerText;
   if (nextItem) {
     itemSlctd.innerText = nextItem.innerText;
     nextItem.innerText = older;

@@ -1,19 +1,19 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   margin: 16px;
   padding: 8px;
 }
 
 .btn-add {
-  background-color: rgb(53, 37, 201);
+  background-color: rgb(51 , 39 , 155);
   border-radius: 5px;
   border: 1px black;
-  color: rgb(255, 255, 255);
+  color: white;
   padding: 8px;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 .completed {
@@ -21,28 +21,28 @@ body {
 }
 
 .btn-remove {
-  background-color: rgb(180, 25, 14);
-  border-radius: 5px;
+  background-color: rgb(180 , 25 , 14);
   border: 1px black;
-  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  color: white;
   margin-right: 16px;
   padding: 8px;
 }
 
 .btn-move {
-  background-color: rgb(189, 201, 26);
-  border-radius: 5px;
+  background-color: rgb(189 , 201 , 26);
   border: 1px black;
-  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  color: white;
   margin-right: 16px;
   padding: 8px;
 }
 
 .btn-save {
-  background-color: rgb(60, 170, 9);
+  background-color: rgb(60 , 170 , 9);
   border-radius: 5px;
   border: 1px black;
-  color: rgb(255, 255, 255);
+  color: white;
   margin-right: 16px;
   padding: 8px;
 }
