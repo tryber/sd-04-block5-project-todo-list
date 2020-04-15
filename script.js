@@ -39,8 +39,8 @@ apagaLista.addEventListener("click", function(e){
     }
 });
 
-//Remove itens finalizados   
-let removeSelecionado = document.querySelector("#remover-finalizados");
+//Remove itens selecionados   
+let removeSelecionado = document.querySelector("#remover-selecionado");
 removeSelecionado.addEventListener("click", function(e){
     //Obtêm todas as tarefas - li
    let tarefasSelecionadas = document.getElementsByTagName("li");  
@@ -51,6 +51,20 @@ removeSelecionado.addEventListener("click", function(e){
         listaDeTarefas.removeChild(tarefasSelecionadas[i]);
    }
 });
+
+//Remove itens finalizados
+let removeFinaliado = document.querySelector("#remover-finalizados");
+removeFinaliado.addEventListener("click", function(e){
+    //Obtêm todas as tarefas - li
+   let tarefasSelecionadas = document.getElementsByTagName("li");  
+   for(var i =0; i < tarefasSelecionadas.length; i++)
+     //Verifica se a tarefa está selecionada
+     if( tarefasSelecionadas[i].classList.contains("completed")){
+         //Remove tarefa selecionada
+        listaDeTarefas.removeChild(tarefasSelecionadas[i]);
+   }
+});
+
 
 //Grava a lista localStorage
 let gravaTarefas = document.querySelector("#salvar-tarefas");
