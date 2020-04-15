@@ -1,7 +1,7 @@
 button, li {
     cursor: pointer;
 }
-.marked{
+.completed{
     text-decoration: line-through;
 }
 .selected{
