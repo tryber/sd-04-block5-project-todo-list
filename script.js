@@ -2,7 +2,7 @@
 let criartarefa = document.querySelector("#criar-tarefa");
 console.log(criartarefa);
 
-let listaDeTarefas = document.querySelector("#lista-tarefas");
+const listaDeTarefas = document.querySelector("#lista-tarefas");
 console.log(listaDeTarefas);
 
 criartarefa.addEventListener("click", function(event){
@@ -24,13 +24,18 @@ listaDeTarefas.addEventListener("click", function(e){
    e.target.classList.toggle("alteracor");
 });
 
- //Apaga toda a lista
+ //Remove todos os itens da lista
 let apagaLista = document.querySelector("#apaga-tudo");
 apagaLista.addEventListener("click", function(e){
-    
-    for(var i =0; i < listaDeTarefas.length; i++);
+    var li = document.getElementsByTagName("li");    
+    // for(var i = 0; i < li.length; ++i)
+    //  {
+    //     listaDeTarefas.removeChild(li[i]);    
+    //  } 
+    var i=0;
+    while(i < li.length)
     {
-        listaDeTarefas.innerHTML="";
+        listaDeTarefas.removeChild(li[i]);
     }
 });
 
@@ -45,6 +50,34 @@ removeSelecionado.addEventListener("click", function(e){
          //Remove tarefa selecionada
         listaDeTarefas.removeChild(tarefasSelecionadas[i]);
    }
+});
+
+//Grava a lista localStorage
+let gravaTarefas = document.querySelector("#salvar-tarefas");
+gravaTarefas.addEventListener("click", function(e){
+    var li = document.getElementsByTagName("li");
+    //verifica se há tarefas
+    if(li.length == 0)
+    {
+        alert("Não há tarefas para serem salvas");
+        return;
+    }
+
+    var tarefas =""; //acumula tarefas
+    
+    //percorre lista de tarefas
+    for(var i= 0; i < li.length; i++)
+    {
+        tarefas+= li[i].textContent + ";"; //acumula conteúdo de cada li
+    }
+
+    //grava tarefas localStorage
+    localStorage.setItem("tarefasDia", tarefas.substr(0, tarefas.length -1));
+    //confere se todas as tarefas foram salvas
+    if(localStorage.getItem("tarefasDia"))
+    {
+        alert("Ok! Tarefas Salvas...");
+    }
 });
 
 //Adiciona a tarefa na lista com a classe (lista-tarefas)

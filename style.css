@@ -6,11 +6,7 @@
   text-decoration: line-through;
 }
 
-.lista-tarefas li{
-  cursor: pointer;
-}
-
-.pointer{
+li.lista-tarefas{
   cursor: pointer;
 }
 
