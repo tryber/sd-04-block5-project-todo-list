@@ -6,8 +6,8 @@ body {
 
 .btn-add {
   background-color: rgb(51 , 39 , 155);
-  border-radius: 5px;
   border: 1px black;
+  border-radius: 5px;
   color: white;
   padding: 8px;
 }
@@ -40,8 +40,8 @@ body {
 
 .btn-save {
   background-color: rgb(60 , 170 , 9);
-  border-radius: 5px;
   border: 1px black;
+  border-radius: 5px;
   color: white;
   margin-right: 16px;
   padding: 8px;
