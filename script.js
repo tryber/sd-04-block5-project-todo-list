@@ -37,11 +37,19 @@ function start() {
 for( let i = 0; i < item.length; i+= 1) {
    
     item[i].addEventListener('dblclick', function() {
-        if(event.target.classList[1] === 'completed'){
-            event.target.classList.remove('completed');
+        let complet = false;
+        for (let index = 0; index < event.target.classList.length; index += 1){
+        if(event.target.classList[index] === 'completed'){
+            complet = true;
         } else {
-        event.target.classList.add('completed');
+            complet = false;
         }
+    }
+    if (complet === true){
+        item[i].classList.remove('completed');
+    } else {
+        item[i].classList.add('completed');
+    }
     })
 
     item[i].addEventListener('click', function() {
@@ -53,4 +61,3 @@ for( let i = 0; i < item.length; i+= 1) {
     })
 
 }}
-
