@@ -1,11 +1,11 @@
 li {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-ol li.completed {
-    text-decoration: line-through;
+.completed {
+  text-decoration: line-through;
 }
 
-ol li.clicked {
-    background-color: rgb(128,128,128);
+.clicked {
+  background-color: gray;
 }
