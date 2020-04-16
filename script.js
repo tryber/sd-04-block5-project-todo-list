@@ -32,26 +32,15 @@ deleteTarefas.addEventListener('click', deleteAll);
 
 
 // add tag selecionado e add tag com Duplo click completed.
-function start() {
-  for (let i = 0; i < item.length; i += 1) { 
-    item[i].addEventListener('dblclick', function () {
-      event.target.classList.toggle('completed');
-
-    });
-
-    item[i].addEventListener('click', oneClick());
-
-  }
-}
-
-function oneClick(){
-    for(let i = 0; i < item.length; i += 1) {
-        item[i].classList.remove('selected');
-        item[i].style.backgroundColor = '';
+ol.addEventListener('dblclick', function (event) {
+  event.target.classList.toggle('completed');
+});
+ol.addEventListener('click', function (event) {
+    const selected = document.querySelectorAll('.selected');
+    for (let i = 0; i < selected.length; i += 1) {
+        selected[i].classList.remove('selected');
+        selected[i].style.backgroundColor = '';
     }
     event.target.classList.add('selected');
-    event.target.style.backgroundColor = 'rgb( 128,128, 128)';
-}
-
-
-ol.addEventListener('click', start);
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+})
