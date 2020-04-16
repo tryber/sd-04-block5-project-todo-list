@@ -1,59 +1,48 @@
-const criarTarefa = document.getElementById("criar-tarefa");
-const tarefa = document.getElementById("texto-tarefa")
-const ol = document.getElementById("lista-tarefas")
+const criarTarefa = document.getElementById('criar-tarefa');
+const tarefa = document.getElementById('texto-tarefa');
+const ol = document.getElementById('lista-tarefas');
 const deleteTarefas = document.getElementById('apaga-tudo');
-const li = document.querySelectorAll("li");
-const item = document.getElementsByClassName("item")
+const item = document.getElementsByClassName('item');
 const buttons = document.getElementsByTagName('button');
-const completed = document.querySelectorAll('.completed');
 
 
 // Cursor em forma de mãozinha
-for (let i = 0; i < buttons.length; i+=1){
-buttons[i].addEventListener('mouseover', function(){
-event.target.style.cursor = 'pointer';
-})
+for (let i = 0; i < buttons.length; i +=1 ) {
+  buttons[i].addEventListener('mouseover', function () {
+  event.target.style.cursor = 'pointer';
+});
 }
 
 // criar e adicionar li's ao OL.
-criarTarefa.addEventListener("click", addLi);
+criarTarefa.addEventListener('click', addLi);
 function addLi() {
-    let li = document.createElement('li');
-    li.innerHTML = tarefa.value;
-    li.className = "item";
-    ol.appendChild(li);
-    tarefa.value = '';
+  const li = document.createElement('li');
+  li.innerHTML = tarefa.value;
+  li.className = 'item';
+  ol.appendChild(li);
+  tarefa.value = '';
 }
 
 // Deleta tudo de OL. *Apaga todas LI*//
-deleteTarefas.addEventListener('click', deleteAll);
-function deleteAll() {
-    ol.innerHTML = "";
-}
 
-//add tag selecionado e add tag com Duplo click completed.
-ol.addEventListener('click', start);
+function deleteAll() {
+  ol.innerHTML = '';
+}
+deleteTarefas.addEventListener('click', deleteAll);
+
+
+// add tag selecionado e add tag com Duplo click completed.
 function start() {
-for( let i = 0; i < item.length; i+= 1) {
-   
-    item[i].addEventListener('dblclick', function() {
-        let complet = false;
-        for (let index = 0; index < event.target.classList.length; index += 1){
-        if(event.target.classList[index] === 'completed'){
-            complet = true;
-        } else {
-            complet = false;
-        }
-    }
-    if (complet === true){
-        item[i].classList.remove('completed');
-    } else {
-        item[i].classList.add('completed');
-    }
-    })
+  for (let i = 0; i < item.length; i += 1) { 
+    item[i].addEventListener('dblclick', function () {
+      event.target.classList.toggle('completed');
+
+    });
 
     item[i].addEventListener('click', oneClick());
-}}
+
+  }
+}
 
 function oneClick(){
     for(let i = 0; i < item.length; i += 1) {
@@ -65,3 +54,4 @@ function oneClick(){
 }
 
 
+ol.addEventListener('click', start);
