@@ -52,12 +52,16 @@ for( let i = 0; i < item.length; i+= 1) {
     }
     })
 
-    item[i].addEventListener('click', function() {
-        for(let i = 0; i < item.length; i += 1) {
-            item[i].classList.remove('selected');
-        }
-        item[i].classList.add('selected');
-        event.target.style.backgroundColor = 'rgb( 128,128, 128)';
-    })
-
+    item[i].addEventListener('click', oneClick());
 }}
+
+function oneClick(){
+    for(let i = 0; i < item.length; i += 1) {
+        item[i].classList.remove('selected');
+        item[i].style.backgroundColor = '';
+    }
+    event.target.classList.add('selected');
+    event.target.style.backgroundColor = 'rgb( 128,128, 128)';
+}
+
+
