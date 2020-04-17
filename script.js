@@ -13,6 +13,7 @@ btn.addEventListener('click', function () {
   criarTarefa.appendChild(tarefa);
   lista.appendChild(criarTarefa);
   tarefa = '';
+  textoTarefa.value = '';
 });
 lista.addEventListener('click', function (event) {
   if (event.target.className === 'item-lista') {
