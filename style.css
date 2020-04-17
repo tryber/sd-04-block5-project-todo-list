@@ -4,11 +4,12 @@
 }
 
 .button {
-    cursor: pointer;
-  }
+  cursor: pointer;
+  display: inline-block;
+}
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 .completed {
