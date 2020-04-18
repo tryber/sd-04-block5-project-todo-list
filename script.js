@@ -7,8 +7,11 @@ function adicionaCor(event) {
 
 
 function tarefaFinalizada(event) {
-  if (event.target.className === 'completed selected') {
+  if (event.target.className === 'completed') {
     event.target.className = 'none';
+  if (event.target.className === 'completed selected') {
+    event.target.className = 'selected'
+  }
   } else {
     event.target.className = 'completed selected';
   }
@@ -40,7 +43,7 @@ botaoApaga.addEventListener('click', apagaItens);
 const botaoRemoveFinalizados = document.getElementById('remover-finalizados');
 
 function removeFinalizados() {
-  const finalizados = document.querySelectorAll('.completed selected');
+  const finalizados = document.querySelectorAll('.completed');
   if (finalizados) {
     for (let i = 0; i < finalizados.length; i = 1 + i) {
       document.getElementById('lista-tarefas').removeChild(finalizados[i]);
@@ -70,7 +73,7 @@ botaoSalvar.addEventListener('click', function () {
 });
 
 const botaoApagaSelecionado = document.getElementById('remover-selecionado')
-botaoApagaSelecionado.addEventListener('click', ApagaSelecionado)
+botaoApagaSelecionado.addEventListener('click', ApagaSelecionado); 
 function ApagaSelecionado() {
   const tarefas = document.querySelectorAll("li");
   let elemento;
@@ -81,4 +84,3 @@ function ApagaSelecionado() {
       }
   }
 }
-
