@@ -1,9 +1,29 @@
 body {
-  background-color: pink;
+  background-color: thistle;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  width: 60%;
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+header {
+  font-size: 25px;
+  text-decoration: underline;
 }
 
 button {
   cursor: pointer;
+  border-radius: 10px;
+  border: 1px groove black;
+  padding: 5px;
+  margin: 4px;
+  color: #fff;
 }
 
 li {
@@ -20,4 +40,24 @@ li {
 
 ol {
   width: 200px;
+}
+
+#criar-tarefa {
+  background-color: rgb(64, 28, 196);
+}
+
+#mover-cima, #mover-baixo, #remover-selecionado {
+  background-color: rgb(29, 185, 42);
+}
+
+#apaga-tudo {
+  background-color: tomato;
+}
+
+#remover-finalizados {
+  background-color: teal;
+}
+
+#salvar-tarefas {
+  background-color: rgb(255, 125, 216);
 }
