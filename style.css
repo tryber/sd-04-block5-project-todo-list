@@ -1,3 +1,7 @@
 #include-info {
   display: flex;
 }
+
+.list{
+    cursor: pointer;
+}
