@@ -1,4 +1,4 @@
-body{
+body {
   background-color: cornsilk;
 }
 
@@ -11,13 +11,15 @@ body{
 }
 
 .white {
-  background-color: whitesmoke;
-  margin-left: 50px ;
+  background-color: rgb(128 , 128 , 128);
+  margin-left: 50px;
 }
 
-#apaga-tudo {
+/*Add coloração button
+
+ #apaga-tudo {
   color: red;
-  background-color:rgb(226 , 185 , 185);
+  background-color: rgb(226 , 185 , 185);
   margin-top: 10px;
 }
 
@@ -29,4 +31,4 @@ body{
 #salvar-tarefas {
   color: blue;
   margin-left: 10px;
-}
+} */
