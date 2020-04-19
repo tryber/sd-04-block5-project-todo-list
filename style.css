@@ -10,19 +10,23 @@ body{
   text-decoration: line-through;
 }
 
-.gray {
-  background-color: gray;
+.white {
+  background-color: whitesmoke;
+  margin-left: 50px ;
 }
 
 #apaga-tudo {
   color: red;
   background-color:rgb(226 , 185 , 185);
+  margin-top: 10px;
 }
 
 #criar-tarefa {
   color: blue;
+  margin-left: 20px;
 }
 
 #salvar-tarefas {
   color: blue;
+  margin-left: 10px;
 }
