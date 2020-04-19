@@ -2,7 +2,7 @@ const criarTarefa = document.getElementById('criar-tarefa');
 const textTarefa = document.getElementById('texto-tarefa');
 const limpar = document.getElementById('apaga-tudo');
 const remFinalizado = document.getElementById('remover-finalizados');
-//const excluiSel = document.querySelector('remover-selecionado');
+// const excluiSel = document.querySelector('remover-selecionado');
 const listaDeTarefa = document.getElementById('lista-tarefas');
 
 function limpaLista() {

@@ -11,11 +11,11 @@ body {
 }
 
 .white {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
   margin-left: 50px;
 }
 
-/*Add coloração button
+/* Add coloração button
 
  #apaga-tudo {
   color: red;
