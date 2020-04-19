@@ -2,16 +2,12 @@ const botaoAdiciona = document.getElementById('criar-tarefa');
 
 function adicionaCor(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
-  event.target.className = 'selected';
 }
 
 
 function tarefaFinalizada(event) {
   if (event.target.className === 'completed') {
     event.target.className = 'none';
-  if (event.target.className === 'completed selected') {
-    event.target.className = 'selected'
-  }
   } else {
     event.target.className = 'completed';
   }
@@ -71,16 +67,3 @@ botaoSalvar.addEventListener('click', function () {
     localStorage.list = document.getElementById('lista-tarefas').innerHTML;
   }
 });
-
-const botaoApagaSelecionado = document.getElementById('remover-selecionado')
-botaoApagaSelecionado.addEventListener('click', ApagaSelecionado); 
-function ApagaSelecionado() {
-  const tarefas = document.querySelectorAll("li");
-  let elemento;
-  for (let i = 0; i < tarefas.length; i += 1) {
-      elemento = tarefas[i];
-      if (elemento.className == "completed selected" || elemento.className == "selected") {
-        document.getElementById('lista-tarefas').removeChild(elemento);
-      }
-  }
-}
