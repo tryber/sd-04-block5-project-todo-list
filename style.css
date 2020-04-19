@@ -1,0 +1,34 @@
+body {
+  background-color: cornsilk;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.white {
+  background-color: gray;
+  margin-left: 50px;
+}
+
+/* Add coloração button
+
+ #apaga-tudo {
+  color: red;
+  background-color: rgb(226 , 185 , 185);
+  margin-top: 10px;
+}
+
+#criar-tarefa {
+  color: blue;
+  margin-left: 20px;
+}
+
+#salvar-tarefas {
+  color: blue;
+  margin-left: 10px;
+} */
