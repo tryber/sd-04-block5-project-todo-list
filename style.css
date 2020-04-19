@@ -1,0 +1,28 @@
+body{
+  background-color: cornsilk;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.gray {
+  background-color: gray;
+}
+
+#apaga-tudo {
+  color: red;
+  background-color:rgb(226 , 185 , 185);
+}
+
+#criar-tarefa {
+  color: blue;
+}
+
+#salvar-tarefas {
+  color: blue;
+}
