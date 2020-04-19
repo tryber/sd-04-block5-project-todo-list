@@ -13,7 +13,7 @@ function tarefaFinalizada(event) {
     event.target.className = 'selected'
   }
   } else {
-    event.target.className = 'completed selected';
+    event.target.className = 'completed';
   }
 }
 
