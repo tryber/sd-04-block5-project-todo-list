@@ -1,0 +1,19 @@
+.alteracor{
+  background-color: rgb(128, 128, 128);
+}
+
+.completed{
+  text-decoration: line-through;
+}
+
+.lista-tarefas, li{
+  cursor: pointer;
+}
+
+.semrisco{
+  text-decoration: line;
+}
+
+.tarefas{
+  border: 1px solid;  
+}
