@@ -8,6 +8,7 @@
   
   </head>
   <body>
+    <main>
     <header>
       <h1>Minha Lista de Tarefas</h1>
       <p id="funcionamento">
@@ -16,13 +17,16 @@
     </header>
     <div id="include-info">
       <input type="text" id="texto-tarefa" class="insert-list" />
-      <button type="button" id="criar-tarefa">Adicionar</button>
+      <button type="button" class="buttonSend" id="criar-tarefa">Adicionar</button>
     </div>
     <ol id="lista-tarefas"></ol>
     <div id="container-btns">
       <button type="button" class="buttonSend" id="remover-finalizados">X</button>
+      <button type="button" class="buttonSend" id="mover-cima">UP</button>
+      <button type="button" class="buttonSend" id="mover-baixo">DOWN</button>
       <button type="button" class="buttonSend" id="apaga-tudo">Limpar lista</button>
     </div>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
