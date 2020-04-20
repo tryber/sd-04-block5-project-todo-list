@@ -4,6 +4,9 @@ window.onload = function () {
   const listaDeTarefas = document.getElementById('lista-tarefas');
   const botaoRemoverFinalizados = document.getElementById('remover-finalizados');
   const botaoLimparLista = document.getElementById('apaga-tudo');
+  const botaoRemoverSelecionados = document.getElementById('remover-selecionado');
+  const botaoSalvarLista = document.getElementById('salvar-tarefas');
+
   function criarTarefa() {
     const item = document.createElement('li');
     const tarefa = document.createTextNode(tarefaInserida.value);
@@ -12,12 +15,12 @@ window.onload = function () {
     tarefaInserida.value = '';
   }
   botaoAdicionar.addEventListener('click', criarTarefa);
-  function alteraItemBackground(event) {
-    event.target.classList.add('item-cinza');
+  function selecionaItem(event) {
+    event.target.classList.add('selected');
   }
-  listaDeTarefas.addEventListener('click', alteraItemBackground);
+  listaDeTarefas.addEventListener('click', selecionaItem);
   function itemCompleto(event) {
-    event.target.classList.remove('item-cinza');
+    event.target.classList.remove('selected');
     event.target.classList.toggle('completed');
   }
   listaDeTarefas.addEventListener('dblclick', itemCompleto);
@@ -34,4 +37,35 @@ window.onload = function () {
     listaDeTarefas.innerHTML = '';
   }
   botaoLimparLista.addEventListener('click', apagaLista);
+
+  function removeSelecionado() {
+    const itens = document.querySelectorAll('li');
+    for (let i = 0; i < itens.length; i += 1) {
+      if (itens[i].className === 'selected') {
+        itens[i].remove();
+      }
+    }
+  }
+  botaoRemoverSelecionados.addEventListener('click', removeSelecionado);
+  function salvarLista() {
+    const itens = document.querySelectorAll('li');
+    let tarefa;
+    for (let i = 0; i < itens.length; i++) {
+      tarefa = itens[i].innerHTML;
+
+      let tarefas;
+    
+      if(localStorage.getItem('tarefas') === null) {
+        tarefas = [];
+      }
+      else {
+        tarefas = JSON.parse(localStorage.getItem('tarefas'));
+      }
+  
+      tarefas.push(tarefa);
+  
+      localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    }
+  }
+  botaoSalvarLista.addEventListener('click', salvarLista);
 };
