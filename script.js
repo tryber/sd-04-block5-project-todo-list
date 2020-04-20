@@ -22,6 +22,9 @@ lista.addEventListener('click', function (event) {
     event.target.className = 'item-lista completed';
   }
 });
+lista.addEventListener('dblclick', function (event) {
+  event.target.className = 'item-lista';
+});
 btnApagaTudo.addEventListener('click', function () {
   lista.innerHTML = '';
 });
