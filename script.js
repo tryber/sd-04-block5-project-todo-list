@@ -4,6 +4,7 @@ const btnApagaTudo = document.getElementById('apaga-tudo');
 const btnApagaFinalizados = document.getElementById('remover-finalizados');
 const lista = document.getElementById('lista-tarefas');
 let tarefa = '';
+let count = 1;
 
 
 btn.addEventListener('click', function () {
@@ -20,11 +21,11 @@ lista.addEventListener('click', function (event) {
     event.target.className = 'item-lista selected';
   } else if (event.target.className === 'item-lista selected') {
     event.target.className = 'item-lista completed';
-  }
-});
-lista.addEventListener('dblclick', function (event) {
-  if (event.target.className === 'item-lista completed') {
+  } else if (event.target.className === 'item-lista completed' && count !== 2) {
+    count += 1;
+  } else if (event.target.className === 'item-lista completed' && count === 2) {
     event.target.className = 'item-lista';
+    count = 1;
   }
 });
 btnApagaTudo.addEventListener('click', function () {
