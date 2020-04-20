@@ -60,11 +60,11 @@ function pintaFundo(event) {
 // FUNÇÃO RISCA A LISTA E DESMARCA A LISTA
 function riscaLista(event) {
   var risca = event.target;
-  risca.classList.add("risca");
+  risca.classList.add("completed");
 
   risca.addEventListener("dblclick", function (event) {
     var desmarca = event.target;
-    desmarca.classList.toggle("risca");
+    desmarca.classList.toggle("completed");
   });
 }
 
