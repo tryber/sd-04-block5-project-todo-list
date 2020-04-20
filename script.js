@@ -103,6 +103,38 @@ window.onload = function(){
         olNode.innerHTML=''; 
     }
 
+    // BOTÃO MOVER PARA CIMA e  MOVER PARA BAIXO
+
+    let btnMoveUp = document.getElementById('mover-cima');
+    let btnMoveDown = document.getElementById('mover-baixo');
+
+    btnMoveUp.addEventListener('click', function(){
+        let selecionado = document.querySelector('.selected');
+        if( olNode.children[0] == selecionado){
+            alert('Impossível mover para cima')
+            // condição para quando chegar no topo da lista
+        }else{
+        let liAnterior = selecionado.previousElementSibling.innerHTML;
+        let liAtualqueSobe = selecionado.innerHTML;
+        selecionado.previousElementSibling.innerHTML = liAtualqueSobe;
+        selecionado.innerHTML = liAnterior;
+        selecionado.classList.remove('selected');
+        }
+    })
+
+    btnMoveDown.addEventListener('click', function(){
+        let selecionado = document.querySelector('.selected');
+        if( olNode.children[olNode.children.length-1] == selecionado){
+            alert('Impossível mover para baixo')
+        }else{
+        let liAbaixo = selecionado.nextElementSibling.innerHTML;
+        let liAtualqueDesce = selecionado.innerHTML;
+        selecionado.nextElementSibling.innerHTML = liAtualqueDesce;
+        selecionado.innerHTML = liAbaixo;
+        selecionado.classList.remove('selected');
+        }
+    })
+
     
 
     // adicionar tarefa com tecla enter
