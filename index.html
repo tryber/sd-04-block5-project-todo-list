@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <header><h1>Minha Lista de Tarefas</h1></header>
 
+<header id="header"><h1>Minha Lista de Tarefas</h1></header>
+<h2>Crie sua lista personalizada</h2>
+
+<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+
+<div class="todo-list">
+    <p>Digite o item para sua "to do list":<br>
+        <input id="texto-tarefa" type="text" maxlength="60">
+    </p>
+</div>
+
+<button id="criar-tarefa">Criar tarefa</button>
+
+<div id="lista-tarefas">
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
