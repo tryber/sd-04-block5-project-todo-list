@@ -1,0 +1,17 @@
+.item-lista {
+  cursor: pointer;
+  width: min-content;
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
