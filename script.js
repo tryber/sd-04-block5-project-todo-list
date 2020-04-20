@@ -1,13 +1,12 @@
-const text = document.getElementById("texto-tarefa");
-const buttonAdd = document.getElementById("criar-tarefa");
-const buttonClearAll = document.getElementById("apaga-tudo");
-const list = document.createElement("li");
-const addList = document.querySelector("#lista-tarefas");
-// const listCreate = document.querySelectorAll(".list");
+var text = document.getElementById("texto-tarefa");
+var buttonAdd = document.getElementById("criar-tarefa");
+var buttonClearAll = document.getElementById("apaga-tudo");
+var list = document.createElement("li");
+var addList = document.querySelector("#lista-tarefas");
 
-const selectItem = document.querySelector("ol");
+var selectItem = document.querySelector("ol");
 
-//FUNÇÃO MÃOZINHA
+// FUNÇÃO MÃOZINHA
 function hand() {
   let x = document.getElementsByClassName("buttonSend");
   for (let i = 0; i < x.length; i++) {
@@ -18,16 +17,17 @@ document.addEventListener("mouseover", hand);
 
 // BOTÃO ADD ITENS NA LISTA
 buttonAdd.addEventListener("click", function () {
-  const addList = document.querySelector("#lista-tarefas");
-  const text = document.getElementById("texto-tarefa");
-  const list = document.createElement("li");
+  var addList = document.querySelector("#lista-tarefas");
+  var text = document.getElementById("texto-tarefa");
+  var list = document.createElement("li");
   console.log(list);
   list.innerHTML = text.value;
   addList.appendChild(list);
   list.classList.add("list");
   text.value = null;
 
-  list.addEventListener("click",pintaFundo);
+  list.addEventListener("click", pintaFundo);
+  list.addEventListener("dblclick", riscaLista);
 });
 
 // function addItem() {
@@ -42,7 +42,7 @@ buttonAdd.addEventListener("click", function () {
 
 // buttonAdd.addEventListener("click",addItem);
 
-//BOTÃO APAGA TODA A LISTA
+// BOTÃO APAGA TODA A LISTA
 function clearList() {
   let listClear = document.querySelectorAll(".list");
   for (let i = 0; i < listClear.length; i++) {
@@ -51,26 +51,20 @@ function clearList() {
 }
 buttonClearAll.addEventListener("click", clearList);
 
-//   var paintListn = document.getElementsByClassName("list");
-//  list.addEventListener("click", function () {
-//    for (let i = 0; i < paintListn.length; i++) {
-//     paintListn[i].style.backgroundColor = rgb(180 , 10 , 220 );
-//    console.log(paintListn);
-//    }
-//  })
-
-// function pintaLista() {
-//   console.log(true);
-
-// }
-// selectItem.addEventListener("click", pintaLista);
-// const addList = document.querySelector("#lista-tarefas");
- const listCreate = document.querySelectorAll(".list");
-
-// const selectItem = document.querySelector("ol");
-
+// FUNÇÃO PINTA A LISTA
 function pintaFundo(event) {
   const selecionado = event.target;
   selecionado.classList.add("mystyle");
-  } 
+}
+
+// FUNÇÃO RISCA A LISTA E DESMARCA A LISTA
+function riscaLista(event) {
+  var risca = event.target;
+  risca.classList.add("risca");
+
+  risca.addEventListener("dblclick", function (event) {
+    var desmarca = event.target;
+    desmarca.classList.toggle("risca");
+  });
+}
 

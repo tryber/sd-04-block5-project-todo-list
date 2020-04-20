@@ -6,5 +6,8 @@
   
 }
 .mystyle{
-    background-color: rgb(128 , 128, 128);
+    background-color: rgb(128 , 128 , 128);
+}
+.risca{
+  text-decoration: line-through;
 }
