@@ -1,19 +1,23 @@
 ol {
   height: 50vh;
-  width: 100%;
   overflow: auto;
-  padding: 0px 30px;
+  padding: 0 30px;
+  width: 100%;
 }
+
 li {
   cursor: pointer;
   margin: 15px;
 }
+
 button {
   cursor: pointer;
 }
+
 .completed {
   text-decoration: line-through;
 }
+
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
