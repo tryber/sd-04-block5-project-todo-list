@@ -15,16 +15,13 @@
 
 <div class="todo-list">
     <p>Digite o item para sua "to do list":<br>
-        <input id="texto-tarefa" type="text" maxlength="60">
+        <input id="texto-tarefa" type="text" maxlength="60" placeholder="Novo item...">
     </p>
 </div>
 
-<button id="criar-tarefa">Criar tarefa</button>
+<input id="criar-tarefa" type="button" value="Criar tarefa" onclick="addTask();"/>
 
 <ol id="lista-tarefas">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
 </ol>
 
 <script src="script.js"></script>
