@@ -24,6 +24,9 @@ removeTask = function (itemId) {
 
 createItemEl = function (itemValue, itemId) {
     let li = document.createElement("li");
+    li.addEventListener("click", function () {
+        li.classList.add("selected");
+    })
     li.setAttribute("index", itemId);
     li.appendChild(document.createTextNode(itemValue));
     return li;
