@@ -1,0 +1,40 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  border: 3px groove black;
+}
+
+.sub-titulo {
+  display: flex;
+  margin-left: 20px;
+  font-style: italic;
+}
+
+.lista {
+  margin-left: 20px;
+}
+
+.botoes {
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.criar-tarefa , .remover-finalizados , .apaga-tudo , li {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.selected {
+  background-color: gray;
+}
