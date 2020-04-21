@@ -3,7 +3,10 @@ const BTNCREATETASK = document.getElementById('criar-tarefa');
 const TASKLIST = document.getElementById('lista-tarefas');
 const BTNREMOVELIST =  document.getElementById('apaga-tudo')
 const BTNREMOVEFINISHEDLIST = document.getElementById('remover-finalizados');
-const BTNREMOVESELECTED = document.getElementById('remover-selecionado')
+const BTNREMOVESELECTED = document.getElementById('remover-selecionado');
+const BTNSALVAR = document.getElementById('salvar-tarefas');
+const BTNUP = document.getElementById('mover-cima');
+const BTNDOWN = document.getElementById('mover-baixo');
 
 function CreateItem() {
   if (TASKTEXT.value === '') {
@@ -39,6 +42,7 @@ function RemoveList(action) {
 
 function removeChildList(item) {
   TASKLIST.removeChild(item);
+  localStorage.removeItem('itens');
 }
 
 window.onload = function () {
@@ -65,5 +69,13 @@ window.onload = function () {
   BTNREMOVESELECTED.addEventListener('click', function () {
     RemoveList(3);
   });
+
+  BTNSALVAR.addEventListener('click', function () {
+    localStorage.setItem('itens', TASKLIST.innerHTML);
+  });
+
+  if (localStorage !== null) {
+    TASKLIST.innerHTML = localStorage.getItem('itens');
+  }
 
 };
