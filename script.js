@@ -3,7 +3,7 @@ const lista = document.getElementById('lista-tarefas');
 //  verificar se há alguma lista salva anteriormente no local.
 //  e se houver, gerar a lista salva
 if (typeof Storage !== 'undefined') {
-  lista.innerHTML = localStorage.lista;
+  lista.innerHTML = localStorage.list;
 }
 //  botoes
 const btnCriar = document.getElementById('criar-tarefa');
@@ -14,6 +14,10 @@ const btnCima = document.getElementById('mover-cima');
 const btnBaixo = document.getElementById('mover-baixo');
 const btnSalvarTarefas = document.getElementById('salvar-tarefas');
 //  eventos relacionados a lista
+//  salvar lista localmente
+btnSalvarTarefas.addEventListener('click', function () {
+  localStorage.lista = document.getElementById('lista-tarefas').innerHTML;
+});
 //  selecionar tarefa
 lista.addEventListener('click', function () {
   if (document.querySelector('.selected') !== null) {
@@ -77,8 +81,4 @@ btnBaixo.addEventListener('click', function () {
   tarefaSel.nextElementSibling.className = 'selected';
   tarefaSel.innerHTML = acima;
   tarefaSel.classList.remove('selected');
-});
-//  salvar lista localmente
-btnSalvarTarefas.addEventListener('click', function () {
-  localStorage.lista = document.getElementById('lista-tarefas').innerHTML;
 });
