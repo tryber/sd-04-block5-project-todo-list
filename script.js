@@ -46,22 +46,20 @@ function removeChildList(item) {
 }
 
 function UpAndDownItemList(isUp) {
-  const ITEMSSELECTED = document.querySelectorAll('.selected')
-  if (ITEMSSELECTED.length == 0) {
+  const ITEMSSELECTED = document.querySelector('.selected')
+  if (ITEMSSELECTED == null) {
     alert('Você deve selecionar o item que deseja mover para cima!')
   } else {
-    for (let i = 0; i < ITEMSSELECTED.length; i += 1) {
-      let auxText = ITEMSSELECTED[i].innerText;
-      let isCompleted = ITEMSSELECTED[i].classList.contains('completed');
+    let auxText = ITEMSSELECTED.innerText;
+    let isCompleted = ITEMSSELECTED.classList.contains('completed');
 
-      let proxItem = (isUp ? ITEMSSELECTED[i].previousElementSibling : ITEMSSELECTED[i].nextElementSibling);
+    let proxItem = (isUp ? ITEMSSELECTED.previousElementSibling : ITEMSSELECTED.nextElementSibling);
 
-      if (proxItem) {
-        ITEMSSELECTED[i].innerText = proxItem.innerText;
-        ITEMSSELECTED[i].classList = proxItem.classList;
-        proxItem.innerText = auxText;
-        proxItem.classList = `selected ${(isCompleted ? 'completed' : '')}`;
-      }
+    if (proxItem) {
+      ITEMSSELECTED.innerText = proxItem.innerText;
+      ITEMSSELECTED.classList = proxItem.classList;
+      proxItem.innerText = auxText;
+      proxItem.classList = `selected ${(isCompleted ? 'completed' : '')}`;
     }
   }
 }
