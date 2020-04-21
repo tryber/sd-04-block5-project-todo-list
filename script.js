@@ -1,4 +1,4 @@
-let taskList = document.getElementById('lista-ordenada')
+let taskList = document.getElementById('lista-tarefas')
 let btnAdd = document.getElementById('criar-tarefa')
 let btnClearAll = document.getElementById('apaga-tudo')
 let btnClearSelected = document.getElementById('remover-selecionados')
@@ -18,19 +18,26 @@ const addTask = () => {
     alert('Please insert some text')
   } else {
     newEl.innerText = input.value
-
-    newEl.addEventListener('click', () => {
-          changeClass(newEl, 'selected')
-        })
-    
-        newEl.addEventListener('dblclick', () => {
-          changeClass(newEl, 'completed')
-        })
     taskList.appendChild(newEl)
     input.value = ''
   }
   input.focus()
 }
+  taskList.addEventListener('click', function (elemento) {
+    if (document.querySelector('.selected') == null) {
+      elemento.target.classList.add('selected');
+    } else {
+      elemento.target.classList.remove('selected');
+
+    }
+  });
+  taskList.addEventListener('dblclick', function (elemento) {
+    if (elemento.target.classList.contains('completed') === true) {
+      elemento.target.classList.remove('completed');
+    } else {
+      elemento.target.classList.add('completed');
+    }
+  });
 
 
 const clearAll = () => {
