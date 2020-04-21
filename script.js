@@ -1,6 +1,8 @@
 const criarTarefa = document.getElementById('criar-tarefa');
 const lista = document.getElementById('lista-tarefas');
 const caixaDeTexto = document.getElementById('texto-tarefa');
+const apagarTudo = document.getElementById('apaga-tudo');
+const apagarItem = document.getElementById('remover-finalizados');
 
 function addItem() {
   const li = document.createElement('li');
@@ -11,7 +13,20 @@ function addItem() {
 function alterarFundo(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
-
+function removerTudo() {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    lista.removeChild(li[i]);
+  }
+}
+function apagarItens() {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].classList.contains('completed')) {
+      lista.removeChild(li[i]);
+    }
+  }
+}
 function riscado(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -24,3 +39,5 @@ function riscado(event) {
 criarTarefa.addEventListener('click', addItem);
 lista.addEventListener('click', alterarFundo);
 lista.addEventListener('dblclick', riscado);
+apagarTudo.addEventListener('click', removerTudo);
+apagarItem.addEventListener('click', apagarItens);
