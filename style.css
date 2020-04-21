@@ -23,6 +23,10 @@ button {
   width: 120px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .corpo {
   display: flex;
   flex-direction: column;
