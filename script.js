@@ -51,7 +51,7 @@ btnApagaFin.addEventListener('click', () => {
     }
   }
 });
-//  apagar tudo
+//  apagar tudo.
 btnApagaTudo.addEventListener('click', () => {
   const tarefas = document.querySelectorAll('li');
   for (let i = 0; i < tarefas.length; i += 1) {
