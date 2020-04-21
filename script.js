@@ -25,12 +25,37 @@ removeTask = function (itemId) {
 createItemEl = function (itemValue, itemId) {
     let li = document.createElement("li");
     li.addEventListener("click", function () {
-        li.classList.add("selected");
+        if(li.classList.contains("selected") == false) {
+        li.classList.add("selected")
+        }
+        else {
+        li.classList.remove("selected")
+        }
+    })
+    li.addEventListener("dblclick", function () {
+        if(li.classList.contains("completed") == false) {
+        li.classList.add("completed")
+        }
+        else {
+            li.classList.remove("completed")
+        }
     })
     li.setAttribute("index", itemId);
     li.appendChild(document.createTextNode(itemValue));
     return li;
 }
+
+clearAll = function () {
+    document.querySelector("#lista-tarefas").innerHTML = "";
+}
+
+rmvFinal = function () {
+    let todosItens = document.querySelectorAll("li");
+    for (let i = 0; i < todosItens.length; i++) {
+        if (todosItens[i].classList.contains("completed") == true) {
+            todosItens[i].remove()}
+        }
+    }
 
 /*createRemoveBtn = function (itemId) {
     let btn = document.createElement("button");

@@ -5,3 +5,7 @@ button {
 .selected {
     background-color: #878787;
 }
+
+.completed {
+    text-decoration: line-through;
+}
