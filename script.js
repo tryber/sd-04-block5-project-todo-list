@@ -48,24 +48,21 @@ window.onload = function () {
   }
   botaoRemoverSelecionados.addEventListener('click', removeSelecionado);
   function salvarLista() {
-    const itens = document.querySelectorAll('li');
-    let tarefa;
-    for (let i = 0; i < itens.length; i++) {
-      tarefa = itens[i].innerHTML;
-
-      let tarefas;
-    
-      if(localStorage.getItem('tarefas') === null) {
-        tarefas = [];
-      }
-      else {
-        tarefas = JSON.parse(localStorage.getItem('tarefas'));
-      }
-  
-      tarefas.push(tarefa);
-  
-      localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    if (typeof Storage !== 'undefined') {
+      localStorage.setItem('Tarefas', listaDeTarefas.innerHTML);
+      console.log(localStorage);
     }
   }
   botaoSalvarLista.addEventListener('click', salvarLista);
+
+  // function recuperaLista() {
+  //   const tarefas = localStorage.getItem('Tarefas');
+  //   listaDeTarefas.innerHTML = tarefas;
+  //   const itens = document.querySelectorAll('li');
+  //   for (let i = 0; i < itens.length; i += 1) {
+
+  //   }
+  // }
+  // window.addEventListener('load', recuperaLista);
 };
+
