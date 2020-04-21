@@ -3,7 +3,7 @@
 }
 
 .selected {
-  background-color: #878787;
+  background-color: rgb(128, 128, 128);
 }
 
 .task:hover {
