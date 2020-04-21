@@ -1,6 +1,7 @@
 {
   "extends": "airbnb",
   "rules": {
+    "linebreak-style": 0,
     "no-alert": "off",
     "prefer-arrow-callback": "off",
     "func-names": "off",
