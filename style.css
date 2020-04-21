@@ -13,16 +13,6 @@ h3 {
   padding-left: 30px;
 }
 
-button {
-  border-radius: 25px;
-  border-style: none;
-  color: white;
-  font-weight: 700;
-  height: 30px;
-  margin: 2px;
-  width: 120px;
-}
-
 .corpo {
   display: flex;
   flex-direction: column;
@@ -49,25 +39,6 @@ button {
 .menu button {
   background-color: rgb(28 , 168 , 255);
   width: 150px;
-}
-
-.umatarefa {
-  margin-top: 30px;
-}
-
-.umatarefa button {
-  background-color: rgb(28 , 168 , 255);
-  margin-top: 10px;
-}
-
-.apaga button {
-  background-color: rgb(28 , 168 , 255);
-  margin-top: 10px;
-}
-
-.grava button {
-  background-color: rgb(35 , 149 , 58);
-  margin-top: 30px;
 }
 
 .formulario {
@@ -98,4 +69,23 @@ button {
   flex-direction: column;
   text-align: left;
   width: 80%;
+}
+
+li {
+  cursor: pointer;
+}
+
+button {
+  border-radius: 25px;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  height: 30px;
+  margin: 2px;
+  width: 120px;
+}
+
+.completed {
+  text-decoration: line-through;
 }
