@@ -37,6 +37,7 @@ h3 {
 }
 
 button {
+  background-color: rgb(28 , 168 , 255);
   border-radius: 25px;
   border-style: none;
   color: white;
@@ -44,11 +45,6 @@ button {
   font-weight: 700;
   height: 30px;
   margin: 2px;
-  width: 120px;
-}
-
-.menu button {
-  background-color: rgb(28 , 168 , 255);
   width: 150px;
 }
 
@@ -88,7 +84,7 @@ li {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
   width: fit-content;
 }
 
