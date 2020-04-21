@@ -2,6 +2,7 @@ const lista = document.getElementById('lista-tarefas');
 if (typeof Storage !== 'undefined') {
   lista.innerHTML = localStorage.lista;
 }
+
 const btnCriar = document.getElementById('criar-tarefa');
 const btnApagaSel = document.getElementById('remover-selecionado');
 const btnApagaFin = document.getElementById('remover-finalizados');
