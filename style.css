@@ -9,7 +9,7 @@ button , li {
 }
 
 .completed {
-  text-decoration: red line-through;
+  text-decoration: line-through;
 }
 
 .selected {
