@@ -45,6 +45,25 @@ function removeChildList(item) {
   localStorage.removeItem('itens');
 }
 
+function UpItemList() {
+  const ITEMSSELECTED = document.querySelectorAll('.selected')
+  if (ITEMSSELECTED.length == 0) {
+    alert('Você deve selecionar o item que deseja mover para cima!')
+  } else {
+    for (let i = 0; i < ITEMSSELECTED.length; i += 1) {
+      let auxText = ITEMSSELECTED[i].innerText;
+      let isCompleted = ITEMSSELECTED[i].classList.contains('completed');
+      let proxItem = ITEMSSELECTED[i].previousElementSibling;
+      if (proxItem) {
+        ITEMSSELECTED[i].innerText = proxItem.innerText;
+        ITEMSSELECTED[i].classList = proxItem.classList;
+        proxItem.innerText = auxText;
+        proxItem.classList = `selected ${(isCompleted ? 'completed' : '')}`;
+      }
+    }
+  }
+}
+
 window.onload = function () {
   BTNCREATETASK.addEventListener('click', function () {
     CreateItem();
@@ -77,5 +96,9 @@ window.onload = function () {
   if (localStorage !== null) {
     TASKLIST.innerHTML = localStorage.getItem('itens');
   }
+
+  BTNUP.addEventListener('click', function () {
+    UpItemList();
+  });
 
 };
