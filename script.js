@@ -1,3 +1,3 @@
 window.onload = function () {
-  //  script
+document.querySelector('.lista').addEventListener('mouseover', function () { document.querySelector('.lista').style.cursor = 'pointer'; });
 };
