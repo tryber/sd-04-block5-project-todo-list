@@ -9,10 +9,9 @@ button , li {
 }
 
 .completed {
-  text-decoration-color: red;
-  text-decoration: line-through;
+  text-decoration: red line-through;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
