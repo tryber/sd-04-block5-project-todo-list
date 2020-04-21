@@ -1,0 +1,15 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.selected {
+  background-color: #878787;
+}
+
+.task:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
+}
