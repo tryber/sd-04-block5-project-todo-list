@@ -1,7 +1,7 @@
 const TASKTEXT = document.getElementById('texto-tarefa');
 const BTNCREATETASK = document.getElementById('criar-tarefa');
 const TASKLIST = document.getElementById('lista-tarefas');
-const BTNREMOVELIST =  document.getElementById('apaga-tudo')
+const BTNREMOVELIST = document.getElementById('apaga-tudo')
 const BTNREMOVEFINISHEDLIST = document.getElementById('remover-finalizados');
 const BTNREMOVESELECTED = document.getElementById('remover-selecionado');
 const BTNSALVAR = document.getElementById('salvar-tarefas');
@@ -45,7 +45,7 @@ function removeChildList(item) {
   localStorage.removeItem('itens');
 }
 
-function UpItemList() {
+function UpAndDownItemList(isUp) {
   const ITEMSSELECTED = document.querySelectorAll('.selected')
   if (ITEMSSELECTED.length == 0) {
     alert('Você deve selecionar o item que deseja mover para cima!')
@@ -53,7 +53,9 @@ function UpItemList() {
     for (let i = 0; i < ITEMSSELECTED.length; i += 1) {
       let auxText = ITEMSSELECTED[i].innerText;
       let isCompleted = ITEMSSELECTED[i].classList.contains('completed');
-      let proxItem = ITEMSSELECTED[i].previousElementSibling;
+
+      let proxItem = (isUp ? ITEMSSELECTED[i].previousElementSibling : ITEMSSELECTED[i].nextElementSibling);
+
       if (proxItem) {
         ITEMSSELECTED[i].innerText = proxItem.innerText;
         ITEMSSELECTED[i].classList = proxItem.classList;
@@ -98,7 +100,11 @@ window.onload = function () {
   }
 
   BTNUP.addEventListener('click', function () {
-    UpItemList();
+    UpAndDownItemList(true);
+  });
+
+  BTNDOWN.addEventListener('click', function () {
+    UpAndDownItemList(false);
   });
 
 };
