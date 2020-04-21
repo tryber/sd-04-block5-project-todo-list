@@ -83,7 +83,13 @@ button {
 }
 
 li {
+  background-color: rgb(29 , 29 , 29);
   cursor: pointer;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+  width: fit-content;
 }
 
 .completed {

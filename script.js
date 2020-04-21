@@ -9,9 +9,14 @@ criar.addEventListener('click', function () {
 });
 lista.addEventListener('click', function () {
   if (document.querySelector('.selected') !== null) {
-    document.querySelector('.selected').style.backgroundColor = 'rgb(29,29,29)';
     document.querySelector('.selected').classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
   event.target.classList.add('selected');
+});
+lista.addEventListener('dblclick', function () {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 });
