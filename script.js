@@ -1,9 +1,11 @@
-let taskList = document.getElementById('lista-tarefas')
-let btnAdd = document.getElementById('criar-tarefa')
-let btnClearAll = document.getElementById('apaga-tudo')
-let btnClearSelected = document.getElementById('remover-selecionados')
-let btnClearCompleted = document.getElementById('remover-finalizados')
-let input = document.getElementById('texto-tarefa')
+let taskList = document.getElementById('lista-tarefas');
+let btnAdd = document.getElementById('criar-tarefa');
+let btnClearAll = document.getElementById('apaga-tudo');
+let btnClearSelected = document.getElementById('remover-selecionados');
+let btnClearCompleted = document.getElementById('remover-finalizados');
+let input = document.getElementById('texto-tarefa');
+let btnMoveUp = document.getElementById('mover-cima');
+let btnMoveDown = document.getElementById('mover-baixo');
 
 const btnSave = document.getElementById('salvar-tarefas')
 if (typeof Storage !== 'undefined') {
@@ -75,3 +77,31 @@ input.addEventListener('keydown', (e) => {
 btnSave.addEventListener('click', function() {
   localStorage.setItem('taskList', taskList.innerHTML)
 })
+
+btnMoveUp.addEventListener('click', function () {
+  const selecionado = document.querySelector('.selected');
+  if (selecionado == null) alert('Select a task!')
+  if (taskList.children[0] === selecionado) {
+    alert('Limite alcançado');
+  } else {
+    const valorAcima = selecionado.previousElementSibling.innerHTML;
+    const valorQSobe = selecionado.innerHTML;
+    selecionado.previousElementSibling.innerHTML = valorQSobe;
+    selecionado.innerHTML = valorAcima;
+    selecionado.classList.remove('selected');
+  }
+});
+
+btnMoveDown.addEventListener('click', function () {
+  const selecionado = document.querySelector('.selected');
+  if (selecionado == null) alert('Select a task!')
+  if (taskList.children[taskList.children.length - 1] === selecionado) {
+    alert('Limite alcançado');
+  } else {
+    const valorAbaixo = selecionado.nextElementSibling.innerHTML;
+    const valorQDesce = selecionado.innerHTML;
+    selecionado.nextElementSibling.innerHTML = valorQDesce;
+    selecionado.innerHTML = valorAbaixo;
+    selecionado.classList.remove('selected');
+  }
+});
