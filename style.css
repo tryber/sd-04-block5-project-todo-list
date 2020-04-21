@@ -1,0 +1,15 @@
+button {
+    cursor: pointer;
+}
+
+li {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgb(128,128,128);
+}
+
+.completed {
+    text-decoration: line-through;
+}
