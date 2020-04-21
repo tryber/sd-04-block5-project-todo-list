@@ -1,6 +1,6 @@
 //  tarefas
 const lista = document.getElementById('lista-tarefas');
-//  verificar se há alguma lista salva anteriormente no local
+//  verificar se há alguma lista salva anteriormente no local.
 //  e se houver, gerar a lista salva
 if (typeof Storage !== 'undefined') {
   lista.innerHTML = localStorage.lista;
