@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <title>To-do List</title>
     <link href="style.css" rel="stylesheet" />
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -19,35 +18,26 @@
                 <span>Tarefa</span>
                 <input id="texto-tarefa" class="input-tarefa">
             </form>
-            <button class="addTarefa" id="criar-tarefa">Adicionar</button>
+            <button id="criar-tarefa">Adicionar</button>
         </div>
         <div class="content">
             <div class="menu">
-
-                <div class="apaga">
-                    <button class="apagar" id="remover-selecionado">Apagar Tarefa</button>
-                    <button class="removerFinalizados" id="remover-finalizados">Apagar Concluídos</button>
-                    <button class="apagaTudo" id="apaga-tudo">Apagar Lista</button>
-                </div>
-
-                <div class="umatarefa">
-                    <button class="subir" id="mover-cima">Subir na Lista</button>
-                    <button class="descer" id="mover-baixo">Descer na Lista</button>
-                </div>
-
-                <div class="grava">
-                    <button class="salvar" id="salvar-tarefas">Salvar Lista</button>
-                </div>
-
+                <button id="remover-selecionado">Apagar Tarefa</button>
+                <button id="remover-finalizados">Apagar Concluídos</button>
+                <button id="apaga-tudo">Apagar Lista</button>
+                <button id="mover-cima">Subir na Lista</button>
+                <button id="mover-baixo">Descer na Lista</button>
+                <button id="salvar-tarefas">Salvar Lista</button>
             </div>
             <div class="tarefas">
                 <h3>Tarefas</h3>
-                <ol id=lista-tarefas class="lista">
-                    <li>tarefinha facin de fazer</li>
+                <ol id="lista-tarefas">
                 </ol>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

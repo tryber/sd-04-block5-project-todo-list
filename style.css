@@ -42,11 +42,12 @@ button {
 .menu {
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 0 auto;
   width: 200px;
 }
 
 .menu button {
+  background-color: rgb(28 , 168 , 255);
   width: 150px;
 }
 
