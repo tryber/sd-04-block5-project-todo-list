@@ -2,8 +2,12 @@ button {
     cursor: pointer;
 }
 
+li {
+    cursor: pointer;
+}
+
 .selected {
-    background-color: #878787;
+    background-color: rgb(128,128,128);
 }
 
 .completed {
