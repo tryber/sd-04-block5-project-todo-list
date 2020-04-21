@@ -2,6 +2,7 @@ const TASKTEXT = document.getElementById('texto-tarefa');
 const BTNCREATETASK = document.getElementById('criar-tarefa');
 const TASKLIST = document.getElementById('lista-tarefas');
 const BTNREMOVELIST =  document.getElementById('apaga-tudo')
+const BTNREMOVEFINISHEDLIST = document.getElementById('remover-finalizados');
 
 function CreateItem () {
   if (TASKTEXT.value === '') {
@@ -14,10 +15,16 @@ function CreateItem () {
   }
 };
 
-function RemoveList () {
+function RemoveList(isCompleted) {
   let items = document.querySelectorAll('li');
   for (let i = 0; i < items.length; i += 1) {
-    TASKLIST.removeChild(items[i]);
+    if (isCompleted) {
+      if (items[i].className === 'completed') {
+        TASKLIST.removeChild(items[i]);
+      }
+    } else {
+      TASKLIST.removeChild(items[i]);
+    }
   }
 }
 
@@ -35,6 +42,10 @@ window.onload = function () {
   });
   
   BTNREMOVELIST.addEventListener('click' , function () {
-    RemoveList();
+    RemoveList(false);
+  });
+
+  BTNREMOVEFINISHEDLIST.addEventListener('click', function () {
+    RemoveList(true);
   });
 };
