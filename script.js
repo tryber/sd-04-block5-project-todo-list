@@ -10,6 +10,7 @@ addTask = function () {
     li = createItemEl(item.value, itemId);
     li.appendChild(createRemoveBtn(itemId));
     ol.appendChild(li);
+    item.value = "";
     }
 }
 
