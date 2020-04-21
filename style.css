@@ -3,10 +3,10 @@
   margin: 0;
   padding: 0;
 }
-    
+
 button , li {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
 
 .completed {
   text-decoration: line-through;

@@ -1,14 +1,21 @@
-let taskText = document.getElementById('texto-tarefa');
-let btnCreateTask = document.getElementById('criar-tarefa'); 
-let taskList = document.getElementById('lista-tarefas');
+const TASKTEXT = document.getElementById('texto-tarefa');
+const BTNCREATETASK = document.getElementById('criar-tarefa');
+const TASKLIST = document.getElementById('lista-tarefas');
 
-function criaItem() {
-  let item = document.createElement('li');
-  item.innerHTML = textoTarefa.value;
-  taskList.appendChild(item);
-  taskText.value = '';
-}
+function CreateItem() {
+  if (TASKTEXT.value === '') {
+    alert('Você precisa digitar alguma tarefa primeiro');
+  } else {
+    const ITEM = document.createElement('li');
+    ITEM.innerHTML = TASKTEXT.value;
+    TASKLIST.appendChild(ITEM);
+    TASKTEXT.value = '';
+  }
+};
 
 window.onload = function () {
-  criaItem();
+  BTNCREATETASK.addEventListener('click', function() {
+    CreateItem();
+  });
+  
 };
