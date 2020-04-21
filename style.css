@@ -36,6 +36,17 @@ h3 {
   width: 200px;
 }
 
+button {
+  border-radius: 25px;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  height: 30px;
+  margin: 2px;
+  width: 120px;
+}
+
 .menu button {
   background-color: rgb(28 , 168 , 255);
   width: 150px;
@@ -73,17 +84,6 @@ h3 {
 
 li {
   cursor: pointer;
-}
-
-button {
-  border-radius: 25px;
-  border-style: none;
-  color: white;
-  cursor: pointer;
-  font-weight: 700;
-  height: 30px;
-  margin: 2px;
-  width: 120px;
 }
 
 .completed {
