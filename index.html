@@ -3,13 +3,51 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Paleta de Cores</title>
+    <title>To-do List</title>
     <link href="style.css" rel="stylesheet" />
     <script src="script.js"></script>
 </head>
 
 <body>
-   
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+    </header>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <div class="corpo">
+        <div class="formulario">
+            <form>
+                <span>Tarefa</span>
+                <input id="texto-tarefa" class="input-tarefa">
+            </form>
+            <button class="addTarefa">Adicionar</button>
+        </div>
+        <div class="content">
+            <div class="menu">
+
+                <div class="apaga">
+                    <button class="apagar" id="remover-selecionado">Apagar Tarefa</button>
+                    <button class="removerFinalizados" id="remover-finalizados">Apagar Concluídos</button>
+                    <button class="apagaTudo" id="apaga-tudo">Apagar Lista</button>
+                </div>
+
+                <div class="umatarefa">
+                    <button class="subir" id="mover-cima">Subir na Lista</button>
+                    <button class="descer" id="mover-baixo">Descer na Lista</button>
+                </div>
+
+                <div class="grava">
+                    <button class="salvar" id="salvar-tarefas">Salvar Lista</button>
+                </div>
+
+            </div>
+            <div class="tarefas">
+                <h3>Tarefas</h3>
+                <ol id=lista-tarefas>
+                    <li></li>
+                </ol>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
