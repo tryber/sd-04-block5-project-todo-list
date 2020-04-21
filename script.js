@@ -8,7 +8,7 @@ addTask = function () {
     item = document.getElementById("texto-tarefa");
     itemId = ol.childElementCount;
     li = createItemEl(item.value, itemId);
-    li.appendChild(createRemoveBtn(itemId));
+    /*li.appendChild(createRemoveBtn(itemId));*/
     ol.appendChild(li);
     item.value = "";
     }
@@ -29,9 +29,9 @@ createItemEl = function (itemValue, itemId) {
     return li;
 }
 
-createRemoveBtn = function (itemId) {
+/*createRemoveBtn = function (itemId) {
     let btn = document.createElement("button");
     btn.setAttribute("onclick", "removeTask("+itemId+")");
     btn.innerHTML = "X";
     return btn;
-}
+}*/
