@@ -1,10 +1,14 @@
 const lista = document.getElementById('lista-tarefas');
+if (typeof Storage !== 'undefined') {
+  lista.innerHTML = localStorage.lista;
+}
 const btnCriar = document.getElementById('criar-tarefa');
 const btnApagaSel = document.getElementById('remover-selecionado');
 const btnApagaFin = document.getElementById('remover-finalizados');
 const btnApagaTudo = document.getElementById('apaga-tudo');
 const btnCima = document.getElementById('mover-cima');
 const btnBaixo = document.getElementById('mover-baixo');
+const btnSalvarTarefas = document.getElementById('salvar-tarefas');
 
 lista.addEventListener('click', function () {
   if (document.querySelector('.selected') !== null) {
@@ -68,4 +72,8 @@ btnBaixo.addEventListener('click', function () {
   tarefaSel.nextElementSibling.className = 'selected';
   tarefaSel.innerHTML = acima;
   tarefaSel.classList.remove('selected');
+});
+
+btnSalvarTarefas.addEventListener('click', function () {
+  localStorage.lista = document.getElementById('lista-tarefas').innerHTML;
 });
