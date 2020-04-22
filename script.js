@@ -34,25 +34,15 @@ function RemoveList(classRemove) {
   }
 }
 
-function UpAndDownItemList(ITEMSSELECTED, PROXITEM) {
-  const AUXTEXT = ITEMSSELECTED.innerText;
-  const ISCOMPLETED = ITEMSSELECTED.classList.contains('completed');
-
-  if (PROXITEM) {
-    ITEMSSELECTED.innerText = PROXITEM.innerText;
-    ITEMSSELECTED.classList = PROXITEM.classList;
-    PROXITEM.innerText = AUXTEXT;
-    PROXITEM.classList = `selected ${(ISCOMPLETED ? 'completed' : '')}`;
-  }
-}
-
 function UpItemList() {
   const ITEMSSELECTED = document.querySelector('.selected');
   if (ITEMSSELECTED === null) {
     alert('Você deve selecionar o item que deseja mover para cima!');
   } else {
     const PROXITEM = ITEMSSELECTED.previousElementSibling;
-    UpAndDownItemList(ITEMSSELECTED, PROXITEM);
+    if (PROXITEM){
+      TASKLIST.insertBefore(ITEMSSELECTED, PROXITEM);
+    }
   }
 }
 
@@ -62,7 +52,9 @@ function DownItemList() {
     alert('Você deve selecionar o item que deseja mover para baixo!');
   } else {
     const PROXITEM = ITEMSSELECTED.nextElementSibling;
-    UpAndDownItemList(ITEMSSELECTED, PROXITEM);
+    if (PROXITEM){
+      TASKLIST.insertBefore(PROXITEM, ITEMSSELECTED);
+    }
   }
 }
 
