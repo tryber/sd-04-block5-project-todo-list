@@ -4,49 +4,49 @@ body {
     text-align: center;
   }
 
-  h1 {
-    border-bottom: 3px solid orangered;
-    color: orangered;
-    font-family: monospace, Courier;
-    margin: 50px;
-  }
+h1 {
+  border-bottom: 3px solid orangered;
+  color: orangered;
+  font-family: monospace, Courier;
+  margin: 50px;
+}
   
-  button {
-    background-color: orangered;
-    border-color: white;
-    color: white;
-    font-weight: 900;
-    padding: 5px;
-  }
+button {
+  background-color: orangered;
+  border-color: white;
+  color: white;
+  font-weight: 900;
+  padding: 5px;
+}
 
-  p{
+p {
     font-size: 20px;
-  }
+}
 
-  .adicionando-tarefa {
-    cursor: pointer;
-  }
+.adicionando-tarefa {
+  cursor: pointer;
+} 
+
+.rmv-tarefas {
+  cursor: pointer;
+}
+
+.rmv-executados {
+  cursor: pointer;
+}
   
-  .rmv-tarefas {
-    cursor: pointer;
-  }
+.li-criada {
+  cursor: pointer;
+}
   
-  .rmv-executados {
-    cursor: pointer;
-  }
+.completed {
+  text-decoration: line-through;
+}
   
-  .li-criada {
-    cursor: pointer;
-  }
+.incompleted {
+  text-decoration: none;
+}
   
-  .completed {
-    text-decoration: line-through;
-  }
-  
-  .incompleted {
-    text-decoration: none;
-  }
-  
-  .selecionado {
-    background-color: rgb(128,128,128);
-  } 
+.selecionado {
+  background-color: rgb(128,128,128);
+}
