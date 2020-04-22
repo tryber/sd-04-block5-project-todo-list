@@ -5,8 +5,8 @@ body {
   }
 
   h1 {
-    color: orangered;
     border-bottom: 3px solid orangered;
+    color: orangered;
     font-family: monospace, Courier;
     margin: 50px;
   }
@@ -48,5 +48,5 @@ body {
   }
   
   .selecionado {
-    background-color: rgb(228, 162, 87);
+    background-color: rgb(128,128,128);
   } 
