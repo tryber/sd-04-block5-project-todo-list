@@ -39,8 +39,8 @@ function UpItemList() {
   if (ITEMSSELECTED === null) {
     alert('Você deve selecionar o item que deseja mover para cima!');
   } else {
-    const PROXITEM = ITEMSSELECTED.previousElementSibling;
-    if (PROXITEM){
+    const PROXITEM = ITEMSSELECTED.previousSibling;
+    if (PROXITEM) {
       TASKLIST.insertBefore(ITEMSSELECTED, PROXITEM);
     }
   }
@@ -51,8 +51,8 @@ function DownItemList() {
   if (ITEMSSELECTED === null) {
     alert('Você deve selecionar o item que deseja mover para baixo!');
   } else {
-    const PROXITEM = ITEMSSELECTED.nextElementSibling;
-    if (PROXITEM){
+    const PROXITEM = ITEMSSELECTED.nextSibling;
+    if (PROXITEM) {
       TASKLIST.insertBefore(PROXITEM, ITEMSSELECTED);
     }
   }
