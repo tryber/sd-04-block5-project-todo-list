@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -18,9 +18,15 @@
         <ol id="lista-tarefas" class="lista-ordenada">
         </ol>
     </div>
-    <button id="apaga-tudo" class="cursor-pointer" onclick="apagarLista()">Clear All</button><br><br>
-    <button id="remover-finalizados" class="cursor-pointer" onclick="excluirItem()">Remove completed</button><br>
-
+    <div class="buttons">
+        <button id="apaga-tudo" class="cursor-pointer" onclick="apagarLista()">Clear All</button>
+        <button id="remover-finalizados" class="cursor-pointer" onclick="excluirItem()">Remove completed
+            ones</button>
+        <button id="salvar-tarefas" onclick="salvarTarefas()">Salve Tasks</button>
+        <button id="mover-cima" onclick="moverAcima()">Move Up ↑</button>
+        <button id="mover-baixo" onclick="moverAbaixo()">Move Down ↓</button>
+        <button id="remover-selecionado" onclick="removeSelecionado()">Move Down ↓</button>
+    </div>
     <script src="script.js"></script>
 </body>
 

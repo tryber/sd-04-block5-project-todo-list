@@ -4,7 +4,15 @@ body {
   padding: 30px;
 }
 
-li:hover {
+button {
+  margin: 10px;
+}
+
+.buttons {
+  display: flex;
+}
+
+li {
   cursor: pointer;
 }
 
