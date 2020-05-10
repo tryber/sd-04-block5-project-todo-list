@@ -8,14 +8,14 @@ const btnsalvarTarefa = document.getElementById("salvar-tarefas")
 
 // Funcao parar criar uma nova tarefa
 function createTask() {
-    let insertList = document.getElementsByTagName("ol")[0]
-    let valor = elTexto.value;
-    let tarefa = document.createElement("li")
-    tarefa.innerHTML = valor
-    tarefa.addEventListener("click", checkItem)
-    tarefa.addEventListener("dblclick", checkComplete)
-    insertList.appendChild(tarefa)
-    elTexto.value = "";
+let insertList = document.getElementsByTagName("ol")[0]
+let valor = elTexto.value;
+let tarefa = document.createElement("li")
+tarefa.innerHTML = valor
+tarefa.addEventListener("click", checkItem)
+tarefa.addEventListener("dblclick", checkComplete)
+insertList.appendChild(tarefa)
+elTexto.value = "";
 }
 
 btnTarefa.addEventListener("click", createTask); //cria uma nova tarefa
@@ -25,50 +25,50 @@ btnsalvarTarefa.addEventListener("click", saveTasks); //salva as tarefas no loca
 
 
 function checkItem(event) {
-    let item = event.target;
-    let isActive = item.classList.contains('active');
-    if (isActive === false) {
-        item.classList.add("active")
-    } else {
-        item.classList.remove("active")
-    }
+let item = event.target;
+let isActive = item.classList.contains('active');
+if (isActive === false) {
+item.classList.add("active")
+} else {
+item.classList.remove("active")
+}
 }
 
 
 function checkComplete(event) {
-    let item = event.target;
-    let isComplete = item.classList.contains("completed")
-    if (isComplete === false) {
-        item.classList.add("completed")
-    } else {
-        item.classList.remove("completed")
-    }
+let item = event.target;
+let isComplete = item.classList.contains("completed")
+if (isComplete === false) {
+item.classList.add("completed")
+} else {
+item.classList.remove("completed")
+}
 }
 
 function clearAll(event) {
-    let item = document.getElementsByTagName("ol")
-    for (let i = 0; i < item.length; i++) {
-        item[i].innerHTML = "";
-    }
+let item = document.getElementsByTagName("ol")
+for (let i = 0; i < item.length; i++) {
+item[i].innerHTML = "";
+}
 }
 
 function removeCompleted(event) {
-    let list = document.getElementsByTagName("li")
-    for (let i = 0; i < list.length; i++) {
-        if (list[i].className == "completed") {
-            list[i].remove("li")
-        }
-    }
-}    
+let list = document.getElementsByTagName("li")
+for (let i = 0; i < list.length; i++) {
+if (list[i].className == "completed") {
+    list[i].remove("li")
+}
+}
+}
 
-function saveTasks (event) {
-    var conteudo = document.querySelectorAll(".order-list li").map(function(){
-        return {
-           classes: this.className,
-           html: this.innerHTML
-        } 
-    }).get();
-    console.log(conteude)
-    localStorage.setItem('tasks', JSON.stringify(conteudo));
+function saveTasks(event) {
+var conteudo = document.querySelectorAll(".order-list li").map(function () {
+return {
+    classes: this.className,
+    html: this.innerHTML
+}
+}).get();
+console.log(conteude)
+localStorage.setItem('tasks', JSON.stringify(conteudo));
 }
 
