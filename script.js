@@ -24,14 +24,9 @@ btnRemoveCompleted.addEventListener("click", removeCompleted); //remove finaliza
 btnsalvarTarefa.addEventListener("click", saveTasks); //salva as tarefas no localstorage
 
 
-// remover selecao dos outros itens
-// Aplicar selecao do item clicado
 function checkItem(event) {
-    // identifica o item
     let item = event.target;
-    // verifica se ele ja esta selecionado
     let isActive = item.classList.contains('active');
-    // aplica selecao caso ele nao estiver ja selecionado
     if (isActive === false) {
         item.classList.add("active")
     } else {
@@ -67,10 +62,6 @@ function removeCompleted(event) {
 }    
 
 function saveTasks (event) {
-    // let item = document.getElementsByClassName("order-list")
-    // console.log(item.innerHTML)
-    // localStorage.setItem('list', )
-
     var conteudo = document.querySelectorAll(".order-list li").map(function(){
         return {
            classes: this.className,
