@@ -4,6 +4,7 @@ button {
 
 li.active {
   background-color: gray;
+  width: fit-content;
 }
 
 li.completed {

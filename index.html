@@ -11,16 +11,22 @@
 <body>
     <header><h1>Minha Lista de Tarefas</h1></header>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <button id="criar-tarefa" value="Criar tarefa" />
-    <input type="texto" placeholder="Digite uma tarefa" name="tarefa" id="texto-tarefa">
+        <label for="texto-tarefa"></label>
+        <input type="texto" placeholder="Digite uma tarefa" name="tarefa" id="texto-tarefa">
+        <input type="button" id="criar-tarefa" value="Criar tarefa" />
+    <section class="order-list">
         <ol id="lista-tarefas">
+            <li></li>
         </ol>
+    </section>
         <button id="apaga-tudo">Limpar</button>
         <button id="remover-finalizados">Remover Finalizados</button>
         <button id="salvar-tarefas">Salvar Tarefas</button>
         <button id="mover-cima">MoveUp</button>
         <button id="mover-baixo">MoveDown</button>
         <button id="remover-selecionado">Remover</button>
+
 </body>
 <script src="/script.js"></script>
+
 </html>
