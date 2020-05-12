@@ -28,12 +28,12 @@ function checkComplete(event) {
 }
 
 // funcao para limpar todos os itens
-// function clearAll(event) {
-//   const item = document.getElementsByTagName('ol')
-//   for (let i = 0; i < item.length; i++) {
-//     item[i].innerHTML = '';
-//   }
-// }
+function clearAll(event) {
+  const item = document.getElementsByTagName('ol')
+  for (let i = 0; i < item.length; i++) {
+    item[i].innerHTML = '';
+  }
+}
 
 // funcao remover apenas itens marcados como completo
 // function removeCompleted(event) {
@@ -58,6 +58,6 @@ function createTask() {
 }
 
 btnTarefa.addEventListener('click', createTask); // cria uma nova tarefa
-// btnClear.addEventListener('click', clearAll); // limpa os itens da lista
+btnClear.addEventListener('click', clearAll); // limpa os itens da lista
 // btnRemoveCompleted.addEventListener('click', removeCompleted); // remove finalizados
 // btnsalvarTarefa.addEventListener('click', saveTasks); // salva as tarefas no localstorage
