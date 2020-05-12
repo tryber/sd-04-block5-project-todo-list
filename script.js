@@ -1,8 +1,8 @@
 const elTexto = document.getElementById('texto-tarefa');
 const btnTarefa = document.getElementById('criar-tarefa');
 const btnClear = document.getElementById('apaga-tudo');
-const btnRemoveCompleted = document.getElementById('remover-finalizados');
-const btnsalvarTarefa = document.getElementById('salvar-tarefas');
+// const btnRemoveCompleted = document.getElementById('remover-finalizados');
+// const btnsalvarTarefa = document.getElementById('salvar-tarefas');
 
 
 // funcao selecionar item e alterar cor de fundo
@@ -58,6 +58,6 @@ function createTask() {
 }
 
 btnTarefa.addEventListener('click', createTask); // cria uma nova tarefa
-btnClear.addEventListener('click', clearAll); // limpa os itens da lista
+// btnClear.addEventListener('click', clearAll); // limpa os itens da lista
 // btnRemoveCompleted.addEventListener('click', removeCompleted); // remove finalizados
 // btnsalvarTarefa.addEventListener('click', saveTasks); // salva as tarefas no localstorage
