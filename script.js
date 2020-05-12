@@ -5,7 +5,6 @@ const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnsalvarTarefa = document.getElementById('salvar-tarefas');
 
 
-
 // funcao selecionar item e alterar cor de fundo
 function checkItem(event) {
   const item = event.target;
@@ -60,5 +59,5 @@ function createTask() {
 
 btnTarefa.addEventListener('click', createTask); // cria uma nova tarefa
 btnClear.addEventListener('click', clearAll); // limpa os itens da lista
-btnRemoveCompleted.addEventListener('click', removeCompleted); // remove finalizados
-btnsalvarTarefa.addEventListener('click', saveTasks); // salva as tarefas no localstorage
+// btnRemoveCompleted.addEventListener('click', removeCompleted); // remove finalizados
+// btnsalvarTarefa.addEventListener('click', saveTasks); // salva as tarefas no localstorage
