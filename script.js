@@ -30,7 +30,7 @@ function checkComplete(event) {
 // funcao para limpar todos os itens
 function clearAll() {
   const item = document.getElementsByTagName('ol');
-  for (let i = 0; i < item.length; i+=1) {
+  for (let i = 0; i < item.length; i+= 1) {
     item[i].innerHTML = '';
   }
 }
