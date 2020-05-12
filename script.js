@@ -28,9 +28,9 @@ function checkComplete(event) {
 }
 
 // funcao para limpar todos os itens
-function clearAll(event) {
-  const item = document.getElementsByTagName('ol')
-  for (let i = 0; i < item.length; i++) {
+function clearAll() {
+  const item = document.getElementsByTagName('ol');
+  for (let i = 0; i < item.length; i+=1) {
     item[i].innerHTML = '';
   }
 }
