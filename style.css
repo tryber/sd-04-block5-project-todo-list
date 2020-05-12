@@ -2,11 +2,11 @@ button {
   cursor: pointer;
 }
 
-li.active {
+.active {
   background-color: gray;
   width: fit-content;
 }
 
-li.completed {
-    text-decoration: line-through;
+.completed {
+  text-decoration: line-through;
 }
