@@ -5,7 +5,7 @@ const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnRemoveSelected = document.getElementById("remover-selecionado")
 const backgroundItem = document.getElementById("lista-tarefas");
 const checkCompletedItem = document.querySelectorAll("li");
-const button =  document.querySelectorAll("button")
+const button = document.querySelectorAll("button")
 
 
 // criar tarefa
@@ -35,14 +35,11 @@ for (let i = 0; i < button.length; i += 1) {
 }
 
 // riscar tarefa completa
-const check = document.getElementById("lista-tarefas")
-check.addEventListener(`dblclick`, (event) => {
- const item = event.target;
- const isComplete = item.classList.contains('completed');
- if (isComplete === false) {
-  item.classList.add('completed');
+backgroundItem.addEventListener(`dblclick`, (event) => {
+ if (event.target.classList.contains('completed')) {
+  event.target.classList.remove('completed');
  } else {
-  item.classList.remove('completed');
+  event.target.classList.add('completed');
  }
 });
 
@@ -54,31 +51,16 @@ btnClear.addEventListener('click', () => {
  }
 });
 
-// remover tarefas completas
+// remover tarefas finalizadas
 btnRemoveCompleted.addEventListener("click", () => {
  const list = document.querySelectorAll('.completed')
  for (let i = 0; i < list.length; i += 1) {
-   list[i].parentNode.removeChild(list[i])
-  }
- });
+  list[i].parentNode.removeChild(list[i])
+ }
+});
 
- // remover selecionado
- btnRemoveSelected.addEventListener("click", (event) => {
-    const a = document.querySelector(".active")
-    a.parentNode.removeChild(a)
-   
-
- })
-
-
-
-// checkCompletedItem.addEventListener('dblclick', (event) => {
-//    const item = event.target;
-//    const isComplete = item.classList.contains('completed');
-//    if (isComplete === false) {
-//     item.classList.add('completed');
-//    } else {
-//     item.classList.remove('completed');
-//    }
-//   });
-// 
+// remover selecionado
+btnRemoveSelected.addEventListener("click", (event) => {
+ const a = document.querySelector(".active")
+ a.parentNode.removeChild(a)
+})
