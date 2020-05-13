@@ -1,0 +1,11 @@
+li {
+  cursor: pointer;
+}
+.active {
+  background-color: gray;
+  width: fit-content;
+}
+
+.completed {
+  text-decoration: line-through;
+}
