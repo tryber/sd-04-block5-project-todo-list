@@ -37,14 +37,21 @@ for (let i = 0; i < button.length; i += 1) {
 // riscar tarefa completa
 listaTarefa.addEventListener("dblclick", (event) => {
  const item = event.target;
- const complete = item.classList.contains('completed');
- if (complete === false) {
-  item.classList.add('completed');
- } else {
+ if (item.classList.contains('completed')) {
   item.classList.remove('completed');
+ } else {
+  item.classList.add('completed');
  }
 });
 
+
+// remover tarefas finalizadas
+btnRemoveCompleted.addEventListener("click", () => {
+ const list = document.querySelectorAll('.completed')
+ for (let i = 0; i < list.length; i += 1) {
+  list[i].parentNode.removeChild(list[i])
+ }
+});
 
 // limpar itens
 btnClear.addEventListener('click', () => {
@@ -54,13 +61,6 @@ btnClear.addEventListener('click', () => {
  }
 });
 
-// remover tarefas finalizadas
-btnRemoveCompleted.addEventListener("click", () => {
- const list = document.querySelectorAll('.completed')
- for (let i = 0; i < list.length; i += 1) {
-  list[i].parentNode.removeChild(list[i])
- }
-});
 
 // remover selecionado
 btnRemoveSelected.addEventListener("click", (event) => {
