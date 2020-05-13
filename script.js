@@ -3,7 +3,7 @@ const btnTarefa = document.getElementById('criar-tarefa');
 const btnClear = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnRemoveSelected = document.getElementById("remover-selecionado")
-const backgroundItem = document.getElementById("lista-tarefas");
+const listaTarefa = document.getElementById("lista-tarefas");
 const checkCompletedItem = document.querySelectorAll("li");
 const button = document.querySelectorAll("button")
 
@@ -19,7 +19,7 @@ btnTarefa.addEventListener('click', () => {
 });
 
 // alterar fundo pra cinza 
-backgroundItem.addEventListener("click", (event) => {
+listaTarefa.addEventListener("click", (event) => {
  const item = event.target;
  const isActive = item.classList.contains('active');
  if (isActive === false) {
@@ -35,13 +35,16 @@ for (let i = 0; i < button.length; i += 1) {
 }
 
 // riscar tarefa completa
-backgroundItem.addEventListener(`dblclick`, (event) => {
- if (event.target.classList.contains('completed')) {
-  event.target.classList.remove('completed');
+listaTarefa.addEventListener("dblclick", (event) => {
+ const item = event.target;
+ const complete = item.classList.contains('completed');
+ if (complete === false) {
+  item.classList.add('completed');
  } else {
-  event.target.classList.add('completed');
+  item.classList.remove('completed');
  }
 });
+
 
 // limpar itens
 btnClear.addEventListener('click', () => {
@@ -64,3 +67,6 @@ btnRemoveSelected.addEventListener("click", (event) => {
  const a = document.querySelector(".active")
  a.parentNode.removeChild(a)
 })
+
+
+
