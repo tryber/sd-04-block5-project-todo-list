@@ -35,15 +35,16 @@ for (let i = 0; i < button.length; i += 1) {
 }
 
 // riscar tarefa completa
-listaTarefa.addEventListener("dblclick", (event) => {
+const lista = document.getElementById("lista-tarefas");
+lista.addEventListener("dblclick", (event) => {
  const item = event.target;
- if (item.classList.contains('completed')) {
-  item.classList.remove('completed');
- } else {
+ const complete = item.classList.contains('completed');
+ if (complete === false) {
   item.classList.add('completed');
+ } else {
+  item.classList.remove('completed');
  }
 });
-
 
 // remover tarefas finalizadas
 btnRemoveCompleted.addEventListener("click", () => {
@@ -61,12 +62,8 @@ btnClear.addEventListener('click', () => {
  }
 });
 
-
 // remover selecionado
 btnRemoveSelected.addEventListener("click", (event) => {
  const a = document.querySelector(".active")
  a.parentNode.removeChild(a)
 })
-
-
-
